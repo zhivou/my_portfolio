@@ -1,29 +1,30 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
-<h1>Blogs</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+  <div class="row">
+    <div class="col-2 order-last">
+      <div class="card shadow p-3 mb-3 bg-white rounded">Calendar</div>
+      <hr>
+      <div class="card shadow p-3 mb-3 bg-white rounded">
+        <% @blogs.each do |blog| %>
+          <%= link_to blog.title, blog%>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-10">
     <% @blogs.each do |blog| %>
-      <tr>
-        <td><%= blog.title %></td>
-        <td><%= blog.body %></td>
-        <td><%= link_to 'Show', blog %></td>
-        <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <div class="card shadow p-3 mb-3 bg-white rounded">
+          <div class="card-title"><%= blog.title %></div>
+          <div class="card-body"><%= blog.body %></div>
+          <div class="card-body">Posted: <%= distance_of_time_in_words(blog.created_at, Time.now) %></div>
+          <div><%= link_to 'Show', blog %></div>
+          <div><%= link_to 'Edit', edit_blog_path(blog)%></div>
+          <div><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+        </div>
     <% end %>
-  </tbody>
-</table>
+    </div>
+  </div>
+  <br>
 
-<br>
-
-<%= link_to 'New Blog', new_blog_path %>
+  <%= link_to 'New Blog', new_blog_path %>
+</div>
