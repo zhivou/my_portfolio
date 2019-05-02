@@ -1,2 +1,63 @@
 @import "bootstrap";
 @import "font-awesome";
+
+@import url('https://fonts.googleapis.com/css?family=Teko');
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web');
+
+body {
+  font-family: 'Titillium Web', sans-serif;
+}
+
+#header {
+  background-color: #FFF;
+  height: 63px;
+  display: block;
+  border-bottom: 1px solid #d3d7cf;
+  margin-bottom: 20px;
+
+  #ruby_logo {
+    width: 50px;
+  }
+}
+
+#nav_bar {
+  line-height: 2.8;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  letter-spacing: 1px;
+}
+
+.nav_item {
+  border-width: 0;
+  display: inline-block;
+  margin: 0;
+  padding-bottom: 0;
+  text-align: left;
+  list-style-type: disc;
+
+  span {
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: 'Teko', sans-serif;
+    font-size: 23px;
+    cursor: pointer;
+    padding: 10px;
+  }
+
+  span:hover {
+    background-color: indianred;
+    color: white;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}
+
+#footer {
+  margin-top: 20px;
+  display: block;
+  border-top: 1px solid #d3d7cf;
+}
