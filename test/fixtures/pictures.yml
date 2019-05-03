@@ -2,8 +2,8 @@
 
 one:
   path: MyString
-  user: one
+  blog: one
 
 two:
   path: MyString
-  user: two
+  blog: two
