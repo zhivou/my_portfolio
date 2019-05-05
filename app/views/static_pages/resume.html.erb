@@ -20,13 +20,9 @@
         <h6 class="card-subtitle ml-4 mt-4 text-muted">Skills</h6>
         <hr>
         <div class="mr-4 ml-4 mb-4 mt-2">
-          <i>Languages:</i> Ruby, Python, SQL, C#, HTML, CSS, JavaScript, Swift, SASS <br>
-          <i>Databases:</i> MSSQL, SQLite, MySQL <br>
-          <i>Frameworks:</i> DJANGO, Jinja, jQuery, Bootstrap, React, Ruby on Rails <br>
-          <i>Tools:</i> Selenium, Visual Studio Web/Performance/Unit testing, JIRA, Gulp, Splunk, New Relic, Redgate, JMeter, oXygen, Heroku
-          <br>
-          <i>IDE:</i> Visual Studio, RubyMine, XCode, Eclipse, Delphi, PowerShell, MS SQL Management Studio <br>
-          <i>Source Control:</i> Bitbucket, Team Foundation Version Control, GITLAB, GITHUB <br>
+          <% @skills.each do |skill| %>
+            <i><%= skill.title %>: </i><%= skill.body %> <br>
+          <% end %>
         </div>
       </div>
       <div class="card shadow p-3 mb-3 bg-white rounded">

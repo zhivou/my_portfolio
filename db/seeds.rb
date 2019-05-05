@@ -45,3 +45,33 @@ Experience.create({
     date_ended: 2017-12-31,
     location: "Murray, UT"
     })
+
+    Skill.create({
+      title: "Languages",
+      body: "Ruby, Python, SQL, C#, HTML, CSS, JavaScript, Swift, SASS"
+      })
+
+    Skill.create({
+      title: "Databases",
+      body: "MSSQL, SQLite, MySQL"
+      })
+
+    Skill.create({
+      title: "Frameworks",
+      body: "DJANGO, Jinja, jQuery, Bootstrap, React, Ruby on Rails"
+      })
+
+    Skill.create({
+      title: "Tools",
+      body: "Selenium, Visual Studio Web/Performance/Unit testing, JIRA, Gulp, Splunk, New Relic, Redgate, JMeter, oXygen, Heroku"
+      })
+
+    Skill.create({
+      title: "IDE",
+      body: "Visual Studio, RubyMine, XCode, Eclipse, Delphi, PowerShell, MS SQL Management Studio"
+      })
+
+    Skill.create({
+      title: "Source Control:",
+      body: "Bitbucket, Team Foundation Version Control, GITLAB, GITHUB"
+      })

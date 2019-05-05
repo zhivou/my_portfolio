@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :skills
   resources :experiences
   resources :pictures
   devise_for :users
