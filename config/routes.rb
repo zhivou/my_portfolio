@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :educations
   resources :skills
   resources :experiences
   resources :pictures
