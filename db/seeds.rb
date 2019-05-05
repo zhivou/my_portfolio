@@ -61,3 +61,15 @@ Experience.create({
         body: b
         })
     end
+
+    Education.create({
+      school: "Ural Federal University - Yekaterinburg, RU",
+      degree: "MS in Engineering in computer technology ",
+      date_ended: 2011-06-01
+      })
+
+    Education.create({
+      school: "Yekaterinburg Engineering Technical School - Yekaterinburg, RU",
+      degree: "BS in Radio Technical Services in Radio Technical Services",
+      date_ended: 206-06-01
+      })
