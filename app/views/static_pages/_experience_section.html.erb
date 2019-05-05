@@ -1,6 +1,5 @@
 <% experience.each do |exp| %>
   <div class="experience_item">
-    <a href="<%= experience_path(exp) %>">
       <strong><%= exp.title %></strong>
       <br>
       <p><%= exp.organization %></p>
@@ -9,6 +8,5 @@
       <%= link_to 'Edit', edit_experience_path(exp), class: "btn btn-success" %>
       <%= link_to 'Delete', exp, method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %>
       <br>
-    </a>
   </div>
 <% end %>
