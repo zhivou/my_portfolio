@@ -1,42 +1,20 @@
 <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
 <div class="container">
   <div class="row">
-    <div class="col-4" id="card-title">
-      <div class="card shadow p-2 mb-2 bg-white rounded" style="width: 23rem;" id="avatar">
-        <%= image_tag 'dmitrii.jpg', class: "card-img-top" %>
-        <div class="card-body">
-          <h5 class="card-title">DMITRII SKRYLEV</h5>
-          <h6 class="card-subtitle mb-2 text-muted">Software Engineer</h6>
-          <p class="card-text">
-            Some quick BIO about me. Don't know yet what to add here.
-          </p>
-          <a href="#">LinkedIn</a>
-          <a href="#">GitLab</a>
-        </div>
-      </div>
-    </div>
+    <%= render 'avatar_section' %>
     <div class="col-8" id="card-skills">
       <div class="card shadow p-3 mb-3 bg-white rounded">
         <h6 class="card-subtitle ml-4 mt-4 text-muted">Skills</h6>
         <hr>
         <div class="mr-4 ml-4 mb-4 mt-2">
-          <% @skills.each do |skill| %>
-            <i><%= skill.title %>: </i><%= skill.body %> <br>
-          <% end %>
+          <%= render 'skill_section', skills: @skills %>
         </div>
       </div>
       <div class="card shadow p-3 mb-3 bg-white rounded">
         <h6 class="card-subtitle ml-4 mt-4 text-muted">Experience</h6>
         <hr>
         <div class="mr-4 ml-4 mb-4 mt-2">
-          <% @experience.each do |exp| %>
-            <strong><%= exp.title %></strong>
-            <br>
-            <p><%= exp.organization %></p>
-            <p><%= exp.location %></p>
-            <p><%= exp.body %></p>
-            <br>
-          <% end %>
+          <%= render 'experience_section', experience: @experience %>
         </div>
       </div>
       <div class="card shadow p-3 mb-3 bg-white rounded">
