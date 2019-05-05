@@ -1,10 +1,10 @@
 <% educations.each do |education| %>
   <div class="education_item">
-    <a href="<%= education_path(education) %>">
-      <strong><%= education.degree %></strong>
-      <br>
-      <%= education.school %><br>
-      <p><%= education.date_ended %></p>
-    </a>
+    <strong><%= education.degree %></strong>
+    <br>
+    <%= education.school %><br>
+    <p><%= education.date_ended %></p>
+    <%= link_to 'Edit', edit_education_path(education), class: "btn btn-success" %>
+    <%= link_to 'Delete', education, method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %>
   </div>
 <% end %>
