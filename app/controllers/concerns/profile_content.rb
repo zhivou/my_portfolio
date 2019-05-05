@@ -7,16 +7,16 @@ module ProfileContent
     before_action :set_data
   end
 
-  def self.set_data
+  def set_data
+    #TODO continue here, change it to json(something is wrong about this YAML file writing)
     if File.exist?(DATA_PATH)
       @data_file = YAML::load(File.open(DATA_PATH))
     end
-    p ''
   end
 
   def self.save(file_to_save)
     File.open(file_to_save, "r+") do |file|
-      file.write(your_account.to_yaml)
+      file.write(file_to_save.to_yaml)
     end
   end
 end

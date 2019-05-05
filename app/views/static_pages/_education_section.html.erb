@@ -1,6 +1,10 @@
 <% educations.each do |education| %>
-  <strong><%= education.degree %></strong>
-  <br>
-  <%= education.school %><br>
-  <p><%= education.date_ended %></p>
+  <div class="education_item">
+    <a href="<%= education_path(education) %>">
+      <strong><%= education.degree %></strong>
+      <br>
+      <%= education.school %><br>
+      <p><%= education.date_ended %></p>
+    </a>
+  </div>
 <% end %>

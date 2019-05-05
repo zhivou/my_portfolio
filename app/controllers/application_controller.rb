@@ -4,5 +4,4 @@ class ApplicationController < ActionController::Base
   include DefaultPageContent
   include ProfileContent
 
-  ProfileContent.set_data
 end
