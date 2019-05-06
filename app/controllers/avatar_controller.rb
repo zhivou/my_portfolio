@@ -5,7 +5,8 @@ class AvatarController < ApplicationController
   end
 
   def create
-    json_writer(experience_params)
+    hash = experience_params
+    hash = JSON.parse(hash) if hash.is_a?(String)
 
     respond_to do |format|
       json_writer(@data_file)
