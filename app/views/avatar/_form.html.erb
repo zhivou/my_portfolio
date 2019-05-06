@@ -1,0 +1,30 @@
+<form action="/avatar/create" accept-charset="UTF-8" method="post">
+
+  <div class="field">
+    Please upload picture. Max resolution 200x200. Remember this is just an example. Change this to something better.
+    Need to figure how to save files here! Plus add security to file types.
+    <br>
+    <label for="avatar_path">Avatar path</label>
+    <input id="avatar_path" type="text" name="avatar[path]" value="<%= @data_file['path'] %>">
+  </div>
+
+  <div class="field">
+    <label for="avatar_name">Name</label>
+    <input id="avatar_name" type="text" name="avatar[name]" value="<%= @data_file['name'] %>">
+  </div>
+
+  <div class="field">
+    <label for="avatar_title">Title</label>
+    <input id="avatar_title" type="text" name="avatar[title]" value="<%= @data_file['title'] %>">
+  </div>
+
+  <div class="field">
+    <label for="avatar_text">About</label>
+    <textarea id="avatar_text" name="avatar[short_about]"><%= @data_file['short_about'] %></textarea>
+  </div>
+  Add JS links generator. I think the best way is to use simple table with title and link columns
+
+  <div class="actions">
+    <input type="submit" name="commit">
+  </div>
+</form>
