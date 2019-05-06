@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'avatar/new'
+  post 'avatar/create'
+
   resources :educations
   resources :skills
   resources :experiences
