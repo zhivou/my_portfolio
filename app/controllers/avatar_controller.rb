@@ -5,11 +5,10 @@ class AvatarController < ApplicationController
   end
 
   def create
-    hash = experience_params
-    hash = JSON.parse(hash) if hash.is_a?(String)
+    hash = experience_params.to_hash
 
     respond_to do |format|
-      json_writer(@data_file)
+      json_writer(hash)
       format.html { redirect_to root_path, notice: 'Profile was successfully created' }
     end
   end
