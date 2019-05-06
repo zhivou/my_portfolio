@@ -5,7 +5,7 @@ class AvatarController < ApplicationController
   end
 
   def create
-    hash = experience_params.to_hash
+    hash = avatar_params.to_hash
 
     respond_to do |format|
       json_writer(hash)
@@ -20,7 +20,7 @@ class AvatarController < ApplicationController
     end
   end
 
-  def experience_params
+  def avatar_params
     params.require(:avatar).permit(:path, :name, :title, :short_about)
   end
 end

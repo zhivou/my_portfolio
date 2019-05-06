@@ -1,6 +1,10 @@
 module ProfileContent
   extend ActiveSupport::Concern
 
+  ##
+  # Due to small amount of data it was decided to save Avatar data in JSON file which
+  # is located by default:
+  #
   DATA_PATH = "db/data/avatar_card.json"
 
   included do
@@ -10,8 +14,6 @@ module ProfileContent
   def set_data
     if File.exist?(DATA_PATH)
       @data_file = JSON.parse(File.read(DATA_PATH))
-    else
-      @data_file = nil
     end
   end
 end
