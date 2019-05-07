@@ -73,3 +73,12 @@ Experience.create({
       degree: "BS in Radio Technical Services in Radio Technical Services",
       date_ended: 206-06-01
       })
+
+8.times do |time|
+  Project.create({
+      title: "Title #{time}",
+      body: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form",
+      thumb_image: '348x225.png',
+      position: time
+      })
+end
