@@ -1,7 +1,8 @@
 <% skills.each do |skill| %>
   <div class="skill_item">
     <i><%= skill.title %>: </i><%= skill.body %> <br>
-    <%= link_to 'Edit', edit_skill_path(skill), class: "btn btn-success" %>
-    <%= link_to 'Delete', skill, method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %>
+    <%= link_to 'Edit', edit_skill_path(skill) %>
+    <%= link_to 'Delete', skill, method: :delete, data: { confirm: 'Are you sure?' } %>
   </div>
 <% end %>
+<%= link_to 'Add new', new_skill_path %>
