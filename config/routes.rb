@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :projects
   get 'avatar/new'
   post 'avatar/create'
 
