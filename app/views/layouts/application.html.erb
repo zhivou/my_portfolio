@@ -10,8 +10,8 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <p class="notice" style="display: <%= "none" unless notice %>;"><%= notice %></p>
+    <p class="alert" style="display: <%= "none" unless notice %>;"><%= alert %></p>
     <%= render 'nav_bar' %>
     <%= yield %>
     <%= render 'footer' %>

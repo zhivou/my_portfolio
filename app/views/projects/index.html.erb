@@ -1,0 +1,34 @@
+<%= render 'greetings' %>
+
+<!-- Move this one to partial! -->
+<div class="album">
+  <div class="container">
+    <div class="row sortable">
+      <% @projects.each do |project| %>
+          <div class="col-md-4" data-id="<%= project.id %>">
+            <div class="card mb-4 shadow-sm">
+              <%= image_tag project.thumb_image, class: "bd-placeholder-img card-img-top", width: "100%", height: "225" %>
+              <div class="card-body">
+                <p class="card-title"><%= project.title %></p>
+                <p class="card-text"><%= project.body %></p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Show', project %></button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Edit', edit_project_path(project) %></button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+                  </div>
+                  <small class="text-muted"><%= distance_of_time_in_words(project.created_at, Time.now) %></small>
+                </div>
+              </div>
+            </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="container text-center">
+  <%= link_to 'New Project', new_project_path %>
+</div>
