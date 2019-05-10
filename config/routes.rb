@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :projects
+  resources :projects do
+    put :sort, on: :collection
+  end
+
   get 'avatar/new'
   post 'avatar/create'
 

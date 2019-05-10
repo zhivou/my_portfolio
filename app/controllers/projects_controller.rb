@@ -4,7 +4,19 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.order("position ASC")
+    @projects = Project.by_position
+  end
+
+  ##
+  # This is for html5sort. Using put method and $.ajax form cofeejs file
+  # it is out of date. Now everyone using JS framework like Angualar or React with Rails
+  #
+  def sort
+    params[:order].each do |key, value|
+      Project.find(value[:id]).update(position: value[:position])
+    end
+
+    render nothing: true
   end
 
   # GET /projects/1
