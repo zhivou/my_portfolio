@@ -13,6 +13,7 @@
 //= require jquery
 //= require rails-ujs
 //= require jquery-ui
+//= require Chart.min
 //= require turbolinks
 //= require react
 //= require react_ujs
