@@ -1,40 +1,51 @@
+// This will be initially rewritten with react
+
 class AjaxCaller {
-  static get_launches() {
-    $.ajax({
-      method: 'GET',
-      url: 'https://api.spacexdata.com/v3/launches',
-      dataType: 'json'
-    }).done(function(data) {
-      let collection = {};
+  constructor() {
+    this.launches = function () {
+      return $.ajax({
+        method: 'GET',
+        url: 'https://api.spacexdata.com/v3/launches',
+        dataType: 'json',
+        async: false
+      }).responseJSON;
+    }();
+  }
 
-      $("#totalLaunches").html(`<div class="display-3">${data.length}</div>`);
+  get_all_launches(){
+    $("#totalLaunches").html(`<div class="display-3">${this.launches.length}</div>`);
+  }
 
-      //
-      // Counting all rockets and putting to the collection
-      //
-      data.forEach( function(i) {
-        if (collection[i.rocket.rocket_name]) {
-          collection[i.rocket.rocket_name] += 1
-        }
-        else {
-          collection[i.rocket.rocket_name] = 1
-        }
-        return collection;
-      });
-
-      //
-      // Example of iteration through Object(key, value)
-      // if statement here is for Possible Iteration Over Unexpected.
-      //
-      for(var p in collection) {
-        if (collection.hasOwnProperty(p)) {
-          console.log(p, collection[p]);
-          $("#rockets")
-              .append(`<span class="h2">${p}: </span>`)
-              .append(`<span class="h2">${collection[p]}</span><br>`)
-        }
+  //
+  // Counting all rockets and putting to the collection
+  //
+  get_all_rockets(){
+    let collection = {};
+    this.launches.forEach( function(i) {
+      if (collection[i.rocket.rocket_name]) {
+        collection[i.rocket.rocket_name] += 1
       }
+      else {
+        collection[i.rocket.rocket_name] = 1
+      }
+      return collection;
     });
+    //
+    // Example of iteration through Object(key, value)
+    // if statement here is for Possible Iteration Over Unexpected.
+    //
+    for(var p in collection) {
+      if (collection.hasOwnProperty(p)) {
+        console.log(p, collection[p]);
+        $("#rockets")
+            .append(`<span class="h2">${p}: </span>`)
+            .append(`<span class="h2">${collection[p]}</span><br>`)
+      }
+    }
+  }
+
+  get_data_for_history_chart(){
+
   }
 }
 
@@ -99,7 +110,9 @@ function scrollTo (h) {
 $('document').ready(function() {
   scrollTo("astronautmaPicture");
   chart();
-  AjaxCaller.get_launches()
+  var ajaxOne = new AjaxCaller();
+  ajaxOne.get_all_launches();
+  ajaxOne.get_all_rockets();
 });
 
 
