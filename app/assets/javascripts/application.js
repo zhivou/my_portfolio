@@ -13,6 +13,9 @@
 //= require jquery
 //= require rails-ujs
 //= require jquery-ui
-//= require html5sortable
+//= require Chart.min
 //= require turbolinks
+//= require react
+//= require react_ujs
+//= require components
 //= require_tree .

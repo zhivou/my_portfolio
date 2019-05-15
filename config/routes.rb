@@ -16,4 +16,9 @@ Rails.application.routes.draw do
 
   root to: 'static_pages#resume'
   get 'contacts', to: 'static_pages#contact'
+
+  ##
+  # SpaceX API paged
+  #
+  get 'spacex', to: 'spacex#index'
 end

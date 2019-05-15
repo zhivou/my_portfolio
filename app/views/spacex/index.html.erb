@@ -1,0 +1,19 @@
+<%= stylesheet_link_tag "spacex" %>
+
+<div id="astronautmaPicture" class="d-flex picHolder">
+  <div class="container align-self-center p-2 bd-highlight textHolder">
+    <div class="p-4">
+      <h1 class="display-1">SpaceX API</h1>
+      <p class="lead">This is an Unofficial SpaceX Open Source REST API for rocket, core, capsule, pad, and launch data.
+        This public API does not require authentication and includes endpoints for; Launches, Rockets, Capsules,
+        Company Info, Roadster Info and more. SpaceX designs, manufactures and launches advanced rockets and spacecraft.</p>
+      <p>Home page: <a href=https://www.spacex.com>https://www.spacex.com/</a></p>
+      <p>Reddit page: <a href="https://www.reddit.com/r/spacex">https://www.reddit.com/r/spacex/</a></p>
+    </div>
+  </div>
+  <!-- Add Uptime rrs feed feature here: https://status.spacexdata.com/# -->
+</div>
+
+<%= render 'launch_history' %>
+<%= render 'total_launches_block' %>
+
