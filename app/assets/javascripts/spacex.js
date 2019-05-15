@@ -44,46 +44,50 @@ class AjaxCaller {
     }
   }
 
-  get_data_for_history_chart(){
+  //
+  // Counting launches per year and preparing it for totalLaunchesChart
+  // Example:
+  // {2017:2, 2018:31}
+  //
+  getDataForHistoryChart(){
+    let collection = {};
 
+    this.launches.forEach( function(i) {
+      if (collection[i.launch_year]) {
+        collection[i.launch_year] += 1
+      }
+      else {
+        collection[i.launch_year] = 1
+      }
+    });
+    return collection;
   }
 }
 
-function getChartData (data) {
-    var dict = [];
+var totalLaunchesChart = function(data){
+  let label_a = [];
+  let data_a = [];
 
-    dict.push({
-        key:   "keyName", //data.year
-        value: "the value" // value = value + 1 (might need to consider nil at a first entry not sure yet how)
-    });
-}
+  for( i in data ) {
+    label_a.push(i);
+    data_a.push(data[i]);
+  }
 
-var chart = function(){
   var ctx = document.getElementById('launchHistory');
   var myChart = new Chart(ctx, {
     type: 'line',
     data: {
 
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      labels: label_a,
 
       datasets: [{
         label: 'Launches per year',
-        data: [12, 19, 3, 5, 2, 3],
+        data: data_a,
         backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)'
+          'rgba(255, 255, 132, 0.2)'
         ],
         borderColor: [
-          'rgba(255, 99, 132, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)'
+          'rgba(255, 255, 132, 1)'
         ],
         borderWidth: 1
       }]
@@ -109,10 +113,11 @@ function scrollTo (h) {
 
 $('document').ready(function() {
   scrollTo("astronautmaPicture");
-  chart();
+  totalLaunchesChart();
   var ajaxOne = new AjaxCaller();
   ajaxOne.get_all_launches();
   ajaxOne.get_all_rockets();
+  totalLaunchesChart(ajaxOne.getDataForHistoryChart())
 });
 
 
