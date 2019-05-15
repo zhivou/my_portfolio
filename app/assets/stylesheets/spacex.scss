@@ -1,12 +1,38 @@
-#spaceImage {
-  background-image: url("sky-earth-space-working.jpg");
-  height: 500px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-}
-
 .chart-container {
   margin: auto;
+}
+
+.picHolder {
+  background-position: center center;
+  transition: background-image 0.3s ease-in-out;
+  height: 100%;
+  display: block;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-size: cover;
+}
+
+.textHolder {
+  background-color: rgba(24,28,31,0.8);
+  height: 600px;
+  color: white;
+  max-width: 85%;
+}
+
+#missionPicture {
+  background-image: url("rocket-rocket-launch-space.jpg");
+}
+
+#austronautPicture {
+  background-image: url("sky-earth-space-working.jpg");
+}
+
+#aeronauticsPicture {
+  background-image: url("aeronautics-dark-moon-256152.jpg");
+}
+
+#astronautmaPicture {
+   background-image: url("astronaut-astronomy-ma.jpg");
 }
