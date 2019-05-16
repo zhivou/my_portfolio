@@ -62,12 +62,32 @@ class AjaxCaller {
     });
     return collection;
   }
+
+  getDataForFailedChart(){
+    let collection = {};
+
+    this.launches.forEach( function(i) {
+      console.log(i.launch_success);
+      console.log(i.launch_year);
+      if (collection[i.launch_year] && i.launch_success === false) {
+        collection[i.launch_year] += 1
+      }
+      else if(!collection[i.launch_year] && i.launch_success === false) {
+        collection[i.launch_year] = 1
+      }
+      else if (!collection[i.launch_year]) {
+        collection[i.launch_year] = 0
+      }
+    });
+    return collection;
+  }
 }
 
 var totalLaunchesChart = function(data){
   let label_a = [];
   let data_a = [];
 
+  // Splits object on to two arrays for simplifying output
   for( i in data ) {
     label_a.push(i);
     data_a.push(data[i]);
@@ -81,16 +101,27 @@ var totalLaunchesChart = function(data){
       labels: label_a,
 
       datasets: [{
-        label: 'Launches per year',
+        label: 'Launches per year(all including failed and planned)',
         data: data_a,
         backgroundColor: [
-          'rgba(255, 255, 132, 0.2)'
+          'rgba(255, 255, 132, 0.3)'
         ],
         borderColor: [
           'rgba(255, 255, 132, 1)'
         ],
         borderWidth: 1
-      }]
+      },
+        {
+          label: 'Failed Launches',
+          data: [3,3,1],
+          backgroundColor: [
+            'rgba(255, 23, 0, 0.3)'
+          ],
+          borderColor: [
+            'rgba(255, 23, 0, 1)'
+          ],
+          borderWidth: 1
+        }]
 
     },
     options: {
@@ -117,7 +148,8 @@ $('document').ready(function() {
   var ajaxOne = new AjaxCaller();
   ajaxOne.get_all_launches();
   ajaxOne.get_all_rockets();
-  totalLaunchesChart(ajaxOne.getDataForHistoryChart())
+  totalLaunchesChart(ajaxOne.getDataForHistoryChart());
+  ajaxOne.getDataForFailedChart()
 });
 
 
