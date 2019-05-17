@@ -36,7 +36,6 @@ class AjaxCaller {
     //
     for(var p in collection) {
       if (collection.hasOwnProperty(p)) {
-        console.log(p, collection[p]);
         $("#rockets")
             .append(`<span class="h2">${p}: </span>`)
             .append(`<span class="h2">${collection[p]}</span><br>`)
@@ -67,8 +66,6 @@ class AjaxCaller {
     let collection = {};
 
     this.launches.forEach( function(i) {
-      console.log(i.launch_success);
-      console.log(i.launch_year);
       if (collection[i.launch_year] && i.launch_success === false) {
         collection[i.launch_year] += 1
       }
