@@ -82,3 +82,12 @@ Experience.create({
       position: time
       })
 end
+
+Project.create({
+    title: "SpaceX API",
+    body: "This is an Unofficial SpaceX Open Source REST API for rocket, core, capsule, pad, and launch data.
+    This public API does not require authentication and includes endpoints for; Launches, Rockets, Capsules,
+    Company Info, Roadster Info and more. SpaceX designs, manufactures and launches advanced rockets and spacecraft.",
+    thumb_image: "spacex_thumb.jpg",
+    position: 1
+    })

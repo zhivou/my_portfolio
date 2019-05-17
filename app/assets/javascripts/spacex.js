@@ -1,81 +1,133 @@
+// This will be initially rewritten with react
+
 class AjaxCaller {
-  static get_launches() {
-    $.ajax({
-      method: 'GET',
-      url: 'https://api.spacexdata.com/v3/launches',
-      dataType: 'json'
-    }).done(function(data) {
-      let collection = {};
+  constructor() {
+    this.launches = function () {
+      return $.ajax({
+        method: 'GET',
+        url: 'https://api.spacexdata.com/v3/launches',
+        dataType: 'json',
+        async: false
+      }).responseJSON;
+    }();
+  }
 
-      $("#totalLaunches").html(`<div class="display-3">${data.length}</div>`);
+  get_all_launches(){
+    $("#totalLaunches").html(`<div class="display-3">${this.launches.length}</div>`);
+  }
 
-      //
-      // Counting all rockets and putting to the collection
-      //
-      data.forEach( function(i) {
-        if (collection[i.rocket.rocket_name]) {
-          collection[i.rocket.rocket_name] += 1
-        }
-        else {
-          collection[i.rocket.rocket_name] = 1
-        }
-        return collection;
-      });
+  //
+  // Counting all rockets and putting to the collection
+  //
+  get_all_rockets(){
+    let collection = {};
+    this.launches.forEach( function(i) {
+      if (collection[i.rocket.rocket_name]) {
+        collection[i.rocket.rocket_name] += 1
+      }
+      else {
+        collection[i.rocket.rocket_name] = 1
+      }
+      return collection;
+    });
+    //
+    // Example of iteration through Object(key, value)
+    // if statement here is for Possible Iteration Over Unexpected.
+    //
+    for(var p in collection) {
+      if (collection.hasOwnProperty(p)) {
+        console.log(p, collection[p]);
+        $("#rockets")
+            .append(`<span class="h2">${p}: </span>`)
+            .append(`<span class="h2">${collection[p]}</span><br>`)
+      }
+    }
+  }
 
-      //
-      // Example of iteration through Object(key, value)
-      // if statement here is for Possible Iteration Over Unexpected.
-      //
-      for(var p in collection) {
-        if (collection.hasOwnProperty(p)) {
-          console.log(p, collection[p]);
-          $("#rockets")
-              .append(`<span class="h2">${p}: </span>`)
-              .append(`<span class="h2">${collection[p]}</span><br>`)
-        }
+  //
+  // Counting launches per year and preparing it for totalLaunchesChart
+  // Example:
+  // {2017:2, 2018:31}
+  //
+  getDataForHistoryChart(){
+    let collection = {};
+
+    this.launches.forEach( function(i) {
+      if (collection[i.launch_year]) {
+        collection[i.launch_year] += 1
+      }
+      else {
+        collection[i.launch_year] = 1
       }
     });
+    return collection;
+  }
+
+  getDataForFailedChart(){
+    let collection = {};
+
+    this.launches.forEach( function(i) {
+      console.log(i.launch_success);
+      console.log(i.launch_year);
+      if (collection[i.launch_year] && i.launch_success === false) {
+        collection[i.launch_year] += 1
+      }
+      else if(!collection[i.launch_year] && i.launch_success === false) {
+        collection[i.launch_year] = 1
+      }
+      else if (!collection[i.launch_year]) {
+        collection[i.launch_year] = 0
+      }
+    });
+    return collection;
   }
 }
 
-function getChartData (data) {
-    var dict = [];
+var totalLaunchesChart = function(array){
+  if (!array instanceof Array) {
+    return 0
+  }
 
-    dict.push({
-        key:   "keyName", //data.year
-        value: "the value" // value = value + 1 (might need to consider nil at a first entry not sure yet how)
-    });
-}
+  // Splits object on to two arrays for simplifying output
+  // for( i in array ) {
+  //   label_a.push(i);
+  //   data_a.push(array[i]);
+  // }
 
-var chart = function(){
+  // use this to get all yaers var result = Object.keys(obj); where obj is data
+  // object
+
+  // use this for value - var result = Object.values(obj);
+
   var ctx = document.getElementById('launchHistory');
   var myChart = new Chart(ctx, {
     type: 'line',
     data: {
 
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      labels: Object.keys(array[0]),
 
       datasets: [{
-        label: 'Launches per year',
-        data: [12, 19, 3, 5, 2, 3],
+        label: 'Launches per year(all including failed and planned)',
+        data: Object.values(array[0]),
         backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)'
+          'rgba(255, 255, 132, 0.3)'
         ],
         borderColor: [
-          'rgba(255, 99, 132, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)'
+          'rgba(255, 255, 132, 1)'
         ],
         borderWidth: 1
-      }]
+      },
+        {
+          label: 'Failures',
+          data: Object.values(array[1]),
+          backgroundColor: [
+            'rgba(255, 23, 0, 0.3)'
+          ],
+          borderColor: [
+            'rgba(255, 23, 0, 1)'
+          ],
+          borderWidth: 1
+        }]
 
     },
     options: {
@@ -98,8 +150,10 @@ function scrollTo (h) {
 
 $('document').ready(function() {
   scrollTo("astronautmaPicture");
-  chart();
-  AjaxCaller.get_launches()
+  var ajaxOne = new AjaxCaller();
+  ajaxOne.get_all_launches();
+  ajaxOne.get_all_rockets();
+  totalLaunchesChart([ajaxOne.getDataForHistoryChart(), ajaxOne.getDataForFailedChart()])
 });
 
 
