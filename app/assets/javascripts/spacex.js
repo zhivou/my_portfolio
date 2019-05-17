@@ -83,26 +83,32 @@ class AjaxCaller {
   }
 }
 
-var totalLaunchesChart = function(data){
-  let label_a = [];
-  let data_a = [];
+var totalLaunchesChart = function(array){
+  if (!array instanceof Array) {
+    return 0
+  }
 
   // Splits object on to two arrays for simplifying output
-  for( i in data ) {
-    label_a.push(i);
-    data_a.push(data[i]);
-  }
+  // for( i in array ) {
+  //   label_a.push(i);
+  //   data_a.push(array[i]);
+  // }
+
+  // use this to get all yaers var result = Object.keys(obj); where obj is data
+  // object
+
+  // use this for value - var result = Object.values(obj);
 
   var ctx = document.getElementById('launchHistory');
   var myChart = new Chart(ctx, {
     type: 'line',
     data: {
 
-      labels: label_a,
+      labels: Object.keys(array[0]),
 
       datasets: [{
         label: 'Launches per year(all including failed and planned)',
-        data: data_a,
+        data: Object.values(array[0]),
         backgroundColor: [
           'rgba(255, 255, 132, 0.3)'
         ],
@@ -112,8 +118,8 @@ var totalLaunchesChart = function(data){
         borderWidth: 1
       },
         {
-          label: 'Failed Launches',
-          data: [3,3,1],
+          label: Object.keys(array[1]),
+          data: Object.values(array[1]),
           backgroundColor: [
             'rgba(255, 23, 0, 0.3)'
           ],
@@ -144,12 +150,10 @@ function scrollTo (h) {
 
 $('document').ready(function() {
   scrollTo("astronautmaPicture");
-  totalLaunchesChart();
   var ajaxOne = new AjaxCaller();
   ajaxOne.get_all_launches();
   ajaxOne.get_all_rockets();
-  totalLaunchesChart(ajaxOne.getDataForHistoryChart());
-  ajaxOne.getDataForFailedChart()
+  totalLaunchesChart([ajaxOne.getDataForHistoryChart(), ajaxOne.getDataForFailedChart()])
 });
 
 
