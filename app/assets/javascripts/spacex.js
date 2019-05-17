@@ -118,7 +118,7 @@ var totalLaunchesChart = function(array){
         borderWidth: 1
       },
         {
-          label: Object.keys(array[1]),
+          label: 'Failures',
           data: Object.values(array[1]),
           backgroundColor: [
             'rgba(255, 23, 0, 0.3)'
