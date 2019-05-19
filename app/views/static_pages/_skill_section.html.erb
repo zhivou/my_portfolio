@@ -1,5 +1,6 @@
 <% skills.each do |skill| %>
   <div class="skill_item">
+    <%= react_component("EditSkillsListing", { data: skill }) %>
     <i><%= skill.title %>: </i><%= skill.body %> <br>
     <%= link_to 'Edit', edit_skill_path(skill) %>
     <%= link_to 'Delete', skill, method: :delete, data: { confirm: 'Are you sure?' } %>

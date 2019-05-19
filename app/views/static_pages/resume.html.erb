@@ -7,7 +7,8 @@
         <h6 class="card-subtitle ml-4 mt-4 text-muted">Skills</h6>
         <hr>
         <div class="mr-4 ml-4 mb-4 mt-2">
-          <%= render 'skill_section', skills: @skills %>
+          <%= react_component("EditSkillsListing", { data: @skills }) %>
+          <%#= render 'skill_section', skills: @skills %>
         </div>
       </div>
       <div class="card shadow p-3 mb-3 bg-white rounded">
