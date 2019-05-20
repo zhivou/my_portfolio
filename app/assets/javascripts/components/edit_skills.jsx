@@ -6,9 +6,7 @@ class EditSkillsListing extends React.Component {
 
   render() {
     return (
-        <div>
-          <ShowSkills skills={this.props.data}/>
-        </div>
+        <ShowSkills skills={this.props.data}/>
     );
   }
 }
@@ -16,7 +14,9 @@ class EditSkillsListing extends React.Component {
 const ShowSkills = (props) => {
   return (
       <div>
-        <p>{props.skills.body}</p>
+        {props.skills.map((skill) =>
+            <p>{skill.title}: {skill.body}</p>
+        )}
       </div>
   );
 };
