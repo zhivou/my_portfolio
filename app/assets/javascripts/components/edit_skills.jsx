@@ -14,9 +14,11 @@ class EditSkillsListing extends React.Component {
 const ShowSkills = (props) => {
   return (
       <div>
-        {props.skills.map((skill) =>
-            <p>{skill.title}: {skill.body}</p>
+        {props.skills.map((skillItem) =>
+            [<div><i>{skillItem.title}: </i>{skillItem.body}</div>,
+             <a href='#' id="editSkill">Edit</a>]
         )}
+        <br/>
       </div>
   );
 };
