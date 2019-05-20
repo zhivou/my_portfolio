@@ -9,7 +9,7 @@ class AjaxCaller {
         dataType: 'json',
         async: false
       }).responseJSON;
-    }();
+  }();
   }
 
   get_all_launches(){

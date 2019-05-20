@@ -1,4 +1,4 @@
-class EditSkillsListing extends React.Component {
+class SkillsListing extends React.Component {
 
   constructor(props) {
     super(props);
