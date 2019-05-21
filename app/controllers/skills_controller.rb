@@ -44,6 +44,7 @@ class SkillsController < ApplicationController
       if @skill.update(skill_params)
         format.html { redirect_to @skill, notice: 'Skill was successfully updated.' }
         format.json { render :show, status: :ok, location: @skill }
+        format.js
       else
         format.html { render :edit }
         format.json { render json: @skill.errors, status: :unprocessable_entity }
