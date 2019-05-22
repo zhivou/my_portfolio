@@ -1,8 +1,7 @@
 <% skills.each do |skill| %>
   <div class="skill_item">
-    <i><%= skill.title %>: </i><%= skill.body %> <br>
-    <%= link_to 'Edit', edit_skill_path(skill), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#exampleModalLong', class: 'btn btn-primary btn-lg'} %>
-    <%= link_to 'Delete', skill, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <i><%= skill.title %>: </i><%= skill.body %>
+    <%= link_to 'Edit', edit_skill_path(skill), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#exampleModalLong'} %>
   </div>
 <% end %>
-<%= link_to 'Add new', new_skill_path %>
+<%= link_to 'Add New', new_skill_path %>

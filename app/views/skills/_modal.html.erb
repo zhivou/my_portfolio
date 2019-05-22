@@ -9,10 +9,7 @@
       </div>
       <div class="modal-body">
         <%= render 'form', skill:skill %>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <%= link_to 'Delete', skill, method: :delete, data: { confirm: 'Are you sure?' } %>
       </div>
     </div>
   </div>
