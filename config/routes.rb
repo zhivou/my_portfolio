@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   post 'avatar/create'
 
   resources :educations
-  resources :skills, except: [:show]
+  resources :skills, except: [:show, :index]
   resources :experiences
   resources :pictures
   devise_for :users

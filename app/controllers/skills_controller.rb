@@ -30,6 +30,7 @@ class SkillsController < ApplicationController
       if @skill.save
         format.html { redirect_to root_path }
         format.json { render :show, status: :created, location: @skill }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @skill.errors, status: :unprocessable_entity }
