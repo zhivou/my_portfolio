@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :educations
   resources :skills, except: [:show, :index]
-  resources :experiences
+  resources :experiences, except: [:show, :index]
   resources :pictures
   devise_for :users
   resources :blogs

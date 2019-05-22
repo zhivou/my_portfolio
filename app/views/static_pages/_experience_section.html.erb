@@ -10,4 +10,4 @@
       <br>
   </div>
 <% end %>
-<%= link_to 'Add new', new_experience_path %>
+<%= link_to 'Add new', new_experience_path, {:remote => true, 'data-toggle' => "modal", 'data-target' => '#createNewExperience'}%>
