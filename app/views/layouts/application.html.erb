@@ -12,6 +12,7 @@
   <body>
     <p class="notice" style="display: <%= "none" unless notice %>;"><%= notice %></p>
     <p class="alert" style="display: <%= "none" unless notice %>;"><%= alert %></p>
+    <div id="myModal"></div>
     <%= render 'nav_bar' %>
     <%= yield %>
     <%= render 'footer' %>
