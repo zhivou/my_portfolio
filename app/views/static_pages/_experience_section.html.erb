@@ -1,13 +1,12 @@
 <% experience.each do |exp| %>
   <div class="experience_item">
-      <strong><%= exp.title %></strong>
+      <strong><%= exp.title %></strong> <%= link_to 'Edit', edit_experience_path(exp), {:remote => true, 'data-toggle' => "modal", 'data-target' => '#EditExperience'} %>
       <br>
       <p><%= exp.organization %></p>
       <p><%= exp.location %></p>
+      <p>Started: <%= exp.date_started %> Ended: <%= exp.date_ended %></p>
       <p><%= exp.body %></p>
-      <%= link_to 'Edit', edit_experience_path(exp) %>
-      <%= link_to 'Delete', exp, method: :delete, data: { confirm: 'Are you sure?' } %>
       <br>
   </div>
 <% end %>
-<%= link_to 'Add new', new_experience_path %>
+<%= link_to 'Add new', new_experience_path, {:remote => true, 'data-toggle' => "modal", 'data-target' => '#createNewExperience'}%>

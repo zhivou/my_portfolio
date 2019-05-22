@@ -28,8 +28,9 @@ class ExperiencesController < ApplicationController
 
     respond_to do |format|
       if @experience.save
-        format.html { redirect_to @experience, notice: 'Experience was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Experience was successfully created.' }
         format.json { render :show, status: :created, location: @experience }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @experience.errors, status: :unprocessable_entity }
@@ -42,7 +43,7 @@ class ExperiencesController < ApplicationController
   def update
     respond_to do |format|
       if @experience.update(experience_params)
-        format.html { redirect_to @experience, notice: 'Experience was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Experience was successfully updated.' }
         format.json { render :show, status: :ok, location: @experience }
       else
         format.html { render :edit }
@@ -56,7 +57,7 @@ class ExperiencesController < ApplicationController
   def destroy
     @experience.destroy
     respond_to do |format|
-      format.html { redirect_to experiences_url, notice: 'Experience was successfully destroyed.' }
+      format.html { redirect_to root_path }
       format.json { head :no_content }
     end
   end
@@ -69,6 +70,6 @@ class ExperiencesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def experience_params
-      params.require(:experience).permit(:title, :organization, :body, :date_started, :date_ended, :locations)
+      params.require(:experience).permit(:title, :organization, :body, :date_started, :date_ended, :location)
     end
 end
