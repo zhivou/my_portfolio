@@ -8,4 +8,4 @@
     <%= link_to 'Delete', education, method: :delete, data: { confirm: 'Are you sure?' } %>
   </div>
 <% end %>
-<%= link_to 'Add new', new_education_path %>
+<%= link_to 'Add new', new_education_path, {:remote => true, 'data-toggle' => "modal", 'data-target' => '#createNewEducation'} %>

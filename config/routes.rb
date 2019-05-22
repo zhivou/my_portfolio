@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'avatar/new'
   post 'avatar/create'
 
-  resources :educations
+  resources :educations, except: [:show, :index]
   resources :skills, except: [:show, :index]
   resources :experiences, except: [:show, :index]
   resources :pictures
