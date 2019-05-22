@@ -1,11 +1,10 @@
 <% educations.each do |education| %>
   <div class="education_item">
-    <strong><%= education.degree %></strong>
+    <strong><%= education.degree %></strong> <%= link_to 'Edit', edit_education_path(education), {:remote => true, 'data-toggle' => "modal", 'data-target' => '#editEducation'} %>
     <br>
     <%= education.school %><br>
     <p><%= education.date_ended %></p>
-    <%= link_to 'Edit', edit_education_path(education) %>
-    <%= link_to 'Delete', education, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%#= link_to 'Delete', education, method: :delete, data: { confirm: 'Are you sure?' } %>
   </div>
 <% end %>
 <%= link_to 'Add new', new_education_path, {:remote => true, 'data-toggle' => "modal", 'data-target' => '#createNewEducation'} %>
