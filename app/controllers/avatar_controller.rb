@@ -9,8 +9,19 @@ class AvatarController < ApplicationController
 
     respond_to do |format|
       json_writer(hash)
+      image
       format.html { redirect_to root_path, notice: 'Profile was successfully created' }
     end
+  end
+
+  def image
+    blob = ActiveStorage::Blob.create_after_upload!(
+        io: avatar_params[:attachments],
+        filename: avatar_params[:attachments].original_filename,
+        content_type: avatar_params[:attachments].content_type
+    )
+
+    render json: { filelink: url_for(blob) }
   end
 
   private
@@ -21,6 +32,6 @@ class AvatarController < ApplicationController
   end
 
   def avatar_params
-    params.require(:avatar).permit(:path, :name, :title, :short_about)
+    params.require(:avatar).permit(:path, :name, :title, :short_about, attachments: [])
   end
 end

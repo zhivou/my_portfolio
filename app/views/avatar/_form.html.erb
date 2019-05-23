@@ -1,4 +1,4 @@
-<form action="/avatar/create" accept-charset="UTF-8" method="post">
+<%= form_tag "create" do |form| %>
 
   <div class="field">
     Please upload picture. Max resolution 200x200. Remember this is just an example. Change this to something better.
@@ -6,6 +6,10 @@
     <br>
     <label for="avatar_path">Avatar path</label>
     <input id="avatar_path" type="text" name="avatar[path]" value="<%= @data_file['path'] %>">
+  </div>
+
+  <div class="field">
+    <%= form.file_field :attachments, direct_upload: true, id: :avatar_attachments %>
   </div>
 
   <div class="field">
@@ -24,7 +28,5 @@
   </div>
   Add JS links generator. I think the best way is to use simple table with title and link columns
 
-  <div class="actions">
-    <input type="submit" name="commit">
-  </div>
-</form>
+  <%= submit_tag %>
+<% end %>
