@@ -21,6 +21,8 @@
     <%= form.text_area :body, id: :blog_body %>
   </div>
 
+  <%= form.file_field :images, multiple: true %>
+
   <div class="actions">
     <%= form.submit %>
   </div>
