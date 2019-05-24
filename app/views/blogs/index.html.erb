@@ -16,11 +16,18 @@
     <div class="col-10">
     <% @blogs.each do |blog| %>
         <div class="card shadow p-3 mb-3 bg-white rounded">
-          <div class="card-title"><%= blog.title %></div>
-          <div class="card-body"><%= blog.body.first(150) + " "%><a href="<%= blog_path(blog) %>" class="blogLink"><u>more>></u></a></div>
-          <div class="card-body">Posted: <%= distance_of_time_in_words(blog.created_at, Time.now) %></div>
-          <%= link_to 'Edit', edit_blog_path(blog)%>
-          <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <div class="card-body">
+            <div class="card-title"><a href="<%= blog_path(blog) %>" class="blogLink"><%= blog.title %></a>
+              <span class="titleLinks">
+              <%= link_to 'Edit', edit_blog_path(blog) %>
+                <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </span>
+            </div>
+            <div class="card-text">
+              <%= blog.body.first(250) + " "%><a href="<%= blog_path(blog) %>" class="blogLink"><u>more>></u></a>
+            </div>
+          </div>
+          <div class="card-body">Posted: <%= distance_of_time_in_words(blog.created_at, Time.now) %> ago.</div>
         </div>
     <% end %>
     </div>

@@ -3,4 +3,16 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .blogLink {
   color: black;
+  text-decoration: none;
+}
+
+.card {
+  font-size: 20px;
+
+  .card-title {
+    font-size: 28px;
+  }
+
+.titleLinks {
+  font-size: 14px}
 }
