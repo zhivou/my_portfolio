@@ -3,6 +3,7 @@ class StaticPagesController < ApplicationController
     @experience = Experience.all
     @skills = Skill.all
     @educations = Education.all
+    @avatar = User.first
   end
 
   def contact
