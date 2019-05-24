@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag "blogs" %>
+
 <div class="container">
   <p id="notice"><%= notice %></p>
 
@@ -15,11 +17,10 @@
     <% @blogs.each do |blog| %>
         <div class="card shadow p-3 mb-3 bg-white rounded">
           <div class="card-title"><%= blog.title %></div>
-          <div class="card-body"><%= blog.body %></div>
+          <div class="card-body"><%= blog.body.first(150) + " "%><a href="<%= blog_path(blog) %>" class="blogLink"><u>more>></u></a></div>
           <div class="card-body">Posted: <%= distance_of_time_in_words(blog.created_at, Time.now) %></div>
-          <div><%= link_to 'Show', blog %></div>
-          <div><%= link_to 'Edit', edit_blog_path(blog)%></div>
-          <div><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+          <%= link_to 'Edit', edit_blog_path(blog)%>
+          <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
         </div>
     <% end %>
     </div>
