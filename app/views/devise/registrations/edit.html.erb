@@ -27,6 +27,33 @@
   </div>
 
   <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, autocomplete: "First Name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name, autocomplete: "Last Name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title, autocomplete: "Title" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :about %><br />
+    <%= f.text_area :about, autocomplete: "About" %>
+  </div>
+
+  <div class="field">
+    <p>Current avatar:</p>
+    <%= image_tag User.first.avatar_image, height: '332', width: '332' %>
+    <br>
+    <%= f.file_field :avatar_image, multiple: false %>
+  </div>
+
+  <div class="field">
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
