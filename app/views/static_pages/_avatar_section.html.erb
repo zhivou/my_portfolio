@@ -1,13 +1,14 @@
 <div class="col-4" id="card-title">
   <div class="card shadow p-2 mb-2 bg-white rounded" style="width: 23rem;" id="avatar">
-    <%= image_tag @data_file['path'], class: "card-img-top" %>
+
+    <%= image_tag @avatar.avatar_image, class: "card-img-top" %>
     <div class="card-body">
-      <h5 class="card-title"><%= @data_file['name'] %></h5>
-      <h6 class="card-subtitle mb-2 text-muted"><%= @data_file['title'] %></h6>
-      <p class="card-text"><%= @data_file['short_about'] %></p>
+      <h5 class="card-title"><%= @avatar.first_name + ' ' + @avatar.last_name %></h5>
+      <h6 class="card-subtitle mb-2 text-muted"><%= @avatar.title %></h6>
+      <p class="card-text"><%= @avatar.about %></p>
       <a href="#">LinkedIn</a>
       <a href="#">GitLab</a>
     </div>
-    <%= link_to 'Edit', avatar_new_path %>
+    <%= link_to 'Edit', edit_user_registration_path %>
   </div>
 </div>

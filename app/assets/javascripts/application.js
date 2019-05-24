@@ -15,6 +15,7 @@
 //= require jquery-ui
 //= require Chart.min
 //= require bootstrap
+//= require activestorage
 //= require turbolinks
 //= require react
 //= require react_ujs
