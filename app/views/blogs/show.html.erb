@@ -1,10 +1,19 @@
+<%= stylesheet_link_tag "blogs" %>
+
+<div class="d-flex picHolder text-center"
+     style="background-image: url('<%= url_for(@blog.main_image) %>');">
+  <div class="container align-self-center p-2 bd-highlight">
+    <% if @blog.title.length >= 40 %>
+      <h1 class="display-3" id="textHolder"><%= @blog.title.split[0..@blog.title.split.count / 1/3].join(' ') %></h1>
+      <h1 id="textHolder"><%= @blog.title.split[@blog.title.split.count / 1/3 + 1..@blog.title.split.count].join(' ') %></h1>
+    <% else %>
+      <h1 class="display-3" id="textHolder"><%= @blog.title %></h1>
+    <% end %>
+  </div>
+</div>
+
 <div class="container">
   <p id="notice"><%= notice %></p>
-
-  <p>
-    <strong>Title:</strong>
-    <%= @blog.title %>
-  </p>
 
   <p>
     <strong>Body:</strong>

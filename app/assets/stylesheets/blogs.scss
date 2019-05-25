@@ -16,3 +16,19 @@
 .titleLinks {
   font-size: 14px}
 }
+
+#textHolder {
+  background-color: rgba(24,28,31,0.8);
+  color: white;
+}
+
+.picHolder {
+  background-position: center center;
+  transition: background-image 0.3s ease-in-out;
+  height: 500px;
+  display: block;
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+  background-size: cover;
+}
