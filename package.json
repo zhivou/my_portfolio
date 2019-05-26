@@ -1,5 +1,13 @@
 {
   "name": "my_portfolio",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@rails/actiontext": "^6.0.0-rc1",
+    "@rails/webpacker": "^4.0.2",
+    "stimulus": "^1.1.1",
+    "trix": "^1.0.0"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3.4.1"
+  }
 }

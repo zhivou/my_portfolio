@@ -16,9 +16,13 @@
     <%= form.text_field :title, id: :blog_title %>
   </div>
 
+<!--  <div class="field">-->
+    <%#= form.label :body %>
+    <%#= form.text_area :body, id: :blog_body %>
+<!--  </div>-->
+
   <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body, id: :blog_body %>
+    <%= form.rich_text_area :body_area, id: :blog_body_area %>
   </div>
 
   <div class="field">
@@ -30,7 +34,6 @@
     <%= form.label "Upload images for blog" %>
     <%= form.file_field :images, multiple: true %>
   </div>
-
 
   <div class="actions">
     <%= form.submit %>
