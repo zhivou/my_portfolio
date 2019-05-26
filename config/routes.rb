@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   resources :educations, except: [:show, :index]
   resources :skills, except: [:show, :index]
   resources :experiences, except: [:show, :index]
-  resources :pictures
   devise_for :users
   resources :blogs
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

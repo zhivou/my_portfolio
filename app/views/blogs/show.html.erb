@@ -17,16 +17,8 @@
 
   <p>
     <strong>Body:</strong>
-    <%= @blog.body %>
+    <%= @blog.body_area %>
   </p>
-
-  <p>
-    <strong>Image:</strong>
-    <br>
-
-    <% @blog.images.each do |image| %>
-      <%= image_tag image %>
-    <% end %>
 
   <%= link_to 'Edit', edit_blog_path(@blog) %> |
   <%= link_to 'Back', blogs_path %>

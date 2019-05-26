@@ -23,9 +23,9 @@
                 <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
             </span>
             </div>
-            <div class="card-text">
-              <%= blog.body.first(250) + " "%><a href="<%= blog_path(blog) %>" class="blogLink"><u>more>></u></a>
-            </div>
+<!--            <div class="card-text">-->
+<!--              <%#= blog.body_area.first(250) + " "%><a href="<%#= blog_path(blog) %>" class="blogLink"><u>more>></u></a>-->
+<!--            </div>-->
             <hr>
             <div>Posted: <%= distance_of_time_in_words(blog.created_at, Time.now) %> ago.</div>
           </div>
