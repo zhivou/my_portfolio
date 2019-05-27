@@ -1,4 +1,4 @@
-<%= form_with(model: blog, local: true) do |form| %>
+<%= form_with(model: blog, local: true ) do |form| %>
   <% if blog.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
@@ -17,11 +17,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body, id: :blog_body %>
+    <%= form.rich_text_area :body_area, id: :blog_body_area, class:"mb-1 mt-1" %>
   </div>
 
-  <%= form.file_field :images, multiple: true %>
+  <div class="field">
+    <%= form.label"Upload Main Picture" %>
+    <%= form.file_field :main_image %>
+  </div>
 
   <div class="actions">
     <%= form.submit %>
