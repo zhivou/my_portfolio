@@ -13,12 +13,13 @@
 </div>
 
 <div class="container">
-  <p id="notice"><%= notice %></p>
+  <div class="row justify-content-md-center">
+    <p id="notice"><%= notice %></p>
 
-  <p>
-    <strong>Body:</strong>
-    <%= @blog.body_area %>
-  </p>
+    <div class="col-9">
+      <div class="blogBody"><%= @blog.body_area %></div>
+    </div>
+  </div>
 
   <%= link_to 'Edit', edit_blog_path(@blog) %> |
   <%= link_to 'Back', blogs_path %>
