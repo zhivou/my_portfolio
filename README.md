@@ -10,4 +10,6 @@ Bootstrap,
 React JS,
 Chart JS,
 Jquery,
-Active Storage.
+Active Storage,
+Active Text,
+WebPack
