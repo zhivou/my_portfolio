@@ -1,5 +1,4 @@
 <%= stylesheet_link_tag "blogs" %>
-
 <div class="d-flex picHolder text-center"
      style="background-image: url('<%= url_for(@blog.main_image) %>');">
   <div class="container align-self-center p-2 bd-highlight">
@@ -13,6 +12,12 @@
 </div>
 
 <div class="container">
+  <div>
+    Hash tags:
+    <% @blog.tags.each do |t| %>
+      <%= t.description + '|'%>
+    <% end %>
+  </div>
   <div class="row justify-content-md-center">
     <p id="notice"><%= notice %></p>
 

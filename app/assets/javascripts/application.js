@@ -17,6 +17,7 @@
 //= require bootstrap
 //= require activestorage
 //= require turbolinks
+//= require cocoon
 //= require react
 //= require react_ujs
 //= require components
