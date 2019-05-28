@@ -5,6 +5,7 @@ class BlogsController < ApplicationController
   # GET /blogs.json
   def index
     @blogs = Blog.order("created_at DESC")
+    @all_tags = Tag.get_tags_count
   end
 
   # GET /blogs/1

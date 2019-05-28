@@ -4,16 +4,18 @@
   <p id="notice"><%= notice %></p>
 
   <div class="row">
-    <div class="col-2 order-last">
+    <div class="col-3 order-last">
       <div class="card shadow p-3 mb-3 bg-white rounded">Calendar</div>
       <hr>
       <div class="card shadow p-3 mb-3 bg-white rounded">
-        <% @blogs.each do |blog| %>
-          <%= link_to blog.title, blog%>
+        <% @all_tags.each do |tag| %>
+          <%= tag.description + ": "%>
+          <%= tag.total %>
+          <br>
         <% end %>
       </div>
     </div>
-    <div class="col-10">
+    <div class="col-9">
     <% @blogs.each do |blog| %>
         <div class="card shadow p-3 mb-3 bg-white rounded">
           <div class="card-body">
