@@ -5,6 +5,7 @@ class BlogsController < ApplicationController
   # GET /blogs.json
   def index
     @blogs = Blog.order("created_at DESC")
+    @all_tags = Tag.get_tags_count
   end
 
   # GET /blogs/1
@@ -69,6 +70,10 @@ class BlogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params
-      params.require(:blog).permit(:title, :main_image, :body_area)
+      params.require(:blog).permit(:title,
+                                   :main_image,
+                                   :body_area,
+                                   tags_attributes: [:id, :description, :_destroy]
+      )
     end
 end

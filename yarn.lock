@@ -1809,6 +1809,11 @@ coa@^2.0.2:
     chalk "^2.4.1"
     q "^1.1.2"
 
+cocoon-rails@^1.2.6:
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/cocoon-rails/-/cocoon-rails-1.2.6.tgz#6badcb1ffe4548c63b1f96e865ab4d8ee590de09"
+  integrity sha1-a63LH/5FSMY7H5boZatNjuWQ3gk=
+
 code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"

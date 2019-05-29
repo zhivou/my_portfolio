@@ -61,3 +61,4 @@ gem 'react-rails'
 gem 'chart-js-rails'
 gem 'image_processing'
 gem 'webpacker'
+gem "cocoon"
