@@ -7,4 +7,11 @@ class Blog < ApplicationRecord
   validates_presence_of :title, :body_area
 
   accepts_nested_attributes_for :tags, allow_destroy: true
+
+  ##
+  # Returns Blogs with particular description name
+  #
+  def self.get_blogs_with_tag(tag_name)
+    self.where(:description)
+  end
 end
