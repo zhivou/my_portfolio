@@ -27,20 +27,17 @@ class Blog extends React.Component {
 
 const Post = (props) => {
   let posts = props.posts.map((post) => {
-    link = `/api/orders/${post.id}`;
+    link =  `/blogs/${post.id}`;
     return(
-        <div className="card shadow p-3 mb-3 bg-white rounded">
-          <div className="card-body">
-            <div className="card-title"><a href={link} className="blogLink" style="color: indianred;">
-              {post.title}</a>
-            </div>
-          </div>
-        </div>
+      <div className="card shadow p-3 mb-3 bg-white rounded">
+        <a href={link}>{post.title}</a>
+      </div>
     )
   });
-  return (
-      <div>
-        {posts}
-      </div>
-  );
+
+  return(
+    <div>
+      {posts}
+    </div>
+  )
 };
