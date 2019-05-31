@@ -53,9 +53,16 @@ const Post = (props) => {
   return(
     <div>
       <div className="card shadow p-3 mb-3 bg-white rounded">
-        <a href={link}>{props.post.title}</a>
-        <p>{props.post.description}</p>
-        <p>{props.post.time_words}</p>
+        <div className="card-body">
+          <div className="card-title">
+            <a href={link} className="blogLink">{props.post.title}</a>
+          </div>
+          <div className="card-text">
+            <p>{props.post.description}</p>
+          </div>
+          <hr/>
+          <p>Posted: {props.post.time_words} ago.</p>
+        </div>
       </div>
     </div>
   )
