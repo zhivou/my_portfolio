@@ -17,24 +17,25 @@
       </div>
     </div>
     <div class="col-9">
-      <%= react_component("Blog") %>
 
       <% @blogs.each do |blog| %>
-          <div class="card shadow p-3 mb-3 bg-white rounded">
-            <div class="card-body">
-              <div class="card-title"><a href="<%= blog_path(blog) %>" class="blogLink" style="color: indianred;"><%= blog.title %></a>
-                <span class="titleLinks">
-                <%= link_to 'Edit', edit_blog_path(blog) %>
-                  <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
-              </span>
-              </div>
-              <div class="card-text">
-                <%= blog.body_area.to_plain_text.first(250) + " "%><a href="<%= blog_path(blog) %>" class="blogLink"><u>more>></u></a>
-              </div>
-              <hr>
-              <div>Posted: <%= distance_of_time_in_words(blog.created_at, Time.now) %> ago.</div>
-            </div>
-          </div>
+        <%= react_component("Blog", [blog, blog.body_area.to_plain_text.first(250), distance_of_time_in_words(blog.created_at, Time.now)] ) %>
+<!--
+<div class="card shadow p-3 mb-3 bg-white rounded">-->
+<!--            <div class="card-body">-->
+<!--              <div class="card-title"><a href="<%#= blog_path(blog) %>" class="blogLink" style="color: indianred;"><%#= blog.title %></a>-->
+<!--                <span class="titleLinks">-->
+                <%#= link_to 'Edit', edit_blog_path(blog) %>
+                  <%#= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+<!--              </span>-->
+<!--              </div>-->
+<!--              <div class="card-text">-->
+<!--                <%#= blog.body_area.to_plain_text.first(250) + " "%><a href="<%#= blog_path(blog) %>" class="blogLink"><u>more>></u></a>-->
+<!--              </div>-->
+<!--              <hr>-->
+<!--              <div>Posted: <%#= distance_of_time_in_words(blog.created_at, Time.now) %> ago.</div>-->
+<!--            </div>-->
+<!--          </div>-->
       <% end %>
 
 
