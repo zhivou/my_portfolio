@@ -8,6 +8,10 @@ class BlogsController < ApplicationController
     @all_tags = Tag.get_tags_count
   end
 
+  def api_index
+    render json: Blog.order("created_at DESC")
+  end
+
   # GET /blogs/1
   # GET /blogs/1.json
   def show

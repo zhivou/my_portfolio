@@ -1,8 +1,7 @@
 // React component example. Use this folder for react only
 // To call it from the view use -   <%= react_component("Post", {title: "Hello World"}) %>
+// import axios from 'Axios';
 
-//import axios from 'axios';
-//this.props, hash_name: ""
 class Blog extends React.Component {
 
   constructor(props){
@@ -12,8 +11,14 @@ class Blog extends React.Component {
     };
   }
 
-  componentDidMount(){
-    this.setState({ blogs: Object.values(this.props)}) // <-- Important!! transforms Object to Array
+  componentDidMount() {
+    $.ajax({
+      method: 'GET',
+      url: 'blogs-api',
+      dataType: 'json',
+    }).done((data) => {
+          this.setState({ blogs: data })
+        })
   }
 
   render() {
