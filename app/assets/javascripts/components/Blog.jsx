@@ -49,6 +49,7 @@ class Blog extends React.Component {
 
 const Post = (props) => {
   link = `/blogs/${props.post.id}`;
+  edit = `/blogs/${props.post.id}/edit`;
 
   return(
     <div>
@@ -56,6 +57,10 @@ const Post = (props) => {
         <div className="card-body">
           <div className="card-title">
             <a href={link} className="blogLink">{props.post.title}</a>
+            <span className="titleLinks">
+              <a href={edit}>Edit</a>
+              <a href={link} data-confirm="Are you sure?" data-method="delete">Delete</a>
+            </span>
           </div>
           <div className="card-text">
             <p>{props.post.description}</p>
