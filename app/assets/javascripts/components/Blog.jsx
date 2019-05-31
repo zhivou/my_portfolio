@@ -1,7 +1,3 @@
-// React component example. Use this folder for react only
-// To call it from the view use -   <%= react_component("Post", {title: "Hello World"}) %>
-// import axios from 'Axios';
-
 class Blog extends React.Component {
 
   constructor(props){
@@ -28,14 +24,6 @@ class Blog extends React.Component {
       description: temp_holder[1],
       time_words: temp_holder[2]
     })
-
-    // $.ajax({
-    //   method: 'GET',
-    //   url: 'blogs-api',
-    //   dataType: 'json',
-    // }).done((data) => {
-    //       this.setState({ blogs: data })
-    //     })
   }
 
   render() {
@@ -57,10 +45,10 @@ const Post = (props) => {
         <div className="card-body">
           <div className="card-title">
             <a href={link} className="blogLink">{props.post.title}</a>
-            <span className="titleLinks">
-              <a href={edit}>Edit</a>
-              <a href={link} data-confirm="Are you sure?" data-method="delete">Delete</a>
-            </span>
+            {/*<span className="titleLinks">*/}
+              {/*<a href={edit}>Edit</a>*/}
+              {/*<a href={link} data-confirm="Are you sure?" data-method="delete">Delete</a>*/}
+            {/*</span>*/}
           </div>
           <div className="card-text">
             <p>{props.post.description}</p>

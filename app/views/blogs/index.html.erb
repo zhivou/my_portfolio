@@ -4,25 +4,14 @@
   <p id="notice"><%= notice %></p>
 
   <div class="row">
-    <div class="col-3 order-last">
-      <div class="card shadow p-3 mb-3 bg-white rounded">Calendar</div>
-      <hr>
-      <div class="card shadow p-3 mb-3 bg-white rounded">
-        <h3>Hash tags:</h3>
-        <% @all_tags.each do |tag| %>
-          <a href="<%= blogs_path %>">
-            <%= tag.description + "(#{tag.total})"%>
-          </a>
-        <% end %>
-      </div>
-    </div>
-    <div class="col-9">
-
+    <div class="col-12">
       <% @blogs.each do |blog| %>
+        <span class="titleLinks">
+          <%= link_to 'Edit', edit_blog_path(blog) %>
+          <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </span>
         <%= react_component("Blog", [blog, blog.body_area.to_plain_text.first(250), distance_of_time_in_words(blog.created_at, Time.now)] ) %>
       <% end %>
-
-
     </div>
   </div>
   <br>
