@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_27_190920) do
+ActiveRecord::Schema.define(version: 2019_06_01_004317) do
 
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
@@ -70,10 +70,6 @@ ActiveRecord::Schema.define(version: 2019_05_27_190920) do
 
   create_table "projects", force: :cascade do |t|
     t.string "title"
-    t.text "body"
-    t.string "main_image"
-    t.string "thumb_image"
-    t.integer "position"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
