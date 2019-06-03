@@ -3,3 +3,37 @@
 .projectCard {
   min-height: 500px;
 }
+
+.projectPicHolder {
+  background-position: center center;
+  transition: background-image 0.3s ease-in-out;
+  height: 500px;
+  display: block;
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+  background-size: cover;
+}
+
+.blogBody {
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 20px;
+  font-size: 17px;
+  padding: 20px;
+  color: rgb(68, 68, 102);
+  line-height: 20px;
+  display: block;
+
+  div {
+    line-height: 2.2;
+  }
+}
+
+.titleLinks {
+  font-size: 14px
+}
+
+#textHolder {
+  background-color: rgba(24,28,31,0.8);
+  color: white;
+}

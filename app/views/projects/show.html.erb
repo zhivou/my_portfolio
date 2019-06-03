@@ -1,4 +1,6 @@
-<div class="d-flex picHolder text-center"
+<%= stylesheet_link_tag "projects" %>
+
+<div class="d-flex projectPicHolder text-center"
      style="background-image: url('<%= url_for(@project.main_image) %>');">
   <div class="container align-self-center p-2 bd-highlight">
     <% if @project.title.length >= 40 %>
@@ -19,6 +21,8 @@
     </div>
   </div>
 
-  <%= link_to 'Edit |', edit_project_path(@project) if current_user %>
-  <%= link_to 'Back', projects_path %>
+  <div class="container text-center">
+    <%= link_to 'Edit |', edit_project_path(@project) if current_user %>
+    <%= link_to 'Back', projects_path %>
+  </div>
 </div>

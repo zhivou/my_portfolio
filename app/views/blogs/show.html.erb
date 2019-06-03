@@ -26,6 +26,8 @@
     </div>
   </div>
 
-  <%= link_to 'Edit |', edit_blog_path(@blog) if current_user%>
-  <%= link_to 'Back', blogs_path %>
+  <div class="container text-center">
+    <%= link_to 'Edit |', edit_blog_path(@blog) if current_user%>
+    <%= link_to 'Back', blogs_path %>
+  </div>
 </div>
