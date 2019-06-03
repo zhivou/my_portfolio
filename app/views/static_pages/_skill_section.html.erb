@@ -1,7 +1,7 @@
 <% skills.each do |skill| %>
   <div class="skill_item">
     <i><%= skill.title %>: </i><%= skill.body %>
-    <%= link_to 'Edit', edit_skill_path(skill), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#exampleModalLong'} %>
+    <%= link_to 'Edit', edit_skill_path(skill), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#exampleModalLong'} if current_user %>
   </div>
 <% end %>
-<%= link_to 'Add New', new_skill_path, {:remote => true, 'data-toggle' => "modal", 'data-target' => '#createNewSkill'} %>
+<%= link_to 'Add New', new_skill_path, {:remote => true, 'data-toggle' => "modal", 'data-target' => '#createNewSkill'} if current_user %>

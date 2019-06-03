@@ -1,10 +1,11 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
 
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.by_position
+    @projects = Project.all
   end
 
   ##
@@ -81,6 +82,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:title, :body, :main_image, :thumb_image, :position, :project_content)
+      params.require(:project).permit(:title, :project_content, :main_image)
     end
 end

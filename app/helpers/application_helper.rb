@@ -11,7 +11,7 @@ module ApplicationHelper
       link_to destroy_user_session_path, method: :delete do
         "<span>Logout</span>".html_safe
       end
-    else
+    elsif User.all.count == 0
       login_renders + " " + register_renders
     end
   end
@@ -24,7 +24,7 @@ module ApplicationHelper
 
   def register_renders
     link_to new_user_registration_path do
-      "<span>Register</span>".html_safe
+      "<span>Add Admin</span>".html_safe
     end
   end
 

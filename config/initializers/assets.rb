@@ -10,6 +10,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 Rails.application.config.assets.precompile += %w( blogs.css )
 Rails.application.config.assets.precompile += %w( spacex.css )
 Rails.application.config.assets.precompile += %w( spacex.js )
+Rails.application.config.assets.precompile += %w( projects.css )
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets

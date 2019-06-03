@@ -1,23 +1,23 @@
-<%= render 'greetings' %>
-
-<!-- Move this one to partial! -->
+<%= stylesheet_link_tag "projects" %>
 <div class="album">
-  <div class="container">
+  <div class="container mt-5">
     <div class="row sortable">
       <% @projects.each do |project| %>
           <div class="col-md-4" data-id="<%= project.id %>">
-            <div class="card mb-4 shadow-sm">
-              <%= image_tag project.thumb_image, class: "bd-placeholder-img card-img-top", width: "100%", height: "225" %>
+            <div class="card mb-4 shadow-sm projectCard">
+              <a href="projects/<%= project.id %>"><%= image_tag project.main_image, class: "bd-placeholder-img card-img-top", width: "100%", height: "225" %></a>
               <div class="card-body">
                 <p class="card-title"><%= project.title %></p>
-                <p class="card-text"><%= project.body %></p>
+                <p class="card-text"><%= project.project_content.to_plain_text.first(250)%></p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Show', project %></button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Edit', edit_project_path(project) %></button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'More...', project %></button>
+                    <% if current_user %>
+                      <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Edit', edit_project_path(project) %></button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+                    <% end %>
                   </div>
-                  <small class="text-muted"><%= distance_of_time_in_words(project.created_at, Time.now) %></small>
+                  <small class="text-muted">Added: <%= distance_of_time_in_words(project.created_at, Time.now) %> ago.</small>
                 </div>
               </div>
             </div>
@@ -30,5 +30,5 @@
 <br>
 
 <div class="container text-center">
-  <%= link_to 'New Project', new_project_path %>
+  <%= link_to 'New Project', new_project_path if current_user %>
 </div>
