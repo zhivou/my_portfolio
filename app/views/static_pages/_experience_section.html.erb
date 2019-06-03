@@ -1,6 +1,6 @@
 <% experience.each do |exp| %>
   <div class="experience_item">
-      <strong><%= exp.title %></strong> <%= link_to 'Edit', edit_experience_path(exp), {:remote => true, 'data-toggle' => "modal", 'data-target' => '#EditExperience'} %>
+      <strong><%= exp.title %></strong> <%= link_to 'Edit', edit_experience_path(exp), {:remote => true, 'data-toggle' => "modal", 'data-target' => '#EditExperience'} if current_user %>
       <br>
       <p><%= exp.organization %></p>
       <p><%= exp.location %></p>
@@ -9,4 +9,4 @@
       <br>
   </div>
 <% end %>
-<%= link_to 'Add new', new_experience_path, {:remote => true, 'data-toggle' => "modal", 'data-target' => '#createNewExperience'}%>
+<%= link_to 'Add new', new_experience_path, {:remote => true, 'data-toggle' => "modal", 'data-target' => '#createNewExperience'} if current_user %>
