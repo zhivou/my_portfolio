@@ -6,13 +6,15 @@ default: &default
 development:
   <<: *default
   database: development
+  password:
 
 test:
   <<: *default
   database: test
+  password:
 
 production:
   <<: *default
-  database: production
-  username: production
-  password: <%= ENV['PRODUCTION_DATABASE_PASSWORD'] %>
+  database: ddcl8rl83l5a2d
+  username: hlfcmkjcyybvep
+  password:
