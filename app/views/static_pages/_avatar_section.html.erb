@@ -3,9 +3,9 @@
 
     <%= image_tag @avatar.avatar_image, class: "card-img-top" %>
     <div class="card-body">
-      <h5 class="card-title"><%= @avatar.first_name + ' ' + @avatar.last_name %></h5>
-      <h6 class="card-subtitle mb-2 text-muted"><%= @avatar.title %></h6>
-      <p class="card-text"><%= @avatar.about %></p>
+      <h5 class="card-title"><%= @avatar.first_name + ' ' + @avatar.last_name if @avatar.count > 0 %></h5>
+      <h6 class="card-subtitle mb-2 text-muted"><%= @avatar.title if @avatar.count > 0 %></h6>
+      <p class="card-text"><%= @avatar.about if @avatar.count > 0 %></p>
       <a href="#">LinkedIn</a>
       <a href="#">GitLab</a>
     </div>
