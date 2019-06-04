@@ -1,11 +1,11 @@
 <div class="col-4" id="card-title">
   <div class="card shadow p-2 mb-2 bg-white rounded" style="width: 23rem;" id="avatar">
 
-    <%= image_tag @avatar.avatar_image, class: "card-img-top" if @avatar.count > 0 %>
+    <%= image_tag @avatar.avatar_image, class: "card-img-top" unless @avatar.nil? %>
     <div class="card-body">
-      <h5 class="card-title"><%= @avatar.first_name + ' ' + @avatar.last_name if @avatar.count > 0 %></h5>
-      <h6 class="card-subtitle mb-2 text-muted"><%= @avatar.title if @avatar.count > 0 %></h6>
-      <p class="card-text"><%= @avatar.about if @avatar.count > 0 %></p>
+      <h5 class="card-title"><%= @avatar.first_name + ' ' + @avatar.last_name unless @avatar.nil? %></h5>
+      <h6 class="card-subtitle mb-2 text-muted"><%= @avatar.title unless @avatar.nil? %></h6>
+      <p class="card-text"><%= @avatar.about unless @avatar.nil? %></p>
       <a href="#">LinkedIn</a>
       <a href="#">GitLab</a>
     </div>
