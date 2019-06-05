@@ -22,3 +22,4 @@ import "controllers"
 require("axios");
 require("trix");
 require("@rails/actiontext");
+require("@rails/activestorage");
