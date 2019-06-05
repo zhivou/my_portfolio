@@ -2,16 +2,8 @@ local:
   service: Disk
   root: <%= Rails.root.join("storage") %>
 
-##
-# Not implemented yet
-#
-test:
-  service: Disk
-  root: <%= Rails.root.join("tmp/storage") %>
-
-amazon:
-  service: S3
-  access_key_id: ""
-  secret_access_key: ""
-  bucket: ""
-  region: "" # e.g. 'us-east-1'
+google:
+  service: GCS
+  project: skr-portfolio
+  credentials: <%= ENV['GOOGLE_APPLICATION_CREDENTIALS'] %>
+  bucket: skrdev.com
