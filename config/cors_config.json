@@ -1,0 +1,17 @@
+[
+  {
+    "origin": [
+      "https://skrdev.com",
+      "www.skrdev.com",
+      "http://www.skrdev.com",
+      "http://skrdev.com",
+      "https://www.skrdev.com",
+      "*skrdev.com.storage.googleapis.com"
+    ],
+
+    "responseHeader": ["Content-Type", "Content-Md5"],
+
+    "method": ["GET", "HEAD", "DELETE", "PUT", "POST", "OPTIONS"],
+    "maxAgeSeconds": 3600
+  }
+]
