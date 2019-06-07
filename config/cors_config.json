@@ -5,8 +5,7 @@
       "www.skrdev.com",
       "http://www.skrdev.com",
       "http://skrdev.com",
-      "https://www.skrdev.com",
-      "*skrdev.com.storage.googleapis.com"
+      "https://www.skrdev.com"
     ],
 
     "responseHeader": ["Content-Type", "Content-Md5"],
