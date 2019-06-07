@@ -12,7 +12,7 @@ module ApplicationHelper
         "<span>Logout</span>".html_safe
       end
     elsif User.all.count == 0
-      login_renders + " " + register_renders
+      register_renders
     end
   end
 
