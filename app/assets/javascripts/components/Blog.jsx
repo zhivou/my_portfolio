@@ -4,14 +4,14 @@ class Blog extends React.Component {
     super(props);
 
     this.state = {
-      blogs: null
+      blogs: []
     };
   }
 
   componentDidMount() {
     axios.get('/blogs-api')
         .then( res => {
-          this.setState({ blogs: res.data })
+          this.setState({blogs: res.data})
         })
         .catch( err => {
           console.log(err)
@@ -21,8 +21,8 @@ class Blog extends React.Component {
   render() {
     return (
       <div>
-        <Post post={this.state} />
-        <Calendar date={"2019/01/01"}/>
+        <Post blogs={this.state.blogs}/>
+        <Calendar />
         <HashTags />
       </div>
     )
@@ -32,7 +32,9 @@ class Blog extends React.Component {
 const Post = (props) => {
   return(
     <div>
-      <p>Post will be here</p>
+      {props.blogs.map(item => (
+          <li key={item.id}>{item.title}</li>
+      ))}
     </div>
   )
 };
@@ -40,7 +42,7 @@ const Post = (props) => {
 const Calendar = (props) => {
   return(
       <div>
-        <p>Here is a calendar</p>
+        <p>Calendar</p>
       </div>
   )
 };
