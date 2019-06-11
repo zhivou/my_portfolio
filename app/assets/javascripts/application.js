@@ -11,7 +11,7 @@
 // about supported directives.
 //
 //= require jquery
-//= require rails-uj
+//= require rails-ujs
 //= require jquery-ui
 //= require Chart.min
 //= require bootstrap
