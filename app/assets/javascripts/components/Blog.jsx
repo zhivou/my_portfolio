@@ -4,59 +4,51 @@ class Blog extends React.Component {
     super(props);
 
     this.state = {
-       id: null,
-       title: null,
-       description: null,
-       time_words: null,
-       created_at: null,
-       updated_at: null
+      blogs: null
     };
   }
 
   componentDidMount() {
-
-    temp_holder = Object.values(this.props);
-    this.setState({
-      id: temp_holder[0].id,
-      title: temp_holder[0].title,
-      created_at: temp_holder[0].created_at,
-      updated_at: temp_holder[0].updated_at,
-      description: temp_holder[1],
-      time_words: temp_holder[2]
-    })
+    axios.get('/blogs-api')
+        .then( res => {
+          this.setState({ blogs: res.data })
+        })
+        .catch( err => {
+          console.log(err)
+        })
   }
 
   render() {
     return (
       <div>
         <Post post={this.state} />
+        <Calendar date={"2019/01/01"}/>
+        <HashTags />
       </div>
     )
   }
 }
 
 const Post = (props) => {
-  link = `/blogs/${props.post.id}`;
-  edit = `/blogs/${props.post.id}/edit`;
-
   return(
     <div>
-      <div className="card shadow p-3 mb-3 bg-white rounded">
-        <div className="card-body">
-          <div className="card-title">
-            <a href={link} className="blogLink">{props.post.title}</a>
-            {/*<span className="titleLinks">*/}
-              {/*<a href={edit}>Edit</a>*/}
-              {/*<a href={link} data-confirm="Are you sure?" data-method="delete">Delete</a>*/}
-            {/*</span>*/}
-          </div>
-          <div className="card-text">
-            <p>{props.post.description}</p>
-          </div>
-          <hr/>
-          <p>Posted: {props.post.time_words} ago.</p>
-        </div>
-      </div>
+      <p>Post will be here</p>
     </div>
   )
 };
+
+const Calendar = (props) => {
+  return(
+      <div>
+        <p>Here is a calendar</p>
+      </div>
+  )
+};
+
+const HashTags = (props) => {
+  return(
+      <div>
+        <p>Hashes</p>
+      </div>
+  )
+}

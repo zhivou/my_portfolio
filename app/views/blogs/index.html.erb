@@ -1,20 +1,6 @@
 <%= stylesheet_link_tag "blogs" %>
 
 <div class="container">
-  <p id="notice"><%= notice %></p>
-
-  <div class="row">
-    <div class="col-12">
-      <% @blogs.each do |blog| %>
-        <span class="titleLinks">
-          <%= link_to 'Edit', edit_blog_path(blog) if current_user %>
-          <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } if current_user%>
-        </span>
-        <%= react_component("Blog", [blog, blog.body_area.to_plain_text.first(250), distance_of_time_in_words(blog.created_at, Time.now)] ) %>
-      <% end %>
-    </div>
-  </div>
-  <br>
-
+  <%= react_component("Blog") %>
   <%= link_to 'New Blog', new_blog_path if current_user%>
 </div>
