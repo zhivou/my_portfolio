@@ -33,17 +33,24 @@ class Blog extends React.Component {
 
 const Post = (props) => {
   return(
-    <div>
-      {props.blogs.map(item => (
-          <li key={item.id}>
-            {item.title}
-            <br/>
-            {item.short_body}
-            <hr/>
-          </li>
-      ))}
-    </div>
-  )
+      <div>
+        {
+          props.blogs.map(item => (
+              <div className="card shadow p-3 mb-3 bg-white rounded" key={item.id}>
+                <div className="card-body">
+                  <div className="card-title">
+                    <a href={`/blogs/${item.id}`} className="blogLink">{item.title}</a>
+                  </div>
+                  <div className="card-text">
+                    <p>{item.short_body}</p>
+                  </div>
+                  <hr/>
+                  <p>Posted: {item.created_at} ago.</p>
+                </div>
+              </div>
+          ))
+        }
+      </div>)
 };
 
 const Calendar = (props) => {
