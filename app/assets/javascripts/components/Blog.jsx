@@ -4,7 +4,8 @@ class Blog extends React.Component {
     super(props);
 
     this.state = {
-      blogs: []
+      blogs: [],
+      tags: []
     };
   }
 
@@ -15,17 +16,31 @@ class Blog extends React.Component {
         })
         .catch( err => {
           console.log(err)
+        });
+
+    axios.get('/api-tags')
+        .then( res => {
+          this.setState({tags: res.data})
         })
+        .catch( err => {
+          console.log(err)
+        });
   }
 
   render() {
     return (
-      <div>
-        <Post
-            blogs={this.state.blogs}
-        />
-        <Calendar />
-        <HashTags />
+      <div className="row">
+        <div className="col-10">
+          <Post
+              blogs={this.state.blogs}
+          />
+        </div>
+        <div className="col-2">
+          <HashTags
+              tags={this.state.tags}
+          />
+          <Calendar />
+        </div>
       </div>
     )
   }
@@ -42,10 +57,10 @@ const Post = (props) => {
                     <a href={`/blogs/${item.id}`} className="blogLink">{item.title}</a>
                   </div>
                   <div className="card-text">
-                    <p>{item.short_body}</p>
+                    <p>{item.short_body}<a href={`/blogs/${item.id}`} className="blogLink"> read more>></a></p>
                   </div>
                   <hr/>
-                  <p>Posted: {item.created_at} ago.</p>
+                  <p>Posted at: {item.created_at.substring(0, 10)}</p>
                 </div>
               </div>
           ))
@@ -56,7 +71,7 @@ const Post = (props) => {
 const Calendar = (props) => {
   return(
       <div>
-        <p>Calendar</p>
+        Calendar
       </div>
   )
 };
@@ -64,7 +79,7 @@ const Calendar = (props) => {
 const HashTags = (props) => {
   return(
       <div>
-        <p>Hashes</p>
+        <p>{JSON.stringify(props.tags)}</p>
       </div>
   )
 };

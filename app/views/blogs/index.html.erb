@@ -1,6 +1,6 @@
 <%= stylesheet_link_tag "blogs" %>
 
 <div class="container">
+  <%= link_to 'New Blog', new_blog_path if current_user %>
   <%= react_component("Blog") %>
-  <%= link_to 'New Blog', new_blog_path if current_user%>
 </div>

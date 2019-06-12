@@ -17,6 +17,10 @@ class BlogsController < ApplicationController
     render json: Blog.find(params[:blog_id]).body_area.to_plain_text.first(250)
   end
 
+  def api_tags
+    render json: Tag.get_tags_active_r_count
+  end
+
   # GET /blogs/1
   # GET /blogs/1.json
   def show
