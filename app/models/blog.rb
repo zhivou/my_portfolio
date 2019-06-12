@@ -14,4 +14,11 @@ class Blog < ApplicationRecord
   def self.get_blogs_with_tag(tag_name)
     self.where(:description)
   end
+
+  def self.blogs_and_body
+    ActionTextRichText
+        .joins("INNER JOIN blogs ON blogs.id = action_text_rich_texts.record_id")
+        .select("blogs.*, action_text_rich_texts.body")
+        .order("blogs.created_at DESC")
+  end
 end

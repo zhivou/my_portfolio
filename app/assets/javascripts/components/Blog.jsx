@@ -33,7 +33,10 @@ const Post = (props) => {
   return(
     <div>
       {props.blogs.map(item => (
-          <li key={item.id}>{item.title}</li>
+          <li key={item.id}>
+            {item.title}
+            {}
+          </li>
       ))}
     </div>
   )
@@ -53,4 +56,4 @@ const HashTags = (props) => {
         <p>Hashes</p>
       </div>
   )
-}
+};

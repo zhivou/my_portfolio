@@ -10,7 +10,11 @@ class BlogsController < ApplicationController
   end
 
   def api_index
-    render json: Blog.order("created_at DESC")
+    render json: Blog.blogs_and_body
+  end
+
+  def api_translate_body_to_short
+    render json: Blog.find((params[:blog_id])).body_area.to_plain_text.first(250)
   end
 
   # GET /blogs/1
@@ -76,6 +80,7 @@ class BlogsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params
       params.require(:blog).permit(:title,
+                                   :blog_id,
                                    :main_image,
                                    :body_area,
                                    tags_attributes: [:id, :description, :_destroy]
