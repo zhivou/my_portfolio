@@ -14,7 +14,7 @@ class BlogsController < ApplicationController
   end
 
   def api_translate_body_to_short
-    render json: Blog.find((params[:blog_id])).body_area.to_plain_text.first(250)
+    render json: Blog.find(params[:blog_id]).body_area.to_plain_text.first(250)
   end
 
   # GET /blogs/1
@@ -38,6 +38,8 @@ class BlogsController < ApplicationController
 
     respond_to do |format|
       if @blog.save
+        @blog.short_body = @blog.body_area.to_plain_text.first(250)
+        @blog.save!
         format.html { redirect_to @blog, notice: 'Blog was successfully created.' }
         format.json { render :show, status: :created, location: @blog }
       else
@@ -52,6 +54,8 @@ class BlogsController < ApplicationController
   def update
     respond_to do |format|
       if @blog.update(blog_params)
+        @blog.short_body = @blog.body_area.to_plain_text.first(250)
+        @blog.save!
         format.html { redirect_to @blog, notice: 'Blog was successfully updated.' }
         format.json { render :show, status: :ok, location: @blog }
       else

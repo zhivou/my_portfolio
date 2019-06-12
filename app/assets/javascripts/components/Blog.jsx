@@ -21,7 +21,9 @@ class Blog extends React.Component {
   render() {
     return (
       <div>
-        <Post blogs={this.state.blogs}/>
+        <Post
+            blogs={this.state.blogs}
+        />
         <Calendar />
         <HashTags />
       </div>
@@ -35,7 +37,9 @@ const Post = (props) => {
       {props.blogs.map(item => (
           <li key={item.id}>
             {item.title}
-            {}
+            <br/>
+            {item.short_body}
+            <hr/>
           </li>
       ))}
     </div>
