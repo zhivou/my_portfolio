@@ -71,6 +71,7 @@ const Post = (props) => {
 const Calendar = (props) => {
   return(
       <div>
+        <hr/>
         Calendar
       </div>
   )
@@ -79,7 +80,13 @@ const Calendar = (props) => {
 const HashTags = (props) => {
   return(
       <div>
-        <p>{JSON.stringify(props.tags)}</p>
+        {Object.keys(props.tags).map(function(key) {
+          return (
+              <div>
+                <div>{key}({props.tags[key]})</div>
+              </div>
+          );
+        })}
       </div>
   )
 };
