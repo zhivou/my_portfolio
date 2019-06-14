@@ -96,6 +96,7 @@ class BlogsController < ApplicationController
                                    :main_image,
                                    :body_area,
                                    :tag_name,
+                                   :date,
                                    tags_attributes: [:id, :description, :_destroy]
       )
     end

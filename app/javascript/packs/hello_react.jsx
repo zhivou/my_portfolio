@@ -19,6 +19,10 @@ class Blog extends React.Component {
     };
   }
 
+  onChange = date => {
+    this.setState({ date })
+  };
+
   componentDidMount() {
     axios.get('/blogs-api')
         .then( res => {
@@ -61,6 +65,9 @@ class Blog extends React.Component {
         <div>
           <div className="searchTitle col-10">
             <h2>{this.state.searchTitle}</h2>
+            <h2>{
+              this.state.date.toISOString().split('T')[0] }
+            </h2>
             <hr/>
           </div>
           <div className="row">
@@ -74,6 +81,7 @@ class Blog extends React.Component {
               <Calendar
                   onChange={this.onChange}
                   value={this.state.date}
+                  calendarType="US"
               />
               <hr/>
 
