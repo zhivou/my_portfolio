@@ -21,3 +21,4 @@ require("axios");
 require("trix");
 require("@rails/actiontext");
 require("@rails/activestorage");
+require("react-calendar");
