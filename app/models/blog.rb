@@ -28,7 +28,7 @@ class Blog < ApplicationRecord
         .joins("RIGHT JOIN blogs ON blogs.id = action_text_rich_texts.record_id")
         .select("blogs.*, action_text_rich_texts.body")
         .group("blogs.id, action_text_rich_texts.body")
-        .where("blogs.created_at =< '#{date}'")
+        .where("blogs.created_at <= '#{date + ' 23:00'}'")
         .order("blogs.created_at DESC")
   end
 

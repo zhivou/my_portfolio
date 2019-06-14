@@ -20,11 +20,22 @@ class Blog extends React.Component {
   }
 
   onChange = date => {
-    this.setState({ date })
+    this.setState({ date });
+    let newDate = date.toISOString().split('T')[0];
+
+    axios.get(`/blogs-api/${newDate}`)
+        .then( res => {
+          this.setState({blogs: res.data, blogs_count: res.data.length})
+        })
+        .catch( err => {
+          console.log(err)
+        });
   };
 
   componentDidMount() {
-    axios.get('/blogs-api')
+    let newDate = this.state.date.toISOString().split('T')[0];
+
+    axios.get(`/blogs-api/${newDate}`)
         .then( res => {
           this.setState({blogs: res.data, blogs_count: res.data.length})
         })
@@ -43,9 +54,10 @@ class Blog extends React.Component {
 
   handleTagClick(key) {
     let link = '';
+    let newDate = this.state.date.toISOString().split('T')[0];
 
     if (key === 'All Blogs') {
-      link = '/blogs-api'
+      link = `/blogs-api/${newDate}`
     }
     else {
       link = `/api-search-tags/${key}`
@@ -65,9 +77,9 @@ class Blog extends React.Component {
         <div>
           <div className="searchTitle col-10">
             <h2>{this.state.searchTitle}</h2>
-            <h2>{
+            <p>{
               this.state.date.toISOString().split('T')[0] }
-            </h2>
+            </p>
             <hr/>
           </div>
           <div className="row">
