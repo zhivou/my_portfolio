@@ -7,14 +7,15 @@ class Blog extends React.Component {
 
     this.state = {
       blogs: [],
-      tags: []
+      tags: [],
+      blogs_count: 0
     };
   }
 
   componentDidMount() {
     axios.get('/blogs-api')
         .then( res => {
-          this.setState({blogs: res.data})
+          this.setState({blogs: res.data, blogs_count: res.data.length})
         })
         .catch( err => {
           console.log(err)
@@ -51,6 +52,7 @@ class Blog extends React.Component {
           <HashTags
               tags={this.state.tags}
               handleTagClick={this.handleTagClick}
+              tags_count={this.state.blogs_count}
           />
           <Calendar />
         </div>
@@ -93,14 +95,21 @@ const Calendar = (props) => {
 const HashTags = (props) => {
   return(
     <div>
-      {
-        Object.keys(props.tags).map(function(key) {
-        return (
-          <div onClick={() => props.handleTagClick(key)} key={key}>
-            {key}({props.tags[key]})
-          </div>
-        );
-      })}
+      <div>
+        {
+          Object.keys(props.tags).map(function(key) {
+            return (
+                <div onClick={() => props.handleTagClick(key)} key={key} className="hashTah">
+                  {key}({props.tags[key]})
+                </div>
+            );
+          })}
+      </div>
+      <div>
+        <div onClick={() => props.handleTagClick("*")} key="all" className="hashTah">
+          All({props.tags_count})
+        </div>
+      </div>
     </div>
   )
 };
