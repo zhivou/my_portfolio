@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import Calendar from 'react-calendar';
 
 class Blog extends React.Component {
 
@@ -13,7 +14,8 @@ class Blog extends React.Component {
       blogs: [],
       tags: [],
       blogs_count: 0,
-      searchTitle: "All Blogs"
+      searchTitle: "All Blogs",
+      date: new Date()
     };
   }
 
@@ -62,18 +64,24 @@ class Blog extends React.Component {
             <hr/>
           </div>
           <div className="row">
-            <div className="col-10">
+            <div className="col-8">
               <Post
                   blogs={this.state.blogs}
               />
             </div>
-            <div className="col-2">
+
+            <div className="col-4">
+              <Calendar
+                  onChange={this.onChange}
+                  value={this.state.date}
+              />
+              <hr/>
+
               <HashTags
                   tags={this.state.tags}
                   handleTagClick={this.handleTagClick}
                   tags_count={this.state.blogs_count}
               />
-              <Calendar />
             </div>
           </div>
         </div>
@@ -101,14 +109,6 @@ const Post = (props) => {
           ))
         }
       </div>)
-};
-
-const Calendar = (props) => {
-  return(
-      <div>
-        <hr/>
-      </div>
-  )
 };
 
 const HashTags = (props) => {
