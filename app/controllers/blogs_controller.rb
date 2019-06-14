@@ -10,7 +10,7 @@ class BlogsController < ApplicationController
   end
 
   def api_index
-    render json: Blog.blogs_and_body
+    render json: Blog.blogs_and_body_date(params[:date])
   end
 
   def api_translate_body_to_short
@@ -96,6 +96,7 @@ class BlogsController < ApplicationController
                                    :main_image,
                                    :body_area,
                                    :tag_name,
+                                   :date,
                                    tags_attributes: [:id, :description, :_destroy]
       )
     end
