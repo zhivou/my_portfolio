@@ -17,7 +17,7 @@ class Blog < ApplicationRecord
 
   def self.blogs_and_body
     ActionTextRichText
-        .joins("INNER JOIN blogs ON blogs.id = action_text_rich_texts.record_id")
+        .joins("LEFT JOIN blogs ON blogs.id = action_text_rich_texts.record_id")
         .select("blogs.*, action_text_rich_texts.body")
         .order("blogs.created_at DESC")
   end
