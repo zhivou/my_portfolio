@@ -31,7 +31,16 @@ class Blog extends React.Component {
   }
 
   handleTagClick(key) {
-    axios.get(`/api-search-tags/${key}`)
+    let link = '';
+
+    if (key === 'all') {
+      link = '/blogs-api'
+    }
+    else {
+      link = `/api-search-tags/${key}`
+    }
+
+    axios.get(link)
         .then( res => {
           this.setState({blogs: res.data})
         })
@@ -106,7 +115,7 @@ const HashTags = (props) => {
           })}
       </div>
       <div>
-        <div onClick={() => props.handleTagClick("*")} key="all" className="hashTah">
+        <div onClick={() => props.handleTagClick("all")} key="all" className="hashTah">
           All({props.tags_count})
         </div>
       </div>
