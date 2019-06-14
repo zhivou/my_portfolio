@@ -19,6 +19,7 @@ class Blog < ApplicationRecord
     ActionTextRichText
         .joins("RIGHT JOIN blogs ON blogs.id = action_text_rich_texts.record_id")
         .select("blogs.*, action_text_rich_texts.body")
+        .group("blogs.id, action_text_rich_texts.body")
         .order("blogs.created_at DESC")
   end
 
