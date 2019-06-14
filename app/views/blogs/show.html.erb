@@ -29,5 +29,6 @@
   <div class="container text-center">
     <%= link_to 'Edit |', edit_blog_path(@blog) if current_user%>
     <%= link_to 'Back', blogs_path %>
+    <%= link_to '| Delete', blog_path, method: :delete, data: { confirm: 'Are you sure?' } if current_user%>
   </div>
 </div>
