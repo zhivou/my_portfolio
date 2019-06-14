@@ -8,7 +8,8 @@ class Blog extends React.Component {
     this.state = {
       blogs: [],
       tags: [],
-      blogs_count: 0
+      blogs_count: 0,
+      searchTitle: "All Blogs"
     };
   }
 
@@ -33,7 +34,7 @@ class Blog extends React.Component {
   handleTagClick(key) {
     let link = '';
 
-    if (key === 'all') {
+    if (key === 'All Blogs') {
       link = '/blogs-api'
     }
     else {
@@ -42,7 +43,7 @@ class Blog extends React.Component {
 
     axios.get(link)
         .then( res => {
-          this.setState({blogs: res.data})
+          this.setState({blogs: res.data, searchTitle: key})
         })
         .catch( err => {
           console.log(err)
@@ -51,21 +52,27 @@ class Blog extends React.Component {
 
   render() {
     return (
-      <div className="row">
-        <div className="col-10">
-          <Post
-              blogs={this.state.blogs}
-          />
+        <div>
+          <div className="searchTitle col-10">
+            <h2>{this.state.searchTitle}</h2>
+            <hr/>
+          </div>
+          <div className="row">
+            <div className="col-10">
+              <Post
+                  blogs={this.state.blogs}
+              />
+            </div>
+            <div className="col-2">
+              <HashTags
+                  tags={this.state.tags}
+                  handleTagClick={this.handleTagClick}
+                  tags_count={this.state.blogs_count}
+              />
+              <Calendar />
+            </div>
+          </div>
         </div>
-        <div className="col-2">
-          <HashTags
-              tags={this.state.tags}
-              handleTagClick={this.handleTagClick}
-              tags_count={this.state.blogs_count}
-          />
-          <Calendar />
-        </div>
-      </div>
     )
   }
 }
@@ -96,7 +103,6 @@ const Calendar = (props) => {
   return(
       <div>
         <hr/>
-        Calendar
       </div>
   )
 };
@@ -105,17 +111,16 @@ const HashTags = (props) => {
   return(
     <div>
       <div>
-        {
-          Object.keys(props.tags).map(function(key) {
+        {Object.keys(props.tags).map(function(key) {
             return (
                 <div onClick={() => props.handleTagClick(key)} key={key} className="hashTah">
                   {key}({props.tags[key]})
                 </div>
             );
-          })}
+        })}
       </div>
       <div>
-        <div onClick={() => props.handleTagClick("all")} key="all" className="hashTah">
+        <div onClick={() => props.handleTagClick("All Blogs")} key="All Blogs:" className="hashTah">
           All({props.tags_count})
         </div>
       </div>
