@@ -3,6 +3,8 @@ class Blog extends React.Component {
   constructor(props){
     super(props);
 
+    this.handleTagClick = this.handleTagClick.bind(this);
+
     this.state = {
       blogs: [],
       tags: []
@@ -27,6 +29,10 @@ class Blog extends React.Component {
         });
   }
 
+  handleTagClick(key) {
+    console.log(key)
+  }
+
   render() {
     return (
       <div className="row">
@@ -38,6 +44,7 @@ class Blog extends React.Component {
         <div className="col-2">
           <HashTags
               tags={this.state.tags}
+              handleTagClick={this.handleTagClick}
           />
           <Calendar />
         </div>
@@ -79,14 +86,14 @@ const Calendar = (props) => {
 
 const HashTags = (props) => {
   return(
-      <div>
-        {Object.keys(props.tags).map(function(key) {
-          return (
-              <div>
-                <div>{key}({props.tags[key]})</div>
-              </div>
-          );
-        })}
-      </div>
+    <div>
+      {Object.keys(props.tags).map(function(key) {
+        return (
+          <div onClick={() => props.handleTagClick(key)}>
+            {key}({props.tags[key]})
+          </div>
+        );
+      })}
+    </div>
   )
 };
