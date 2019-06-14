@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Calendar from 'react-calendar';
+import './Calendar.css'
 
 class Blog extends React.Component {
 
