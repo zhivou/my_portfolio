@@ -30,7 +30,13 @@ class Blog extends React.Component {
   }
 
   handleTagClick(key) {
-    console.log(key)
+    axios.get(`/api-search-tags/${key}`)
+        .then( res => {
+          this.setState({blogs: res.data})
+        })
+        .catch( err => {
+          console.log(err)
+        });
   }
 
   render() {
@@ -87,9 +93,10 @@ const Calendar = (props) => {
 const HashTags = (props) => {
   return(
     <div>
-      {Object.keys(props.tags).map(function(key) {
+      {
+        Object.keys(props.tags).map(function(key) {
         return (
-          <div onClick={() => props.handleTagClick(key)}>
+          <div onClick={() => props.handleTagClick(key)} key={key}>
             {key}({props.tags[key]})
           </div>
         );

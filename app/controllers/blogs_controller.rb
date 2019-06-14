@@ -21,6 +21,10 @@ class BlogsController < ApplicationController
     render json: Tag.get_tags_active_r_count
   end
 
+  def api_search_tags
+    render json: Blog.blogs_body_tags(params[:tag_name])
+  end
+
   # GET /blogs/1
   # GET /blogs/1.json
   def show
@@ -91,6 +95,7 @@ class BlogsController < ApplicationController
                                    :blog_id,
                                    :main_image,
                                    :body_area,
+                                   :tag_name,
                                    tags_attributes: [:id, :description, :_destroy]
       )
     end
