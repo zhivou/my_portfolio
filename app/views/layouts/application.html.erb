@@ -6,13 +6,11 @@
     <meta name="keywords" content="<%= @seo_keywords %>">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%#= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application' %>
-    <%= javascript_pack_tag 'hello_react' %>
-    <%= stylesheet_pack_tag 'hello_react' %>
   </head>
 
-  <body>
+  <body data-turbolinks="false">
     <p class="notice" style="display: <%= "none" unless notice %>;"><%= notice %></p>
     <p class="alert" style="display: <%= "none" unless notice %>;"><%= alert %></p>
     <div id="myModal"></div>
