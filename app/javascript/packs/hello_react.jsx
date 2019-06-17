@@ -76,7 +76,7 @@ class Blog extends React.Component {
   render() {
     return (
         <div>
-          <div className="searchTitle col-10">
+          <div className="searchTitle col-xl-10 col-sm-12">
             <h2>{this.state.searchTitle}</h2>
             <p>{
               this.state.date.toISOString().split('T')[0] }
@@ -84,13 +84,13 @@ class Blog extends React.Component {
             <hr/>
           </div>
           <div className="row">
-            <div className="col-8">
+            <div className="col-xl-8 col-sm-12">
               <Post
                   blogs={this.state.blogs}
               />
             </div>
 
-            <div className="col-4">
+            <div className="col-4 d-none d-xl-block">
               <Calendar
                   onChange={this.onChange}
                   value={this.state.date}
