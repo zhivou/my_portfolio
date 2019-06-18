@@ -31,8 +31,8 @@
   <script>
 
     var disqus_config = function () {
-    this.page.url = "http://skrdev.com/blogs/<%= @blog.id %>";
-    this.page.identifier = "<%= @blog.id %>";
+      this.page.url = "http://skrdev.com/blogs/<%= @blog.id %>";
+      this.page.identifier = "blog<%= @blog.id %>";
     };
 
     (function() { // DON'T EDIT BELOW THIS LINE
