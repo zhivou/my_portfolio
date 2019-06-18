@@ -26,6 +26,25 @@
     </div>
   </div>
 
+
+  <div id="disqus_thread"></div>
+  <script>
+
+    var disqus_config = function () {
+    this.page.url = "http://skrdev.com/blogs";
+    this.page.identifier = "<%= @blog.id %>";
+    };
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://skrdev.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
   <div class="container text-center">
     <%= link_to 'Edit |', edit_blog_path(@blog) if current_user%>
     <%= link_to 'Back', blogs_path %>
