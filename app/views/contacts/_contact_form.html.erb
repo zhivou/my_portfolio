@@ -9,9 +9,8 @@
                     class: "contacts-form-text-area",
                     placeholder: "Your Message"%><br>
 
-    <div class= "hidden">
-      <%= f.label :nickname %>
-      <%= f.text_field :nickname, :hint => 'Leave this field blank!' %>
+    <div class= "hidden d-none">
+      <%= f.text_field :nickname %>
     </div>
 
     <%= f.submit 'Send Message', class: 'btn-send' %>

@@ -2,48 +2,48 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.container {
+.cont {
   background: #FFFFFF;
-  width: 900px;
+  width: 1000px;
   height: 650px;
   margin: 5% auto;
   position: relative;
 }
-.container .map {
+.cont .map {
   width: 45%;
   float: left;
 }
-.container .contact-form {
+.cont .contact-form {
   width: 53%;
   margin-left: 2%;
   float: left;
 }
-.container .contact-form .title {
+.cont .contact-form .title {
   font-size: 2.5em;
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   color: #242424;
   margin: 5% 8%;
 }
-.container .contact-form .subtitle {
+.cont .contact-form .subtitle {
   font-size: 1.2em;
   font-weight: 400;
   margin: 0 4% 5% 8%;
 }
-.container .contact-form input,
-.container .contact-form textarea {
-  width: 330px;
+.cont .contact-form input,
+.cont .contact-form textarea {
+  width: 560px;
   padding: 3%;
   margin: 2% 8%;
   color: #242424;
   border: 1px solid #B7B7B7;
 }
-.container .contact-form input::placeholder,
-.container .contact-form textarea::placeholder {
+.cont .contact-form input::placeholder,
+.cont .contact-form textarea::placeholder {
   color: #242424;
 }
-.container .contact-form .btn-send {
-  background: #A383C9;
+.cont .contact-form .btn-send {
+  background: indianred;
   width: 180px;
   height: 60px;
   color: #FFFFFF;
