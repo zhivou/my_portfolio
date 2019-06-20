@@ -4,6 +4,16 @@
 
 <div class="row">
   <div class="col-md-6 my-auto">
+    <div id="flash-message">
+      <div>
+        <% flash.each do |key, value| %>
+          <div>
+            <a href="#" data-dismiss="alert">×</a>
+            <%= value %>
+          </div>
+        <% end %>
+      </div>
+    </div>
     <%= render 'contact_form' %>
   </div>
 

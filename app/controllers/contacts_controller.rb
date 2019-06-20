@@ -1,10 +1,13 @@
-class ContactController < ApplicationController
+class ContactsController < ApplicationController
+
+  before_action :contact_params, only: [:create]
+
   def index
     @contact = ContactForm.new
   end
 
   def create
-    @contact = ContactForm.new(params[:contact])
+    @contact = ContactForm.new(params[:contacts])
     @contact.request = request
     if @contact.deliver
       flash.now[:notice] = 'Thank you for your message!'
@@ -16,6 +19,6 @@ class ContactController < ApplicationController
 
   private
   def contact_params
-    params.require(:contact).permit(:name, :email, :message, :captcha)
+    params.require(:contact_form).permit(:name, :email, :message, :nickname, :captcha)
   end
 end
