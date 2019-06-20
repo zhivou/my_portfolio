@@ -63,3 +63,4 @@ gem 'image_processing'
 gem 'webpacker'
 gem "cocoon"
 gem 'google-cloud-storage', '~> 1.18', '>= 1.18.2'
+gem 'mail_form'

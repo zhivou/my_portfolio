@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :contacts, only: [:index, :new, :create]
   devise_for :users, path: '',
              path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' },
              controllers: { registrations: "registrations"}
@@ -21,7 +22,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root to: 'static_pages#resume'
-  get 'contacts', to: 'static_pages#contact'
 
   ##
   # SpaceX API paged

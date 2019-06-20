@@ -11,6 +11,7 @@ Rails.application.config.assets.precompile += %w( blogs.css )
 Rails.application.config.assets.precompile += %w( spacex.css )
 Rails.application.config.assets.precompile += %w( spacex.js )
 Rails.application.config.assets.precompile += %w( projects.css )
+Rails.application.config.assets.precompile += %w( contacts.css )
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets

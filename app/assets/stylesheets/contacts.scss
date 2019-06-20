@@ -1,0 +1,54 @@
+// Place all the styles related to the Contact controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.cont {
+  background: #FFFFFF;
+  width: 1000px;
+  height: 650px;
+  margin: 5% auto;
+  position: relative;
+}
+.cont .map {
+  width: 45%;
+  float: left;
+}
+.cont .contact-form {
+  width: 53%;
+  margin-left: 2%;
+  float: left;
+}
+.cont .contact-form .title {
+  font-size: 2.5em;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  color: #242424;
+  margin: 5% 8%;
+}
+.cont .contact-form .subtitle {
+  font-size: 1.2em;
+  font-weight: 400;
+  margin: 0 4% 5% 8%;
+}
+.cont .contact-form input,
+.cont .contact-form textarea {
+  width: 560px;
+  padding: 3%;
+  margin: 2% 8%;
+  color: #242424;
+  border: 1px solid #B7B7B7;
+}
+.cont .contact-form input::placeholder,
+.cont .contact-form textarea::placeholder {
+  color: #242424;
+}
+.cont .contact-form .btn-send {
+  background: indianred;
+  width: 180px;
+  height: 60px;
+  color: #FFFFFF;
+  font-weight: 700;
+  margin: 2% 8%;
+  border: none;
+}
+
