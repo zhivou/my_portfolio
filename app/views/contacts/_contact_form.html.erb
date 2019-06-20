@@ -1,26 +1,19 @@
 <%= form_for @contact, url: contacts_path do |f| %>
-  <div class="col-md-6">
-    <%= f.label :name %>
-    <br>
-    <%= f.text_field  :name, required: true, class: "contacts-form-text-area" %>
-    <br>
-
-    <%= f.label :email %>
-    <br>
-    <%= f.text_field :email, required: true, class: "contacts-form-text-area" %>
-    <br>
-
-    <%= f.label :message %>
-    <br>
-    <%= f.text_area :message, rows: 8, cols: 40, required: true, class: "contacts-form-text-area",
-                    placeholder: "Send a message to Glenn."%>
-    <br>
+  <div>
+    <%= f.text_field  :name, required: true, class: "contacts-form-text-area", placeholder: "Your Name" %><br>
+    <%= f.text_field :email, required: true, class: "contacts-form-text-area", placeholder: "Your E-mail Address" %><br>
+    <%= f.text_area :message,
+                    rows: 8,
+                    cols: 40,
+                    required: true,
+                    class: "contacts-form-text-area",
+                    placeholder: "Your Message"%><br>
 
     <div class= "hidden">
       <%= f.label :nickname %>
       <%= f.text_field :nickname, :hint => 'Leave this field blank!' %>
     </div>
 
-    <%= f.submit 'Send Message', class: 'btn btn-primary' %>
+    <%= f.submit 'Send Message', class: 'btn-send' %>
   </div>
 <% end %>
