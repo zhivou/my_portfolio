@@ -7,10 +7,11 @@ class ContactsController < ApplicationController
   end
 
   def create
-    @contact = ContactForm.new(params[:contacts])
+    @contact = ContactForm.new(params[:contact_form])
     @contact.request = request
     if @contact.deliver
       flash.now[:notice] = 'Thank you for your message!'
+      render :index
     else
       flash.now[:error] = 'Cannot send message.'
       render :index
