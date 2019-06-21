@@ -8,26 +8,32 @@ class Spacex extends React.Component {
     super(props);
 
     this.state = {
-      launches: [],
+      loading: false,
+      launches: []
     };
   }
 
   componentDidMount() {
+    this.setState({ loading: true });
     axios.get('https://api.spacexdata.com/v3/launches')
         .then( res => {
-          this.setState({launches: res.data})
+          this.setState({launches: res.data, loading: false})
         })
         .catch( err => {
           console.log(err)
         });
+
   }
 
   render() {
-    return (
-        <div>
-          <ShowLaunchesCount launches={this.state.launches}/>
-        </div>
-    )
+    if (!this.state.loading)
+      return (
+          <div>
+            <ShowLaunchesCount launches={this.state.launches}/>
+          </div>
+      );
+    else
+      return (<p>Be Hold, fetching data may take some time :)</p>);
   }
 }
 
