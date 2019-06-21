@@ -1,0 +1,17 @@
+<div class="card mb-4 shadow-sm projectCard">
+  <a href="projects/<%= project.id %>"><%= image_tag project.main_image, class: "bd-placeholder-img card-img-top", width: "100%", height: "225" %></a>
+  <div class="card-body">
+    <p class="card-title"><%= project.title %></p>
+    <p class="card-text"><%= project.project_content.to_plain_text.first(250)%></p>
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="btn-group">
+        <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'More...', project %></button>
+        <% if current_user %>
+          <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Edit', edit_project_path(project) %></button>
+          <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+        <% end %>
+      </div>
+      <small class="text-muted">Added: <%= distance_of_time_in_words(project.created_at, Time.now) %> ago.</small>
+    </div>
+  </div>
+</div>
