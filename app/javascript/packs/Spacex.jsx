@@ -7,11 +7,12 @@ class Spacex extends React.Component {
   constructor(props){
     super(props);
 
-    this.setAllSussessfulLaunches = this.setAllSussessfulLaunches.bind(this);
     this.state = {
       loading: false,
       launches: [],
-      s_launches: []
+      s_launches: [],
+      f_launches: [],
+      future_launches: []
     };
   }
 
@@ -20,7 +21,9 @@ class Spacex extends React.Component {
     axios.get('https://api.spacexdata.com/v3/launches')
         .then( res => {
           this.setState({launches: res.data, loading: false}); //Loading false should be at the end of any logic. Might need to be moved in future!
-          this.setAllSussessfulLaunches()
+          this.setAllSuccessfulLaunches();
+          this.setAllFailedLaunches();
+          this.setAllFutureLaunches();
         })
         .catch( err => {
           console.log(err)
@@ -28,13 +31,35 @@ class Spacex extends React.Component {
 
   }
 
-  setAllSussessfulLaunches() {
-    console.log("Calculation Sussccesful Launches");
+  setAllSuccessfulLaunches() {
+    console.log("Calculation Successful Launches");
     let that = this;
 
     this.state.launches.forEach(function (item) {
       if (item.launch_success === true) {
         that.setState({s_launches: [...that.state.s_launches, item]})
+      }
+    });
+  }
+
+  setAllFailedLaunches() {
+    console.log("Calculation Failed Launches");
+    let that = this;
+
+    this.state.launches.forEach(function (item) {
+      if (item.launch_success === false) {
+        that.setState({f_launches: [...that.state.f_launches, item]})
+      }
+    });
+  }
+
+  setAllFutureLaunches() {
+    console.log("Calculation Failed Launches");
+    let that = this;
+
+    this.state.launches.forEach(function (item) {
+      if (item.upcoming === true) {
+        that.setState({future_launches: [...that.state.future_launches, item]})
       }
     });
   }
