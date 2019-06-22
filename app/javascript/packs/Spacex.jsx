@@ -92,15 +92,19 @@ const ShowTotalCount = (props) => {
   console.log(total_by_mission);
 
   return(
-      <div>
-        Total Launches Including Planned: {props.launches.length}
-        {Object.keys(total_by_mission).map(function(key) {
-          return (
-              <div>
-                {key}: {total_by_mission[key]}
-              </div>
-          );
-        })}
+      <div className="container">
+        <div className="card">
+          Total Launches
+          <hr/>
+          {props.launches.length}
+          {Object.keys(total_by_mission).map(function(key) {
+            return (
+                <div>
+                  {total_by_mission[key]} - {key}
+                </div>
+            );
+          })}
+        </div>
       </div>
   )
 };
