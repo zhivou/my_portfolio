@@ -20,11 +20,11 @@ class Spacex extends React.Component {
     this.setState({ loading: true });
     axios.get('https://api.spacexdata.com/v3/launches')
         .then( res => {
-          this.setState({launches: res.data}); //Loading false should be at the end of any logic. Might need to be moved in future!
+          this.setState({launches: res.data});
           this.setAllSuccessfulLaunches();
           this.setAllFailedLaunches();
           this.setAllFutureLaunches();
-          this.setState({loading: false});
+          this.setState({loading: false}); //Loading false should be at the end of any logic. Might need to be moved in future!
         })
         .catch( err => {
           console.log(err)
@@ -70,6 +70,8 @@ class Spacex extends React.Component {
       return (
           <div>
             <ShowTotalCount launches={this.state.launches}/>
+            <br/>
+            <ShowErroneousLaunches launches={this.state.f_launches}/>
           </div>
       );
     else
@@ -99,11 +101,29 @@ const ShowTotalCount = (props) => {
           {props.launches.length}
           {Object.keys(total_by_mission).map(function(key) {
             return (
-                <div>
+                <div key={key}>
                   {total_by_mission[key]} - {key}
                 </div>
             );
           })}
+        </div>
+      </div>
+  )
+};
+
+const ShowErroneousLaunches = (props) => {
+  return(
+      <div className="container">
+        <div className="card">
+          Total Failed Launches
+          <hr/>
+          {props.launches.length}
+          {props.launches.map(item => (
+            <div>
+              <p>{item.details}</p>
+            </div>
+          ))
+          }
         </div>
       </div>
   )
