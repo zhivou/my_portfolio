@@ -20,10 +20,11 @@ class Spacex extends React.Component {
     this.setState({ loading: true });
     axios.get('https://api.spacexdata.com/v3/launches')
         .then( res => {
-          this.setState({launches: res.data, loading: false}); //Loading false should be at the end of any logic. Might need to be moved in future!
+          this.setState({launches: res.data}); //Loading false should be at the end of any logic. Might need to be moved in future!
           this.setAllSuccessfulLaunches();
           this.setAllFailedLaunches();
           this.setAllFutureLaunches();
+          this.setState({loading: false});
         })
         .catch( err => {
           console.log(err)
@@ -54,7 +55,7 @@ class Spacex extends React.Component {
   }
 
   setAllFutureLaunches() {
-    console.log("Calculation Failed Launches");
+    console.log("Calculation Future Launches");
     let that = this;
 
     this.state.launches.forEach(function (item) {
@@ -68,7 +69,7 @@ class Spacex extends React.Component {
     if (!this.state.loading)
       return (
           <div>
-            <ShowLaunchesCount launches={this.state.launches}/>
+            <ShowTotalCount launches={this.state.launches}/>
           </div>
       );
     else
@@ -76,17 +77,30 @@ class Spacex extends React.Component {
   }
 }
 
-const ShowLaunchesCount = (props) => {
+const ShowTotalCount = (props) => {
+  let total_by_mission = {};
+
+  props.launches.forEach( function(i) {
+    if (total_by_mission[i.rocket.rocket_name]) {
+      total_by_mission[i.rocket.rocket_name] += 1
+    }
+    else {
+      total_by_mission[i.rocket.rocket_name] = 1
+    }
+  });
+
+  console.log(total_by_mission);
+
   return(
       <div>
-        Total Launches: {props.launches.length}
-        {
-          props.launches.map(item => (
-            <div>
-              {item.details}
-            </div>
-          ))
-        }
+        Total Launches Including Planned: {props.launches.length}
+        {Object.keys(total_by_mission).map(function(key) {
+          return (
+              <div>
+                {key}: {total_by_mission[key]}
+              </div>
+          );
+        })}
       </div>
   )
 };
