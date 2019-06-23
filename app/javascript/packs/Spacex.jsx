@@ -12,7 +12,8 @@ class Spacex extends React.Component {
       launches: [],
       s_launches: [],
       f_launches: [],
-      future_launches: []
+      future_launches: [],
+      next_launch: null
     };
   }
 
@@ -24,7 +25,7 @@ class Spacex extends React.Component {
           this.setAllSuccessfulLaunches();
           this.setAllFailedLaunches();
           this.setAllFutureLaunches();
-          this.setState({loading: false}); //Loading false should be at the end of any logic. Might need to be moved in future!
+          this.getNextLaunchTime();
         })
         .catch( err => {
           console.log(err)
@@ -33,7 +34,7 @@ class Spacex extends React.Component {
   }
 
   setAllSuccessfulLaunches() {
-    console.log("Calculation Successful Launches");
+    console.log("Calculating Successful Launches");
     let that = this;
 
     this.state.launches.forEach(function (item) {
@@ -44,7 +45,7 @@ class Spacex extends React.Component {
   }
 
   setAllFailedLaunches() {
-    console.log("Calculation Failed Launches");
+    console.log("Calculating Failed Launches");
     let that = this;
 
     this.state.launches.forEach(function (item) {
@@ -55,7 +56,7 @@ class Spacex extends React.Component {
   }
 
   setAllFutureLaunches() {
-    console.log("Calculation Future Launches");
+    console.log("Calculating Future Launches");
     let that = this;
 
     this.state.launches.forEach(function (item) {
@@ -65,6 +66,19 @@ class Spacex extends React.Component {
     });
   }
 
+  getNextLaunchTime() {
+    let that = this;
+
+    axios.get('https://api.spacexdata.com/v3/launches/next')
+        .then( res => {
+          that.setState({next_launch: res.data});
+          that.setState({loading: false}); // Move this when needed
+        })
+        .catch( err => {
+          console.log(err)
+        });
+  }
+
   render() {
     if (!this.state.loading)
       return (
@@ -72,6 +86,8 @@ class Spacex extends React.Component {
             <ShowTotalCount launches={this.state.launches}/>
             <br/>
             <ShowErroneousLaunches launches={this.state.f_launches}/>
+            <br/>
+            <ShowFutureLaunches launches={this.state.future_launches}/>
           </div>
       );
     else
@@ -119,11 +135,45 @@ const ShowErroneousLaunches = (props) => {
           <hr/>
           {props.launches.length}
           {props.launches.map(item => (
-            <div>
-              <p>{item.details}</p>
+            <div key={item.flight_number}>
+              <p>
+                {item.details}
+              </p>
             </div>
           ))
           }
+        </div>
+      </div>
+  )
+};
+
+const ShowFutureLaunches = (props) => {
+  let total_by_mission = {};
+
+  props.launches.forEach( function(i) {
+    if (total_by_mission[i.rocket.rocket_name]) {
+      total_by_mission[i.rocket.rocket_name] += 1
+    }
+    else {
+      total_by_mission[i.rocket.rocket_name] = 1
+    }
+  });
+
+  return(
+      <div>
+        <div className="container">
+          <div className="card">
+            Total Future Launches
+            <hr/>
+            {props.launches.length}
+            {Object.keys(total_by_mission).map(function(key) {
+              return (
+                  <div key={key}>
+                    {total_by_mission[key]} - {key}
+                  </div>
+              );
+            })}
+          </div>
         </div>
       </div>
   )
