@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import Countdown from 'react-countdown-now';
 
 class Spacex extends React.Component {
 
@@ -8,7 +9,7 @@ class Spacex extends React.Component {
     super(props);
 
     this.state = {
-      loading: false,
+      loading: true,
       launches: [],
       s_launches: [],
       f_launches: [],
@@ -87,7 +88,10 @@ class Spacex extends React.Component {
             <br/>
             <ShowErroneousLaunches launches={this.state.f_launches}/>
             <br/>
-            <ShowFutureLaunches launches={this.state.future_launches}/>
+            <ShowFutureLaunches
+                launches={this.state.future_launches}
+                next_launch={this.state.next_launch}
+            />
           </div>
       );
     else
@@ -173,6 +177,7 @@ const ShowFutureLaunches = (props) => {
                   </div>
               );
             })}
+            <Countdown date={Date.now(), props.next_launch.launch_date_utc} />
           </div>
         </div>
       </div>

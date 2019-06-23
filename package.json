@@ -16,6 +16,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-calendar": "^2.19.0",
+    "react-countdown-now": "^2.1.1",
     "react-dom": "^16.8.6",
     "stimulus": "^1.1.1",
     "trix": "^1.0.0",
