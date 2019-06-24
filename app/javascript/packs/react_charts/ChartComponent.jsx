@@ -9,31 +9,32 @@ class ChartComponent extends Component {
     }
   }
 
+  // This is A way to set defaultProps in react
   static defaultProps = {
-    displayTitle:true,
+    displayTitle: true,
     displayLegend: true,
-    legendPosition:'right',
-    location:'City'
+    legendPosition: 'right',
+    chartName: 'Chart Name'
   };
 
   render(){
     return (
-        <div className="container chart">
-          <Line
-              data={this.state.chartData}
-              options={{
-                title:{
-                  display:this.props.displayTitle,
-                  text:'Largest Cities In '+this.props.location,
-                  fontSize:25
-                },
-                legend:{
-                  display:this.props.displayLegend,
-                  position:this.props.legendPosition
-                }
-              }}
-          />
-        </div>
+      <div className="container chart">
+        <Line
+          data={ this.state.chartData }
+          options={{
+            title:{
+              display: this.props.displayTitle,
+              text: this.props.chartName,
+              fontSize: 25
+            },
+            legend:{
+              display: this.props.displayLegend,
+              position: this.props.legendPosition
+            }
+          }}
+        />
+      </div>
     )
   }
 }

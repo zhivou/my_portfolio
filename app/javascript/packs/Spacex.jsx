@@ -16,6 +16,7 @@ class Spacex extends React.Component {
       f_launches: [],
       future_launches: [],
       next_launch: null,
+      chartSuccessful: null,
       chartData:{}
     };
   }
@@ -29,7 +30,7 @@ class Spacex extends React.Component {
           this.setAllFailedLaunches();
           this.setAllFutureLaunches();
           this.getNextLaunchTime();
-          this.getChartData();
+          this.getTotalLaunchesChartData();
         })
         .catch( err => {
           console.log(err)
@@ -83,35 +84,41 @@ class Spacex extends React.Component {
         });
   }
 
-  getChartData(){
-    // Ajax calls here
+  getTotalLaunchesChartData(){
     this.setState({
       chartData:{
-        labels: ['Boston', 'Worcester', 'Springfield', 'Lowell', 'Cambridge', 'New Bedford'],
+        labels: Object.keys(this.getDataForHistoryChart()[0]),
         datasets:[
           {
-            label:'Population',
-            data:[
-              617594,
-              181045,
-              153060,
-              106519,
-              105162,
-              95072
-            ],
+            label:'Successfull Launches',
+            data: Object.values(this.getDataForHistoryChart()[0]),
             backgroundColor:[
               'rgba(255, 99, 132, 0.6)',
               'rgba(54, 162, 235, 0.6)',
-              'rgba(255, 206, 86, 0.6)',
-              'rgba(75, 192, 192, 0.6)',
-              'rgba(153, 102, 255, 0.6)',
-              'rgba(255, 159, 64, 0.6)',
-              'rgba(255, 99, 132, 0.6)'
             ]
           }
         ]
       }
     });
+  }
+
+  //
+  // Counting launches per year and preparing it for totalLaunchesChart
+  // Example:
+  // {2017:2, 2018:31}
+  //
+  getDataForHistoryChart(){
+    let collection = {};
+
+    this.state.s_launches.forEach( function(i) {
+      if (collection[i.launch_year]) {
+        collection[i.launch_year] += 1
+      }
+      else {
+        collection[i.launch_year] = 1
+      }
+    });
+    return collection
   }
 
   render() {
@@ -126,7 +133,11 @@ class Spacex extends React.Component {
                 launches={this.state.future_launches}
                 next_launch={this.state.next_launch}
             />
-            <ChartComponent chartData={this.state.chartData} location="Massachusetts" legendPosition="bottom" />
+            <ChartComponent
+                chartData={this.state.chartData}
+                chartName="Total Launches"
+                legendPosition="bottom"
+            />
           </div>
       );
     else
