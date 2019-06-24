@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Countdown from 'react-countdown-now';
+import ChartComponent from './react_charts/ChartComponent';
 
 class Spacex extends React.Component {
 
@@ -14,7 +15,8 @@ class Spacex extends React.Component {
       s_launches: [],
       f_launches: [],
       future_launches: [],
-      next_launch: null
+      next_launch: null,
+      chartData:{}
     };
   }
 
@@ -27,6 +29,7 @@ class Spacex extends React.Component {
           this.setAllFailedLaunches();
           this.setAllFutureLaunches();
           this.getNextLaunchTime();
+          this.getChartData();
         })
         .catch( err => {
           console.log(err)
@@ -80,6 +83,37 @@ class Spacex extends React.Component {
         });
   }
 
+  getChartData(){
+    // Ajax calls here
+    this.setState({
+      chartData:{
+        labels: ['Boston', 'Worcester', 'Springfield', 'Lowell', 'Cambridge', 'New Bedford'],
+        datasets:[
+          {
+            label:'Population',
+            data:[
+              617594,
+              181045,
+              153060,
+              106519,
+              105162,
+              95072
+            ],
+            backgroundColor:[
+              'rgba(255, 99, 132, 0.6)',
+              'rgba(54, 162, 235, 0.6)',
+              'rgba(255, 206, 86, 0.6)',
+              'rgba(75, 192, 192, 0.6)',
+              'rgba(153, 102, 255, 0.6)',
+              'rgba(255, 159, 64, 0.6)',
+              'rgba(255, 99, 132, 0.6)'
+            ]
+          }
+        ]
+      }
+    });
+  }
+
   render() {
     if (!this.state.loading)
       return (
@@ -92,6 +126,7 @@ class Spacex extends React.Component {
                 launches={this.state.future_launches}
                 next_launch={this.state.next_launch}
             />
+            <ChartComponent chartData={this.state.chartData} location="Massachusetts" legendPosition="bottom" />
           </div>
       );
     else
@@ -177,7 +212,7 @@ const ShowFutureLaunches = (props) => {
                   </div>
               );
             })}
-            <Countdown date={Date.now(), props.next_launch.launch_date_utc} />
+            <Countdown date={(Date.now(), props.next_launch.launch_date_utc)}/>
           </div>
         </div>
       </div>
