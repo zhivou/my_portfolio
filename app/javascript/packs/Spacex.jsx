@@ -85,19 +85,26 @@ class Spacex extends React.Component {
   }
 
   getTotalLaunchesChartData(){
+    let successfulArray = this.getDataForSuccessfulChart();
+    let failedArray = this.getDataForFailedChart();
+
     this.setState({
       chartData:{
-        labels: Object.keys(this.getDataForHistoryChart()[0]),
+        labels: Object.keys(successfulArray),
+
         datasets:[
           {
-            label:'Successfull Launches',
-            data: Object.values(this.getDataForHistoryChart()[0]),
-            backgroundColor:[
-              'rgba(255, 99, 132, 0.6)',
-              'rgba(54, 162, 235, 0.6)',
-            ]
-          }
+            label:'Successful Launches',
+            data: Object.values(successfulArray),
+            backgroundColor: "rgba(0, 177, 106, 0.5)"
+          },
+          {
+            label:'Failed Launches',
+            data: Object.values(failedArray),
+            backgroundColor: "rgba(231, 76, 60, 1)"
+          },
         ]
+
       }
     });
   }
@@ -107,7 +114,7 @@ class Spacex extends React.Component {
   // Example:
   // {2017:2, 2018:31}
   //
-  getDataForHistoryChart(){
+  getDataForSuccessfulChart(){
     let collection = {};
 
     this.state.s_launches.forEach( function(i) {
@@ -119,6 +126,23 @@ class Spacex extends React.Component {
       }
     });
     return collection
+  }
+
+  getDataForFailedChart(){
+    let collection = {};
+
+    this.state.launches.forEach( function(i) {
+      if (collection[i.launch_year] && i.launch_success === false) {
+        collection[i.launch_year] += 1
+      }
+      else if(!collection[i.launch_year] && i.launch_success === false) {
+        collection[i.launch_year] = 1
+      }
+      else if (!collection[i.launch_year]) {
+        collection[i.launch_year] = 0
+      }
+    });
+    return collection;
   }
 
   render() {
