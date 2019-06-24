@@ -96,7 +96,7 @@ class Spacex extends React.Component {
           {
             label:'Successful Launches',
             data: Object.values(successfulArray),
-            backgroundColor: "rgba(0, 177, 106, 0.5)"
+            backgroundColor: "rgba(0, 177, 106, 1)"
           },
           {
             label:'Failed Launches',
