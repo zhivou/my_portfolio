@@ -146,7 +146,7 @@ class Launches extends React.Component {
   }
 
   render() {
-    if (!this.state.loading)
+    if (!this.state.loading) {
       return (
           <div>
             <ShowTotalCount launches={this.state.launches}/>
@@ -164,8 +164,14 @@ class Launches extends React.Component {
             />
           </div>
       );
-    else
-      return (<p>Be Hold, fetching data may take some time :)</p>); //Can be changed on face pic or Modal popup or spiner
+    }
+    else {
+      return (
+          <div className="container text-center">
+            <h2>Loading...</h2>
+          </div>
+      );
+    }
   }
 }
 
