@@ -21,5 +21,4 @@ require("axios");
 require("trix");
 require("@rails/actiontext");
 require("@rails/activestorage");
-require("semantic-ui-css/semantic.min.css");
 require("react-countdown-now");
