@@ -152,7 +152,10 @@ class Launches extends React.Component {
     if (!this.state.loading) {
       return (
           <div id="mainWrapper">
-            <ShowNextLaunch next_launch={this.state.next_launch}/>
+            <Countdown 
+              date={(Date.now(), this.state.next_launch.launch_date_utc)}
+              renderer={renderer}
+            />
             <br/>
             <Grid columns={2} fitted>
                 <Grid.Column>
@@ -203,8 +206,6 @@ const ShowTotalCount = (props) => {
       total_by_mission[i.rocket.rocket_name] = 1
     }
   });
-
-  console.log(total_by_mission);
 
   return(
         <Card fluid>
@@ -309,10 +310,15 @@ const ShowFutureLaunches = (props) => {
   )
 };
 
-const ShowNextLaunch = (props) => {
-  return(
-    <Countdown date={(Date.now(), props.next_launch.launch_date_utc)}/>
-  )
-}
+// Renderer callback with condition
+const renderer = ({ days, hours, minutes, seconds, completed }) => {
+  if (completed) {
+    // Render a completed state
+    return <Completionist />;
+  } else {
+    // Render a countdown
+    return <span>Days:{days}, Hours:{hours} Minutes:{minutes} Seconds:{seconds}</span>;
+  }
+};
 
 export default Launches
