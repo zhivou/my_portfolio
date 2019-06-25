@@ -49,3 +49,7 @@
     margin-left: 10px;
     padding-left: 10px;
 }
+
+.failedText {
+    font-size: 18px;
+}

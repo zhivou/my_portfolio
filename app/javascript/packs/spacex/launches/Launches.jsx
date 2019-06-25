@@ -240,7 +240,7 @@ const ShowErroneousLaunches = (props) => {
                 <Grid.Column>
                   <div className="lanchesCircle failed">
                     <p className="count">{props.launches.length}</p>
-                    <p>Total count</p>
+                    <p>Total failed</p>
                   </div>
                 </Grid.Column>
                 <Grid.Column>
@@ -276,14 +276,14 @@ const ShowFutureLaunches = (props) => {
   return(
         <Card fluid>
           <Card.Content>
-            <Card.Header>Total Sussesful Launches</Card.Header>
+            <Card.Header>Total Successful Launches</Card.Header>
             <hr/>
             <Card.Description>
               <Grid columns={2} relaxed='very' stackable>
                 <Grid.Column>
                   <div className="lanchesCircle success">
                     <p className="count">{props.launches.length}</p>
-                    <p>Total count</p>
+                    <p>Total Successful</p>
                   </div>
                 </Grid.Column>
                 <Grid.Column className="rightText">
