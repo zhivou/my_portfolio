@@ -34,3 +34,7 @@
 .failed {
     background-color: #E57272;
 }
+
+.success {
+    background-color: #00B16A;
+}

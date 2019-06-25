@@ -151,17 +151,16 @@ class Launches extends React.Component {
     if (!this.state.loading) {
       return (
           <div>
+            <ShowNextLaunch next_launch={this.state.next_launch}/>
             <ShowTotalCount launches={this.state.launches}/>
-            <br/>
-            <ShowErroneousLaunches launches={this.state.f_launches}/>
-            <br/>
             <ShowFutureLaunches
                 launches={this.state.future_launches}
                 next_launch={this.state.next_launch}
             />
+            <ShowErroneousLaunches launches={this.state.f_launches}/>
             <ChartComponent
                 chartData={this.state.chartData}
-                chartName="Total Launches"
+                chartName="Total Launches per Year"
                 legendPosition="bottom"
             />
           </div>
@@ -192,7 +191,7 @@ const ShowTotalCount = (props) => {
   console.log(total_by_mission);
 
   return(
-      <Container text>
+      <Container>
         <Card fluid>
           <Card.Content>
             <Card.Header>Total Launches</Card.Header>
@@ -224,10 +223,10 @@ const ShowTotalCount = (props) => {
 
 const ShowErroneousLaunches = (props) => {
   return(
-      <Container text>
+      <Container>
         <Card fluid>
           <Card.Content>
-            <Card.Header>Failed Laгnches</Card.Header>
+            <Card.Header>Failed Launches</Card.Header>
             <hr/>
             <Card.Description>
               <Grid columns={1} relaxed='very' stackable>
@@ -239,9 +238,11 @@ const ShowErroneousLaunches = (props) => {
                 </Grid.Column>
                 <Grid.Column>
                   {props.launches.map(item => (
-                      <li key={item.flight_number}>
-                        {item.details}
-                      </li>
+                      <ul>
+                        <li key={item.flight_number} className="failedText">
+                          {item.details}
+                        </li>
+                      </ul>
                   ))
                   }
                 </Grid.Column>
@@ -266,24 +267,40 @@ const ShowFutureLaunches = (props) => {
   });
 
   return(
-      <div>
-        <div>
-          <div className="card">
-            Total Future Launches
+      <Container>
+        <Card fluid>
+          <Card.Content>
+            <Card.Header>Total Sussesful Launches</Card.Header>
             <hr/>
-            {props.launches.length}
-            {Object.keys(total_by_mission).map(function(key) {
-              return (
-                  <div key={key}>
-                    {total_by_mission[key]} - {key}
+            <Card.Description>
+              <Grid columns={2} relaxed='very' stackable>
+                <Grid.Column>
+                  <div className="lanchesCircle success">
+                    <p className="count">{props.launches.length}</p>
+                    <p>Total count</p>
                   </div>
-              );
-            })}
-            <Countdown date={(Date.now(), props.next_launch.launch_date_utc)}/>
-          </div>
-        </div>
-      </div>
+                </Grid.Column>
+                <Grid.Column className="rightText">
+                  {Object.keys(total_by_mission).map(function(key) {
+                    return (
+                        <div key={key}>
+                          <span className="rightCount">{total_by_mission[key]}</span><span> - {key}</span>
+                        </div>
+                    );
+                  })}
+                </Grid.Column>
+              </Grid>
+            </Card.Description>
+          </Card.Content>
+        </Card>
+      </Container>
   )
 };
+
+const ShowNextLaunch = (props) => {
+  return(
+    <Countdown date={(Date.now(), props.next_launch.launch_date_utc)}/>
+  )
+}
 
 export default Launches

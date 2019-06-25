@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Line, Pie, Bar } from 'react-chartjs-2/es/index'
+import { Container } from 'semantic-ui-react'
 
 class ChartComponent extends Component {
   constructor(props){
@@ -19,22 +20,24 @@ class ChartComponent extends Component {
 
   render(){
     return (
-      <div className="chart">
-        <Bar
-          data={ this.state.chartData }
-          options={{
-            title:{
-              display: this.props.displayTitle,
-              text: this.props.chartName,
-              fontSize: 25
-            },
-            legend:{
-              display: this.props.displayLegend,
-              position: this.props.legendPosition
-            }
-          }}
-        />
-      </div>
+        <Container>
+          <div className="chart">
+            <Bar
+              data={ this.state.chartData }
+              options={{
+                title:{
+                  display: this.props.displayTitle,
+                  text: this.props.chartName,
+                  fontSize: 25
+                },
+                legend:{
+                  display: this.props.displayLegend,
+                  position: this.props.legendPosition
+                }
+              }}
+            />
+          </div>
+        </Container>
     )
   }
 }
