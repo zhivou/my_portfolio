@@ -31,10 +31,21 @@
     color: #377FC3;
 }
 
+.rightCountSuccess {
+    color: #00B16A;
+}
+
 .failed {
     background-color: #E57272;
 }
 
 .success {
     background-color: #00B16A;
+}
+
+#mainWrapper {
+    margin-right: 80px;
+    padding-right: 80px;
+    margin-left: 10px;
+    padding-left: 10px;
 }

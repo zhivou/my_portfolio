@@ -150,14 +150,23 @@ class Launches extends React.Component {
   render() {
     if (!this.state.loading) {
       return (
-          <div>
+          <div id="mainWrapper">
             <ShowNextLaunch next_launch={this.state.next_launch}/>
-            <ShowTotalCount launches={this.state.launches}/>
-            <ShowFutureLaunches
-                launches={this.state.future_launches}
-                next_launch={this.state.next_launch}
-            />
+            <br/>
+            <Grid columns={2} fitted>
+                <Grid.Column>
+                    <ShowTotalCount launches={this.state.launches}/>
+                </Grid.Column>
+              <Grid.Column>
+                <ShowFutureLaunches
+                    launches={this.state.future_launches}
+                    next_launch={this.state.next_launch}
+                />
+              </Grid.Column>
+            </Grid>
+            <br/>
             <ShowErroneousLaunches launches={this.state.f_launches}/>
+            <br/>
             <ChartComponent
                 chartData={this.state.chartData}
                 chartName="Total Launches per Year"
@@ -191,7 +200,6 @@ const ShowTotalCount = (props) => {
   console.log(total_by_mission);
 
   return(
-      <Container>
         <Card fluid>
           <Card.Content>
             <Card.Header>Total Launches</Card.Header>
@@ -217,7 +225,6 @@ const ShowTotalCount = (props) => {
             </Card.Description>
           </Card.Content>
         </Card>
-      </Container>
   )
 };
 
@@ -267,7 +274,6 @@ const ShowFutureLaunches = (props) => {
   });
 
   return(
-      <Container>
         <Card fluid>
           <Card.Content>
             <Card.Header>Total Sussesful Launches</Card.Header>
@@ -284,7 +290,7 @@ const ShowFutureLaunches = (props) => {
                   {Object.keys(total_by_mission).map(function(key) {
                     return (
                         <div key={key}>
-                          <span className="rightCount">{total_by_mission[key]}</span><span> - {key}</span>
+                          <span className="rightCountSuccess">{total_by_mission[key]}</span><span> - {key}</span>
                         </div>
                     );
                   })}
@@ -293,7 +299,6 @@ const ShowFutureLaunches = (props) => {
             </Card.Description>
           </Card.Content>
         </Card>
-      </Container>
   )
 };
 
