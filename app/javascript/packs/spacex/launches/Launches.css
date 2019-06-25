@@ -1,0 +1,32 @@
+.lanchesCircle {
+    margin: auto;
+    width: 150px;
+    height: 150px;
+    background-color: #377FC3;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.lanchesCircle p {
+    color: #fff;
+    font-size: 16px;
+    margin: 0
+}
+
+.lanchesCircle .count {
+    font-weight: 500;
+    font-size: 45px;
+    line-height: 1
+}
+
+.rightText {
+    margin: auto;
+    font-size: 20px;
+}
+
+.rightCount {
+    color: #377FC3;
+}

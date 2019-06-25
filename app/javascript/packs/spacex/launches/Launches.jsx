@@ -4,7 +4,7 @@ import axios from 'axios/index';
 import Countdown from 'react-countdown-now/dist/index';
 import ChartComponent from '../react_charts/ChartComponent';
 import { Card, Container, Divider, Segment, Grid } from 'semantic-ui-react'
-import './Launches.css.css';
+import './Launches.css';
 
 class Launches extends React.Component {
 
@@ -205,11 +205,11 @@ const ShowTotalCount = (props) => {
                     <p>Total count</p>
                   </div>
                 </Grid.Column>
-                <Grid.Column>
+                <Grid.Column className="rightText">
                   {Object.keys(total_by_mission).map(function(key) {
                     return (
                         <div key={key}>
-                          {total_by_mission[key]} - {key}
+                          <span className="rightCount">{total_by_mission[key]}</span><span> - {key}</span>
                         </div>
                     );
                   })}
