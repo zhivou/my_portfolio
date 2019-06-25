@@ -1,30 +1,76 @@
-import React, { Component } from 'react'
-import { Menu } from 'semantic-ui-react'
+import React from 'react'
+import { Header, Icon, Image, Menu, Segment, Sidebar } from 'semantic-ui-react'
+import Launches from './launches/Launches';
+import './LeftNavBarStyle.css';
 
-class LeftNavBar extends Component {
-  state = { activeItem: 'home' };
+class LeftNavBar extends React.Component {
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name });
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      showLaunches: false,
+      showHome: true,
+      showDevelopment: false
+    };
+
+    this.handleShowLaunches = this.handleShowLaunches.bind(this);
+    this.handleShowHome = this.handleShowHome.bind(this);
+    this.handleShowDev = this.handleShowDev.bind(this)
+  };
+
+  handleShowLaunches() {
+    this.setState({
+      showHome: false,
+      showDevelopment: false,
+      showLaunches: true
+    });
+  }
+
+  handleShowHome() {
+    this.setState({
+      showLaunches: false,
+      showDevelopment: false,
+      showHome: true
+    });
+  }
+
+  handleShowDev() {
+    this.setState({
+      showLaunches: false,
+      showHome: false,
+      showDevelopment: true
+    });
+  }
 
   render() {
-    const { activeItem } = this.state;
-
     return (
-        <Menu pointing secondary vertical>
-          <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
-          <Menu.Item
-              name='launches'
-              active={activeItem === 'launches'}
-              onClick={this.handleItemClick}
-          />
-          <Menu.Item
-              name='next'
-              active={activeItem === 'next'}
-              onClick={this.handleItemClick}
-          />
-        </Menu>
+        <Sidebar.Pushable as={Segment} className="leftNavBar">
+          <Sidebar as={Menu} icon='labeled' inverted vertical visible width='thin' direction="left">
+            <Menu.Item as='a' onClick={this.handleShowHome}>
+              <Icon name='home'/>
+              Home
+            </Menu.Item>
+            <Menu.Item as='a' onClick={this.handleShowLaunches}>
+              <Icon name='rocket' />
+              Launches
+            </Menu.Item>
+            <Menu.Item as='a' onClick={this.handleShowDev}>
+              <Icon name='code' />
+              In Developmnet
+            </Menu.Item>
+          </Sidebar>
+
+          <Sidebar.Pusher>
+            <Segment basic>
+              {this.state.showLaunches ? <Launches /> : null }
+              {this.state.showHome ? <div>Home Page</div> : null }
+              {this.state.showDevelopment ? <div>Don't you worry I will develop this page soon!</div> : null }
+            </Segment>
+          </Sidebar.Pusher>
+        </Sidebar.Pushable>
     )
   }
 }
 
-export default LeftNavBar
+export default LeftNavBar;

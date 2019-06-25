@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import axios from 'axios/index';
 import Countdown from 'react-countdown-now/dist/index';
 import ChartComponent from '../react_charts/ChartComponent';
+import { Card, Container, Divider, Segment, Grid } from 'semantic-ui-react'
+import './Launches.css.css';
 
 class Launches extends React.Component {
 
@@ -167,7 +169,7 @@ class Launches extends React.Component {
     }
     else {
       return (
-          <div className="container text-center">
+          <div className="text-center">
             <h2>Loading...</h2>
           </div>
       );
@@ -190,26 +192,39 @@ const ShowTotalCount = (props) => {
   console.log(total_by_mission);
 
   return(
-      <div className="container">
-        <div className="card">
-          Total Launches
-          <hr/>
-          {props.launches.length}
-          {Object.keys(total_by_mission).map(function(key) {
-            return (
-                <div key={key}>
-                  {total_by_mission[key]} - {key}
-                </div>
-            );
-          })}
-        </div>
-      </div>
+      <Container text>
+        <Card fluid>
+          <Card.Content>
+            <Card.Header>Total Launches</Card.Header>
+            <hr/>
+            <Card.Description>
+              <Grid columns={2} relaxed='very' stackable>
+                <Grid.Column>
+                  <div className="lanchesCircle">
+                    <p className="count">{props.launches.length}</p>
+                    <p>Total count</p>
+                  </div>
+                </Grid.Column>
+                <Grid.Column>
+                  {Object.keys(total_by_mission).map(function(key) {
+                    return (
+                        <div key={key}>
+                          {total_by_mission[key]} - {key}
+                        </div>
+                    );
+                  })}
+                </Grid.Column>
+              </Grid>
+            </Card.Description>
+          </Card.Content>
+        </Card>
+      </Container>
   )
 };
 
 const ShowErroneousLaunches = (props) => {
   return(
-      <div className="container">
+      <div>
         <div className="card">
           Total Failed Launches
           <hr/>
@@ -241,7 +256,7 @@ const ShowFutureLaunches = (props) => {
 
   return(
       <div>
-        <div className="container">
+        <div>
           <div className="card">
             Total Future Launches
             <hr/>
