@@ -224,21 +224,32 @@ const ShowTotalCount = (props) => {
 
 const ShowErroneousLaunches = (props) => {
   return(
-      <div>
-        <div className="card">
-          Total Failed Launches
-          <hr/>
-          {props.launches.length}
-          {props.launches.map(item => (
-              <div key={item.flight_number}>
-                <p>
-                  {item.details}
-                </p>
-              </div>
-          ))
-          }
-        </div>
-      </div>
+      <Container text>
+        <Card fluid>
+          <Card.Content>
+            <Card.Header>Failed Laгnches</Card.Header>
+            <hr/>
+            <Card.Description>
+              <Grid columns={1} relaxed='very' stackable>
+                <Grid.Column>
+                  <div className="lanchesCircle failed">
+                    <p className="count">{props.launches.length}</p>
+                    <p>Total count</p>
+                  </div>
+                </Grid.Column>
+                <Grid.Column>
+                  {props.launches.map(item => (
+                      <li key={item.flight_number}>
+                        {item.details}
+                      </li>
+                  ))
+                  }
+                </Grid.Column>
+              </Grid>
+            </Card.Description>
+          </Card.Content>
+        </Card>
+      </Container>
   )
 };
 

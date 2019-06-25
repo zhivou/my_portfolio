@@ -30,3 +30,7 @@
 .rightCount {
     color: #377FC3;
 }
+
+.failed {
+    background-color: #E57272;
+}
