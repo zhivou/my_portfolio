@@ -42,7 +42,6 @@ class Launches extends React.Component {
   }
 
   setAllSuccessfulLaunches() {
-    console.log("Calculating Successful Launches");
     let that = this;
 
     this.state.launches.forEach(function (item) {
@@ -53,7 +52,6 @@ class Launches extends React.Component {
   }
 
   setAllFailedLaunches() {
-    console.log("Calculating Failed Launches");
     let that = this;
 
     this.state.launches.forEach(function (item) {
@@ -64,7 +62,6 @@ class Launches extends React.Component {
   }
 
   setAllFutureLaunches() {
-    console.log("Calculating Future Launches");
     let that = this;
 
     this.state.launches.forEach(function (item) {
@@ -152,12 +149,14 @@ class Launches extends React.Component {
     if (!this.state.loading) {
       return (
           <div id="mainWrapper">
-            <Countdown 
-              date={(Date.now(), this.state.next_launch.launch_date_utc)}
-              renderer={renderer}
-            />
+            <div className="jumbotron text-center">
+              <Countdown 
+                date={(Date.now(), this.state.next_launch.launch_date_utc)}
+                renderer={renderer}
+              />
+            </div>
             <br/>
-            <Grid columns={2} fitted>
+            <Grid columns={2}>
                 <Grid.Column>
                     <ShowTotalCount launches={this.state.launches}/>
                 </Grid.Column>
@@ -253,8 +252,8 @@ const ShowErroneousLaunches = (props) => {
                 </Grid.Column>
                 <Grid.Column>
                   {props.launches.map(item => (
-                      <ul>
-                        <li key={item.flight_number} className="failedText">
+                      <ul key={item.flight_number}>
+                        <li className="failedText">
                           {item.details}
                         </li>
                       </ul>
@@ -314,10 +313,15 @@ const ShowFutureLaunches = (props) => {
 const renderer = ({ days, hours, minutes, seconds, completed }) => {
   if (completed) {
     // Render a completed state
-    return <Completionist />;
+    return (<span>It's currently being launched!</span>);
   } else {
     // Render a countdown
-    return <span>Days:{days}, Hours:{hours} Minutes:{minutes} Seconds:{seconds}</span>;
+    return(
+      <span>
+        <h1 className="display-3">Upcoming</h1>
+        <h1 className="display-4" id="countDownText">D:{days} H:{hours} M:{minutes} S:{seconds}</h1>
+      </span>
+    )
   }
 };
 
