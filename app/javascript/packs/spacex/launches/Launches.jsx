@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 import axios from 'axios/index';
 import Countdown from 'react-countdown-now/dist/index';
 import ChartComponent from '../react_charts/ChartComponent';
-import { Card, Container, Divider, Segment, Grid } from 'semantic-ui-react'
+import { Card, Container, Divider, Segment, Grid, Dimmer, Loader, Image } from 'semantic-ui-react'
 import './Launches.css';
+import Paragraph from './paragraph.png'
 
 class Launches extends React.Component {
 
@@ -177,9 +178,15 @@ class Launches extends React.Component {
     }
     else {
       return (
-          <div className="text-center">
-            <h2>Loading...</h2>
-          </div>
+          <Segment className="loaderWrapper">
+            <Dimmer active inverted>
+              <Loader size='large'>Loading</Loader>
+            </Dimmer>
+
+            <Image src={Paragraph} className="imageLoader"/>
+            <Image src={Paragraph} className="imageLoader"/>
+            <Image src={Paragraph} className="imageLoader"/>
+          </Segment>
       );
     }
   }

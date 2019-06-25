@@ -53,3 +53,11 @@
 .failedText {
     font-size: 18px;
 }
+
+.loaderWrapper {
+    min-height: 500px;
+}
+
+.imageLoader {
+    margin: auto;
+}
