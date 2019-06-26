@@ -28,7 +28,7 @@ class Blog < ApplicationRecord
         .joins("RIGHT JOIN blogs ON blogs.id = action_text_rich_texts.record_id")
         .select("blogs.*, action_text_rich_texts.body")
         .group("blogs.id, action_text_rich_texts.body")
-        .where("blogs.created_at <= '#{date + ' 24:00'}'")
+        .where("blogs.created_at <= '#{date + ' 24:00'}' AND record_type = 'Blog'")
         .order("blogs.created_at DESC")
   end
 
@@ -36,7 +36,7 @@ class Blog < ApplicationRecord
     ActionTextRichText
         .joins("INNER JOIN blogs ON blogs.id = action_text_rich_texts.record_id")
         .joins("INNER JOIN tags ON blogs.id = tags.blog_id")
-        .where("tags.description = '#{tag_description}'")
+        .where("tags.description = '#{tag_description}' AND record_type = 'Blog'")
         .select("blogs.*, action_text_rich_texts.body, tags.description")
         .order("blogs.created_at DESC")
   end
