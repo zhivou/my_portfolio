@@ -7771,6 +7771,11 @@ semantic-ui-css@^2.4.1:
   dependencies:
     jquery x.*
 
+semantic-ui-icon@^2.3.3:
+  version "2.3.3"
+  resolved "https://registry.npmjs.org/semantic-ui-icon/-/semantic-ui-icon-2.3.3.tgz#b0beb7e4b541a13eb49a8039626723ab5393b95c"
+  integrity sha512-TuO265ICYGoNPs0rjanqDlrx8hfcpl4MMv92OUwFCbDwee4nGj8+Dv+i1RvkPPr0gO565G/0EKs8vF4wwhMMBw==
+
 semantic-ui-react@^0.87.2:
   version "0.87.2"
   resolved "https://registry.npmjs.org/semantic-ui-react/-/semantic-ui-react-0.87.2.tgz#b312a5a1f7395b3ff871507c59c0557fae54c984"

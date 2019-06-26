@@ -24,7 +24,8 @@
     "semantic-ui-react": "^0.87.2",
     "stimulus": "^1.1.1",
     "trix": "^1.0.0",
-    "yarn": "^1.15.0"
+    "yarn": "^1.15.0",
+    "semantic-ui-icon": "^2.3.3"
   },
   "devDependencies": {
     "webpack-dev-server": "^3.4.1"
