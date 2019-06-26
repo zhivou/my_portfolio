@@ -289,7 +289,7 @@ const ShowFutureLaunches = (props) => {
                 <Grid.Column>
                   <div className="lanchesCircle success">
                     <p className="count">{props.launches.length}</p>
-                    <p>Total Successful</p>
+                    <p>Total Future Launches</p>
                   </div>
                 </Grid.Column>
                 <Grid.Column className="rightText">
