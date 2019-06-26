@@ -282,7 +282,7 @@ const ShowFutureLaunches = (props) => {
   return(
         <Card fluid>
           <Card.Content>
-            <Card.Header>Total Successful Launches</Card.Header>
+            <Card.Header>Total Future Launches</Card.Header>
             <hr/>
             <Card.Description>
               <Grid columns={2} relaxed='very' stackable>
