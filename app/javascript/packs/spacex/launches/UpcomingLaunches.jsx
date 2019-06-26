@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
-import { Container, Dimmer, Loader, Image, Icon, Label, Menu, Table } from 'semantic-ui-react'
+import {Container, Dimmer, Loader, Image, Icon, Label, Menu, Table, Grid} from 'semantic-ui-react'
 
 // This Component creates a table for any data you pass in
 // as a prop
@@ -33,18 +33,36 @@ class UpcomingLaunches extends Component {
   render(){
     if (!this.state.loading) {
       return (
-          <div className="tableWrapper">
-            <Table celled>
-              <Table.Header>
-                <Table.Row>
-                  <Table.HeaderCell>Flight Number</Table.HeaderCell>
-                  <Table.HeaderCell>Launch Date</Table.HeaderCell>
-                  <Table.HeaderCell>Launch Site</Table.HeaderCell>
-                  <Table.HeaderCell>Rocket</Table.HeaderCell>
-                  <Table.HeaderCell>Mission Name</Table.HeaderCell>
-                </Table.Row>
-              </Table.Header>
-            </Table>
+          <div className="tableWrapper mt-3">
+            <Container>
+              <h1 className="text-center">{this.props.tableName}</h1>
+              <Table celled>
+                <Table.Header>
+                  <Table.Row>
+                    <Table.HeaderCell>Flight Number</Table.HeaderCell>
+                    <Table.HeaderCell>Launch Date</Table.HeaderCell>
+                    <Table.HeaderCell>Launch Site</Table.HeaderCell>
+                    <Table.HeaderCell>Rocket</Table.HeaderCell>
+                    <Table.HeaderCell>Mission Name</Table.HeaderCell>
+                  </Table.Row>
+                </Table.Header>
+
+                <Table.Body>
+                  {this.state.listData.map(item => (
+                      <Table.Row>
+                        <Table.Cell>{item.flight_number}</Table.Cell>
+                        <Table.Cell>{item.launch_date_local}</Table.Cell>
+                        <Table.Cell>{item.launch_site.site_name_long}</Table.Cell>
+                        <Table.Cell>{item.rocket.rocket_name}</Table.Cell>
+                        <Table.Cell>{item.mission_name}</Table.Cell>
+                      </Table.Row>
+                  ))
+                  }
+
+                </Table.Body>
+
+              </Table>
+            </Container>
           </div>
       );
     }

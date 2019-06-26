@@ -175,7 +175,7 @@ class Launches extends React.Component {
                 chartName="Total Launches per Year"
                 legendPosition="bottom"
             />
-            <UpcomingLaunches/>
+            <UpcomingLaunches tableName="Upcoming Launches"/>
           </div>
       );
     }
