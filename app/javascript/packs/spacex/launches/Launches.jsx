@@ -5,6 +5,7 @@ import Countdown from 'react-countdown-now/dist/index';
 import ChartComponent from '../react_charts/ChartComponent';
 import { Card, Container, Divider, Segment, Grid, Dimmer, Loader, Image } from 'semantic-ui-react'
 import Paragraph from './paragraph.png'
+import UpcomingLaunches from './UpcomingLaunches'
 
 class Launches extends React.Component {
 
@@ -174,6 +175,7 @@ class Launches extends React.Component {
                 chartName="Total Launches per Year"
                 legendPosition="bottom"
             />
+            <UpcomingLaunches/>
           </div>
       );
     }
