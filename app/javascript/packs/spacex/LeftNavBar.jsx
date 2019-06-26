@@ -1,7 +1,7 @@
 import React from 'react'
 import { Header, Icon, Image, Menu, Segment, Sidebar } from 'semantic-ui-react'
 import Launches from './launches/Launches';
-import Home from './Home';
+import Home from './home/Home';
 
 class LeftNavBar extends React.Component {
 

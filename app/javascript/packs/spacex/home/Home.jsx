@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container } from 'semantic-ui-react'
+import Company from './Company'
 
 class Home extends React.Component {
 
@@ -14,6 +15,7 @@ class Home extends React.Component {
               and includes endpoints for; Launches, Rockets, Capsules, Company Info, Roadster
               Info and more. SpaceX designs, manufactures and launches advanced rockets and spacecraft.
             </p>
+            <Company/>
           </div>
         </Container>
 
