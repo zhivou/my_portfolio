@@ -38,3 +38,83 @@
 #astronautmaPicture {
    background-image: url("astronaut-astronomy-ma.jpg");
 }
+
+.bodyText {
+  font-size: 18px;
+}
+
+.mainWrapper {
+  margin-right: 80px;
+  padding-right: 80px;
+  margin-left: 10px;
+  padding-left: 10px;
+}
+
+.lanchesCircle {
+  margin: auto;
+  width: 150px;
+  height: 150px;
+  background-color: #377FC3;
+  border-radius: 50%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.lanchesCircle p {
+  color: #fff;
+  font-size: 16px;
+  margin: 0
+}
+
+.lanchesCircle .count {
+  font-weight: 500;
+  font-size: 45px;
+  line-height: 1
+}
+
+.rightText {
+  margin: auto;
+  font-size: 20px;
+}
+
+.rightCount {
+  color: #377FC3;
+}
+
+.rightCountSuccess {
+  color: #00B16A;
+}
+
+.failed {
+  background-color: #E57272;
+}
+
+.success {
+  background-color: #00B16A;
+}
+
+#mainWrapper {
+  margin-right: 80px;
+  padding-right: 80px;
+  margin-left: 5px;
+  padding-left: 5px;
+}
+
+.failedText {
+  font-size: 18px;
+}
+
+.loaderWrapper {
+  min-height: 500px;
+}
+
+.imageLoader {
+  margin: auto;
+}
+
+.leftNavBar {
+  height: auto;
+  min-height: 500px;
+}
