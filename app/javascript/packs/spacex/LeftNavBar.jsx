@@ -48,15 +48,12 @@ class LeftNavBar extends React.Component {
         <Sidebar.Pushable as={Segment} className="leftNavBar">
           <Sidebar as={Menu} icon='labeled' inverted vertical visible width='thin' direction="left">
             <Menu.Item as='a' onClick={this.handleShowHome}>
-              <Icon name='home'/>
               Home
             </Menu.Item>
             <Menu.Item as='a' onClick={this.handleShowLaunches}>
-              <Icon name='rocket' />
               Launches
             </Menu.Item>
             <Menu.Item as='a' onClick={this.handleShowDev}>
-              <Icon name='code' />
               In Developmnet
             </Menu.Item>
           </Sidebar>
