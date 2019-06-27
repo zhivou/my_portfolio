@@ -1,5 +1,41 @@
 <footer id="footer">
-  <div class="container text-center">
-    © <%= Time.now.strftime('%Y') %> Dmitrii Skrylev All Rights Reserved
+  <div class="footerNavBar container text-center mt-3">
+    <div class="container text-center">
+      <ul id="nav_bar">
+        <li class="nav_item_footer">
+          <a href="<%= root_url %>">
+            <span id="item_1">Resume</span>
+          </a>
+        </li>
+        <span id="item_1"> - </span>
+        <li class="nav_item_footer">
+          <a href="<%= blogs_path %>">
+            <span id="item_2">Blog</span>
+          </a>
+        </li>
+        <span id="item_1"> - </span>
+        <li class="nav_item_footer">
+          <a href="<%= projects_path %>">
+            <span id="item_3">Projects</span>
+          </a>
+        </li>
+        <span id="item_1"> - </span>
+        <li class="nav_item_footer">
+          <a href="<%= contacts_path %>">
+            <span id="item_4">Contacts</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="mb-1">
+      © <%= Time.now.strftime('%Y') %> Dmitrii Skrylev All Rights Reserved
+    </div>
+    <%= render 'social_icons' %>
+    <div>
+      <%= image_tag "black_ruby.jpg", class: "headBarLogo" %>
+    </div>
+    <div>
+      ...
+    </div>
   </div>
 </footer>
