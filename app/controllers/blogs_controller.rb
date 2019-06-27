@@ -7,6 +7,8 @@ class BlogsController < ApplicationController
   def index
     @blogs = Blog.order("created_at DESC")
     @all_tags = Tag.get_tags_count
+    @tags_for_meta = []
+    Tag.all.select("description").each { |element| @tags_for_meta << element.description}
   end
 
   def api_index
