@@ -22,11 +22,13 @@
   </head>
 
   <body data-turbolinks="false">
-    <p class="notice" style="display: <%= "none" unless notice %>;"><%= notice %></p>
-    <p class="alert" style="display: <%= "none" unless notice %>;"><%= alert %></p>
     <div id="myModal"></div>
     <%= render 'nav_bar' %>
-    <%= yield %>
+    <div class="applicationWrapper container">
+      <p class="notice" style="display: <%= "none" unless notice %>;"><%= notice %></p>
+      <p class="alert" style="display: <%= "none" unless notice %>;"><%= alert %></p>
+      <%= yield %>
+    </div>
     <%= render 'footer' %>
   </body>
 </html>
