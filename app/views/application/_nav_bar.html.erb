@@ -1,7 +1,11 @@
 <header id="header">
-  <div class="container text-center">
+  <div class="text-right">
     <ul id="nav_bar">
-      <li class="nav_item" style="color: indianred; font-weight: 500; font-size: 20px;">{</li>
+      <li class="navLogo">
+        <a href="<%= root_url %>">
+          <span id="item_1">Dmitrii Skrylev</span>
+        </a>
+      </li>
       <li class="nav_item">
         <a href="<%= root_url %>">
           <span id="item_1">Resume</span>
@@ -22,7 +26,6 @@
           <span id="item_4">Contacts</span>
         </a>
       </li>
-      <li class="nav_item" style="color: indianred; font-weight: 500; font-size: 20px">}</li>
       <li class="nav_item">
         <%= login_helper %>
       </li>
