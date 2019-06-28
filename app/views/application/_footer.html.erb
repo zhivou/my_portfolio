@@ -1,41 +1,41 @@
 <footer id="footer">
   <div class="footerNavBar container text-center mt-3">
     <div class="container text-center">
-      <ul id="nav_bar">
-        <li class="nav_item_footer">
+      <div id="nav_bar text-center">
+        <span class="nav_item_footer">
           <a href="<%= root_url %>">
-            <span id="item_1">Resume</span>
+            <span>Resume</span>
           </a>
-        </li>
-        <span id="item_1"> - </span>
-        <li class="nav_item_footer">
+        </span>
+        <span class="extraDecoration"> - </span>
+        <span class="nav_item_footer">
           <a href="<%= blogs_path %>">
-            <span id="item_2">Blog</span>
+            <span>Blog</span>
           </a>
-        </li>
-        <span id="item_1"> - </span>
-        <li class="nav_item_footer">
+        </span>
+        <span class="extraDecoration"> - </span>
+        <span class="nav_item_footer">
           <a href="<%= projects_path %>">
-            <span id="item_3">Projects</span>
+            <span>Projects</span>
           </a>
-        </li>
-        <span id="item_1"> - </span>
-        <li class="nav_item_footer">
+        </span>
+        <span class="extraDecoration"> - </span>
+        <span class="nav_item_footer">
           <a href="<%= contacts_path %>">
-            <span id="item_4">Contacts</span>
+            <span>Contacts</span>
           </a>
-        </li>
-      </ul>
+        </span>
+      </div>
     </div>
-    <div class="mb-1">
-      © <%= Time.now.strftime('%Y') %> Dmitrii Skrylev All Rights Reserved
+    <div class="mb-1 mt-2" id="copyRights">
+      <span>© <%= Time.now.strftime('%Y') %> Dmitrii Skrylev All Rights Reserved</span>
     </div>
     <%= render 'social_icons' %>
     <div>
-      <%= image_tag "black_ruby.jpg", class: "headBarLogo" %>
+      <%= image_tag "black_ruby.png", class: "headBarLogo" %>
     </div>
     <div>
-      ...
+      <p class="extraDecoration">...</p>
     </div>
   </div>
 </footer>

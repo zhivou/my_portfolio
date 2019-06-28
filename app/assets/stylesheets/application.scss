@@ -11,11 +11,11 @@ body {
 }
 
 #header {
-  background-color: whitesmoke;
-  height: 63px;
+  background-color: #193641;
+  height: auto;
   display: block;
-  border-bottom: 1px solid #d3d7cf;
   margin-bottom: 20px;
+  padding-right: 20px;
 
   #ruby_logo {
     width: 50px;
@@ -23,11 +23,35 @@ body {
 }
 
 #nav_bar {
-  line-height: 2.8;
+  line-height: 2.6;
+  padding-right: 200px;
+}
+
+.navLogo {
+  line-height: 1.7;
+  border-width: 0;
+  display: inline-block;
   margin: 0;
-  padding: 0;
-  width: 100%;
-  letter-spacing: 1px;
+  padding-bottom: 0;
+  text-align: left;
+  list-style-type: disc;
+  float:left;
+  padding-left: 200px;
+
+  span {
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-family: 'Teko', sans-serif;
+    font-size: 40px;
+    cursor: pointer;
+    padding: 13px;
+    background-color: white;
+  }
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
 }
 
 .nav_item {
@@ -42,9 +66,13 @@ body {
     letter-spacing: 1px;
     text-transform: uppercase;
     font-family: 'Teko', sans-serif;
-    font-size: 23px;
+    font-size: 25px;
     cursor: pointer;
-    padding: 10px;
+    padding: 12px;
+    padding-bottom: 13px;
+    padding-top: 12px;
+    background-color: white;
+
   }
 
   span:hover {
@@ -63,7 +91,7 @@ body {
   display: block;
   border-top: 1px solid #d3d7cf;
   min-height: 270px;
-  background-color: whitesmoke;
+  background-color: #193641;
 }
 
 /*=========================
@@ -140,7 +168,7 @@ a.socialIcon:hover, .socialHoverClass {
   transition: all 0.2s;
 }
 .social-circle i {
-  color: #2E2F30;
+  color: #EFEFEF;
   -webkit-transition: all 0.8s;
   -moz-transition: all 0.8s;
   -o-transition: all 0.8s;
@@ -153,13 +181,14 @@ a.socialIcon:hover, .socialHoverClass {
   border-width: 0;
   display: inline-block;
   margin: 0;
-  padding-bottom: 0;
+  padding: 0;
   text-align: left;
   list-style-type: disc;
 
   a {
-    color: black;
-    font-size: 18px;
+    color: #EFEFEF;
+    font-size: 22px;
+    letter-spacing: 2px;
   }
 }
 
@@ -167,4 +196,12 @@ a.socialIcon:hover, .socialHoverClass {
   width: 70px;
   height: 70px;
   margin: auto;
+}
+
+#copyRights {
+  color: #EFEFEF;
+}
+
+.extraDecoration{
+  color: #EFEFEF;
 }
