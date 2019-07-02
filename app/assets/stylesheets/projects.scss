@@ -1,10 +1,5 @@
 @import "jquery-ui";
 
-.projectCard {
-  min-height: 500px;
-  max-height: 500px;
-}
-
 .projectPicHolder {
   background-position: center center;
   transition: background-image 0.3s ease-in-out;
@@ -51,12 +46,10 @@
 }
 
 .imageHolder {
-  max-width: inherit !important;
-  height: 250px;
-  object-fit: contain;
+  width: 100%;
+  height: 225px;
 }
 
-.cardContent {
-  min-height: 140px;
-  max-height: 140px;
+.projectCard {
+  min-height: 500px;
 }
