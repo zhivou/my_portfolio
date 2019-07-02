@@ -20,8 +20,8 @@
                       <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></button>
                     <% end %>
                   </div>
-                  <small class="text-muted">Added: <%= distance_of_time_in_words(project.created_at, Time.now) %> ago.</small>
                 </div>
+                <small class="text-muted">Added: <%= distance_of_time_in_words(project.created_at, Time.now) %> ago.</small>
               </div>
             </div>
           </div>
