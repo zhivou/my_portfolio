@@ -8,10 +8,10 @@
       <% @projects.each do |project| %>
           <div class="col-md-4" data-id="<%= project.id %>">
             <div class="card mb-4 shadow-sm projectCard">
-              <a href="projects/<%= project.id %>"><%= image_tag project.main_image, class: "bd-placeholder-img card-img-top", width: "100%", height: "225" %></a>
+              <a href="projects/<%= project.id %>"><%= image_tag project.main_image, class: "bd-placeholder-img card-img-top imageHolder" %></a>
               <div class="card-body">
                 <p class="card-title"><%= project.title %></p>
-                <p class="card-text"><%= project.project_content.to_plain_text.first(250)%></p>
+                <p class="card-text cardContent"><%= project.project_content.to_plain_text.first(250)%></p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
                     <button type="button" class="btn btn-sm btn-outline-secondary"><%= link_to 'More...', project %></button>
