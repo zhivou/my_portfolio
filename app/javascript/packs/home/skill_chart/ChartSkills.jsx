@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Pie } from 'react-chartjs-2/es/index'
+import { Doughnut } from 'react-chartjs-2/es/index'
 import { Container } from 'semantic-ui-react'
 
 class SkillDoughnutChart extends Component {
@@ -14,15 +14,27 @@ class SkillDoughnutChart extends Component {
     displayTitle: true,
     displayLegend: true,
     legendPosition: 'right',
-    chartName: 'Chart Name'
+    chartName: 'Chart Name',
+    fatSize: 90
   };
 
   render(){
     return (
         <Container>
           <div className="chart">
-            <Pie
-                data={ this.state.chartData }
+            <Doughnut
+                data={
+                  {
+                    labels: ['Ruby'],
+                    datasets: [{
+                      label: 'My First dataset',
+                      backgroundColor: [
+                        'rgba(205,92,92)',
+                        'rgba(25,54,65)'],
+                      data: [90,10]
+                    }]
+                  }
+                }
                 options={{
                   title:{
                     display: this.props.displayTitle,
@@ -32,7 +44,8 @@ class SkillDoughnutChart extends Component {
                   legend:{
                     display: this.props.displayLegend,
                     position: this.props.legendPosition
-                  }
+                  },
+                  cutoutPercentage: this.props.fatSize
                 }}
             />
           </div>

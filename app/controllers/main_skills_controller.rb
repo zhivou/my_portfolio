@@ -24,7 +24,7 @@ class MainSkillsController < ApplicationController
 
     respond_to do |format|
       if @main_skill.save
-        format.html { redirect_to root_path }
+        format.html { redirect_to edit_user_registration_path }
         format.json { render :show, status: :created, location: @main_skill }
         format.js
       else
@@ -37,7 +37,7 @@ class MainSkillsController < ApplicationController
   def update
     respond_to do |format|
       if @main_skill.update(skill_params)
-        format.html { redirect_to root_path }
+        format.html { redirect_to edit_user_registration_path }
         format.json { render :show, status: :ok, location: @main_skill }
         format.js
       else
@@ -50,7 +50,7 @@ class MainSkillsController < ApplicationController
   def destroy
     @main_skill.destroy
     respond_to do |format|
-      format.html { redirect_to root_path }
+      format.html { redirect_to edit_user_registration_path }
       format.json { head :no_content }
     end
   end
