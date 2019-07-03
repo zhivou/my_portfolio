@@ -29,10 +29,12 @@ body {
 
 .navLogo {
   line-height: 1.7;
-  border-width: 0;
   display: inline-block;
   margin: 0;
-  padding-bottom: 0;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 0;
+  padding-right: 0;
   text-align: left;
   list-style-type: disc;
   float:left;
@@ -41,7 +43,7 @@ body {
     letter-spacing: 1px;
     text-transform: uppercase;
     font-family: 'Teko', sans-serif;
-    font-size: 39px;
+    font-size: 38px;
     cursor: pointer;
     padding: 13px;
     background-color: white;
