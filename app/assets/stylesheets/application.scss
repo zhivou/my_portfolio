@@ -5,6 +5,7 @@
 
 @import url('https://fonts.googleapis.com/css?family=Teko');
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web');
+@import url('https://fonts.googleapis.com/css?family=Libre+Barcode+128+Text&display=swap');
 
 body {
   font-family: 'Titillium Web', sans-serif;
@@ -29,10 +30,10 @@ body {
 
 .navLogo {
   line-height: 1.7;
-  border-width: 0;
   display: inline-block;
   margin: 0;
-  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
   text-align: left;
   list-style-type: disc;
   float:left;
@@ -40,16 +41,15 @@ body {
   span {
     letter-spacing: 1px;
     text-transform: uppercase;
-    font-family: 'Teko', sans-serif;
-    font-size: 39px;
+    font-family: 'Libre Barcode 128 Text', cursive;
+    font-size: 40px;
     cursor: pointer;
-    padding: 13px;
-    background-color: white;
+    padding: 2px;
   }
 
   a {
     text-decoration: none;
-    color: black;
+    color: white;
   }
 }
 

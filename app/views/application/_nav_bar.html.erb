@@ -1,47 +1,49 @@
 <header id="header">
-  <nav class="navbar navbar-dark navbar-expand-md text-right">
-    <!--  Logo  -->
-    <span class="navLogo">
+  <div class="container p-0">
+    <nav class="navbar navbar-dark navbar-expand-lg text-right pl-0 pr-0">
+      <!--  Logo  -->
+      <span class="navLogo justify-content-md-center">
       <a href="<%= root_url %>">
         <span id="item_1">Dmitrii Skrylev</span>
       </a>
     </span>
-    <!--  Logo end -->
+      <!--  Logo end -->
 
-    <!--  Toggler  -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <!--  Toggler end  -->
+      <!--  Toggler  -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!--  Toggler end  -->
 
-    <!--  Collapsible content  -->
-    <div class="collapse navbar-collapse justify-content-md-end mr-3" id="navbarCollapse">
-      <ul class="navbar-nav" id="nav_bar">
-        <li class="nav_item">
-          <a href="<%= root_url %>">
-            <span id="item_1">Resume</span>
-          </a>
-        </li>
-        <li class="nav_item">
-          <a href="<%= blogs_path %>">
-            <span id="item_2">Blog</span>
-          </a>
-        </li>
-        <li class="nav_item">
-          <a href="<%= projects_path %>">
-            <span id="item_3">Projects</span>
-          </a>
-        </li>
-        <li class="nav_item">
-          <a href="<%= contacts_path %>">
-            <span id="item_4">Contacts</span>
-          </a>
-        </li>
-        <li class="nav_item">
-          <%= login_helper %>
-        </li>
-      </ul>
-    </div>
-    <!--  Collapsible content end -->
-  </nav>
+      <!--  Collapsible content  -->
+      <div class="collapse navbar-collapse justify-content-md-end" id="navbarCollapse">
+        <ul class="navbar-nav" id="nav_bar">
+          <li class="nav_item">
+            <a href="<%= root_url %>">
+              <span id="item_1">Resume</span>
+            </a>
+          </li>
+          <li class="nav_item">
+            <a href="<%= blogs_path %>">
+              <span id="item_2">Blog</span>
+            </a>
+          </li>
+          <li class="nav_item">
+            <a href="<%= projects_path %>">
+              <span id="item_3">Projects</span>
+            </a>
+          </li>
+          <li class="nav_item">
+            <a href="<%= contacts_path %>">
+              <span id="item_4">Contacts</span>
+            </a>
+          </li>
+          <li class="nav_item">
+            <%= login_helper %>
+          </li>
+        </ul>
+      </div>
+      <!--  Collapsible content end -->
+    </nav>
+  </div>
 </header>
