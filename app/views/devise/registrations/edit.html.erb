@@ -58,6 +58,8 @@
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
+  <%= render "", resource: resource %>
+
   <div class="actions">
     <%= f.submit "Update" %>
   </div>
@@ -68,3 +70,6 @@
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= link_to "Back", :back %>
+
+lexi
+cody

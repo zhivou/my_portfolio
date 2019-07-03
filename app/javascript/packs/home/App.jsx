@@ -1,8 +1,9 @@
 import React from 'react';
+import SkillDoughnutChart from './skill_chart/ChartSkills'
 
 const App = () => (
     <div>
-      <p>React Home Page Working</p>
+      <SkillDoughnutChart>React Home Page Working</SkillDoughnutChart>
     </div>
 );
 
