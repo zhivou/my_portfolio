@@ -2,11 +2,6 @@ class RegistrationsController < Devise::RegistrationsController
 
   before_action :one_user_registered?, only: [:new, :create]
 
-  def edit
-    super
-    @main_skills = MainSkill.all
-  end
-
   protected
 
   def one_user_registered?

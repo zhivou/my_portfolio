@@ -2,6 +2,9 @@ class MainSkillsController < ApplicationController
   before_action :set_skill, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
 
+  #
+  # TODO Change this. Create new Scuffold - Settings, move all user settings there
+  #
   def index
     @main_skills = MainSkill.all
   end
@@ -58,6 +61,6 @@ class MainSkillsController < ApplicationController
   end
 
   def skill_params
-    params.require(:main_skill).permit(:title, :body)
+    params.require(:main_skill).permit(:name, :percent, :hard)
   end
 end

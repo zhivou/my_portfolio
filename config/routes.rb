@@ -28,4 +28,5 @@ Rails.application.routes.draw do
   # SpaceX API paged
   #
   get 'spacex', to: 'spacex#index'
+  resources :main_skills, except: [:show, :index]
 end

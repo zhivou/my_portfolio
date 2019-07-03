@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Main Skills</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Percent</th>
+      <th>Hard</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% MainSkill.all.each do |main_skill| %>
+      <tr>
+        <td><%= main_skill.name %></td>
+        <td><%= main_skill.percent %></td>
+        <td><%= main_skill.hard %></td>
+        <td><%= link_to 'Edit', edit_main_skill_path(main_skill) %></td>
+        <td><%= link_to 'Destroy', main_skill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Main Skill', new_main_skill_path %>
