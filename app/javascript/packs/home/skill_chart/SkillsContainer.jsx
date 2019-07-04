@@ -10,7 +10,8 @@ class SkillsContainer extends React.Component {
     super(props);
 
     this.state = {
-      loading: true,
+      loadingHard: true,
+      loadingSoft: true,
       hard_skills: null,
       soft_skills: null,
       chartData:{}
@@ -20,7 +21,7 @@ class SkillsContainer extends React.Component {
   componentDidMount() {
     axios.get('/hard-skills')
         .then( res => {
-          this.setState({hard_skills: res.data});
+          this.setState({hard_skills: res.data, loadingHard:false});
         })
         .catch( err => {
           console.log(err)
@@ -28,7 +29,7 @@ class SkillsContainer extends React.Component {
 
     axios.get('/soft-skills')
         .then( res => {
-          this.setState({soft_skills: res.data, loading: false});
+          this.setState({soft_skills: res.data, loadingSoft: false});
         })
         .catch( err => {
           console.log(err)
@@ -36,7 +37,7 @@ class SkillsContainer extends React.Component {
   }
 
   render() {
-    if (!this.state.loading) {
+    if (!this.state.loadingHard && !this.state.loadingSoft) {
       return (
           <div>
             <DrawHardSkills skills={this.state.hard_skills}/>
@@ -66,13 +67,14 @@ const DrawHardSkills = (props) => {
                   data: [skill.percent, (100-skill.percent)],
                   backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)'],
+                    'rgba(255, 255, 255, 0)'],
                   borderColor: [
                     'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)'],
+                    'rgba(255, 99, 132, 1)'],
                   borderWidth: 1}]
                 }
               }
+              key={skill.id}
           />
         ))
         }
