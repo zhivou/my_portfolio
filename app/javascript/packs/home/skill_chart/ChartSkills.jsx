@@ -23,18 +23,7 @@ class SkillDoughnutChart extends Component {
         <Container>
           <div className="chart">
             <Doughnut
-                data={
-                  {
-                    labels: ['Ruby'],
-                    datasets: [{
-                      label: 'My First dataset',
-                      backgroundColor: [
-                        'rgba(205,92,92)',
-                        'rgba(25,54,65)'],
-                      data: [90,10]
-                    }]
-                  }
-                }
+                data={ this.state.chartData }
                 options={{
                   title:{
                     display: this.props.displayTitle,

@@ -1,10 +1,8 @@
 import React from 'react';
-import SkillDoughnutChart from './skill_chart/ChartSkills'
+import SkillsContainer from './skill_chart/SkillsContainer'
 
 const App = () => (
-    <div>
-      <SkillDoughnutChart>React Home Page Working</SkillDoughnutChart>
-    </div>
+    <SkillsContainer/>
 );
 
 export default App;

@@ -9,6 +9,14 @@ class MainSkillsController < ApplicationController
     @main_skills = MainSkill.all
   end
 
+  def api_hard_skills
+    render json: MainSkill.where(hard: true)
+  end
+
+  def api_soft_skills
+    render json: MainSkill.where(hard: false)
+  end
+
   def show
   end
 
