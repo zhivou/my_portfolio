@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios/index';
 import ChartSkills from './ChartSkills'
+import {Card, Container, Grid} from "semantic-ui-react";
 
 class SkillsContainer extends React.Component {
 
@@ -17,7 +18,6 @@ class SkillsContainer extends React.Component {
   }
 
   componentDidMount() {
-
     axios.get('/hard-skills')
         .then( res => {
           this.setState({hard_skills: res.data});
@@ -39,7 +39,7 @@ class SkillsContainer extends React.Component {
     if (!this.state.loading) {
       return (
           <div>
-
+            <DrawHardSkills skills={this.state.hard_skills}/>
           </div>
       );
     }
@@ -52,5 +52,34 @@ class SkillsContainer extends React.Component {
     }
   }
 }
+
+const DrawHardSkills = (props) => {
+  return(
+      <div>
+        {props.skills.map(skill => (
+          <ChartSkills
+              chartData={
+                {
+                  labels: [skill.name],
+                  datasets: [{
+                    label: '# of Votes',
+                  data: [skill.percent, (100-skill.percent)],
+                  backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)'],
+                  borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)'],
+                  borderWidth: 1}]
+                }
+              }
+          />
+        ))
+        }
+      </div>
+  )
+};
+
+
 
 export default SkillsContainer
