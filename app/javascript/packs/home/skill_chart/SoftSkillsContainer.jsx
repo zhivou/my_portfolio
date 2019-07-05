@@ -1,27 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios/index';
-import ChartSkills from './ChartSkills'
+import HorizontalChartSkills from './HorizontalChartSkills'
 import Paragraph from './paragraph.png'
 import { Segment, Dimmer, Loader, Image } from 'semantic-ui-react'
 
-class SkillsContainer extends React.Component {
+class SoftSkillsContainer extends React.Component {
 
   constructor(props){
     super(props);
 
     this.state = {
-      loadingHard: true,
-      hard_skills: null,
+      loadingSoft: true,
       soft_skills: null,
       chartData:{}
     };
   }
 
   componentDidMount() {
-    axios.get('/hard-skills')
+    axios.get('/soft-skills')
         .then( res => {
-          this.setState({hard_skills: res.data, loadingHard:false});
+          this.setState({soft_skills: res.data, loadingSoft: false});
         })
         .catch( err => {
           console.log(err)
@@ -29,14 +28,14 @@ class SkillsContainer extends React.Component {
   }
 
   render() {
-    if (!this.state.loadingHard) {
+    if (!this.state.loadingSoft) {
       return (
           <div className="jumbotron jumbotron-fluid m-0">
             <div className="container">
-              <h1 className="display-4">Hard Skills</h1>
-              <p className="lead">Here is a set of my most dedicated skills(hard skills) I've developed in software engineering. This is a dynamic chart I learning something new everyday.</p>
+              <h1 className="display-4">Soft Skills</h1>
+              <p className="lead">Soft skills are a combination of people skills, social skills, communication skills, character or personality traits, attitudes, career attributes,[1] social intelligence and emotional intelligence quotients, among others, that enable people to navigate their environment, work well with others, perform well, and achieve their goals with complementing hard skills.</p>
               <hr className="my-4"/>
-              <DrawHardSkills skills={this.state.hard_skills}/>
+              <DrawSoftSkills skills={this.state.soft_skills}/>
             </div>
           </div>
       );
@@ -55,12 +54,12 @@ class SkillsContainer extends React.Component {
   }
 }
 
-const DrawHardSkills = (props) => {
+const DrawSoftSkills = (props) => {
   return(
       <div className="skillsWrapper">
         {props.skills.map(skill => (
             <div className="chartItem" key={skill.id}>
-              <ChartSkills
+              <HorizontalChartSkills
                   chartData={
                     {
                       labels: [skill.name],
@@ -89,4 +88,4 @@ const DrawHardSkills = (props) => {
 
 
 
-export default SkillsContainer
+export default SoftSkillsContainer

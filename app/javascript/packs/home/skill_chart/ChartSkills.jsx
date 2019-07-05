@@ -38,13 +38,6 @@ class SkillDoughnutChart extends Component {
                     display: true,
                     text: "280"
                   },
-                  // plugins: {
-                  //   datalabels: {
-                  //     formatter: function(value, context) {
-                  //       return context.chart.data.labels[context.dataIndex];
-                  //     }
-                  //   }
-                  // },
                   cutoutPercentage: this.props.fatSize
                 }}
             />
