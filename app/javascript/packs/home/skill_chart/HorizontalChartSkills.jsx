@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { HorizontalBar } from 'react-chartjs-2/es/index'
-import { Container } from 'semantic-ui-react'
 
 class HorizontalChartSkills extends Component {
   constructor(props){
@@ -13,12 +12,14 @@ class HorizontalChartSkills extends Component {
   static defaultProps = {
     displayTitle: true,
     displayLegend: true,
-    legendPosition: 'right'
+    legendPosition: 'bottom',
+    chartName: 'Chart Name',
   };
 
   render(){
     return (
         <HorizontalBar
+            height={70}
             data={ this.state.chartData }
             options={{
               title:{
@@ -29,20 +30,18 @@ class HorizontalChartSkills extends Component {
                 display: this.props.displayLegend,
                 position: this.props.legendPosition
               },
+              tooltips: {
+                enabled: false
+              },
               scales: {
                 xAxes: [{
                   display: true,
                   ticks: {
                     beginAtZero: true,
-                    steps: 100,
-                    stepValue: 1,
                     max: 100
                   }
-                }]
-              },
-              centerText: {
-                display: true,
-                text: "280"
+                }],
+                yAxes: [{ticks: {mirror: true}}]
               }
             }}
         />

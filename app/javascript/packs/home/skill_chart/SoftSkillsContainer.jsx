@@ -64,20 +64,17 @@ const DrawSoftSkills = (props) => {
                     {
                       labels: [skill.name],
                       datasets: [{
-                        label: '# of Votes',
-                        data: [skill.percent, (100-skill.percent)],
-                        backgroundColor: [
-                          'rgba(25,54,65)',
-                          'rgba(255, 255, 255, 0)'],
-                        borderColor: [
-                          'rgba(25,54,65)',
-                          'rgba(255, 99, 132, 1)'],
+                        label: 'Skill',
+                        data: [skill.percent],
+                        backgroundColor: ['rgba(25,54,65)'],
+                        borderColor: ['rgba(25,54,65)'],
                         borderWidth: 0}]
                     }
                   }
                   displayLegend={false}
                   chartName={skill.name}
               />
+              <h3>{skill.name}</h3>
             </div>
         ))
         }

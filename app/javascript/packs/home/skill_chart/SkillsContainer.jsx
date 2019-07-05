@@ -35,6 +35,7 @@ class SkillsContainer extends React.Component {
             <div className="container">
               <h1 className="display-4">Hard Skills</h1>
               <p className="lead">Here is a set of my most dedicated skills(hard skills) I've developed in software engineering. This is a dynamic chart I learning something new everyday.</p>
+              <p>To see all skills please visit my resume page: </p><a href="/resume">Resume Page</a>
               <hr className="my-4"/>
               <DrawHardSkills skills={this.state.hard_skills}/>
             </div>
