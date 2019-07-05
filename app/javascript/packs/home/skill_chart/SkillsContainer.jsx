@@ -88,6 +88,7 @@ const DrawHardSkills = (props) => {
                   displayLegend={false}
                   chartName={skill.name}
               />
+              <h3 className="floatedPercent">{skill.percent}%</h3>
             </div>
         ))
         }

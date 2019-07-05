@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Doughnut } from 'react-chartjs-2/es/index'
-import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { Container } from 'semantic-ui-react'
 
 class SkillDoughnutChart extends Component {
@@ -39,13 +38,13 @@ class SkillDoughnutChart extends Component {
                     display: true,
                     text: "280"
                   },
-                  plugins: {
-                    datalabels: {
-                      formatter: function(value, context) {
-                        return context.chart.data.labels[context.dataIndex];
-                      }
-                    }
-                  },
+                  // plugins: {
+                  //   datalabels: {
+                  //     formatter: function(value, context) {
+                  //       return context.chart.data.labels[context.dataIndex];
+                  //     }
+                  //   }
+                  // },
                   cutoutPercentage: this.props.fatSize
                 }}
             />
