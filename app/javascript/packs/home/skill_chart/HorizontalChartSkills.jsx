@@ -19,7 +19,7 @@ class HorizontalChartSkills extends Component {
   render(){
     return (
         <HorizontalBar
-            height={70}
+            height={90}
             data={ this.state.chartData }
             options={{
               title:{
