@@ -13,32 +13,37 @@ class HorizontalChartSkills extends Component {
   static defaultProps = {
     displayTitle: true,
     displayLegend: true,
-    legendPosition: 'right',
-    chartName: 'Chart Name',
-    fatSize: 90
+    legendPosition: 'right'
   };
 
   render(){
     return (
         <HorizontalBar
-            height={300}
-            width={300}
             data={ this.state.chartData }
             options={{
               title:{
                 display: this.props.displayTitle,
-                text: this.props.chartName,
                 fontSize: 25
               },
               legend:{
                 display: this.props.displayLegend,
                 position: this.props.legendPosition
               },
+              scales: {
+                xAxes: [{
+                  display: true,
+                  ticks: {
+                    beginAtZero: true,
+                    steps: 100,
+                    stepValue: 1,
+                    max: 100
+                  }
+                }]
+              },
               centerText: {
                 display: true,
                 text: "280"
-              },
-              cutoutPercentage: this.props.fatSize
+              }
             }}
         />
     )

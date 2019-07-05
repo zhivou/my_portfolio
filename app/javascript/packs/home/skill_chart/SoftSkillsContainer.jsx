@@ -30,7 +30,7 @@ class SoftSkillsContainer extends React.Component {
   render() {
     if (!this.state.loadingSoft) {
       return (
-          <div className="jumbotron jumbotron-fluid m-0">
+          <div className="jumbotron jumbotron-fluid m-0 softSectionWrapper">
             <div className="container">
               <h1 className="display-4">Soft Skills</h1>
               <p className="lead">Soft skills are a combination of people skills, social skills, communication skills, character or personality traits, attitudes, career attributes,[1] social intelligence and emotional intelligence quotients, among others, that enable people to navigate their environment, work well with others, perform well, and achieve their goals with complementing hard skills.</p>
@@ -58,7 +58,7 @@ const DrawSoftSkills = (props) => {
   return(
       <div className="skillsWrapper">
         {props.skills.map(skill => (
-            <div className="chartItem" key={skill.id}>
+            <div className="horizontalChartItem" key={skill.id}>
               <HorizontalChartSkills
                   chartData={
                     {
@@ -78,7 +78,6 @@ const DrawSoftSkills = (props) => {
                   displayLegend={false}
                   chartName={skill.name}
               />
-              <h3 className="floatedPercent">{skill.percent}%</h3>
             </div>
         ))
         }
