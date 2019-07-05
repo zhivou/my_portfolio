@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios/index';
 import ChartSkills from './ChartSkills'
-import {Card, Container, Grid} from "semantic-ui-react";
+import Paragraph from './paragraph.png'
+import {Dimmer, Image, Loader, Segment} from "semantic-ui-react";
 
 class SkillsContainer extends React.Component {
 
@@ -39,16 +40,21 @@ class SkillsContainer extends React.Component {
   render() {
     if (!this.state.loadingHard && !this.state.loadingSoft) {
       return (
-          <div>
+          <div className="text-center mt-3 mb-3">
+            <h1>-Hard Skills-</h1>
             <DrawHardSkills skills={this.state.hard_skills}/>
           </div>
       );
     }
     else {
       return (
-         <div>
-           Loading...
-         </div>
+          <Segment className="loaderWrapper">
+            <Dimmer active inverted>
+              <Loader size='large'>Loading</Loader>
+            </Dimmer>
+
+            <Image src={Paragraph} className="imageLoader"/>
+          </Segment>
       );
     }
   }
@@ -58,24 +64,27 @@ const DrawHardSkills = (props) => {
   return(
       <div>
         {props.skills.map(skill => (
-          <ChartSkills
-              chartData={
-                {
-                  labels: [skill.name],
-                  datasets: [{
-                    label: '# of Votes',
-                  data: [skill.percent, (100-skill.percent)],
-                  backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(255, 255, 255, 0)'],
-                  borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(255, 99, 132, 1)'],
-                  borderWidth: 1}]
-                }
-              }
-              key={skill.id}
-          />
+            <div className="skillWrapper" key={skill.id}>
+              <ChartSkills
+                  chartData={
+                    {
+                      labels: [skill.name],
+                      datasets: [{
+                        label: '# of Votes',
+                        data: [skill.percent, (100-skill.percent)],
+                        backgroundColor: [
+                          'rgba(25,54,65)',
+                          'rgba(255, 255, 255, 0)'],
+                        borderColor: [
+                          'rgba(25,54,65)',
+                          'rgba(255, 99, 132, 1)'],
+                        borderWidth: 0}]
+                    }
+                  }
+                  displayLegend={false}
+                  chartName={skill.name}
+              />
+            </div>
         ))
         }
       </div>

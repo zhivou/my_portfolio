@@ -20,9 +20,9 @@ class SkillDoughnutChart extends Component {
 
   render(){
     return (
-        <Container>
-          <div className="chart">
             <Doughnut
+                height={100}
+                width={100}
                 data={ this.state.chartData }
                 options={{
                   title:{
@@ -37,8 +37,6 @@ class SkillDoughnutChart extends Component {
                   cutoutPercentage: this.props.fatSize
                 }}
             />
-          </div>
-        </Container>
     )
   }
 }

@@ -10,6 +10,7 @@ class MainSkillsController < ApplicationController
   end
 
   def api_hard_skills
+    sleep 5
     render json: MainSkill.where(hard: true)
   end
 
