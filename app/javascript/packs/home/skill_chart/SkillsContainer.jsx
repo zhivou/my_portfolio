@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import axios from 'axios/index';
 import ChartSkills from './ChartSkills'
 import Paragraph from './paragraph.png'
-import {Dimmer, Image, Loader, Segment} from "semantic-ui-react";
+import { Segment, Dimmer, Loader, Image } from 'semantic-ui-react'
 
 class SkillsContainer extends React.Component {
 
@@ -40,9 +40,13 @@ class SkillsContainer extends React.Component {
   render() {
     if (!this.state.loadingHard && !this.state.loadingSoft) {
       return (
-          <div className="text-center mt-3 mb-3">
-            <h1>-Hard Skills-</h1>
-            <DrawHardSkills skills={this.state.hard_skills}/>
+          <div className="jumbotron jumbotron-fluid m-0">
+            <div className="container">
+              <h1 className="display-4">Hard Skills</h1>
+              <p className="lead">Here is a set of my most dedicated skills(hard skills) I've developed in software engineering. This is a dynamic chart I learning something new everyday.</p>
+              <hr className="my-4"/>
+              <DrawHardSkills skills={this.state.hard_skills}/>
+            </div>
           </div>
       );
     }
@@ -53,7 +57,7 @@ class SkillsContainer extends React.Component {
               <Loader size='large'>Loading</Loader>
             </Dimmer>
 
-            <Image src={Paragraph} className="imageLoader"/>
+            <Image src={Paragraph} className="imageLoader" centered/>
           </Segment>
       );
     }
@@ -62,9 +66,9 @@ class SkillsContainer extends React.Component {
 
 const DrawHardSkills = (props) => {
   return(
-      <div>
+      <div className="skillsWrapper">
         {props.skills.map(skill => (
-            <div className="skillWrapper" key={skill.id}>
+            <div className="chartItem" key={skill.id}>
               <ChartSkills
                   chartData={
                     {

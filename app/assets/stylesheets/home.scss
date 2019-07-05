@@ -2,7 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.skillWrapper {
+.chartItem {
   display:inline-block;
   width: 200px;
+}
+
+.skillsWrapper {
+  text-align: center;
 }
