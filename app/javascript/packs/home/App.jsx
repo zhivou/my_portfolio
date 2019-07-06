@@ -1,12 +1,16 @@
-import React from 'react';
-import SkillsContainer from './skill_chart/SkillsContainer'
-import SoftSkillsContainer from './skill_chart/SoftSkillsContainer'
+import React, {Component, lazy, Suspense } from 'react';
+const SkillsContainer = React.lazy(() => import('./skill_chart/SkillsContainer'));
+const SoftSkillsContainer = React.lazy(() => import('./skill_chart/SoftSkillsContainer'));
 
-const App = () => (
-    <div>
-      <SkillsContainer/>
-      <SoftSkillsContainer/>
-    </div>
-);
+class App extends Component {
+  render(){
+    return(
+        <Suspense fallback={<div>Loading...</div>}>
+          <SkillsContainer/>
+          <SoftSkillsContainer/>
+        </Suspense>
+    )
+  }
+}
 
 export default App;
