@@ -22,3 +22,4 @@ require("trix");
 require("@rails/actiontext");
 require("@rails/activestorage");
 require("react-countdown-now");
+//require("./other/animation_loader");

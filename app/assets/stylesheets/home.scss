@@ -37,10 +37,34 @@
   min-height: 100vh;
   overflow-x: hidden;
   background-size: cover;
+}
+
+#firstSlide{
   background-image: url("me_ph.jpg");
 }
 
 #greetingsCard {
   background-color: rgba(255, 255, 255, 0.6);
   font-size: 25px;
+}
+
+.rowItem {
+  padding-bottom: 100px;
+}
+
+#secondSlide {
+  background-color: white;
+}
+
+.rowItem {
+  margin-top: 60px;
+}
+
+#icon {
+  font-size: 60px;
+  margin-bottom: 20px;
+}
+
+.passionWrapper {
+  padding-top: 40px;
 }
