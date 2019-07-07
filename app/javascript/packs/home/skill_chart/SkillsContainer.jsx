@@ -32,7 +32,7 @@ class SkillsContainer extends React.Component {
     if (!this.state.loadingHard) {
       return (
           <div className="jumbotron jumbotron-fluid m-0">
-            <div className="container">
+            <div className="container text-center">
               <h1 className="display-4">Hard Skills</h1>
               <p className="lead">Here is a set of my most dedicated skills(hard skills) I've developed in software engineering. This is a dynamic chart I learning something new everyday.</p>
               <p>To see all skills please visit my resume page: </p><a href="/resume">Resume Page</a>

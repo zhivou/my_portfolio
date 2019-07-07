@@ -31,7 +31,7 @@ class SoftSkillsContainer extends React.Component {
     if (!this.state.loadingSoft) {
       return (
           <div className="jumbotron jumbotron-fluid m-0 softSectionWrapper">
-            <div className="container">
+            <div className="container text-center">
               <h1 className="display-4">Soft Skills</h1>
               <p className="lead">Soft skills are a combination of people skills, social skills, communication skills, character or personality traits, attitudes, career attributes, social intelligence and emotional intelligence quotients, among others, that enable people to navigate their environment, work well with others, perform well, and achieve their goals with complementing hard skills.</p>
               <hr className="my-4"/>
