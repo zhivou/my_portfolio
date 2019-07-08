@@ -115,6 +115,16 @@ img {
 
 img:hover {
   transition: all 0.8s ease;
-  transform: translate3D(0, -1px, 0) scale(1.02);
+  transform: translate3D(0, -1px, 0) scale(1.1);
   filter: grayscale(0%);
+}
+
+.logo-item {
+  width: 230px;
+  padding: 60px;
+  filter: grayscale(0%);
+}
+
+#brand-slide {
+  background-color: white;
 }
