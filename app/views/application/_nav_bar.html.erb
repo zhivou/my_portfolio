@@ -3,7 +3,7 @@
     <nav class="navbar navbar-dark navbar-expand-lg text-right pl-0 pr-0">
       <!--  Logo  -->
       <span class="navLogo justify-content-md-center">
-      <a href="<%= root_url %>">
+      <a href="<%= root_url %>" class="logoLink">
         <span id="item_1">Dmitrii Skrylev</span>
       </a>
     </span>
@@ -20,6 +20,11 @@
         <ul class="navbar-nav" id="nav_bar">
           <li class="nav_item">
             <a href="<%= root_url %>">
+              <span id="item_1">Home</span>
+            </a>
+          </li>
+          <li class="nav_item">
+            <a href="<%= resume_path %>">
               <span id="item_1">Resume</span>
             </a>
           </li>

@@ -1,0 +1,2 @@
+class MainSkill < ApplicationRecord
+end

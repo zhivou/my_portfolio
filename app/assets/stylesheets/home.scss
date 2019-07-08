@@ -1,0 +1,130 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.chartItem {
+  display:inline-block;
+  width: 200px;
+}
+
+.skillsWrapper {
+  text-align: center;
+}
+
+.floatedPercent {
+  position: relative;
+  bottom: 112px;
+  left: 3px;
+}
+
+.horizontalChartItem{
+  display:inline-block;
+  width: 500px;
+  padding: 10px;
+}
+
+.softSectionWrapper{
+  background-color: white;
+}
+
+.sliderWrapper {
+  background-position: center center;
+  transition: background-image 0.3s ease-in-out;
+  height: 100%;
+  display: block;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-size: cover;
+}
+
+#firstSlide{
+  background-image: url("me_ph.jpg");
+}
+
+#greetingsCard {
+  background-color: rgba(255, 255, 255, 0.6);
+  font-size: 25px;
+}
+
+.rowItem {
+  padding-bottom: 100px;
+}
+
+#secondSlide {
+  background-color: white;
+  padding-top: 56px;
+}
+
+.rowItem {
+  margin-top: 60px;
+}
+
+#icon {
+  font-size: 60px;
+  margin-bottom: 20px;
+  color: #193641;
+}
+
+.passionWrapper {
+  padding-top: 40px;
+}
+
+#latestBlogsdSlide {
+  padding-top: 56px;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.image-cropper {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  border: solid 5px #193641;
+  margin: auto;
+}
+
+.blogsItem {
+  display: inline !important;
+  margin: 0 auto;
+  height: 100%;
+  width: auto !important;
+}
+
+.blogsWrapper {
+  padding-bottom: 70px;
+  margin: auto;
+}
+
+.row-blogs {
+  padding-top: 40px;
+}
+
+a {
+  color: #193641;
+}
+
+img {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  transition: all 0.8s ease;
+}
+
+img:hover {
+  transition: all 0.8s ease;
+  transform: translate3D(0, -1px, 0) scale(1.1);
+  filter: grayscale(0%);
+}
+
+.logo-item {
+  width: 230px;
+  padding: 60px;
+  filter: grayscale(0%);
+}
+
+#brand-slide {
+  background-color: white;
+}

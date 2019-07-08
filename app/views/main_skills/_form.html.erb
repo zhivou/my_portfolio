@@ -1,0 +1,32 @@
+<%= form_with(model: main_skill, local: true) do |form| %>
+  <% if main_skill.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(main_skill.errors.count, "error") %> prohibited this main_skill from being saved:</h2>
+
+      <ul>
+      <% main_skill.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :main_skill_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :percent %>
+    <%= form.number_field :percent, id: :main_skill_percent %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hard %>
+    <%= form.check_box :hard, id: :main_skill_hard %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

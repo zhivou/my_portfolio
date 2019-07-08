@@ -1,0 +1,25 @@
+<div class="jumbotron jumbotron-fluid" id="latestBlogsdSlide">
+  <div class="container mt-4">
+    <div class="text-center pb-2">
+      <h1 class="display-4 mb-4">Latest blogs</h1>
+      <p>All blogs can be found on this page: </p><a href="/blogs">Blogs Page</a>
+    </div>
+    <hr class="my-4"/>
+    <div class="latestBlog text-center">
+      <div class="row row-blogs">
+        <% blogs.each do |blog| %>
+            <div class="blogsWrapper">
+              <div class="image-cropper">
+                <a href="/blogs/<%= blog.id %>">
+                  <%= image_tag blog.main_image, class: "d-block w-100 blogsItem", alt: blog.id %>
+                </a>
+              </div>
+              <a href="/blogs/<%= blog.id %>">
+                <h1 id="blog-title"><%= blog.title.first(15) + "..." %></h1>
+              </a>
+            </div>
+        <% end %>
+        </div>
+      </div>
+  </div>
+</div>
