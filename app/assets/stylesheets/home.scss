@@ -106,3 +106,15 @@
 a {
   color: #193641;
 }
+
+img {
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  transition: all 0.8s ease;
+}
+
+img:hover {
+  transition: all 0.8s ease;
+  transform: translate3D(0, -1px, 0) scale(1.02);
+  filter: grayscale(0%);
+}
