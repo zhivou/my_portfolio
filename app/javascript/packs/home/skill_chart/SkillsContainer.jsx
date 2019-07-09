@@ -4,6 +4,7 @@ import axios from 'axios/index';
 import ChartSkills from './ChartSkills'
 import Paragraph from './paragraph.png'
 import { Segment, Dimmer, Loader, Image } from 'semantic-ui-react'
+import LazyLoad from 'react-lazyload';
 
 class SkillsContainer extends React.Component {
 
@@ -37,7 +38,9 @@ class SkillsContainer extends React.Component {
               <p className="lead">Here is a set of my most dedicated skills(hard skills) I've developed in software engineering. This is a dynamic chart I learning something new everyday.</p>
               <p>To see all skills please visit my resume page: </p><a href="/resume">Resume Page</a>
               <hr className="my-4"/>
-              <DrawHardSkills skills={this.state.hard_skills}/>
+              <LazyLoad height={480} offset={-250}>
+                <DrawHardSkills skills={this.state.hard_skills}/>
+              </LazyLoad>
             </div>
           </div>
       );
