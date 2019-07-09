@@ -11,7 +11,7 @@
             <div class="blogsWrapper">
               <div class="image-cropper">
                 <a href="/blogs/<%= blog.id %>">
-                  <%= image_tag blog.main_image, class: "d-block w-100 blogsItem", alt: blog.id %>
+                  <%= image_tag blog.main_image.variant(resize: "300"), class: "d-block w-100 blogsItem", alt: blog.id %>
                 </a>
               </div>
               <a href="/blogs/<%= blog.id %>">
