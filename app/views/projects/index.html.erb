@@ -6,9 +6,11 @@
   <div class="mt-5">
     <div class="row sortable">
       <% @projects.each do |project| %>
-          <div class="col-md-4" data-id="<%= project.id %>">
+          <div class="col-md-12 col-xl-4 col-lg-4 col-sm-12 col-12" data-id="<%= project.id %>">
             <div class="card mb-4 shadow-sm projectCard">
-              <a href="projects/<%= project.id %>"><%= image_tag project.main_image, class: "bd-placeholder-img card-img-top imageHolder" %></a>
+              <div id="img-cropper">
+                <a href="projects/<%= project.id %>"><%= image_tag project.main_image, class: "bd-placeholder-img card-img-top imageHolder", id: "imageProject" %></a>
+              </div>
               <div class="card-body">
                 <p class="card-title"><%= project.title %></p>
                 <p class="card-text cardContent"><%= project.project_content.to_plain_text.first(250)%></p>
