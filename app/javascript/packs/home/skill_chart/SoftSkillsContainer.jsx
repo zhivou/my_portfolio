@@ -4,6 +4,7 @@ import axios from 'axios/index';
 import HorizontalChartSkills from './HorizontalChartSkills'
 import Paragraph from './paragraph.png'
 import { Segment, Dimmer, Loader, Image } from 'semantic-ui-react'
+import LazyLoad from 'react-lazyload';
 
 class SoftSkillsContainer extends React.Component {
 
@@ -35,7 +36,9 @@ class SoftSkillsContainer extends React.Component {
               <h1 className="display-4">Soft Skills</h1>
               <p className="lead">Soft skills are a combination of people skills, social skills, communication skills, character or personality traits, attitudes, career attributes, social intelligence and emotional intelligence quotients, among others, that enable people to navigate their environment, work well with others, perform well, and achieve their goals with complementing hard skills.</p>
               <hr className="my-4"/>
-              <DrawSoftSkills skills={this.state.soft_skills}/>
+              <LazyLoad height={480} offset={-250}>
+                <DrawSoftSkills skills={this.state.soft_skills}/>
+              </LazyLoad>
             </div>
           </div>
       );

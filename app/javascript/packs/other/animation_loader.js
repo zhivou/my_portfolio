@@ -1,20 +1,25 @@
 var $window = $(window);
-var $elem = $(".animation")
 
-function isScrolledIntoView($elem, $window) {
-  var docViewTop = $window.scrollTop();
-  var docViewBottom = docViewTop + $window.height();
+function check_if_in_view() {
+  var window_height = $window.height();
+  var window_top_position = $window.scrollTop();
+  var window_bottom_position = (window_top_position + window_height);
 
-  var elemTop = $elem.offset().top;
-  var elemBottom = elemTop + $elem.height();
+  $.each($('.animation-element'), function() {
+    var $element = $(this);
+    var element_height = $element.outerHeight();
+    var element_top_position = $element.offset().top;
+    var element_bottom_position = (element_top_position + element_height);
 
-  return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+    //check to see if this current container is within viewport
+    if ((element_bottom_position >= window_top_position) &&
+        (element_top_position <= window_bottom_position)) {
+      $element.addClass('in-view');
+    } else {
+      $element.removeClass('in-view');
+    }
+  });
 }
 
-
-$(document).on("scroll", function () {
-  if (isScrolledIntoView($elem, $window)) {
-    $elem.addClass("animate")
-    console.log("now you see me");
-  }
-});
+$(document).on("scroll resize", check_if_in_view);
+$window.trigger('scroll');
