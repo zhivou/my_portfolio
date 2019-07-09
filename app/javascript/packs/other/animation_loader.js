@@ -1,4 +1,3 @@
-var $animation_elements = $('.animation-element');
 var $window = $(window);
 
 function check_if_in_view() {
@@ -6,7 +5,7 @@ function check_if_in_view() {
   var window_top_position = $window.scrollTop();
   var window_bottom_position = (window_top_position + window_height);
 
-  $.each($animation_elements, function() {
+  $.each($('.animation-element'), function() {
     var $element = $(this);
     var element_height = $element.outerHeight();
     var element_top_position = $element.offset().top;
@@ -22,5 +21,5 @@ function check_if_in_view() {
   });
 }
 
-$window.on('scroll resize', check_if_in_view);
+$(document).on("scroll resize", check_if_in_view);
 $window.trigger('scroll');
