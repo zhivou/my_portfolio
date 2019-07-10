@@ -213,6 +213,10 @@ a.socialIcon:hover, .socialHoverClass {
   transition: all 0.5s ease;
 }
 
+.logo-item {
+  color: #193641;
+}
+
 .navbar-header.scrolled {
   background-color: #193641 !important;
   height: 63px;
@@ -238,4 +242,12 @@ a.socialIcon:hover, .socialHoverClass {
       padding-right: 12px;
     }
   }
+}
+
+.blogsWrapper {
+  margin-top: 86px;
+}
+
+#navbarCollapse {
+  background-color: white;
 }
