@@ -1,6 +1,6 @@
-var $home = $('#button-home');
-
-$home.click(function() {
-  //do something
+$(function () {
+  $(document).scroll(function () {
+    var $nav = $("#header");
+    $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height()-70);
+  });
 });
-

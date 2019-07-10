@@ -12,10 +12,15 @@ body {
 }
 
 #header {
-  background-color: #193641;
   height: auto;
   display: block;
   padding-right: 20px;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  top: 0;
+  transition-timing-function: cubic-bezier(0.69, 0, 0, 1) !important;
+  animation-timing-function: cubic-bezier(0.69, 0, 0, 1) !important;
 
   #ruby_logo {
     width: 50px;
@@ -44,12 +49,11 @@ body {
     font-size: 40px;
     cursor: pointer;
     padding: 2px;
-    color: white;
   }
 
   a {
+    color: #193641;
     text-decoration: none;
-    color: white;
   }
 }
 
@@ -70,7 +74,6 @@ body {
     padding: 12px;
     padding-bottom: 13px;
     padding-top: 12px;
-    background-color: white;
 
   }
 
@@ -206,4 +209,14 @@ a.socialIcon:hover, .socialHoverClass {
 
 .extraDecoration{
   color: #EFEFEF;
+}
+
+.navbar-header{
+  background-color: transperant !important;
+  transition: background-color 200ms linear;
+}
+
+.navbar-header.scrolled {
+  background-color: #fff !important;
+  transition: background-color 500ms linear;
 }
