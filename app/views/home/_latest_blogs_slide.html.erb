@@ -14,9 +14,11 @@
                   <%= image_tag blog.main_image.variant(resize: "300"), class: "d-block w-100 blogsItem", alt: blog.id %>
                 </a>
               </div>
-              <a href="/blogs/<%= blog.id %>">
-                <h1 id="blog-title"><%= blog.title.first(15) + "..." %></h1>
-              </a>
+              <div id="title-wrapper">
+                <a href="/blogs/<%= blog.id %>">
+                  <h3 id="blog-title"><%= blog.title %></h3>
+                </a>
+              </div>
             </div>
         <% end %>
         </div>
