@@ -1,6 +1,6 @@
 $(function () {
   $(document).scroll(function () {
     var $nav = $("#header");
-    $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height()-70);
+    $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
   });
 });
