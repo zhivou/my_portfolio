@@ -12,13 +12,11 @@ body {
 }
 
 #header {
-  height: auto;
   display: block;
   padding-right: 20px;
   position: fixed;
   z-index: 1000;
   width: 100%;
-  top: 0;
   transition-timing-function: cubic-bezier(0.69, 0, 0, 1) !important;
   animation-timing-function: cubic-bezier(0.69, 0, 0, 1) !important;
 
@@ -27,10 +25,7 @@ body {
   }
 }
 
-#nav_bar {
-  line-height: 2.6;
 
-}
 
 .navLogo {
   line-height: 1.7;
@@ -213,10 +208,34 @@ a.socialIcon:hover, .socialHoverClass {
 
 .navbar-header {
   background-color: transparent;
+  height: 82px;
+  top: 0;
   transition: all 0.5s ease;
 }
 
 .navbar-header.scrolled {
-  background-color: #fff !important;
-  transition: all 300ms linear;
+  background-color: #193641 !important;
+  height: 63px;
+  top: -16px;
+  transition: all 500ms ease;
+
+  .nav-item {
+    color: white;
+    padding: 0;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .logo-item {
+    color: white;
+  }
+
+  #login-helper {
+    span {
+      color: white;
+      padding: 0;
+      padding-left: 12px;
+      padding-right: 12px;
+    }
+  }
 }

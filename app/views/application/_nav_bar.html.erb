@@ -4,7 +4,7 @@
       <!--  Logo  -->
       <span class="navLogo justify-content-md-center">
       <a href="<%= root_url %>" class="logoLink">
-        <span id="item_1">Dmitrii Skrylev</span>
+        <span class="logo-item">Dmitrii Skrylev</span>
       </a>
     </span>
       <!--  Logo end -->
@@ -20,30 +20,30 @@
         <ul class="navbar-nav" id="nav_bar">
           <li class="nav_item">
             <a href="<%= root_url %>">
-              <span id="button-home" class="active">Home</span>
+              <span id="button-home" class="nav-item">Home</span>
             </a>
           </li>
           <li class="nav_item">
             <a href="<%= resume_path %>">
-              <span id="item_1">Resume</span>
+              <span id="item_1" class="nav-item">Resume</span>
             </a>
           </li>
           <li class="nav_item">
             <a href="<%= blogs_path %>">
-              <span id="item_2">Blog</span>
+              <span id="item_2" class="nav-item">Blog</span>
             </a>
           </li>
           <li class="nav_item">
             <a href="<%= projects_path %>">
-              <span id="item_3">Projects</span>
+              <span id="item_3" class="nav-item">Projects</span>
             </a>
           </li>
           <li class="nav_item">
             <a href="<%= contacts_path %>">
-              <span id="item_4">Contacts</span>
+              <span id="item_4" class="nav-item">Contacts</span>
             </a>
           </li>
-          <li class="nav_item">
+          <li class="nav_item" id="login-helper">
             <%= login_helper %>
           </li>
         </ul>
