@@ -21,9 +21,12 @@
     <%= form.text_field :organization, id: :experience_organization %>
   </div>
 
+<!--  <div class="field">-->
+    <%#= form.label :body %>
+    <%#= form.text_area :body, id: :experience_body %>
+<!--  </div>-->
   <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body, id: :experience_body %>
+    <%= form.rich_text_area :exp_body, id: :experience_exp_body, class:"mb-1 mt-1" %>
   </div>
 
   <div class="field">
