@@ -16,9 +16,19 @@ module ApplicationHelper
     end
   end
 
+  def edit_helper
+    if current_user
+      link_to edit_user_registration_path do
+        "<span>Edit</span>".html_safe
+      end
+    end
+  end
+
   def login_renders
-    link_to new_user_session_path do
-      "<span>Login</span>".html_safe
+    unless current_user
+      link_to new_user_session_path do
+        "<span>Login</span>".html_safe
+      end
     end
   end
 

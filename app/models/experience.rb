@@ -1,9 +1,11 @@
 class Experience < ApplicationRecord
 
+  has_rich_text :exp_body
+
   validates_presence_of :title,
                         :organization,
-                        :body,
                         :date_started,
-                        :location
+                        :location,
+                        :exp_body
 
 end

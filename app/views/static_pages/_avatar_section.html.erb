@@ -1,12 +1,14 @@
-<div class="col-4" id="card-title">
-  <div class="card shadow p-2 mb-2 bg-white rounded" style="width: 23rem;" id="avatar">
-
-    <%= image_tag @avatar.avatar_image, class: "card-img-top" unless @avatar.nil? %>
-    <div class="card-body">
-      <h5 class="card-title"><%= @avatar.first_name + ' ' + @avatar.last_name unless @avatar.nil? %></h5>
-      <h6 class="card-subtitle mb-2 text-muted"><%= @avatar.title unless @avatar.nil? %></h6>
-      <p class="card-text"><%= @avatar.about unless @avatar.nil? %></p>
-    </div>
-    <%= link_to 'Edit', edit_user_registration_path if current_user %>
+<div id="card-title">
+  <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_EN" data-type="vertical" data-theme="light" data-vanity="dmitriiskrylev"><a class="LI-simple-link" href='https://www.linkedin.com/in/dmitriiskrylev?trk=profile-badge'>DMITRII SKRYLEV</a></div>
+  <div class="avatar-links">
+    <a href="https://drive.google.com/file/d/1PugEXd2bfCtmEuacst_dwcEmzAyzKnof/view?usp=sharing"><%= fa_icon "file" %> PDF Resume</a>
+<!-- TODO: Create word resume insert link here    <br>-->
+<!--    <a href=""><%#= fa_icon "file" %> Word Resume</a>-->
+    <br>
+    <a href="https://www.facebook.com/profile.php?id=100006026142892&ref=bookmarks"><%= fa_icon "facebook-square" %> Facebook</a> <!-- TODO: Change it to dinamic data -->
+    <br>
+    <a href="/contacts"><%= fa_icon "envelope" %> Contact Me</a>
+    <br>
+    <a href="https://github.com/zhivou"><%= fa_icon "github" %> Github</a>
   </div>
 </div>

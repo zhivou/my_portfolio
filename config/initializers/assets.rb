@@ -14,6 +14,7 @@ Rails.application.config.assets.precompile += %w( projects.css )
 Rails.application.config.assets.precompile += %w( contacts.css )
 Rails.application.config.assets.precompile += %w( semantic-ui-css/semantic.min.css )
 Rails.application.config.assets.precompile += %w( home.css )
+Rails.application.config.assets.precompile += %w( static_pages.css )
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
