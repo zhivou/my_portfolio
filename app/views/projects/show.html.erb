@@ -1,5 +1,6 @@
 <%= stylesheet_link_tag "projects" %>
 <% @page_title = @project.title + "| Dmitrii Skrylev Portfolio"%>
+<% @seo_keywords = @project.title %>
 
 <div class="d-flex projectPicHolder text-center"
      style="background-image: url('<%= url_for(@project.main_image) %>');">

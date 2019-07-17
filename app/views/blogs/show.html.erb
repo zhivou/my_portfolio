@@ -1,3 +1,5 @@
+<% @page_title = "Blogs - #{@blog.title} | Dmitrii Skrylev Portfolio"%>
+
 <%= stylesheet_link_tag "blogs" %>
 <div class="d-flex picHolder text-center"
      style="background-image: url('<%= url_for(@blog.main_image) %>');">
@@ -16,6 +18,7 @@
     Hash tags:
     <% @blog.tags.each do |t| %>
       <%= t.description + '|'%>
+      <% @seo_keywords = @seo_keywords + ', ' + t.description %>
     <% end %>
   </div>
   <div class="row justify-content-md-center">
