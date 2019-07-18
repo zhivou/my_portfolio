@@ -8,6 +8,10 @@ class ProjectsController < ApplicationController
     @projects = Project.all.order("created_at DESC")
   end
 
+  def api_index
+    render json: Project.all.order("created_at DESC")
+  end
+
   ##
   # This is for html5sort. Using put method and $.ajax form cofeejs file
   # it is out of date. Now everyone using JS framework like Angualar or React with Rails
