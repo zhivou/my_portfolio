@@ -103,13 +103,13 @@ a {
   color: #193641;
 }
 
-img {
+.blogsItem {
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
   transition: all 0.8s ease;
 }
 
-img:hover {
+.blogsItem:hover {
   transition: all 0.8s ease;
   transform: translate3D(0, -1px, 0) scale(1.1);
   filter: grayscale(0%);
@@ -134,4 +134,37 @@ img:hover {
     text-decoration: none;
     color: black;
   }
+}
+
+#projectsSlide {
+  background-color: white;
+}
+
+.project-image-wrapper {
+  width: 300px;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  border: solid 2px #193641;
+  border-radius: 2%;
+}
+
+.project-images {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  object-fit: cover;
+}
+
+.in-line {
+  display: inline-block;
+  margin: auto;
+}
+
+.project-items-holder {
+  padding-top: 40px;
+}
+
+.project-item-holder {
+  margin: 20px;
 }

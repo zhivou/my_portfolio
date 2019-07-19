@@ -1,2 +1,21 @@
-<%= javascript_pack_tag 'HomeProjects' %>
-<div id="reactProjects"></div>
+<div class="jumbotron jumbotron-fluid" id="projectsSlide">
+  <div class="container mt-4">
+    <div class="text-center pb-2">
+      <h1 class="display-4 mb-4">Latest Projects</h1>
+      <p>All projects can be found on this page: </p><a href="/projects">Projects Page</a>
+    </div>
+    <hr class="my-4"/>
+    <div class="project-items-holder">
+      <% projects.each do |project| %>
+        <div class="project-item-holder">
+          <div class="project-image-wrapper in-line">
+            <a href="/blogs/<%= project.id %>"><%= image_tag project.main_image.variant(resize: "300"), class: "project-images", alt: project.id %></a>
+          </div>
+          <div class="in-line">
+            <a href="/blogs/<%= project.id %>"><h3 id="blog-title"><%= project.title %></h3></a>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
