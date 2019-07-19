@@ -10,12 +10,12 @@
         <div class="col-10 col-sm-12">
           <ul class="event-list">
             <% projects.each do |project| %>
-              <li>
+              <li id="project-item">
                 <%= image_tag project.main_image.variant(resize: "300"), class: "project-images", alt: project.id%>
                 <div class="info">
                   <h2 class="title"><%= project.title %></h2>
-                  <p class="desc">To read more about this project please click here</p>
-                  <p class="desc"><%= project.created_at.strftime("%d %B %Y")%></p>
+                  <p class="desc">Project start date: <%= project.created_at.strftime("%d %B %Y")%></p>
+                  <p class="desc">Last updated: <%= project.updated_at.strftime("%d %B %Y")%></p>
                 </div>
               </li>
             <% end %>
