@@ -1,5 +1,5 @@
 <% experience.each do |exp| %>
-  <div class="experience_item">
+  <div class="experience_item font-20">
       <strong id="exp-title"><%= exp.title %></strong> <%= link_to 'Edit', edit_experience_path(exp), {:remote => true, 'data-toggle' => "modal", 'data-target' => '#EditExperience'} if current_user %>
       <br>
       <p class="no-space">Organization: <%= exp.organization %></p>
