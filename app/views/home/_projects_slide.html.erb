@@ -1,21 +1,41 @@
-<div class="jumbotron jumbotron-fluid" id="projectsSlide">
-  <div class="container mt-4">
-    <div class="text-center pb-2">
-      <h1 class="display-4 mb-4">Latest Projects</h1>
-      <p>All projects can be found on this page: </p><a href="/projects">Projects Page</a>
-    </div>
-    <hr class="my-4"/>
-    <div class="project-items-holder">
-      <% projects.each do |project| %>
-        <div class="project-item-holder">
-          <div class="project-image-wrapper in-line">
-            <a href="/blogs/<%= project.id %>"><%= image_tag project.main_image.variant(resize: "300"), class: "project-images", alt: project.id %></a>
-          </div>
-          <div class="in-line">
-            <a href="/blogs/<%= project.id %>"><h3 id="blog-title"><%= project.title %></h3></a>
-          </div>
-        </div>
-      <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-offset-2 col-sm-8">
+      <ul class="event-list">
+
+        <% projects.each do |project| %>
+          <li>
+            <time datetime="2014-07-20">
+              <span class="day"><%= project.created_at.strftime("%d") %></span>
+              <span class="month"><%= project.created_at.strftime("%B") %></span>
+              <span class="year"><%= project.created_at.strftime("%Y") %></span>
+            </time>
+              <%= image_tag project.main_image.variant(resize: "300"), class: "project-images", alt: project.id%>
+            <div class="info">
+              <h2 class="title"><%= project.title %></h2>
+              <p class="desc">To read more about this project please click here</p>
+            </div>
+          </li>
+        <% end %>
+
+      </ul>
     </div>
   </div>
 </div>
+
+
+
+<%# projects.each do |project| %>
+<!--  <div class="carousel-item <%#= 'active' if projects.first.id == project.id %>">-->
+<!--    <div class="mask flex-center">-->
+<!--      <div class="container">-->
+<!--        <div class="row align-items-center">-->
+<!--          <div class="col-md-7 col-12 order-md-1 order-2">-->
+<!--            <a href="/blogs/<%#= project.id %>"><h4 id="blog-title"><%#= project.title %></h4></a>-->
+<!--            <a href="/project/<%#= project.id %>">Read More...</a> </div>-->
+<!--          <div class="col-md-5 col-12 order-md-2 order-1"><a href="/project/<%#= project.id %>"><%#= image_tag project.main_image.variant(resize: "300"), class: "project-images", alt: project.id %></a></div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<%# end %>
