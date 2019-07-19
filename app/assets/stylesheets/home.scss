@@ -136,6 +136,10 @@ a {
   }
 }
 
+.background-white {
+  background-color: white;
+}
+
 
 // List Items
 
@@ -161,16 +165,16 @@ body {
   display: inline-block;
   width: 100%;
   color: rgb(255, 255, 255);
-  background-color: rgb(197, 44, 102);
+  background-color: #193641;
   padding: 5px;
   text-align: center;
   text-transform: uppercase;
 }
 .event-list > li:nth-child(even) > time {
-  background-color: rgb(165, 82, 167);
+  background-color: indianred;
 }
 .event-list > li > time > span {
-  line-height: 1;
+  display: none;
 }
 .event-list > li > time > .day {
   display: block;
@@ -240,25 +244,6 @@ body {
   background-color: rgb(200, 200, 200);
 }
 
-.twitter a {
-  color: rgb(79, 213, 248) !important;
-}
-.google-plus a {
-  color: rgb(221, 75, 57) !important;
-}
-.facebook:hover a {
-  color: rgb(255, 255, 255) !important;
-  background-color: rgb(75, 110, 168) !important;
-}
-.twitter:hover a {
-  color: rgb(255, 255, 255) !important;
-  background-color: rgb(79, 213, 248) !important;
-}
-.google-plus:hover a {
-  color: rgb(255, 255, 255) !important;
-  background-color: rgb(221, 75, 57) !important;
-}
-
 @media (min-width: 768px) {
   .event-list > li {
     position: relative;
@@ -278,11 +263,12 @@ body {
   }
   .event-list > li > .info {
     background-color: rgb(245, 245, 245);
+    border-right: solid 2px #193641;
     overflow: hidden;
   }
   .event-list > li > time,
   .event-list > li > img {
-    width: 120px;
+    width: 160px;
     height: 120px;
     padding: 0px;
     margin: 0px;
@@ -326,4 +312,9 @@ body {
 .project-images {
   width: 100%;
   object-fit: cover;
+  border: 1px solid #193641;
+}
+
+.padding-top-40 {
+  padding-top: 40px;
 }
