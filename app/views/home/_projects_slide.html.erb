@@ -1,27 +1,19 @@
-<div class="jumbotron jumbotron-fluid background-white">
-  <div class="container mt-4">
-    <div class="text-center pb-2">
-      <h1 class="display-4 mb-4">Latest Projects</h1>
-      <p>All projects can be found on this page: </p><a href="/projects">Projects Page</a>
-    </div>
-    <hr class="my-4"/>
-    <div class="container padding-top-40">
-      <div class="row justify-content-center">
-        <div class="col-10 col-sm-12">
-          <ul class="event-list">
-            <% projects.each do |project| %>
-              <li id="project-item">
-                <%= image_tag project.main_image.variant(resize: "300"), class: "project-images", alt: project.id%>
-                <div class="info">
-                  <h2 class="title"><%= project.title %></h2>
-                  <p class="desc">Project start date: <%= project.created_at.strftime("%d %B %Y")%></p>
-                  <p class="desc">Last updated: <%= project.updated_at.strftime("%d %B %Y")%></p>
-                </div>
-              </li>
-            <% end %>
-          </ul>
+<div class="row">
+  <div class="container">
+    <% projects.each do |project| %>
+      <div class="col-md-6">
+        <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-primary">Projects</strong>
+            <h3 class="mb-0"><%= project.title %></h3>
+            <div class="mb-1 text-muted">Project start date: <%= project.created_at.strftime("%d %B %Y")%></div>
+            <a href="#" class="stretched-link">Continue reading</a>
+          </div>
+          <div class="col-auto d-none d-lg-block">
+            <%= image_tag project.main_image.variant(resize: "300"), class: "project-images", alt: project.id%>
+          </div>
         </div>
       </div>
-    </div>
+    <% end %>
   </div>
 </div>
