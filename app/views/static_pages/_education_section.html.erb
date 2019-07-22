@@ -1,5 +1,5 @@
 <% educations.each do |education| %>
-  <div class="education_item">
+  <div class="education_item font-20">
     <strong><%= education.degree %></strong> <%= link_to 'Edit', edit_education_path(education), {:remote => true, 'data-toggle' => "modal", 'data-target' => '#editEducation'} if current_user %>
     <br>
     <%= education.school %><br>
