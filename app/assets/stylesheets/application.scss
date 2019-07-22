@@ -207,3 +207,24 @@ a.socialIcon:hover, .socialHoverClass {
 .extraDecoration{
   color: #EFEFEF;
 }
+
+.red-color {
+  color: indianred;
+}
+
+.active {
+  background-color: indianred !important;
+  color: white;
+}
+
+.blogs-history-title {
+  border-left: solid 1px black;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  font-size: 23px;
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}

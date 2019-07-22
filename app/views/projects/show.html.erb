@@ -1,6 +1,8 @@
 <%= stylesheet_link_tag "projects" %>
 <% @page_title = @project.title + "| Dmitrii Skrylev Portfolio"%>
 <% @seo_keywords = @project.title %>
+<%= javascript_pack_tag 'BlogsHistory' %>
+<%= javascript_pack_tag 'ProjectsHistory' %>
 
 <div class="d-flex projectPicHolder text-center"
      style="background-image: url('<%= url_for(@project.main_image) %>');">
@@ -26,6 +28,16 @@
 
 
   <div id="disqus_thread"></div>
+  <div class="m-4">
+    <h3>LATEST BLOGS:</h3>
+    <hr class="m-3">
+    <div id="react-blogs-history"></div>
+  </div>
+  <div class="m-4">
+    <h3>MORE PROJECTS:</h3>
+    <hr class="m-3">
+    <div id="react-projects-history"></div>
+  </div>
   <script>
 
     var disqus_config = function () {

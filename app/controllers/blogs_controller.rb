@@ -27,6 +27,10 @@ class BlogsController < ApplicationController
     render json: Blog.blogs_body_tags(params[:tag_name])
   end
 
+  def api_get_random
+    render json: Blog.limit(6)
+  end
+
   # GET /blogs/1
   # GET /blogs/1.json
   def show
