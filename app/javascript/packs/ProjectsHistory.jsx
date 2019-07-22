@@ -30,7 +30,7 @@ class ProjectsHistory extends React.Component {
             <div className="row justify-content-left">
               {this.state.projects.map(project => (
                   <div className="col-6 col-xs-12 blogs-history-title" key={project.id}>
-                    <a href={ "/blogs/" + project.id}>{project.title}</a>
+                    <a href={ "/projects/" + project.id}>{project.title}</a>
                   </div>
               ))
               }

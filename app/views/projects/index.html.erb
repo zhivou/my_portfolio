@@ -1,8 +1,14 @@
 <%= stylesheet_link_tag "projects" %>
 <% @page_title = "Projects | Dmitrii Skrylev Portfolio"%>
 <% @seo_keywords = "Projects Ruby Rails React JavaScript Dmitrii Skrylev"%>
+<%= javascript_pack_tag 'BlogsHistory' %>
 
 <div class="album container">
+  <div class="project-album-title">
+    <h1 class="text-center">Welcome to my Projects section</h1>
+    <h4 class="text-center">Please take a look at some work I've done:</h4>
+    <hr>
+  </div>
   <div class="mt-5">
     <div class="row sortable">
       <% @projects.each do |project| %>
@@ -29,6 +35,11 @@
           </div>
       <% end %>
     </div>
+  </div>
+  <div class="m-4">
+    <h3>LATEST BLOGS:</h3>
+    <hr class="m-3">
+    <div id="react-blogs-history"></div>
   </div>
 </div>
 
