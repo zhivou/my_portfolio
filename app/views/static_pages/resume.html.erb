@@ -1,8 +1,9 @@
 <script type="text/javascript" src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
 <%= stylesheet_link_tag "static_pages" %>
 <%= javascript_pack_tag 'BlogsHistory' %>
+<%= javascript_pack_tag 'ProjectsHistory' %>
 
-<div class="resumeWrapper container mt-3">
+<div class="resumeWrapper container mt-4">
   <div class="row justify-content-md-center">
     <%= render 'avatar_section' %>
     <div class="col-xl-8 col-sm-12" id="card-skills">
@@ -30,8 +31,13 @@
     </div>
   </div>
   <div class="m-4">
-    <h3 class="text-center">READ MORE IN BLOGS:</h3>
+    <h3>READ MORE IN BLOGS:</h3>
     <hr class="m-3">
     <div id="react-blogs-history"></div>
+  </div>
+  <div class="m-4">
+    <h3>READ MORE IN PROJECTS:</h3>
+    <hr class="m-3">
+    <div id="react-projects-history"></div>
   </div>
 </div>

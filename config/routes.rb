@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get 'api-tags', to: 'blogs#api_tags'
   get 'api-projects', to: 'projects#api_index'
   get 'random-blogs', to: "blogs#api_get_random"
+  get 'random-projects', to: "projects#api_get_random"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root to: 'home#index'

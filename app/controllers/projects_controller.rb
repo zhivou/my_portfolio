@@ -12,6 +12,10 @@ class ProjectsController < ApplicationController
     render json: Project.all.order("created_at DESC")
   end
 
+  def api_get_random
+    render json: Project.limit(6)
+  end
+
   ##
   # This is for html5sort. Using put method and $.ajax form cofeejs file
   # it is out of date. Now everyone using JS framework like Angualar or React with Rails

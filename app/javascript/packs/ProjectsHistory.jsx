@@ -3,20 +3,20 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 import { Loader } from 'semantic-ui-react'
 
-class BlogsHistory extends React.Component {
+class ProjectsHistory extends React.Component {
 
   constructor(props){
     super(props);
     this.state = {
       loading: true,
-      blogs: [],
+      projects: [],
     };
   }
 
   componentDidMount() {
-    axios.get('/random-blogs')
+    axios.get('/random-projects')
         .then( res => {
-          this.setState({blogs: res.data, loading: false})
+          this.setState({projects: res.data, loading: false})
         })
         .catch( err => {
           console.log(err)
@@ -28,10 +28,10 @@ class BlogsHistory extends React.Component {
       return (
           <div>
             <div className="row justify-content-left">
-              {this.state.blogs.map(blog => (
-                <div className="col-6 col-xs-12 blogs-history-title" key={blog.id}>
-                  <a href={ "/blogs/" + blog.id}>{blog.title}</a>
-                </div>
+              {this.state.projects.map(project => (
+                  <div className="col-6 col-xs-12 blogs-history-title" key={project.id}>
+                    <a href={ "/blogs/" + project.id}>{project.title}</a>
+                  </div>
               ))
               }
             </div>
@@ -52,5 +52,5 @@ class BlogsHistory extends React.Component {
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-      <BlogsHistory name="React" />, document.getElementById('react-blogs-history'))
+      <ProjectsHistory name="React" />, document.getElementById('react-projects-history'))
 });
