@@ -103,13 +103,13 @@ a {
   color: #193641;
 }
 
-img {
+.blogsItem {
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
   transition: all 0.8s ease;
 }
 
-img:hover {
+.blogsItem:hover {
   transition: all 0.8s ease;
   transform: translate3D(0, -1px, 0) scale(1.1);
   filter: grayscale(0%);
@@ -122,6 +122,7 @@ img:hover {
 }
 
 #brand-slide {
+  padding-top: 0;
   background-color: white;
 }
 
@@ -135,4 +136,24 @@ img:hover {
     text-decoration: none;
     color: black;
   }
+}
+
+.background-white {
+  background-color: white;
+}
+
+.imageProject {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.project-image-crop {
+  width: 200px;
+  height: 250px;
+}
+
+.project-wrapper {
+  border-left: solid 4px #193641;
+  border-radius: 30px;
 }
