@@ -1,4 +1,6 @@
 <% @page_title = "Blogs - #{@blog.title} | Dmitrii Skrylev Portfolio"%>
+<%= javascript_pack_tag 'ProjectsHistory' %>
+<%= javascript_pack_tag 'BlogsHistory' %>
 
 <%= stylesheet_link_tag "blogs" %>
 <div class="d-flex picHolder text-center"
@@ -31,6 +33,16 @@
 
 
   <div id="disqus_thread"></div>
+  <div class="m-4">
+    <h3>PROJECTS:</h3>
+    <hr class="m-3">
+    <div id="react-blogs-history"></div>
+  </div>
+  <div class="m-4">
+    <h3>MORE BLOGS:</h3>
+    <hr class="m-3">
+    <div id="react-projects-history"></div>
+  </div>
   <script>
 
     var disqus_config = function () {
