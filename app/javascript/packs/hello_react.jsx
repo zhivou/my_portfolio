@@ -97,7 +97,7 @@ class Blog extends React.Component {
                   calendarType="US"
               />
               <hr/>
-
+              <h3 class="red-color">Hashtags:</h3>
               <HashTags
                   tags={this.state.tags}
                   handleTagClick={this.handleTagClick}
