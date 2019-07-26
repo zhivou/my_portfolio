@@ -26,10 +26,11 @@
 .picHolder {
   background-position: center center;
   transition: background-image 0.3s ease-in-out;
-  height: 500px;
+  height: 100%;
   display: block;
   position: relative;
   width: 100%;
+  min-height: 80vh;
   overflow-x: hidden;
   background-size: cover;
 }
