@@ -20,27 +20,27 @@
         <ul class="navbar-nav" id="nav_bar">
           <li class="nav_item">
             <a href="<%= root_url %>">
-              <span id="button-home">Home</span>
+              <span id="button-home" class="<%= 'active' if params[:controller] == 'home' %>">Home</span>
             </a>
           </li>
           <li class="nav_item">
             <a href="<%= resume_path %>">
-              <span id="item_1">Resume</span>
+              <span id="item_1" class="<%= 'active' if params[:controller] == 'static_pages' %>">Resume</span>
             </a>
           </li>
           <li class="nav_item">
             <a href="<%= blogs_path %>">
-              <span id="item_2">Blog</span>
+              <span id="item_2" class="<%= 'active' if params[:controller] == 'blogs' %>">Blog</span>
             </a>
           </li>
           <li class="nav_item">
             <a href="<%= projects_path %>">
-              <span id="item_3">Projects</span>
+              <span id="item_3" class="<%= 'active' if params[:controller] == 'projects' %>">Projects</span>
             </a>
           </li>
           <li class="nav_item">
             <a href="<%= contacts_path %>">
-              <span id="item_4">Contacts</span>
+              <span id="item_4" class="<%= 'active' if params[:controller] == 'contacts' %>">Contacts</span>
             </a>
           </li>
           <li class="nav_item">
