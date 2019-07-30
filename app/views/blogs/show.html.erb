@@ -27,11 +27,16 @@
     <p id="notice"><%= notice %></p>
 
     <div class="col-11">
+      <div class="text-center">
+        <%= link_to 'Back', blogs_path, class: "btn btn-light btn-lg m-5" %>
+      </div>
       <div class="blogBody"><%= @blog.body_area %></div>
     </div>
   </div>
 
-
+  <div class="text-center">
+    <%= link_to 'Back', blogs_path, class: "btn btn-light btn-lg m-5" %>
+  </div>
   <div id="disqus_thread"></div>
   <div class="m-4">
     <h3 class="text-center mb-4">PROJECTS</h3>
@@ -62,7 +67,6 @@
 
   <div class="container text-center">
     <%= link_to 'Edit |', edit_blog_path(@blog) if current_user%>
-    <%= link_to 'Back', blogs_path %>
     <%= link_to '| Delete', blog_path, method: :delete, data: { confirm: 'Are you sure?' } if current_user%>
   </div>
 </div>
