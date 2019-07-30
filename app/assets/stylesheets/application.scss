@@ -218,13 +218,21 @@ a.socialIcon:hover, .socialHoverClass {
 }
 
 .blogs-history-title {
-  border-left: solid 1px black;
   margin-top: 8px;
   margin-bottom: 8px;
-  font-size: 23px;
+  font-size: 20px;
 
   a {
     text-decoration: none;
     color: black;
   }
+
+  a:hover {
+    background-color: indianred;
+    color: white;
+  }
+}
+
+.blog-new {
+  min-height: 500px;
 }

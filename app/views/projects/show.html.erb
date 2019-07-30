@@ -21,7 +21,13 @@
     <p id="notice"><%= notice %></p>
 
     <div class="col-11">
+      <div class="text-center">
+        <%= link_to 'Back', projects_path, class: "btn btn-light btn-lg m-4" %>
+      </div>
       <div class="projectBody"><%= @project.project_content %></div>
+      <div class="text-center">
+        <%= link_to 'Back', projects_path, class: "btn btn-light btn-lg m-4" %>
+      </div>
     </div>
   </div>
 
@@ -29,12 +35,12 @@
 
   <div id="disqus_thread"></div>
   <div class="m-4">
-    <h3>LATEST BLOGS:</h3>
+    <h3 class="text-center mb-4">LATEST BLOGS</h3>
     <hr class="m-3">
     <div id="react-blogs-history"></div>
   </div>
   <div class="m-4">
-    <h3>MORE PROJECTS:</h3>
+    <h3 class="text-center mb-4">MORE PROJECTS</h3>
     <hr class="m-3">
     <div id="react-projects-history"></div>
   </div>
