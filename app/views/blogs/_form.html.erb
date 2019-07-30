@@ -17,21 +17,21 @@
     <% end %>
   </div>
   <div>
-    <%= link_to_add_association 'Add Tag', form, :tags %>
+    <%= link_to_add_association 'Add Tag', form, :tags, class: "mt-4" %>
   </div>
 
   <div class="field">
     <%= form.label :title %>
-    <%= form.text_field :title, id: :blog_title %>
+    <%= form.text_field :title, id: :blog_title, size: 60, class: "mt-4" %>
   </div>
 
   <div class="field">
-    <%= form.rich_text_area :body_area, id: :blog_body_area, class:"mb-1 mt-1" %>
+    <%= form.rich_text_area :body_area, id: :blog_body_area %>
   </div>
 
   <div class="field">
     <%= form.label"Upload Main Picture" %>
-    <%= form.file_field :main_image %>
+    <%= form.file_field :main_image, class: "m-4" %>
   </div>
 
   <div class="actions">

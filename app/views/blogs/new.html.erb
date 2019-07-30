@@ -1,10 +1,10 @@
 <div class="container">
-  <div class="card">
-    <div class="card-body">
-      <h1>New Post</h1>
+  <div class="card m-5 blog-new">
+    <div class="card-body m-5 p-1">
+      <h1 c class="text-center">New Post</h1>
 
       <%= render 'form', blog: @blog %>
-      <%= link_to 'Back', blogs_path, class: "btn btn-danger" %>
+      <%= link_to 'Back', blogs_path %>
     </div>
   </div>
 </div>
