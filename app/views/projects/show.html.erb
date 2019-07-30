@@ -21,7 +21,13 @@
     <p id="notice"><%= notice %></p>
 
     <div class="col-11">
+      <div class="text-center">
+        <%= link_to 'Back', projects_path, class: "btn btn-light btn-lg m-4" %>
+      </div>
       <div class="projectBody"><%= @project.project_content %></div>
+      <div class="text-center">
+        <%= link_to 'Back', projects_path, class: "btn btn-light btn-lg m-4" %>
+      </div>
     </div>
   </div>
 
