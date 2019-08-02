@@ -4,7 +4,7 @@
 
 <%= stylesheet_link_tag "blogs" %>
 <div class="d-flex picHolder text-center"
-     style="background-image: url('<%= url_for(@blog.main_image) %>');">
+     style="background-image: url('<%= @blog.main_image.nil? ? url_for(@blog.main_image) : url_for("app/assets/images/astronaut-astronomy-ma.jpg") %>');">
   <div class="container align-self-center p-2 bd-highlight">
     <% if @blog.title.length >= 40 %>
       <h1 class="display-3" id="textHolder"><%= @blog.title.split[0..@blog.title.split.count / 1/3].join(' ') %></h1>
