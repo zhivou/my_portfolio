@@ -5,7 +5,7 @@ class ExperiencesController < ApplicationController
   # GET /experiences
   # GET /experiences.json
   def index
-    @experiences = Experience.all
+    @experiences = Experience.order("id ASC")
   end
 
   # GET /experiences/1
