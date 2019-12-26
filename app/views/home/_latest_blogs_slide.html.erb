@@ -11,8 +11,8 @@
             <div class="blogsWrapper">
               <div class="image-cropper">
                 <a href="/blogs/<%= blog.id %>">
-                  <% if blog.main_image.nil? %>
-                    <%= blog.main_image image_tag blog.main_image.variant(resize: "300"), class: "d-block w-100 blogsItem", alt: blog.id %>
+                  <% unless blog.main_image.nil? %>
+                    <%= image_tag blog.main_image.variant(resize: "300"), class: "d-block w-100 blogsItem", alt: blog.id %>
                     <% else %>
                     <% end %>
                 </a>
