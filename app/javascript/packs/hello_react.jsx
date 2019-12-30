@@ -18,7 +18,8 @@ class Blog extends React.Component {
       blogs_count: 0,
       searchTitle: "All Blogs",
       date: new Date(),
-      hasMoreItems: true
+      hasMoreItems: true,
+      nextPage: 1
     };
   }
 
@@ -66,11 +67,25 @@ class Blog extends React.Component {
   }
 
   loadItems(page) {
+    let self = this;
     let newDate = this.state.date.toISOString().split('T')[0];
 
-    axios.get(`/blogs-api/${newDate}`)
+    axios.get(`/blogs-api/${newDate}`, {
+      params: {
+        page: this.state.nextPage,
+        page_size: 5
+      }
+    })
         .then( res => {
-          this.setState({blogs: res.data, blogs_count: res.data.length})
+          let blogs = self.state.blogs;
+
+          res.data[1].map((blog) => {
+            blogs.push(blog);
+          });
+          self.setState({
+            hasMoreItems: res.data[0].hasMoreItems,
+            nextPage: res.data[0].nextPage
+          })
         })
         .catch( err => {
           console.log(err)

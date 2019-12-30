@@ -65,3 +65,4 @@ gem "cocoon"
 gem 'google-cloud-storage', '~> 1.18', '>= 1.18.2'
 gem 'mail_form'
 gem "mini_magick", ">= 4.9.4"
+gem 'kaminari'
