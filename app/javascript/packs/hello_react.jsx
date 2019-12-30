@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Calendar from 'react-calendar';
 import './Calendar.css'
+import InfiniteScroll from 'react-infinite-scroller';
 
 class Blog extends React.Component {
 
@@ -16,7 +17,8 @@ class Blog extends React.Component {
       tags: [],
       blogs_count: 0,
       searchTitle: "All Blogs",
-      date: new Date()
+      date: new Date(),
+      hasMoreItems: true
     };
   }
 
@@ -34,16 +36,6 @@ class Blog extends React.Component {
   };
 
   componentDidMount() {
-    let newDate = this.state.date.toISOString().split('T')[0];
-
-    axios.get(`/blogs-api/${newDate}`)
-        .then( res => {
-          this.setState({blogs: res.data, blogs_count: res.data.length})
-        })
-        .catch( err => {
-          console.log(err)
-        });
-
     axios.get('/api-tags')
         .then( res => {
           this.setState({tags: res.data})
@@ -73,7 +65,39 @@ class Blog extends React.Component {
         });
   }
 
+  loadItems(page) {
+    let newDate = this.state.date.toISOString().split('T')[0];
+
+    axios.get(`/blogs-api/${newDate}`)
+        .then( res => {
+          this.setState({blogs: res.data, blogs_count: res.data.length})
+        })
+        .catch( err => {
+          console.log(err)
+        });
+  }
+
   render() {
+    const loader = <div className="loader">Loading ...</div>;
+    let items = [];
+
+    this.state.blogs.map((item, i) => {
+          items.push(
+            <div className="card shadow p-3 mb-3 bg-white rounded" key={i}>
+              <div className="card-body">
+                <div className="card-title">
+                  <a href={`/blogs/${item.id}`} className="blogLink">{item.title}</a>
+                </div>
+                <div className="card-text">
+                  <p>{item.short_body}<a href={`/blogs/${item.id}`} className="blogLink"> read more>></a></p>
+                </div>
+                <hr/>
+                <p>Posted at: {item.created_at.substring(0, 10)}</p>
+              </div>
+            </div>
+          );
+      });
+
     return (
         <div>
           <div className="searchTitle col-xl-10 col-sm-12">
@@ -85,9 +109,21 @@ class Blog extends React.Component {
           </div>
           <div className="row">
             <div className="col-xl-8 col-sm-12">
-              <Post
-                  blogs={this.state.blogs}
-              />
+
+            <InfiniteScroll
+                pageStart={0}
+                loadMore={this.loadItems.bind(this)}
+                hasMore={this.state.hasMoreItems}
+                loader={loader}
+                >
+                <div>
+                  {items}
+                </div>
+
+            </InfiniteScroll>
+
+
+
             </div>
 
             <div className="col-4 d-none d-xl-block">
