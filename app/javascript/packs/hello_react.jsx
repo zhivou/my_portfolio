@@ -21,7 +21,7 @@ class Blog extends React.Component {
       hasMoreItems: true,
       nextPage: null,
       pageSize: 3,
-      pagesLoaded: [1],
+      pagesLoaded: [],
       stopLoad: false
     };
   }
@@ -86,7 +86,7 @@ class Blog extends React.Component {
 
     if (key === 'All Blogs') {
       link = `/blogs-api/${newDate}`
-
+      this.setState({stopLoad: false});
       axios.get(link, {
         params: {
           page: 1,
@@ -95,8 +95,10 @@ class Blog extends React.Component {
           .then( res => {
             this.setState({
               blogs: res.data[1],
-              stopLoad: false,
-              pagesLoaded: [1]
+              pagesLoaded: [1],
+              hasMoreItems: true,
+              nextPage: null,
+              searchTitle: key
             })
           })
           .catch( err => {
@@ -106,7 +108,11 @@ class Blog extends React.Component {
         link = `/api-search-tags/${key}`
         axios.get(link)
             .then( res => {
-              this.setState({blogs: res.data, searchTitle: key})
+              this.setState({
+                blogs: res.data,
+                searchTitle: key,
+                pagesLoaded: [],
+              })
             })
             .catch( err => {
               console.log(err)
@@ -197,7 +203,6 @@ class Blog extends React.Component {
                 pageStart={0}
                 loadMore={this.loadItems.bind(this)}
                 hasMore={this.state.hasMoreItems}
-                loader={loader}
                 initialLoad={false}
                 >
                 <div>
