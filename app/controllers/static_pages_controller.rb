@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
 
   def resume
-    @experience = Experience.order("id DESC")
+    @experience = Experience.order("sort ASC")
     @skills = Skill.all
     @educations = Education.all
     @avatar = User.first
