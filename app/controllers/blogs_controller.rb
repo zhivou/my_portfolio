@@ -21,7 +21,6 @@ class BlogsController < ApplicationController
       nextPage: blogs.next_page
     }
     blogs = Blog.blogs_and_body_date(params[:date]).page(page).per(page_size)
-
     render json: [has_more_items, blogs]
   end
 

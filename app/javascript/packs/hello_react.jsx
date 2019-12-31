@@ -19,7 +19,9 @@ class Blog extends React.Component {
       searchTitle: "All Blogs",
       date: new Date(),
       hasMoreItems: true,
-      nextPage: 1
+      nextPage: null,
+      pageSize: 3,
+      pagesLoaded: [1]
     };
   }
 
@@ -37,6 +39,21 @@ class Blog extends React.Component {
   };
 
   componentDidMount() {
+    let newDate = this.state.date.toISOString().split('T')[0];
+
+    axios.get(`/blogs-api/${newDate}`, {
+      params: {
+        page: 1,
+        page_size: this.state.pageSize
+      }
+    })
+        .then( res => {
+          this.setState({blogs: res.data[1], blogs_count: res.data[1].length})
+        })
+        .catch( err => {
+          console.log(err)
+        });
+
     axios.get('/api-tags')
         .then( res => {
           this.setState({tags: res.data})
@@ -70,22 +87,36 @@ class Blog extends React.Component {
     let self = this;
     let newDate = this.state.date.toISOString().split('T')[0];
 
+    let page_number = 2
+    if(this.state.nextPage) {
+        page_number = this.state.nextPage;
+    }
     axios.get(`/blogs-api/${newDate}`, {
       params: {
-        page: this.state.nextPage,
-        page_size: 5
+        page: page_number,
+        page_size: this.state.pageSize
       }
     })
         .then( res => {
-          let blogs = self.state.blogs;
+          if(res.data && !(self.state.pagesLoaded.includes(page_number))) {
+            let blogs = self.state.blogs;
 
-          res.data[1].map((blog) => {
-            blogs.push(blog);
-          });
-          self.setState({
-            hasMoreItems: res.data[0].hasMoreItems,
-            nextPage: res.data[0].nextPage
-          })
+            res.data[1].map((blog) => {
+              blogs.push(blog);
+            });
+
+            if(res.data[0].nextPage){
+              self.setState({
+                blogs: blogs,
+                nextPage: res.data[0].nextPage
+              })
+            } else {
+              self.setState({
+                  hasMoreItems: false
+              });
+            }
+          }
+          self.state.pagesLoaded.push(page_number);
         })
         .catch( err => {
           console.log(err)
@@ -93,7 +124,13 @@ class Blog extends React.Component {
   }
 
   render() {
-    const loader = <div className="loader">Loading ...</div>;
+    const loader = (
+      <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    );
     let items = [];
 
     this.state.blogs.map((item, i) => {
@@ -130,6 +167,7 @@ class Blog extends React.Component {
                 loadMore={this.loadItems.bind(this)}
                 hasMore={this.state.hasMoreItems}
                 loader={loader}
+                initialLoad={false}
                 >
                 <div>
                   {items}
