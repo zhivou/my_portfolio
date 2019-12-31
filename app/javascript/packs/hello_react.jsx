@@ -36,7 +36,12 @@ class Blog extends React.Component {
         page_size: this.state.pageSize
       }})
         .then( res => {
-          this.setState({blogs: res.data[1]})
+          this.setState({
+            blogs: res.data[1],
+            hasMoreItems: true,
+            pagesLoaded: [1],
+            nextPage: null
+          })
         })
         .catch( err => {
           console.log(err)
