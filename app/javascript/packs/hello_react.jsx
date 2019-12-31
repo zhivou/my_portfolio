@@ -105,13 +105,17 @@ class Blog extends React.Component {
             console.log(err)
           });
     } else {
-        link = `/api-search-tags/${key}`
+        if($('#spinner').length > 0){
+             $('#spinner').hide();
+         };
+        link = `/api-search-tags/${key}`;
         axios.get(link)
             .then( res => {
               this.setState({
                 blogs: res.data,
                 searchTitle: key,
                 pagesLoaded: [],
+                hasMoreItems: false
               })
             })
             .catch( err => {
@@ -128,6 +132,7 @@ class Blog extends React.Component {
     if(this.state.nextPage) {
         page_number = this.state.nextPage;
     }
+    $('#spinner').show();
     axios.get(`/blogs-api/${newDate}`, {
       params: {
         page: page_number,
@@ -162,9 +167,11 @@ class Blog extends React.Component {
 
   render() {
     const loader = (
-      <div class="d-flex justify-content-center" id="spinner">
-        <div class="spinner-border" role="status">
-          <span class="sr-only">Loading...</span>
+      <div id="spinner" className="m-5">
+        <div className="d-flex justify-content-center">
+          <div className="spinner-border" role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
         </div>
       </div>
     );
@@ -204,6 +211,7 @@ class Blog extends React.Component {
                 loadMore={this.loadItems.bind(this)}
                 hasMore={this.state.hasMoreItems}
                 initialLoad={false}
+                loader={loader}
                 >
                 <div>
                   {items}
@@ -222,7 +230,7 @@ class Blog extends React.Component {
                   calendarType="US"
               />
               <hr/>
-              <h3 class="red-color">Hashtags:</h3>
+              <h3 className="red-color">Hashtags:</h3>
               <HashTags
                   tags={this.state.tags}
                   handleTagClick={this.handleTagClick}
