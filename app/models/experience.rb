@@ -6,6 +6,7 @@ class Experience < ApplicationRecord
                         :organization,
                         :date_started,
                         :location,
-                        :exp_body
+                        :exp_body,
+                        :sort
 
 end
