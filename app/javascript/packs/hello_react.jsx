@@ -21,7 +21,8 @@ class Blog extends React.Component {
       hasMoreItems: true,
       nextPage: null,
       pageSize: 3,
-      pagesLoaded: [1]
+      pagesLoaded: [1],
+      stopLoad: false
     };
   }
 
@@ -29,9 +30,13 @@ class Blog extends React.Component {
     this.setState({ date });
     let newDate = date.toISOString().split('T')[0];
 
-    axios.get(`/blogs-api/${newDate}`)
+    axios.get(`/blogs-api/${newDate}`, {
+      params: {
+        page: 1,
+        page_size: this.state.pageSize
+      }})
         .then( res => {
-          this.setState({blogs: res.data, blogs_count: res.data.length})
+          this.setState({blogs: res.data[1]})
         })
         .catch( err => {
           console.log(err)
@@ -47,40 +52,66 @@ class Blog extends React.Component {
         page_size: this.state.pageSize
       }
     })
-        .then( res => {
-          this.setState({blogs: res.data[1], blogs_count: res.data[1].length})
-        })
-        .catch( err => {
-          console.log(err)
-        });
+    .then( res => {
+      this.setState({blogs: res.data[1]})
+    })
+    .catch( err => {
+      console.log(err)
+    });
+
+    axios.get(`/blogs-api/${newDate}`, {
+    })
+    .then( res => {
+      this.setState({blogs_count: res.data[1].length})
+    })
+    .catch( err => {
+      console.log(err)
+    });
 
     axios.get('/api-tags')
-        .then( res => {
-          this.setState({tags: res.data})
-        })
-        .catch( err => {
-          console.log(err)
-        });
+    .then( res => {
+      this.setState({tags: res.data})
+    })
+    .catch( err => {
+      console.log(err)
+    });
   }
 
   handleTagClick(key) {
-    let link = '';
+    let link;
     let newDate = this.state.date.toISOString().split('T')[0];
+    this.setState({
+        stopLoad: true
+    });
 
     if (key === 'All Blogs') {
       link = `/blogs-api/${newDate}`
-    }
-    else {
-      link = `/api-search-tags/${key}`
-    }
 
-    axios.get(link)
-        .then( res => {
-          this.setState({blogs: res.data, searchTitle: key})
-        })
-        .catch( err => {
-          console.log(err)
-        });
+      axios.get(link, {
+        params: {
+          page: 1,
+          page_size: this.state.pageSize
+        }})
+          .then( res => {
+            this.setState({
+              blogs: res.data[1],
+              stopLoad: false,
+              pagesLoaded: [1]
+            })
+          })
+          .catch( err => {
+            console.log(err)
+          });
+    } else {
+        link = `/api-search-tags/${key}`
+        axios.get(link)
+            .then( res => {
+              this.setState({blogs: res.data, searchTitle: key})
+            })
+            .catch( err => {
+              console.log(err)
+            });
+    }
   }
 
   loadItems(page) {
@@ -98,7 +129,7 @@ class Blog extends React.Component {
       }
     })
         .then( res => {
-          if(res.data && !(self.state.pagesLoaded.includes(page_number))) {
+          if(res.data && !(self.state.pagesLoaded.includes(page_number)) && !self.state.stopLoad) {
             let blogs = self.state.blogs;
 
             res.data[1].map((blog) => {
@@ -115,8 +146,8 @@ class Blog extends React.Component {
                   hasMoreItems: false
               });
             }
+            self.state.pagesLoaded.push(page_number);
           }
-          self.state.pagesLoaded.push(page_number);
         })
         .catch( err => {
           console.log(err)
@@ -125,7 +156,7 @@ class Blog extends React.Component {
 
   render() {
     const loader = (
-      <div class="d-flex justify-content-center">
+      <div class="d-flex justify-content-center" id="spinner">
         <div class="spinner-border" role="status">
           <span class="sr-only">Loading...</span>
         </div>
