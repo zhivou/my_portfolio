@@ -40,4 +40,8 @@ class Blog < ApplicationRecord
         .select("blogs.*, action_text_rich_texts.body, tags.description")
         .order("blogs.created_at DESC")
   end
+
+  def self.blogs_with_date(date)
+    Blog.where("created_at < ?", date + ' 24:00')
+  end
 end

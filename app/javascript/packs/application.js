@@ -22,6 +22,7 @@ require("trix");
 require("@rails/actiontext");
 require("@rails/activestorage");
 require("react-countdown-now");
+require("react-infinite-scroller")
 
 $( document ).ready(function() {
   require("./other/nav_bar_actions");

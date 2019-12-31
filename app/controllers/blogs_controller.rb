@@ -12,7 +12,16 @@ class BlogsController < ApplicationController
   end
 
   def api_index
-    render json: Blog.blogs_and_body_date(params[:date])
+    page = params[:page]
+    page_size = params[:page_size]
+    blogs = Blog.blogs_with_date(params[:date]).page(page).per(page_size)
+
+    has_more_items = {
+      hasMoreItems: !blogs.last_page?,
+      nextPage: blogs.next_page
+    }
+    blogs = Blog.blogs_and_body_date(params[:date]).page(page).per(page_size)
+    render json: [has_more_items, blogs]
   end
 
   def api_translate_body_to_short
@@ -103,6 +112,7 @@ class BlogsController < ApplicationController
                                    :body_area,
                                    :tag_name,
                                    :date,
+                                   :page_size,
                                    tags_attributes: [:id, :description, :_destroy]
       )
     end
