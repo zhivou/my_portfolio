@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :experiences, except: [:show, :index]
   resources :blogs
   resources :main_skills, except: [:show, :index]
+  resources :gallery, only: [:index]
 
   get 'blogs-api/:date', to: 'blogs#api_index'
   get 'body-short-blogs-api/:blog_id', to: 'blogs#api_translate_body_to_short'
