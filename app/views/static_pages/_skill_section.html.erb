@@ -1,6 +1,6 @@
 <% skills.each do |skill| %>
   <div class="skill_item font-20">
-    <i><%= skill.title %>: </i><%= skill.body %>
+    <i class="badge badge-info mr-1"><%= skill.title %>: </i><%= skill.body %>
     <%= link_to 'Edit', edit_skill_path(skill), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#exampleModalLong'} if current_user %>
   </div>
 <% end %>
