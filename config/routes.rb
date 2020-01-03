@@ -16,7 +16,6 @@ Rails.application.routes.draw do
   resources :experiences, except: [:show, :index]
   resources :blogs
   resources :main_skills, except: [:show, :index]
-  resources :photos
 
   get 'blogs-api/:date', to: 'blogs#api_index'
   get 'body-short-blogs-api/:blog_id', to: 'blogs#api_translate_body_to_short'
@@ -40,4 +39,10 @@ Rails.application.routes.draw do
   #
   get 'hard-skills', to: 'main_skills#api_hard_skills'
   get 'soft-skills', to: 'main_skills#api_soft_skills'
+
+  ##
+  # Photo Gallery Section
+  #
+  resources :photos
+  get 'gallery-photos', to: 'photos#gallery_photos'
 end

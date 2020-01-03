@@ -61,6 +61,20 @@ class PhotosController < ApplicationController
     end
   end
 
+  def gallery_photos
+    container = []
+    Photo.all.each do |p|
+      container << {
+        name: p.name,
+        width: p.width,
+        height: p.height,
+        src: url_for(p.picture)
+      }
+    end
+
+    render json: container
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_photo
