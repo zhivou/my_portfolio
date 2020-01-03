@@ -71,6 +71,7 @@ class PhotosController < ApplicationController
         src: url_for(p.picture)
       }
     end
+    sleep 1
 
     render json: container
   end
