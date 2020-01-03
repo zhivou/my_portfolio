@@ -1,19 +1,21 @@
-<p id="notice"><%= notice %></p>
+<div class="container mt-5 mb-5">
+  <p>
+    <strong>Name:</strong>
+    <%= @photo.name %>
+  </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @photo.name %>
-</p>
+  <p>
+    <strong>Width:</strong>
+    <%= @photo.width %>
+  </p>
 
-<p>
-  <strong>Width:</strong>
-  <%= @photo.width %>
-</p>
+  <p>
+    <strong>Height:</strong>
+    <%= @photo.height %>
+  </p>
 
-<p>
-  <strong>Height:</strong>
-  <%= @photo.height %>
-</p>
+  <%= image_tag @photo.picture, class: 'img-thumbnail' %>
 
-<%= link_to 'Edit', edit_photo_path(@photo) %> |
-<%= link_to 'Back', photos_path %>
+  <%= link_to 'Edit', edit_photo_path(@photo) %> |
+  <%= link_to 'Back', photos_path %>
+</div>

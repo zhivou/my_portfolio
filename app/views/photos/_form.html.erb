@@ -26,6 +26,11 @@
     <%= form.number_field :height %>
   </div>
 
+  <div class="field">
+    <%= form.label "Upload Photo" %>
+    <%= form.file_field :picture, class: "m-4" %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>
