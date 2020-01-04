@@ -33,8 +33,8 @@ class GalleryUI extends React.Component {
   render() {
     if (!this.state.loading) {
       return(
-        <div className="container gallery-wrapper">
-            <Gallery photos={this.state.photos} columns={4} />
+        <div className="container gallery-wrapper mt-3">
+            <Gallery photos={this.state.photos}/>
         </div>
       )
     } else {

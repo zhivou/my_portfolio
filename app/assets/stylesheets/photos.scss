@@ -1,3 +1,52 @@
 body {
   background: black;
+  color: white;
+}
+
+.navbar {
+  background-color: rgb(6, 6, 6) !important;
+}
+
+.gallery-wrapper {
+  margin-top: 50px;
+  animation: showPhotos 1s;
+  img:not(.selected) {
+    border-radius: 4px;
+    &:hover {
+      padding: 2px;
+      animation: showHover 0.2s;
+      opacity: 0.8;
+    }
+  }
+}
+
+.nav-pills {
+  button {
+    opacity: 0.6;
+    color: #fff;
+    margin: 2px;
+    border: 1px solid #fff;
+    &:hover {
+      border: 1px solid #fff;
+      background: #2a9fd6;
+    }
+  }
+}
+
+@keyframes showHover {
+  from {
+    opacity: 1;
+  }
+  25% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  75% {
+    opacity: 0.7;
+  }
+  to {
+    opacity: 0.6;
+  }
 }
