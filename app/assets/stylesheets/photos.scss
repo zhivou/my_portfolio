@@ -9,13 +9,13 @@ body {
 
 .gallery-wrapper {
   margin-top: 50px;
-  animation: showPhotos 1s;
   img:not(.selected) {
     border-radius: 4px;
+    transition: all 0.5s ease;
     &:hover {
       padding: 2px;
-      animation: showHover 0.2s;
       opacity: 0.8;
+      transition: all 0.5s ease;
     }
   }
 }

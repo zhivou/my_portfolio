@@ -6,23 +6,24 @@
 <div class="container sticky-top">
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <span class="navbar-brand">
-      <img alt="" src="/zomanpage/static/media/logo.628caf08.png" width="24" height="24" class="d-inline-block align-top">
+      <%= image_tag "react-logo.svg", class: "some css class here", width: "30", height: "30", class: "d-inline-block align-top" %>
       PHOTOFEED
     </span>
     <div class="justify-content-end navbar-collapse collapse">
       <div class="navbar-nav">
+          <%= link_to 'Add New Photo', new_photo_path, class: "nav-link" if current_user %>
         <a href="/" class="nav-link">Exit</a>
       </div>
     </div>
   </nav>
   <div class="container nav-pills">
     <button type="button" class="btn btn-outline-dark active">All</button>
+    <button type="button" class="btn btn-outline-dark">Newest</button>
     <button type="button" class="btn btn-outline-dark">Portrets</button>
     <button type="button" class="btn btn-outline-dark">Street</button>
     <button type="button" class="btn btn-outline-dark">Landscape</button>
   </div>
 </div>
+
 <div id="reactGallery"></div>
-<div class="container text-center">
-  <%= link_to 'Add New Photo', new_photo_path if current_user %>
-</div>
+<%= render 'modal' %>

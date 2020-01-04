@@ -836,6 +836,23 @@
     exenv "^1.2.2"
     prop-types "^15.6.2"
 
+"@stardust-ui/react-component-event-listener@~0.38.0":
+  version "0.38.0"
+  resolved "https://registry.yarnpkg.com/@stardust-ui/react-component-event-listener/-/react-component-event-listener-0.38.0.tgz#1787faded94b40ad41226e6289baf13e701c6e7f"
+  integrity sha512-sIP/e0dyOrrlb8K7KWumfMxj/gAifswTBC4o68Aa+C/GA73ccRp/6W1VlHvF/dlOR4KLsA+5SKnhjH36xzPsWg==
+  dependencies:
+    "@babel/runtime" "^7.1.2"
+    prop-types "^15.7.2"
+
+"@stardust-ui/react-component-ref@~0.38.0":
+  version "0.38.0"
+  resolved "https://registry.yarnpkg.com/@stardust-ui/react-component-ref/-/react-component-ref-0.38.0.tgz#52d555f2d5edd213c923c93a106f7de940e427ef"
+  integrity sha512-xjs6WnvJVueSIXMWw0C3oWIgAPpcD03qw43oGOjUXqFktvpNkB73JoKIhS4sCrtQxBdct75qqr4ZL6JiyPcESw==
+  dependencies:
+    "@babel/runtime" "^7.1.2"
+    prop-types "^15.7.2"
+    react-is "^16.6.3"
+
 "@stimulus/core@^1.1.1":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@stimulus/core/-/core-1.1.1.tgz#42b0cfe5b73ca492f41de64b77a03980bae92c82"
@@ -7347,7 +7364,7 @@ react-infinite-scroller@^1.2.4:
   dependencies:
     prop-types "^15.5.8"
 
-react-is@^16.7.0, react-is@^16.8.1:
+react-is@^16.6.3, react-is@^16.8.1, react-is@^16.8.6:
   version "16.12.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.12.0.tgz#2cc0fe0fba742d97fd527c42a13bec4eeb06241c"
   integrity sha512-rPCkf/mWBtKc97aLL9/txD8DZdemK0vkA3JMLShjlJB3Pj3s+lpf1KaBzMfQrAmhMQB0n1cU/SUGgKKBCe837Q==
@@ -7370,7 +7387,7 @@ react-photo-gallery@^8.0.0:
     prop-types "~15.7.2"
     resize-observer-polyfill "^1.5.0"
 
-react-popper@^1.3.3:
+react-popper@^1.3.4:
   version "1.3.7"
   resolved "https://registry.yarnpkg.com/react-popper/-/react-popper-1.3.7.tgz#f6a3471362ef1f0d10a4963673789de1baca2324"
   integrity sha512-nmqYTx7QVjCm3WUZLeuOomna138R1luC4EqkW3hxJUrAe+3eNz3oFCLYdnPwILfn0mX1Ew2c3wctrjlUMYYUww==
@@ -7964,19 +7981,21 @@ semantic-ui-icon@^2.3.3:
   resolved "https://registry.yarnpkg.com/semantic-ui-icon/-/semantic-ui-icon-2.3.3.tgz#b0beb7e4b541a13eb49a8039626723ab5393b95c"
   integrity sha512-TuO265ICYGoNPs0rjanqDlrx8hfcpl4MMv92OUwFCbDwee4nGj8+Dv+i1RvkPPr0gO565G/0EKs8vF4wwhMMBw==
 
-semantic-ui-react@^0.87.2:
-  version "0.87.3"
-  resolved "https://registry.yarnpkg.com/semantic-ui-react/-/semantic-ui-react-0.87.3.tgz#59b6e1ca52b202bf6deed4c65e81b170b4a12bf6"
-  integrity sha512-YJgFYEheeFBMm/epZpIpWKF9glgSShdLPiY8zoUi+KJ0IKtLtbI8RbMD/ELbZkY+SO/IWbK/f/86pWt3PVvMVA==
+semantic-ui-react@^0.88.2:
+  version "0.88.2"
+  resolved "https://registry.yarnpkg.com/semantic-ui-react/-/semantic-ui-react-0.88.2.tgz#3d4b54f8b799769b412435c8531475fd34aa4149"
+  integrity sha512-+02kN2z8PuA/cMdvDUsHhbJmBzxxgOXVHMFr9XK7zGb0wkW9A6OPQMFokWz7ozlVtKjN6r7zsb+Qvjk/qq1OWw==
   dependencies:
     "@babel/runtime" "^7.1.2"
     "@semantic-ui-react/event-stack" "^3.1.0"
+    "@stardust-ui/react-component-event-listener" "~0.38.0"
+    "@stardust-ui/react-component-ref" "~0.38.0"
     classnames "^2.2.6"
     keyboard-key "^1.0.4"
-    lodash "^4.17.11"
-    prop-types "^15.6.2"
-    react-is "^16.7.0"
-    react-popper "^1.3.3"
+    lodash "^4.17.15"
+    prop-types "^15.7.2"
+    react-is "^16.8.6"
+    react-popper "^1.3.4"
     shallowequal "^1.1.0"
 
 "semver@2 || 3 || 4 || 5", semver@^5.4.1, semver@^5.5.0, semver@^5.5.1, semver@^5.6.0, semver@^5.7.0:

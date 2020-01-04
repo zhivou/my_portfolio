@@ -65,6 +65,7 @@ class PhotosController < ApplicationController
     container = []
     Photo.all.each do |p|
       container << {
+        id: p.id,
         name: p.name,
         width: p.width,
         height: p.height,
