@@ -33,16 +33,23 @@ class GalleryUI extends React.Component {
   }
 
   onClick = e => {
+    $("#photo-image").html("")
+    $("#exampleModalCenterTitle").html("")
+    $("#photo-description").html("")
+
     const photoContainer = {
       id: e.target.id,
       name: e.target.name,
-      src: e.target.src
+      src: e.target.src,
+      discription: 'Add discription in Rails. Blal blallaa.'
     }
 
     const popup = $('#gallery-modal');
     popup.modal('show');
 
     $("#photo-image").attr("src", photoContainer.src);
+    $("#exampleModalCenterTitle").append(photoContainer.name);
+    $("#photo-description").append(photoContainer.discription);
   };
 
   render() {

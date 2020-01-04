@@ -37,3 +37,13 @@ body {
     }
   }
 }
+
+@media (min-width: 768px) {
+  .modal-xl {
+    width: 70vw;
+  }
+}
+
+#gallery-modal {
+  color: #080808;
+}
