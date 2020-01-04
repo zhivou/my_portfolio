@@ -3,8 +3,12 @@
 <% @page_title = "Photo Gallery | Dmitrii Skrylev Portfolio"%>
 <% @seo_keywords = "Photos Photography Photographer Dmitrii Skrylev"%>
 
-<div class="sticky-top">
+<div class="container sticky-top">
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <span class="navbar-brand">
+      <img alt="" src="/zomanpage/static/media/logo.628caf08.png" width="24" height="24" class="d-inline-block align-top">
+      PHOTOFEED
+    </span>
     <div class="justify-content-end navbar-collapse collapse">
       <div class="navbar-nav">
         <a href="/" class="nav-link">Exit</a>
@@ -12,8 +16,10 @@
     </div>
   </nav>
   <div class="container nav-pills">
-    <button type="button" class="btn btn-outline-dark ">Portrets</button>
+    <button type="button" class="btn btn-outline-dark active">All</button>
+    <button type="button" class="btn btn-outline-dark">Portrets</button>
     <button type="button" class="btn btn-outline-dark">Street</button>
+    <button type="button" class="btn btn-outline-dark">Landscape</button>
   </div>
 </div>
 <div id="reactGallery"></div>
