@@ -4,7 +4,7 @@ import axios from 'axios';
 import Gallery from "react-photo-gallery";
 import Spinner from './Spinner'
 import 'semantic-ui-css/semantic.min.css'
-import Viewer from './Viewer'
+import Navbar from './Navbar'
 
 class GalleryUI extends React.Component {
 
@@ -55,11 +55,14 @@ class GalleryUI extends React.Component {
   render() {
     if (!this.state.loading) {
       return(
-        <div className="container gallery-wrapper mt-3">
-            <Gallery
-            photos={this.state.photos}
-            onClick={this.onClick}
-            />
+        <div>
+          <Navbar/>
+          <div className="container gallery-wrapper mt-3">
+              <Gallery
+                photos={this.state.photos}
+                onClick={this.onClick}
+              />
+          </div>
         </div>
       )
     } else {

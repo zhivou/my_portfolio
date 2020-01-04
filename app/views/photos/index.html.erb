@@ -2,29 +2,6 @@
 <%= stylesheet_link_tag 'photos' %>
 <% @page_title = "Photo Gallery | Dmitrii Skrylev Portfolio"%>
 <% @seo_keywords = "Photos Photography Photographer Dmitrii Skrylev"%>
-<script src="https://rawcdn.githack.com/nextapps-de/spotlight/0.6.3/dist/spotlight.cdn.js"></script>
-
-<div class="container sticky-top">
-  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-    <span class="navbar-brand">
-      <%= image_tag "react-logo.svg", class: "some css class here", width: "30", height: "30", class: "d-inline-block align-top" %>
-      PHOTOFEED
-    </span>
-    <div class="justify-content-end navbar-collapse collapse">
-      <div class="navbar-nav">
-          <%= link_to 'Add New Photo', new_photo_path, class: "nav-link" if current_user %>
-        <a href="/" class="nav-link">Exit</a>
-      </div>
-    </div>
-  </nav>
-  <div class="container nav-pills">
-    <button type="button" class="btn btn-outline-dark active">All</button>
-    <button type="button" class="btn btn-outline-dark">Newest</button>
-    <button type="button" class="btn btn-outline-dark">Portrets</button>
-    <button type="button" class="btn btn-outline-dark">Street</button>
-    <button type="button" class="btn btn-outline-dark">Landscape</button>
-  </div>
-</div>
 
 <div id="reactGallery"></div>
 <%= render 'modal' %>
