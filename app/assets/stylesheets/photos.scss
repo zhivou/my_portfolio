@@ -5,6 +5,7 @@ body {
 
 .navbar {
   background-color: rgb(6, 6, 6) !important;
+  transition: all 0.5s ease;
 }
 
 .gallery-wrapper {
@@ -46,4 +47,8 @@ body {
 
 #gallery-modal {
   color: #080808;
+}
+
+#navPills {
+  transition: all 0.5s ease;
 }

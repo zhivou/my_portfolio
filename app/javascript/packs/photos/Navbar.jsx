@@ -18,7 +18,7 @@ class Navbar extends React.Component {
           </div>
         </div>
         </nav>
-        <div className="container nav-pills">
+        <div className="container nav-pills" id="navPills">
           <button type="button" className="btn btn-outline-dark active">All</button>
           <button type="button" className="btn btn-outline-dark">Newest</button>
           <button type="button" className="btn btn-outline-dark">Portrets</button>

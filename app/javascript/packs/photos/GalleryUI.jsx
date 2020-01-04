@@ -35,6 +35,9 @@ class GalleryUI extends React.Component {
   }
 
   openLightbox = (e) => {
+    $('nav').hide();
+    $('#navPills').hide();
+
     this.setState({
       currentImage: Number(e.target.id) - 1,
       viewerIsOpen: true
@@ -42,6 +45,8 @@ class GalleryUI extends React.Component {
   };
 
   closeLightbox = () => {
+    $('nav').show();
+    $('#navPills').show();
     this.setState({
       currentImage: 0,
       viewerIsOpen: false
@@ -58,7 +63,7 @@ class GalleryUI extends React.Component {
                 photos={this.state.photos}
                 onClick={this.openLightbox}
               />
-              <ModalGateway>
+              <ModalGateway id="lightbox-modal">
                 {this.state.viewerIsOpen ? (
                   <Modal onClose={this.closeLightbox}>
                     <Carousel
