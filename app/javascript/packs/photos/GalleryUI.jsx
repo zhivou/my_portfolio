@@ -35,8 +35,8 @@ class GalleryUI extends React.Component {
   }
 
   openLightbox = (e) => {
-    $('nav').hide();
-    $('#navPills').hide();
+    $('nav').fadeOut(1000);
+    $('#navPills').fadeOut(1000);
 
     this.setState({
       currentImage: Number(e.target.id) - 1,
@@ -45,8 +45,8 @@ class GalleryUI extends React.Component {
   };
 
   closeLightbox = () => {
-    $('nav').show();
-    $('#navPills').show();
+    $('nav').fadeIn(1000);
+    $('#navPills').fadeIn(1000);
     this.setState({
       currentImage: 0,
       viewerIsOpen: false
