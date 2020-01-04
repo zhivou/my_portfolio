@@ -4,8 +4,9 @@ import ReactDOM from 'react-dom';
 class Navbar extends React.Component {
   render() {
     return (
-      <div className="container sticky-top">
+      <div className="sticky-top">
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
+        <div className="container ">
           <span className="navbar-brand">
             PHOTOFEED
           </span>
@@ -15,6 +16,7 @@ class Navbar extends React.Component {
                 <a href="/" className="nav-link">Exit</a>
             </div>
           </div>
+        </div>
         </nav>
         <div className="container nav-pills">
           <button type="button" className="btn btn-outline-dark active">All</button>

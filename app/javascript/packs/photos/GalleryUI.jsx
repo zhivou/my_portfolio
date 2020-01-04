@@ -36,7 +36,7 @@ class GalleryUI extends React.Component {
 
   openLightbox = (e) => {
     this.setState({
-      currentImage: e.index,
+      currentImage: Number(e.target.id) - 1,
       viewerIsOpen: true
     })
   };
@@ -46,26 +46,6 @@ class GalleryUI extends React.Component {
       currentImage: 0,
       viewerIsOpen: false
     })
-  };
-
-  onClick = e => {
-    $("#photo-image").html("")
-    $("#exampleModalCenterTitle").html("")
-    $("#photo-description").html("")
-
-    const photoContainer = {
-      id: e.target.id,
-      name: e.target.name,
-      src: e.target.src,
-      discription: 'Add discription in Rails. Blal blallaa.'
-    }
-
-    const popup = $('#gallery-modal');
-    popup.modal('show');
-
-    $("#photo-image").attr("src", photoContainer.src);
-    $("#exampleModalCenterTitle").append(photoContainer.name);
-    $("#photo-description").append(photoContainer.discription);
   };
 
   render() {
