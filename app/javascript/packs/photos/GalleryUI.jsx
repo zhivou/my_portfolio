@@ -30,11 +30,16 @@ class GalleryUI extends React.Component {
   handleClick(searchPhrase) {
     $('.keyword-button').removeClass('active');
     $(`#${searchPhrase.target.id}`).addClass('active');
+    this.getAllPhotos(searchPhrase.target.value)
   }
 
-  getAllPhotos() {
+  getAllPhotos(searchPhrase) {
     this.setState({loading: true});
-    axios.get('gallery-photos')
+    axios.get('gallery-photos', {
+      params: {
+        search_phrase: searchPhrase
+      }
+    })
     .then( res => {
       this.setState({
         photos: res.data,
@@ -67,7 +72,7 @@ class GalleryUI extends React.Component {
     $('#navPills').fadeOut(1000);
 
     this.setState({
-      currentImage: Number(e.target.id) - 1,
+      currentImage: Number(e.target.id),
       viewerIsOpen: true
     })
   };
@@ -82,7 +87,6 @@ class GalleryUI extends React.Component {
   };
 
   render() {
-    if (!this.state.loading) {
       return(
         <div>
           <Navbar
@@ -133,11 +137,6 @@ class GalleryUI extends React.Component {
           </div>
         </div>
       )
-    } else {
-      return (
-        <Spinner/>
-      )
-    }
   }
 }
 

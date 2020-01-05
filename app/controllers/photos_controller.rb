@@ -63,14 +63,31 @@ class PhotosController < ApplicationController
 
   def gallery_photos
     container = []
-    Photo.all.each do |p|
+    search_phrase = params[:search_phrase]
+    counter = 0
+
+    case search_phrase
+    when 'all'
+      photos = Photo.order("created_at DESC")
+    when 'new'
+      photos = Photo.order("created_at DESC")
+    when 'old'
+      photos = Photo.order("created_at ASC")
+    when nil
+      photos = Photo.order("created_at DESC")
+    else
+      photos = Photo.joins(:photo_sections).where(photo_sections:{ name: "#{search_phrase}" })
+    end
+
+    photos.each do |p|
       container << {
-        id: p.id,
+        id: counter,
         name: p.name,
         width: p.width,
         height: p.height,
         src: url_for(p.picture)
       }
+      counter +=1
     end
     sleep 1
 
@@ -85,6 +102,6 @@ class PhotosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def photo_params
-      params.require(:photo).permit(:name, :width, :height, :picture, photo_sections_attributes: [:id, :name, :_destroy])
+      params.require(:photo).permit(:name, :width, :height, :picture, :search_phrase, photo_sections_attributes: [:id, :name, :_destroy])
     end
 end
