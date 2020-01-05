@@ -13,7 +13,7 @@ class GalleryUI extends React.Component {
 
     this.state = {
       photos: [],
-      keyWords: ['one', 'two', 'tree'],
+      keyWords: [],
       loading: false,
       currentImage: 0,
       viewerIsOpen: false
@@ -21,6 +21,10 @@ class GalleryUI extends React.Component {
   }
 
   componentDidMount() {
+    this.getAllPhotos();
+  }
+
+  getAllPhotos() {
     this.setState({loading: true});
     axios.get('gallery-photos')
     .then( res => {
