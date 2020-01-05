@@ -11,6 +11,8 @@ class GalleryUI extends React.Component {
   constructor(props){
     super(props);
 
+    this.handleClick = this.handleClick.bind(this);
+
     this.state = {
       photos: [],
       keyWords: [],
@@ -22,6 +24,11 @@ class GalleryUI extends React.Component {
 
   componentDidMount() {
     this.getAllPhotos();
+    this.getKeyWords();
+  }
+
+  handleClick(searchPhrase) {
+    console.log(searchPhrase.target.value)
   }
 
   getAllPhotos() {
@@ -30,6 +37,21 @@ class GalleryUI extends React.Component {
     .then( res => {
       this.setState({
         photos: res.data,
+        loading: false
+      })
+    })
+    .catch( err => {
+      console.log(err);
+      this.setState({loading: false})
+    });
+  }
+
+  getKeyWords() {
+    this.setState({loading: true});
+    axios.get('photos-key-words')
+    .then( res => {
+      this.setState({
+        keyWords: res.data,
         loading: false
       })
     })
@@ -66,12 +88,13 @@ class GalleryUI extends React.Component {
             buttons={
               <div className="container nav-pills" id="navPills">
                 <button type="button" className="btn btn-outline-dark active">All</button>
-                <button type="button" className="btn btn-outline-dark">Newest</button>
+                <button type="button" className="btn btn-outline-dark">Newest First</button>
+                <button type="button" className="btn btn-outline-dark">Oldest First</button>
                 {
                   this.state.keyWords.map((word) => {
                     const key = `key-${word}`;
                     return(
-                      <button type="button" className="btn btn-outline-dark" key={key}>{word}</button>
+                      <button type="button" className="btn btn-outline-dark" key={key} value={word} onClick={this.handleClick} >{word}</button>
                     )
                   })
                 }
