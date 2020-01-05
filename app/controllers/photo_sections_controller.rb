@@ -61,6 +61,16 @@ class PhotoSectionsController < ApplicationController
     end
   end
 
+  def photos_key_words
+    unique_names = []
+    PhotoSection.all.each do |keyword|
+      name = keyword.name
+      unique_names << name unless unique_names.include?(name)
+    end
+
+    render json: unique_names
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_photo_section

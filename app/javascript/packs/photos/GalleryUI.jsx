@@ -13,6 +13,7 @@ class GalleryUI extends React.Component {
 
     this.state = {
       photos: [],
+      keyWords: ['one', 'two', 'tree'],
       loading: false,
       currentImage: 0,
       viewerIsOpen: false
@@ -57,7 +58,22 @@ class GalleryUI extends React.Component {
     if (!this.state.loading) {
       return(
         <div>
-          <Navbar/>
+          <Navbar
+            buttons={
+              <div className="container nav-pills" id="navPills">
+                <button type="button" className="btn btn-outline-dark active">All</button>
+                <button type="button" className="btn btn-outline-dark">Newest</button>
+                {
+                  this.state.keyWords.map((word) => {
+                    const key = `key-${word}`;
+                    return(
+                      <button type="button" className="btn btn-outline-dark" key={key}>{word}</button>
+                    )
+                  })
+                }
+              </div>
+            }
+          />
           <div className="container gallery-wrapper mt-3">
               <Gallery
                 photos={this.state.photos}
