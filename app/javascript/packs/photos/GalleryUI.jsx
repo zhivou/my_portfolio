@@ -28,7 +28,8 @@ class GalleryUI extends React.Component {
   }
 
   handleClick(searchPhrase) {
-    console.log(searchPhrase.target.value)
+    $('.keyword-button').removeClass('active');
+    $(`#${searchPhrase.target.id}`).addClass('active');
   }
 
   getAllPhotos() {
@@ -87,14 +88,23 @@ class GalleryUI extends React.Component {
           <Navbar
             buttons={
               <div className="container nav-pills" id="navPills">
-                <button type="button" className="btn btn-outline-dark active">All</button>
-                <button type="button" className="btn btn-outline-dark">Newest First</button>
-                <button type="button" className="btn btn-outline-dark">Oldest First</button>
+                <button type="button" className="keyword-button btn btn-outline-dark active" value="all" onClick={this.handleClick} id="all">All</button>
+                <button type="button" className="keyword-button btn btn-outline-dark" value="new" onClick={this.handleClick} id="new">Newest First</button>
+                <button type="button" className="keyword-button btn btn-outline-dark" value="old" onClick={this.handleClick} id="old">Oldest First</button>
                 {
                   this.state.keyWords.map((word) => {
                     const key = `key-${word}`;
                     return(
-                      <button type="button" className="btn btn-outline-dark" key={key} value={word} onClick={this.handleClick} >{word}</button>
+                      <button
+                        type="button"
+                        className="keyword-button btn btn-outline-dark"
+                        key={key}
+                        value={word}
+                        onClick={this.handleClick}
+                        id={word}
+                        >
+                        {word}
+                      </button>
                     )
                   })
                 }
