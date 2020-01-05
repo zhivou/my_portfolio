@@ -31,6 +31,21 @@
     <%= form.file_field :picture, class: "m-4" %>
   </div>
 
+  <div>
+    <%= form.fields_for :photo_sections do |sections_form| %>
+      <%= render 'photo_sections_fields', f:sections_form %>
+    <% end %>
+
+    <div>
+      <%= link_to_add_association 'Add Publications', form, :photo_sections %>
+    </div>
+
+  </div>
+
+  <div>
+    <%= link_to_add_association 'Add Key', form, :photo_sections, class: "mt-4" %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

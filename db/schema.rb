@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_02_014837) do
+ActiveRecord::Schema.define(version: 2020_01_05_002849) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,6 +80,14 @@ ActiveRecord::Schema.define(version: 2020_01_02_014837) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "photo_sections", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "photo_id", null: false
+    t.index ["photo_id"], name: "index_photo_sections_on_photo_id"
+  end
+
   create_table "photos", force: :cascade do |t|
     t.string "name"
     t.integer "width"
@@ -131,5 +139,6 @@ ActiveRecord::Schema.define(version: 2020_01_02_014837) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "photo_sections", "photos"
   add_foreign_key "tags", "blogs"
 end
