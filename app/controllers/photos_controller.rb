@@ -84,6 +84,7 @@ class PhotosController < ApplicationController
       photos.shuffle.each do |p|
         container << {
           id: counter,
+          originalid: p.id,
           name: p.name,
           width: p.width,
           height: p.height,
@@ -95,6 +96,7 @@ class PhotosController < ApplicationController
       photos.each do |p|
         container << {
           id: counter,
+          originalid: p.id,
           name: p.name,
           width: p.width,
           height: p.height,

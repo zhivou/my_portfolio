@@ -98,6 +98,7 @@ class GalleryUI extends React.Component {
           <Gallery
             photos={this.state.photos}
             onClick={this.openLightbox}
+            columns={4}
           />
         )
       }
@@ -108,7 +109,7 @@ class GalleryUI extends React.Component {
             buttons={
               <div className="container nav-pills" id="navPills">
                 <button type="button" className="keyword-button btn btn-outline-dark active" value="all" onClick={this.handleClick} id="all">All</button>
-                <button type="button" className="keyword-button btn btn-outline-dark" value="new" onClick={this.handleClick} id="old">Newest First</button>
+                <button type="button" className="keyword-button btn btn-outline-dark" value="new" onClick={this.handleClick} id="new">Newest First</button>
                 <button type="button" className="keyword-button btn btn-outline-dark" value="old" onClick={this.handleClick} id="old">Oldest First</button>
                 {
                   this.state.keyWords.map((word) => {
