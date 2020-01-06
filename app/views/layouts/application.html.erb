@@ -2,6 +2,7 @@
 <html>
   <head>
     <title><%= @page_title %></title>
+    <%= Gon::Base.render_data %>
     <%= csrf_meta_tags %>
     <meta name="keywords" content="<%= @seo_keywords %>">
 
@@ -25,12 +26,18 @@
 
   <body data-turbolinks="false">
     <div id="myModal"></div>
-    <%= render 'nav_bar' %>
+    <% if params[:controller] != 'photos' %>
+      <%= render 'nav_bar' %>
+    <% else %>
+    <% end %>
     <div class="applicationWrapper">
       <p class="notice" style="display: <%= "none" unless notice %>;"><%= notice %></p>
       <p class="alert" style="display: <%= "none" unless notice %>;"><%= alert %></p>
       <%= yield %>
     </div>
-    <%= render 'footer' %>
+    <% if params[:controller] != 'photos' %>
+      <%= render 'footer' %>
+    <% else %>
+    <% end %>
   </body>
 </html>

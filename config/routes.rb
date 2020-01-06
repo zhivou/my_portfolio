@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :photo_sections
   resources :contacts, only: [:index, :new, :create]
   devise_for :users, path: '',
              path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' },
@@ -39,4 +40,11 @@ Rails.application.routes.draw do
   #
   get 'hard-skills', to: 'main_skills#api_hard_skills'
   get 'soft-skills', to: 'main_skills#api_soft_skills'
+
+  ##
+  # Photo Gallery Section
+  #
+  resources :photos
+  get 'gallery-photos', to: 'photos#gallery_photos'
+  get 'photos-key-words', to: 'photo_sections#photos_key_words'
 end

@@ -105,6 +105,11 @@ GEM
       railties (>= 3.2, < 6.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    gon (6.3.2)
+      actionpack (>= 3.0.20)
+      i18n (>= 0.7)
+      multi_json
+      request_store (>= 1.0)
     google-api-client (0.36.2)
       addressable (~> 2.5, >= 2.5.1)
       googleauth (~> 0.9)
@@ -236,6 +241,8 @@ GEM
       declarative (< 0.1.0)
       declarative-option (< 0.2.0)
       uber (< 0.2.0)
+    request_store (1.5.0)
+      rack (>= 1.4)
     responders (3.0.0)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -322,6 +329,7 @@ DEPENDENCIES
   cocoon
   devise (~> 4.6, >= 4.6.2)
   font-awesome-rails (~> 4.7)
+  gon (~> 6.2)
   google-cloud-storage (~> 1.18, >= 1.18.2)
   image_processing
   jbuilder (~> 2.5)

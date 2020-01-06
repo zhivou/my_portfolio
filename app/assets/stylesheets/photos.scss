@@ -1,0 +1,58 @@
+body {
+  background: black;
+  color: white;
+}
+
+.navbar {
+  background-color: rgb(6, 6, 6) !important;
+}
+
+.gallery-wrapper {
+  margin-top: 40px;
+  padding: 5px;
+  border-radius: 3px;
+  img:not(.selected) {
+    border-radius: 4px;
+    transition: all 0.5s ease;
+    &:hover {
+      padding: 2px;
+      opacity: 0.8;
+      transition: all 0.5s ease;
+    }
+  }
+}
+
+.active {
+  border: 1px solid #fff !important;
+  background: #2a9fd6 !important;
+}
+
+.nav-pills {
+  margin-top: 5px;
+  button {
+    opacity: 0.6;
+    color: #fff;
+    margin: 2px;
+    border: 1px solid #fff;
+    &:hover {
+      border: 1px solid #fff;
+      background: #2a9fd6;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .modal-xl {
+    width: 70vw;
+  }
+}
+
+#gallery-modal {
+  color: #080808;
+}
+
+#spinner {
+  width: 6rem;
+  height: 6rem;
+  margin-top: 35vh;
+}
