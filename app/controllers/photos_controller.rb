@@ -70,6 +70,8 @@ class PhotosController < ApplicationController
     case search_phrase
     when 'all'
       photos = Photo.order("created_at DESC")
+    when 'new'
+      photos = Photo.order("created_at DESC")
     when 'old'
       photos = Photo.order("created_at ASC")
     when nil
@@ -78,15 +80,28 @@ class PhotosController < ApplicationController
       photos = Photo.joins(:photo_sections).where(photo_sections:{ name: "#{search_phrase}" })
     end
 
-    photos.each do |p|
-      container << {
-        id: counter,
-        name: p.name,
-        width: p.width,
-        height: p.height,
-        src: url_for(p.picture)
-      }
-      counter +=1
+    if search_phrase == 'all' || search_phrase.nil?
+      photos.shuffle.each do |p|
+        container << {
+          id: counter,
+          name: p.name,
+          width: p.width,
+          height: p.height,
+          src: url_for(p.picture)
+        }
+        counter +=1
+      end
+    else
+      photos.each do |p|
+        container << {
+          id: counter,
+          name: p.name,
+          width: p.width,
+          height: p.height,
+          src: url_for(p.picture)
+        }
+        counter +=1
+      end
     end
 
     render json: container
