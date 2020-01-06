@@ -16,7 +16,7 @@ class GalleryUI extends React.Component {
     this.state = {
       photos: [],
       keyWords: [],
-      loading: false,
+      loading: true,
       currentImage: 0,
       viewerIsOpen: false
     };
@@ -87,13 +87,27 @@ class GalleryUI extends React.Component {
   };
 
   render() {
+    let gallery
+
+    if(this.state.loading){
+      gallery = (
+        <Spinner/>
+      )
+    } else {
+        gallery = (
+          <Gallery
+            photos={this.state.photos}
+            onClick={this.openLightbox}
+          />
+        )
+      }
+
       return(
         <div>
           <Navbar
             buttons={
               <div className="container nav-pills" id="navPills">
                 <button type="button" className="keyword-button btn btn-outline-dark active" value="all" onClick={this.handleClick} id="all">All</button>
-                <button type="button" className="keyword-button btn btn-outline-dark" value="new" onClick={this.handleClick} id="new">Newest First</button>
                 <button type="button" className="keyword-button btn btn-outline-dark" value="old" onClick={this.handleClick} id="old">Oldest First</button>
                 {
                   this.state.keyWords.map((word) => {
@@ -116,10 +130,7 @@ class GalleryUI extends React.Component {
             }
           />
           <div className="container gallery-wrapper mt-3">
-              <Gallery
-                photos={this.state.photos}
-                onClick={this.openLightbox}
-              />
+              {gallery}
               <ModalGateway id="lightbox-modal">
                 {this.state.viewerIsOpen ? (
                   <Modal onClose={this.closeLightbox}>

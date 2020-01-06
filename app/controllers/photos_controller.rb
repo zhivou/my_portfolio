@@ -1,4 +1,5 @@
 class PhotosController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
 
   # GET /photos
@@ -69,8 +70,6 @@ class PhotosController < ApplicationController
     case search_phrase
     when 'all'
       photos = Photo.order("created_at DESC")
-    when 'new'
-      photos = Photo.order("created_at DESC")
     when 'old'
       photos = Photo.order("created_at ASC")
     when nil
@@ -89,7 +88,6 @@ class PhotosController < ApplicationController
       }
       counter +=1
     end
-    sleep 1
 
     render json: container
   end

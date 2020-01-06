@@ -4,9 +4,9 @@ import ReactDOM from 'react-dom';
 class Spinner extends React.Component {
   render() {
     return (
-      <div className="d-flex justify-content-center m-5">
-        <div className="spinner-border" role="status">
-          <span className="sr-only">Loading...</span>
+      <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status" id="spinner">
+          <span class="sr-only">Loading...</span>
         </div>
       </div>
     );
