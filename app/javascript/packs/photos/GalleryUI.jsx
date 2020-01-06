@@ -129,7 +129,10 @@ class GalleryUI extends React.Component {
               </div>
             }
           />
-          <div className="container gallery-wrapper mt-3">
+          <div className="container mt-3">
+            <small>Hi!, welcome to my photo page, where all you see is my work. Including the page development and the photos itself. If you need to contact me please click 'Exit' button to get back to main page.</small>
+          </div>
+          <div className="container gallery-wrapper mt-3 black">
               {gallery}
               <ModalGateway id="lightbox-modal">
                 {this.state.viewerIsOpen ? (
