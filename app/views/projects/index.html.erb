@@ -15,7 +15,7 @@
           <div class="col-md-12 col-xl-4 col-lg-4 col-sm-12 col-12" data-id="<%= project.id %>">
             <div class="card mb-4 shadow-sm projectCard">
               <div id="img-cropper">
-                <a href="projects/<%= project.id %>"><%= image_tag project.main_image, class: "bd-placeholder-img card-img-top imageHolder", id: "imageProject" %></a>
+                <a href="projects/<%= project.id %>"><%= image_tag project.main_image.variant(resize: "300"), class: "bd-placeholder-img card-img-top imageHolder", id: "imageProject" %></a>
               </div>
               <div class="card-body">
                 <p class="card-title"><%= project.title %></p>
