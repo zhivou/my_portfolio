@@ -19,6 +19,7 @@ body {
   background-color: #193641;
   height: auto;
   padding-right: 20px;
+  transition: all 0.3s ease-out;
 
   #ruby_logo {
     width: 50px;
@@ -39,12 +40,13 @@ body {
   text-align: left;
   list-style-type: disc;
   float:left;
+  font-size: 40px;
+  transition: all 0.3s ease-out;
 
   span {
     letter-spacing: 1px;
     text-transform: uppercase;
     font-family: 'Libre Barcode 128 Text', cursive;
-    font-size: 40px;
     cursor: pointer;
     padding: 2px;
   }
@@ -61,15 +63,15 @@ body {
   padding-bottom: 0;
   text-align: left;
   list-style-type: disc;
+  font-size: 30px;
+  transition: all 0.3s ease-out;
 
   span {
     letter-spacing: 1px;
     text-transform: uppercase;
     font-family: 'Teko', sans-serif;
-    font-size: 30px;
     cursor: pointer;
     padding: 8px;
-
   }
 
   span:hover {

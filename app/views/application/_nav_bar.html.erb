@@ -4,7 +4,7 @@
       <!--  Logo  -->
       <span class="navLogo justify-content-md-center">
       <a href="<%= root_url %>" class="logoLink">
-        <span id="item_1" class="font_white">Dmitrii Skrylev</span>
+        <span id="logo-holder" class="font_white">Dmitrii Skrylev</span>
       </a>
     </span>
       <!--  Logo end -->
@@ -20,32 +20,32 @@
         <ul class="navbar-nav" id="nav_bar">
           <li class="nav_item">
             <a href="<%= root_url %>">
-              <span id="button-home" class="font_white <%= 'active' if params[:controller] == 'home' %>">Home</span>
+              <span id="button-home" class="item-holder font_white <%= 'active' if params[:controller] == 'home' %>">Home</span>
             </a>
           </li>
           <li class="nav_item">
             <a href="<%= resume_path %>">
-              <span id="item_1" class="font_white <%= 'active' if params[:controller] == 'static_pages' %>">Resume</span>
+              <span id="item_2" class="item-holder font_white <%= 'active' if params[:controller] == 'static_pages' %>">Resume</span>
             </a>
           </li>
           <li class="nav_item">
             <a href="<%= blogs_path %>">
-              <span id="item_2" class="font_white <%= 'active' if params[:controller] == 'blogs' %>">Blog</span>
+              <span id="item_2" class="item-holder font_white <%= 'active' if params[:controller] == 'blogs' %>">Blog</span>
             </a>
           </li>
           <li class="nav_item">
             <a href="<%= projects_path %>">
-              <span id="item_3" class="font_white <%= 'active' if params[:controller] == 'projects' %>">Projects</span>
+              <span id="item_3" class="item-holder font_white <%= 'active' if params[:controller] == 'projects' %>">Projects</span>
             </a>
           </li>
           <li class="nav_item">
             <a href="<%= photos_path %>">
-              <span id="item_4" class="font_white <%= 'active' if params[:controller] == 'photos' %>">Photos</span>
+              <span id="item_4" class="item-holder font_white <%= 'active' if params[:controller] == 'photos' %>">Photos</span>
             </a>
           </li>
           <li class="nav_item">
             <a href="<%= contacts_path %>">
-              <span id="item_4" class="font_white <%= 'active' if params[:controller] == 'contacts' %>">Contacts</span>
+              <span id="item_4" class="item-holder font_white <%= 'active' if params[:controller] == 'contacts' %>">Contacts</span>
             </a>
           </li>
           <li class="nav_item">
@@ -67,12 +67,21 @@
     function scrollFunction() {
         if (document.body.scrollTop > 50 || document.documentElement.scrollTop >= 80) {
             document.getElementById("header").style.backgroundColor = "transparent";
-            $("nav-holder").style.padding = "0px";
-            //parallax-window
+            $("#logo-holder").removeClass("font_white");
+            $("#logo-holder").addClass("font_black");
+            $(".item-holder").removeClass("font_white");
+            $(".item-holder").addClass("font_black");
+            $(".navLogo").css("font-size", "30px");
+            $(".nav_item").css("font-size", "25px");
         }
         else if (document.documentElement.scrollTop < 20) {
             document.getElementById("header").style.backgroundColor = "#193641";
-            document.getElementById("nav-holder").style.padding = "20px";
+            $("#logo-holder").removeClass("font_black");
+            $("#logo-holder").addClass("font_white");
+            $(".item-holder").removeClass("font_black");
+            $(".item-holder").addClass("font_white");
+            $(".navLogo").css("font-size", "40px");
+            $(".nav_item").css("font-size", "30px");
         }
     }
 </script>
