@@ -16,9 +16,9 @@ body {
 }
 
 #header {
-  background-color: #193641;
+  background-color: transparent;
   height: auto;
-  display: block;
+  display: relative;
   padding-right: 20px;
 
   #ruby_logo {
@@ -48,12 +48,12 @@ body {
     font-size: 40px;
     cursor: pointer;
     padding: 2px;
-    color: white;
+    color: black;
   }
 
   a {
     text-decoration: none;
-    color: white;
+    color: black;
   }
 }
 
@@ -72,7 +72,7 @@ body {
     font-size: 30px;
     cursor: pointer;
     padding: 8px;
-    color: white;
+    color: black;
 
   }
 
