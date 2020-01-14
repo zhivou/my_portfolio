@@ -3,9 +3,11 @@
 <% @page_title = "Home Page | Dmitrii Skrylev Portfolio"%>
 <% @seo_keywords = "Full Stack Developer Utah Ruby Rails React JavaScript Salt Lake City SDET Dmitrii Skrylev"%>
 
-<%= render 'first_slide' %>
-<%= render 'second_slide' %>
-<div id="reactHome"></div>
-<%= render 'latest_blogs_slide', blogs: @latest_blogs %>
-<%= render 'projects_slide', projects: @latest_projects %>
-<%= render 'brand_logos' %>
+<div>
+  <%= render 'first_slide' %>
+  <%= render 'second_slide' %>
+  <div id="reactHome"></div>
+  <%= render 'latest_blogs_slide', blogs: @latest_blogs %>
+  <%= render 'projects_slide', projects: @latest_projects %>
+  <%= render 'brand_logos' %>
+</div>

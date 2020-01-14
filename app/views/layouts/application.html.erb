@@ -26,11 +26,11 @@
 
   <body data-turbolinks="false">
     <div id="myModal"></div>
-    <% if params[:controller] != 'photos' %>
-      <%= render 'nav_bar' %>
-    <% else %>
-    <% end %>
     <div class="applicationWrapper">
+      <% if params[:controller] != 'photos' %>
+        <%= render 'nav_bar' %>
+      <% else %>
+      <% end %>
       <p class="notice" style="display: <%= "none" unless notice %>;"><%= notice %></p>
       <p class="alert" style="display: <%= "none" unless notice %>;"><%= alert %></p>
       <%= yield %>
