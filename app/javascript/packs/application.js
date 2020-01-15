@@ -23,6 +23,7 @@ require("@rails/actiontext");
 require("@rails/activestorage");
 require("react-countdown-now");
 require("react-infinite-scroller")
+require("jquery-parallax.js")
 
 $( document ).ready(function() {
   require("./other/nav_bar_actions");

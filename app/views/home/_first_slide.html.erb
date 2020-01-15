@@ -1,6 +1,13 @@
-<div id="firstSlide" class="sliderWrapper" style="background-image: url(<%= asset_path "me_ph.jpg" %>);">
-  <div class="text-center pb-2" id="greetingsCard">
-    <h1 class="display-4 m-0">Hi! I am Dmitrii,</h1>
-    <p>Software Engineer</p>
+<div
+  id="firstSlide"
+  class="d-flex text-center sliderWrapper parallax-window full-height"
+  data-parallax="scroll"
+  data-image-src="<%= asset_path "me_ph.jpg" %>"
+  >
+  <div class="container d-flex justify-content-center bd-highlight mb-3 align-self-start" id="greetingsCard">
+    <div>
+      <h1 class="display-3 m-0">Hi! I am Dmitrii,</h1>
+      <p>Software Engineer</p>
+    </div>
   </div>
 </div>
