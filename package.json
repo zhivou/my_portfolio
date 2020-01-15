@@ -13,6 +13,7 @@
     "chart.js": "^2.8.0",
     "cocoon-rails": "^1.2.6",
     "jquery": "^3.4.1",
+    "jquery-parallax.js": "^1.5.0",
     "popper": "^1.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
