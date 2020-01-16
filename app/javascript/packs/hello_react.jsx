@@ -276,16 +276,16 @@ const HashTags = (props) => {
         <div>
           {Object.keys(props.tags).map(function(key) {
             return (
-                <div onClick={() => props.handleTagClick(key)} key={key} className="hashTah">
-                  {key}({props.tags[key]})
-                </div>
+                <button onClick={() => props.handleTagClick(key)} key={key} className="btn btn-outline-dark m-1" type="button">
+                  {key} <span class="badge badge-secondary">{props.tags[key]}</span>
+                </button>
             );
           })}
         </div>
         <div>
-          <div onClick={() => props.handleTagClick("All Blogs")} key="All Blogs:" className="hashTah">
-            All({props.tags_count})
-          </div>
+          <button onClick={() => props.handleTagClick("All Blogs")} key="All Blogs:" className="btn btn-outline-dark m-1" type="button">
+            All <span class="badge badge-secondary">{props.tags_count}</span>
+          </button>
         </div>
       </div>
   )
