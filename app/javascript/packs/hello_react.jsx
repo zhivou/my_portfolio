@@ -184,16 +184,16 @@ class Blog extends React.Component {
 
     this.state.blogs.map((item, i) => {
           items.push(
-            <div className="card shadow p-3 mb-3 bg-white rounded" key={i}>
-              <div className="card-body">
-                <div className="card-title">
-                  <a href={`/blogs/${item.id}`} className="blogLink">{item.title}</a>
+            <div className="p-3 mb-3 bg-light" key={i}>
+              <div className="body">
+                <div>
+                  <a href={`/blogs/${item.id}`} className="h2 blogLink">{item.title}</a>
+                  <p className="text-secondary">Posted at: {item.created_at.substring(0, 10)}</p>
                 </div>
-                <div className="card-text">
+                <div className="blog-body">
                   <p>{item.short_body}<a href={`/blogs/${item.id}`} className="blogLink"> read more>></a></p>
                 </div>
                 <hr/>
-                <p>Posted at: {item.created_at.substring(0, 10)}</p>
               </div>
             </div>
           );
@@ -277,7 +277,7 @@ const HashTags = (props) => {
           {Object.keys(props.tags).map(function(key) {
             return (
                 <button onClick={() => props.handleTagClick(key)} key={key} className="btn btn-outline-dark m-1" type="button">
-                  {key} <span class="badge badge-secondary">{props.tags[key]}</span>
+                  {key} <span class="badge badge-light">{props.tags[key]}</span>
                 </button>
             );
           })}
