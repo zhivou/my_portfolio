@@ -19,7 +19,7 @@
   <div>
     Hash tags:
     <% @blog.tags.each do |t| %>
-      <%= t.description + '|'%>
+      <span class="badge badge-dark"><%= t.description %> </span>
       <% @seo_keywords = @seo_keywords + ', ' + t.description %>
     <% end %>
   </div>
