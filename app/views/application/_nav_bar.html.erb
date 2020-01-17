@@ -39,15 +39,22 @@
             </a>
           </li>
           <li class="nav_item">
-            <a href="<%= photos_path %>">
-              <span id="item_4" class="item-holder font_white <%= 'active' if params[:controller] == 'photos' %>">Photos</span>
-            </a>
-          </li>
-          <li class="nav_item">
             <a href="<%= contacts_path %>">
               <span id="item_4" class="item-holder font_white <%= 'active' if params[:controller] == 'contacts' %>">Contacts</span>
             </a>
           </li>
+          <div class="dropdown nav_item font_white">
+            <li class="item-holder" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="item-holder font_white">APPS</span>
+            </li>
+            <div class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenuButton">
+              <a href="<%= photos_path %>" class="dropdown-item">PHOTO FEED</a>
+              <a class="dropdown-item" href="https://aermotion.herokuapp.com">AERMOTION VIDEO SELLING PLATFORM</a>
+              <a class="dropdown-item" href="https://www.esmailie.com/">PHD CANDIDATE WEB APP</a>
+              <a class="dropdown-item" href="/spacex">SPACEx</a>
+
+            </div>
+          </div>
           <li class="nav_item">
             <%= login_helper %>
           </li>
