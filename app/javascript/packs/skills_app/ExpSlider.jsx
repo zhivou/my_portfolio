@@ -1,24 +1,18 @@
 import React, { Component } from 'react';
 import Scrollspy from 'react-scrollspy'
 import PropTypes from 'prop-types';
+import ScrollSections from './ScrollSections'
 
 class ExpSlider extends Component {
   constructor(props){
     super(props);
-    this.state = {
-      empty: []
-    }
   }
 
   render(){
     return (
       <div>
 
-        <div>
-          <section id="section-1">section 1</section>
-          <section id="section-2">section 2</section>
-          <section id="section-3">section 3</section>
-        </div>
+        <ScrollSections/>
 
         <Scrollspy items={ ['section-1', 'section-2', 'section-3'] } currentClassName="is-current">
           <li><a href="#section-1">section 1</a></li>
