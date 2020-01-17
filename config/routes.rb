@@ -47,4 +47,5 @@ Rails.application.routes.draw do
   resources :photos
   get 'gallery-photos', to: 'photos#gallery_photos'
   get 'photos-key-words', to: 'photo_sections#photos_key_words'
+  resources :skills_app, only: [:index]
 end
