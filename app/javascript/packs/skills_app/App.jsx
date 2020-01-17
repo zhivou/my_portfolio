@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Skiller from './Skiller'
 
 class App extends React.Component {
   render() {
     return (
       <div>
-        Hello {this.props.name}
+        <Skiller/>
       </div>
     );
   }
