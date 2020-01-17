@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Skiller from './Skiller'
+import ExpSlider from './ExpSlider'
+import { exp } from "./demo_exp";
 
 class App extends React.Component {
   render() {
     return (
       <div>
-        <Skiller/>
+        <ExpSlider exp={ exp }/>
       </div>
     );
   }

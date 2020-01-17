@@ -1,21 +1,14 @@
 import React, { Component } from 'react';
 import Scrollspy from 'react-scrollspy'
+import PropTypes from 'prop-types';
 
-class Skiller extends Component {
+class ExpSlider extends Component {
   constructor(props){
     super(props);
     this.state = {
-      chartData:props.chartData
+      empty: []
     }
   }
-
-  // Defaults:
-  static defaultProps = {
-    displayTitle: true,
-    displayLegend: true,
-    legendPosition: 'right',
-    chartName: 'Chart Name'
-  };
 
   render(){
     return (
@@ -38,4 +31,15 @@ class Skiller extends Component {
   }
 }
 
-export default Skiller
+ExpSlider.propTypes = {
+  exp: PropTypes.array.isRequired,
+  skin: PropTypes.string,
+  effect: PropTypes.string
+};
+
+ExpSlider.defaultProps = {
+  skin: "standard",
+  effect: "standard"
+};
+
+export default ExpSlider
