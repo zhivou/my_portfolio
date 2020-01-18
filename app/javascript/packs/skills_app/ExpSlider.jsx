@@ -9,11 +9,17 @@ class ExpSlider extends Component {
   }
 
   render(){
+    const sections = (
+      this.props.exp.map(experience => (
+          <div className="col-6">
+            <ScrollSections exp={experience.title}/>
+          </div>
+      ))
+    );
+
     return (
       <div>
-
-        <ScrollSections/>
-
+        { sections }
         <Scrollspy items={ ['section-1', 'section-2', 'section-3'] } currentClassName="is-current">
           <li><a href="#section-1">section 1</a></li>
           <li><a href="#section-2">section 2</a></li>

@@ -9,7 +9,7 @@ const ScrollSections = () => (
 )
 
 ScrollSections.propTypes = {
-  exp: PropTypes.array.isRequired,
+  exp: PropTypes.object.isRequired,
 };
 
 export default ScrollSections
