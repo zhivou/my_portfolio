@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import Scrollspy from 'react-scrollspy'
 import PropTypes from 'prop-types';
-import ScrollSections from './ScrollSections'
-import './actions'
+import 'scrollmagic'
+// import './actions'
 
 class ExpSlider extends Component {
   constructor(props){
@@ -13,7 +12,7 @@ class ExpSlider extends Component {
     const sections = (
       this.props.exp.map(experience => (
           <div className="col-6">
-            <ScrollSections exp={experience}/>
+            <p>{experience.title}</p>
           </div>
       ))
     );
@@ -21,15 +20,6 @@ class ExpSlider extends Component {
     return (
       <div>
         { sections }
-        <Scrollspy items={ ['section-1', 'section-2', 'section-3'] }
-                   onUpdate={(el) => {
-                     console.log(el)
-                   }}>
-          <li><a href="#section-1">section 1</a></li>
-          <li><a href="#section-2">section 2</a></li>
-          <li><a href="#section-3">section 3</a></li>
-        </Scrollspy>
-
       </div>
     )
   }
@@ -45,5 +35,7 @@ ExpSlider.defaultProps = {
   skin: "standard",
   effect: "standard"
 };
+
+let getMessage = () => console.log('Hello World');
 
 export default ExpSlider
