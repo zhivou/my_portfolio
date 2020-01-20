@@ -35,7 +35,6 @@ $( document ).ready(function() {
           offset: 50 // move trigger to center of element
         })
         .setClassToggle("#reveal1", "visible") // add class to reveal
-        .addIndicators() // add indicators (requires plugin)
         .reverse(false)
         .addTo(controller);
 });
