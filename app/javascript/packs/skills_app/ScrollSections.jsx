@@ -3,12 +3,12 @@ import React from 'react'
 const ScrollSections = (props) => {
   const id = `section-${props.exp.sort}`
   return (
-    <div id={ id } className="message mine">
-        <div>{props.exp.title}</div>
-        <div>{props.exp.company}</div>
-        <div>Started: {props.exp.start_date}, Ended: {props.exp.end_date}</div>
-        <div>{props.exp.about}</div>
-    </div>
+      <div id={ id } className="message mine">
+          <div>{props.exp.title}</div>
+          <div>{props.exp.company}</div>
+          <div>Started: {props.exp.start_date}, Ended: {props.exp.end_date}</div>
+          <div>{props.exp.about}</div>
+      </div>
   );
 };
 
