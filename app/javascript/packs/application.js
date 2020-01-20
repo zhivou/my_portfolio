@@ -27,4 +27,15 @@ require("jquery-parallax.js")
 
 $( document ).ready(function() {
   require("./other/nav_bar_actions");
+
+  var controller = new ScrollMagic.Controller();
+
+  new ScrollMagic.Scene({
+          triggerElement: "#reveal1",
+          offset: 50 // move trigger to center of element
+        })
+        .setClassToggle("#reveal1", "visible") // add class to reveal
+        .addIndicators() // add indicators (requires plugin)
+        .reverse(false)
+        .addTo(controller);
 });
