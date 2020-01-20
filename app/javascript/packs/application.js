@@ -31,7 +31,7 @@ $( document ).ready(function() {
   var controller = new ScrollMagic.Controller();
 
   new ScrollMagic.Scene({
-          triggerElement: "#reveal1",
+          triggerElement: "#secondSlide",
           offset: 50 // move trigger to center of element
         })
         .setClassToggle("#reveal1", "visible") // add class to reveal
