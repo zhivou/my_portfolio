@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import 'scrollmagic';
 import ScrollSections from './ScrollSections'
 import './style'
+import ScrollMagic from 'scrollmagic'
 
 class ExpSlider extends Component {
   constructor(props){
     super(props);
+  }
+
+  componentDidMount() {
+    this.props.exp.map(experience => {
+      initScrollMagick(`section-${experience.sort}`);
+    })
   }
 
   render(){
@@ -32,6 +38,20 @@ class ExpSlider extends Component {
       </div>
     )
   }
+}
+
+let initScrollMagick = (id) => {
+  // init controller
+  var controller = new ScrollMagic.Controller();
+
+  debugger;
+  // create a scene
+  new ScrollMagic.Scene({
+  		duration: 100,	// the scene should last for a scroll distance of 100px
+  		offset: 50	// start this scene after scrolling for 50px
+  	})
+  	.setPin(`#${id}`) // pins the element for the the scene's duration
+  	.addTo(controller); // assign the scene to the controller
 }
 
 ExpSlider.propTypes = {

@@ -1,0 +1,13 @@
+.message {
+  border-radius: 20px;
+  padding: 8px 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: #eee;
+  transition: all 1s ease;
+}
+
+.message:hover {
+  transition: all 1s ease;
+  background-color: #eed;
+}
