@@ -37,4 +37,16 @@ $( document ).ready(function() {
         .setClassToggle("#reveal1", "visible") // add class to reveal
         .reverse(false)
         .addTo(controller);
+
+  var revealElements = document.getElementsByClassName("digit");
+  for (var i=0; i<revealElements.length; i++) {
+    new ScrollMagic.Scene({
+              triggerElement: revealElements[i],
+              offset: 50,
+              triggerHook: 0.9,
+            })
+            .setClassToggle(revealElements[i], "visible")
+            .reverse(false)
+            .addTo(controller);
+  };
 });
