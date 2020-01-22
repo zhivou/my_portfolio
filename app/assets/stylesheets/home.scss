@@ -186,7 +186,7 @@ a {
           transform: none;
 }
 
-.digit {
+.digit, .projects-holder {
   opacity: 0;
   -webkit-transform: translateX(-40px);
      -moz-transform: translateX(-40px);
@@ -199,7 +199,7 @@ a {
        -o-transition: all 0.6s ease-out;
           transition: all 0.6s ease-out;
 }
-.digit.visible {
+.digit.visible, .projects-holder.visible {
   opacity: 1;
   -webkit-transform: none;
      -moz-transform: none;
