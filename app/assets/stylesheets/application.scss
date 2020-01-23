@@ -16,10 +16,16 @@ body {
 }
 
 #header {
-  background-color: #193641;
+  background-color: transparent;
   height: auto;
   padding-right: 20px;
   transition: all 0.3s ease-out;
+  z-index:1; /*Add this*/
+  width:100%;
+  text-align:center;
+  vertical-align:middle;
+  line-height:50px;
+  top:0px;
 
   #ruby_logo {
     width: 50px;
@@ -87,11 +93,11 @@ body {
 
 
 .font_black {
-  color: black;
+  color: black !important;
 }
 
 .font_white {
-  color: white;
+  color: white !important;
 }
 
 
