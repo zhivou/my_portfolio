@@ -27,4 +27,40 @@ require("jquery-parallax.js")
 
 $( document ).ready(function() {
   require("./other/nav_bar_actions");
+
+  var controller = new ScrollMagic.Controller();
+
+  new ScrollMagic.Scene({
+          triggerElement: "#secondSlide",
+          offset: 50 // move trigger to center of element
+        })
+        .setClassToggle("#reveal1", "visible") // add class to reveal
+        .reverse(false)
+        .addTo(controller);
+
+// Latest Blogs Animation
+  var revealElements = document.getElementsByClassName("digit");
+  for (var i=0; i<revealElements.length; i++) {
+    new ScrollMagic.Scene({
+              triggerElement: revealElements[i],
+              offset: 50,
+              triggerHook: 0.9,
+            })
+            .setClassToggle(revealElements[i], "visible")
+            .reverse(false)
+            .addTo(controller);
+  };
+
+  // Latest Projects Animation
+  var revealProjectElements = document.getElementsByClassName("projects-holder");
+  for (var i=0; i<revealProjectElements.length; i++) {
+    new ScrollMagic.Scene({
+              triggerElement: revealProjectElements[i],
+              offset: 50,
+              triggerHook: 0.9,
+            })
+            .setClassToggle(revealProjectElements[i], "visible")
+            .reverse(false)
+            .addTo(controller);
+  };
 });

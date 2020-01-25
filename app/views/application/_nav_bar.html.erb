@@ -4,7 +4,7 @@
       <!--  Logo  -->
       <span class="navLogo justify-content-md-center">
       <a href="<%= root_url %>" class="logoLink">
-        <span id="logo-holder" class="font_white">Dmitrii Skrylev</span>
+        <span id="logo-holder" class="font_black">Dmitrii Skrylev</span>
       </a>
     </span>
       <!--  Logo end -->
@@ -20,32 +20,32 @@
         <ul class="navbar-nav" id="nav_bar">
           <li class="nav_item">
             <a href="<%= root_url %>">
-              <span id="button-home" class="item-holder font_white <%= 'active' if params[:controller] == 'home' %>">Home</span>
+              <span id="button-home" class="item-holder font_black <%= 'active' if params[:controller] == 'home' %>">Home</span>
             </a>
           </li>
           <li class="nav_item">
             <a href="<%= resume_path %>">
-              <span id="item_2" class="item-holder font_white <%= 'active' if params[:controller] == 'static_pages' %>">Resume</span>
+              <span id="item_2" class="item-holder font_black <%= 'active' if params[:controller] == 'static_pages' %>">Resume</span>
             </a>
           </li>
           <li class="nav_item">
             <a href="<%= blogs_path %>">
-              <span id="item_2" class="item-holder font_white <%= 'active' if params[:controller] == 'blogs' %>">Blog</span>
+              <span id="item_2" class="item-holder font_black <%= 'active' if params[:controller] == 'blogs' %>">Blog</span>
             </a>
           </li>
           <li class="nav_item">
             <a href="<%= projects_path %>">
-              <span id="item_3" class="item-holder font_white <%= 'active' if params[:controller] == 'projects' %>">Projects</span>
+              <span id="item_3" class="item-holder font_black <%= 'active' if params[:controller] == 'projects' %>">Projects</span>
             </a>
           </li>
           <li class="nav_item">
             <a href="<%= contacts_path %>">
-              <span id="item_4" class="item-holder font_white <%= 'active' if params[:controller] == 'contacts' %>">Contacts</span>
+              <span id="item_4" class="item-holder font_black <%= 'active' if params[:controller] == 'contacts' %>">Contacts</span>
             </a>
           </li>
-          <div class="dropdown nav_item font_white">
+          <div class="dropdown nav_item font_black">
             <li class="item-holder" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="item-holder font_white">APPS</span>
+              <span class="item-holder font_black">APPS</span>
             </li>
             <div class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenuButton">
               <a href="<%= photos_path %>" class="dropdown-item">PHOTO FEED</a>
@@ -73,22 +73,24 @@
 
     function scrollFunction() {
         if (document.body.scrollTop > 50 || document.documentElement.scrollTop >= 80) {
-            document.getElementById("header").style.backgroundColor = "transparent";
-            $("#logo-holder").removeClass("font_white");
-            $("#logo-holder").addClass("font_black");
-            $(".item-holder").removeClass("font_white");
-            $(".item-holder").addClass("font_black");
-            $(".navLogo").css("font-size", "30px");
-            $(".nav_item").css("font-size", "25px");
-        }
-        else if (document.documentElement.scrollTop < 20) {
             document.getElementById("header").style.backgroundColor = "#193641";
             $("#logo-holder").removeClass("font_black");
             $("#logo-holder").addClass("font_white");
             $(".item-holder").removeClass("font_black");
             $(".item-holder").addClass("font_white");
+            $(".navLogo").css("font-size", "30px");
+            $(".nav_item").css("font-size", "25px");
+            $(".navbar-toggler").css("background-color", "transparent");
+        }
+        else if (document.documentElement.scrollTop < 20) {
+            document.getElementById("header").style.backgroundColor = "transparent";
+            $("#logo-holder").removeClass("font_white");
+            $("#logo-holder").addClass("font_black");
+            $(".item-holder").removeClass("font_white");
+            $(".item-holder").addClass("font_black");
             $(".navLogo").css("font-size", "40px");
             $(".nav_item").css("font-size", "30px");
+            $(".navbar-toggler").css("background-color", "black");
         }
     }
 </script>

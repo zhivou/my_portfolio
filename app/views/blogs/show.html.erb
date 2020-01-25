@@ -1,6 +1,8 @@
 <% @page_title = "Blogs - #{@blog.title} | Dmitrii Skrylev Portfolio"%>
 <%= javascript_pack_tag 'ProjectsHistory' %>
 <%= javascript_pack_tag 'BlogsHistory' %>
+<link rel="stylesheet"
+      href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/railscasts.min.css">
 
 <%= stylesheet_link_tag "blogs" %>
 <div class="d-flex picHolder text-center"
@@ -70,3 +72,12 @@
     <%= link_to '| Delete', blog_path, method: :delete, data: { confirm: 'Are you sure?' } if current_user%>
   </div>
 </div>
+
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelectorAll('pre').forEach((block) => {
+            hljs.highlightBlock(block);
+        });
+    });
+</script>

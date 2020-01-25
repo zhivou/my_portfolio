@@ -3,6 +3,8 @@
 <% @seo_keywords = @project.title %>
 <%= javascript_pack_tag 'BlogsHistory' %>
 <%= javascript_pack_tag 'ProjectsHistory' %>
+<link rel="stylesheet"
+      href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/railscasts.min.css">
 
 <div class="d-flex projectPicHolder text-center"
      style="background-image: url('<%= url_for(@project.main_image) %>');">
@@ -67,3 +69,12 @@
     <%= link_to 'Back', projects_path %>
   </div>
 </div>
+
+<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelectorAll('pre').forEach((block) => {
+            hljs.highlightBlock(block);
+        });
+    });
+</script>
