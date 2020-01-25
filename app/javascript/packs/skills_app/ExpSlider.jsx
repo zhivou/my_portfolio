@@ -12,13 +12,17 @@ class ExpSlider extends Component {
   componentDidMount() {
     var controllerR = new ScrollMagic.Controller();
 
-    new ScrollMagic.Scene({
-      triggerElement: "#first-exp",
-      offset: 50 // move trigger to center of element
+    this.props.exp.map(experience => {
+      const id = `section-${experience.sort}`;
+
+      new ScrollMagic.Scene({
+        triggerElement: `#${id}`,
+        offset: 50 // move trigger to center of element
+      })
+        .setClassToggle(`#${id}`, "visible") // add class to reveal
+        .addIndicators()
+        .addTo(controllerR);
     })
-      .setClassToggle("#first-exp", "visible") // add class to reveal
-      .addIndicators()
-      .addTo(controllerR);
   }
 
   render(){
@@ -26,7 +30,7 @@ class ExpSlider extends Component {
 
     const sections = (
       this.props.exp.map(experience => {
-        left = !left
+        left = !left;
           return(
             <div className={ left ? 'row justify-content-start' : 'row justify-content-end' }>
               <div className="col-6 p-4">

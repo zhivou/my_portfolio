@@ -5,19 +5,6 @@
   margin-bottom: 5px;
   background-color: #eee;
   transition: all 1s ease;
-}
-
-.message:hover {
-  transition: all 1s ease;
-  background-color: #eed;
-}
-
-#first-slide {
-  height: 100vh;
-  background-color: #eed;
-}
-
-#first-exp {
   opacity: 0;
   -webkit-transform: scale(0.9);
   -moz-transform: scale(0.9);
@@ -30,7 +17,18 @@
   -o-transition: all 1s ease-in-out;
   transition: all 1s ease-in-out;
 }
-#first-exp.visible {
+
+.message:hover {
+  transition: all 1s ease;
+  background-color: #eed;
+}
+
+#first-slide {
+  height: 100vh;
+  background-color: #eed;
+}
+
+.visible {
   opacity: 1;
   -webkit-transform: none;
   -moz-transform: none;
