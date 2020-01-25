@@ -9,6 +9,18 @@ class ExpSlider extends Component {
     super(props);
   }
 
+  componentDidMount() {
+    var controllerR = new ScrollMagic.Controller();
+
+    new ScrollMagic.Scene({
+      triggerElement: "#first-exp",
+      offset: 50 // move trigger to center of element
+    })
+      .setClassToggle("#first-exp", "visible") // add class to reveal
+      .addIndicators()
+      .addTo(controllerR);
+  }
+
   render(){
     let left = true;
 
@@ -17,13 +29,9 @@ class ExpSlider extends Component {
         left = !left
           return(
             <div className={ left ? 'row justify-content-start' : 'row justify-content-end' }>
-            <Controller>
-              <Scene duration={100} indicators>
-                <Tween>
-                  <div className="col-6 p-4"><ScrollSections exp={experience}/></div>
-                </Tween>
-              </Scene>
-            </Controller>
+              <div className="col-6 p-4">
+                <ScrollSections exp={experience}/>
+              </div>
             </div>
           )
       })
