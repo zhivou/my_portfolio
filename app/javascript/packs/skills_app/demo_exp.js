@@ -24,33 +24,35 @@ export const exp = [
     sort: 3
   },
   {
-    company: "CSS CORP",
-    title: "IT Support Engineer",
-    about: "Research analyst covering Mexico aspects of NAFTA trade negotiations for a Dallas-based family office.",
+    company: "USLING INSTITUTE",
+    title: "System Administrator",
+    about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et hendrerit nisi. Nulla scelerisque sem ac est semper, et volutpat.",
     start_date: "2014",
     end_date: "2015",
     sort: 4
   },
   {
-    company: "CSS CORP",
-    title: "IT Support Engineer",
-    about: "Research analyst covering Mexico aspects of NAFTA trade negotiations for a Dallas-based family office.",
+    company: "Amazon AWS",
+    title: "Technician",
+    about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vel ex iaculis, commodo turpis vel, pulvinar ex. Etiam vitae mi.",
     start_date: "2014",
     end_date: "2015",
     sort: 5
   },
   {
-    company: "CSS CORP",
+    company: "Adobe",
     title: "IT Support Engineer",
-    about: "Research analyst covering Mexico aspects of NAFTA trade negotiations for a Dallas-based family office.",
+    about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin convallis luctus turpis et tempor. Fusce ornare maximus lectus, vel porta.",
     start_date: "2014",
     end_date: "2015",
     sort: 6
   },
   {
-    company: "CSS CORP",
+    company: "Last Org",
     title: "IT Support Engineer",
-    about: "Research analyst covering Mexico aspects of NAFTA trade negotiations for a Dallas-based family office.",
+    about: "\n" +
+      "\n" +
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin convallis luctus turpis et tempor. Fusce ornare maximus lectus, vel porta..",
     start_date: "2014",
     end_date: "2015",
     sort: 7

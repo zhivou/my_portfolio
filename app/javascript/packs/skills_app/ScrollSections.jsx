@@ -5,10 +5,10 @@ const ScrollSections = (props) => {
 
   return (
       <div id={id} className="message mine">
-        <div>{props.exp.title}</div>
+        <div><h4><bold>{props.exp.title}</bold></h4></div>
         <div>{props.exp.company}</div>
         <div>Started: {props.exp.start_date}, Ended: {props.exp.end_date}</div>
-        <div>{props.exp.about}</div>
+        <div><small>{props.exp.about}</small></div>
       </div>
   );
 };
