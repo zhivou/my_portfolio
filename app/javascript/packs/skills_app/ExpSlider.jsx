@@ -7,6 +7,7 @@ import './style'
 class ExpSlider extends Component {
   constructor(props){
     super(props);
+
   }
 
   componentDidMount() {
@@ -21,6 +22,7 @@ class ExpSlider extends Component {
       })
         .setClassToggle(`#${id}`, "visible") // add class to reveal
         .addIndicators()
+        .offset(-200)
         .addTo(controllerR);
     })
   }
@@ -43,8 +45,6 @@ class ExpSlider extends Component {
 
     return (
       <div className="exp-wrapper">
-        <div id="first-slide"></div>
-        <div className="container text-center display-3 mb-3">Experience</div>
         <div className="container">
           { sections }
         </div>

@@ -22,5 +22,37 @@ export const exp = [
     start_date: "2014",
     end_date: "2015",
     sort: 3
+  },
+  {
+    company: "CSS CORP",
+    title: "IT Support Engineer",
+    about: "Research analyst covering Mexico aspects of NAFTA trade negotiations for a Dallas-based family office.",
+    start_date: "2014",
+    end_date: "2015",
+    sort: 4
+  },
+  {
+    company: "CSS CORP",
+    title: "IT Support Engineer",
+    about: "Research analyst covering Mexico aspects of NAFTA trade negotiations for a Dallas-based family office.",
+    start_date: "2014",
+    end_date: "2015",
+    sort: 5
+  },
+  {
+    company: "CSS CORP",
+    title: "IT Support Engineer",
+    about: "Research analyst covering Mexico aspects of NAFTA trade negotiations for a Dallas-based family office.",
+    start_date: "2014",
+    end_date: "2015",
+    sort: 6
+  },
+  {
+    company: "CSS CORP",
+    title: "IT Support Engineer",
+    about: "Research analyst covering Mexico aspects of NAFTA trade negotiations for a Dallas-based family office.",
+    start_date: "2014",
+    end_date: "2015",
+    sort: 7
   }
 ];

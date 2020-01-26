@@ -3,7 +3,7 @@
   padding: 8px 15px;
   margin-top: 5px;
   margin-bottom: 5px;
-  background-color: #eee;
+  background-color: #C0BCBD;
   transition: all 1s ease;
   opacity: 0;
   -webkit-transform: scale(0.9);
@@ -15,17 +15,13 @@
   -moz-transition: all 1s ease-in-out;
   -ms-transition: all 1s ease-in-out;
   -o-transition: all 1s ease-in-out;
-  transition: all 1s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  color: #54494B;
 }
 
 .message:hover {
   transition: all 1s ease;
-  background-color: #eed;
-}
-
-#first-slide {
-  height: 100vh;
-  background-color: #eed;
+  background-color: #F5C4D0;
 }
 
 .visible {
