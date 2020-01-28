@@ -8,15 +8,21 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { exp: [] };
+
+    this.handleChange = this.handleChange.bind(this);
   }
 
   render() {
     return (
       <div>
-        <ActionForm/>
+        <ActionForm handleChange={this.handleChange} />
         <ExpSlider exp={ exp }/>
       </div>
     );
+  }
+
+  handleChange(e) {
+    console.log(e.target.id + ": " + e.target.value)
   }
 }
 
