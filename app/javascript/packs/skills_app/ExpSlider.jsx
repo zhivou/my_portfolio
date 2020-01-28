@@ -5,7 +5,6 @@ import ScrollSections from './ScrollSections'
 class ExpSlider extends Component {
   constructor(props){
     super(props);
-
   }
 
   componentDidMount() {
