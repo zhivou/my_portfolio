@@ -1,4 +1,5 @@
 <%= javascript_pack_tag 'skills_app/App' %>
+<%= stylesheet_link_tag "skills_app" %>
 
 <div id="first-slide">
   <div id="exp-text">SCROLL EXPERIENCE</div>
@@ -14,26 +15,3 @@
     <p class="lead">This feature is still under development. Working on skins, and scroll spy. As well as on data structure...</p>
   </div>
 </div>
-
-<style>
-  #first-slide {
-    height: 100vh;
-    background-color: #E5D1D4;
-  }
-
-  #second-slide {
-    height: 100vh;
-    background-color: #E5D1D4;
-  }
-
-  #exp-text{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-family: 'Georgia';
-    color: #54494B; /*white text*/
-    font-weight: bold;
-    font-size: 4rem;
-  }
-</style>

@@ -32,3 +32,24 @@
   -o-transform: none;
   transform: none;
 }
+
+#first-slide {
+  height: 100vh;
+  background-color: #E5D1D4;
+}
+
+#second-slide {
+  height: 100vh;
+  background-color: #E5D1D4;
+}
+
+#exp-text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Georgia';
+  color: #54494B; /*white text*/
+  font-weight: bold;
+  font-size: 4rem;
+}

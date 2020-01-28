@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ScrollSections from './ScrollSections'
-import './style.scss'
 
 class ExpSlider extends Component {
   constructor(props){
