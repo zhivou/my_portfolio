@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ScrollSections from './ScrollSections'
-import { Controller, Scene, Tween } from 'react-scrollmagic';
-import './style'
+import './style.scss'
 
 class ExpSlider extends Component {
   constructor(props){
@@ -33,7 +32,7 @@ class ExpSlider extends Component {
       this.props.exp.map(experience => {
         left = !left;
           return(
-            <div className={ left ? 'row justify-content-start' : 'row justify-content-end' }>
+            <div className={ left ? 'row justify-content-start' : 'row justify-content-end' } key={experience.sort}>
               <div className="col-6 p-4">
                 <ScrollSections exp={experience}/>
               </div>
