@@ -10,19 +10,31 @@ class App extends React.Component {
     this.state = { exp: [] };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentWillMount() {
+    if(!!this.state.exp){
+      this.setState({ exp: exp });
+    }
   }
 
   render() {
     return (
       <div>
-        <ActionForm handleChange={this.handleChange} />
-        <ExpSlider exp={ exp }/>
+        <ActionForm handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
+        <ExpSlider exp={ this.state.exp }/>
       </div>
     );
   }
 
   handleChange(e) {
     console.log(e.target.id + ": " + e.target.value)
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    console.log("Submitted")
   }
 }
 
