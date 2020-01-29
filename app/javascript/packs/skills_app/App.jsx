@@ -8,22 +8,17 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { exp: [] };
-
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentWillMount() {
-    if(!!this.state.exp){
-      this.setState({ exp: exp });
-    }
-  }
-
   render() {
+    const defaultExp = !!this.state.exp ? exp : this.state.exp;
+
     return (
       <div>
         <ActionForm handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
-        <ExpSlider exp={ this.state.exp }/>
+        <ExpSlider exp={ defaultExp }/>
       </div>
     );
   }
