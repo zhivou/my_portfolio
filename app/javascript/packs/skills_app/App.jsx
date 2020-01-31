@@ -13,12 +13,11 @@ class App extends React.Component {
   }
 
   render() {
-    const defaultExp = !!this.state.exp ? exp : this.state.exp;
 
     return (
       <div>
         <ActionForm handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
-        <ExpSlider exp={ defaultExp }/>
+        <ExpSlider exp={ this.state.exp }/>
       </div>
     );
   }
@@ -47,6 +46,12 @@ class App extends React.Component {
       console.log("Nothing was submitted! Make sure you filled out all input fields.");
       return;
     }
+
+    this.setState(state => ({
+      exp: state.exp.concat(this.state.formHolder),
+      formHolder: null
+    }));
+
     console.log("Submitted")
   }
 }
