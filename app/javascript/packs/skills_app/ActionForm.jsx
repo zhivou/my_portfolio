@@ -13,6 +13,7 @@ const ActionForm = (props) => {
           id="company-name"
           onChange={props.handleChange}
           value={props.companyName}
+          required
         />
 
         <label htmlFor="title">
@@ -22,6 +23,7 @@ const ActionForm = (props) => {
           id="title"
           onChange={props.handleChange}
           value={props.title}
+          required
         />
 
         <label htmlFor="about">
@@ -31,6 +33,7 @@ const ActionForm = (props) => {
           id="about"
           onChange={props.handleChange}
           value={props.about}
+          required
         />
 
         <label htmlFor="start">
@@ -40,6 +43,7 @@ const ActionForm = (props) => {
           id="start"
           onChange={props.handleChange}
           value={props.start}
+          required
         />
 
         <label htmlFor="end">
@@ -49,6 +53,7 @@ const ActionForm = (props) => {
           id="end"
           onChange={props.handleChange}
           value={props.end}
+          required
         />
 
         <label htmlFor="sort">
@@ -59,6 +64,7 @@ const ActionForm = (props) => {
           onChange={props.handleChange}
           value={props.sort}
           type="number"
+          required
         />
 
         <button>

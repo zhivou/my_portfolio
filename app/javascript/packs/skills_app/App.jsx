@@ -7,7 +7,7 @@ import ActionForm from "./ActionForm"
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { exp: [] };
+    this.state = { exp: [], formHolder: null };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -24,11 +24,20 @@ class App extends React.Component {
   }
 
   handleChange(e) {
-    console.log(e.target.id + ": " + e.target.value)
+    this.setState({
+      formHolder: {
+        ...this.state.formHolder,
+        [e.target.id]: e.target.value
+      }
+    });
   }
 
   handleSubmit(e) {
     e.preventDefault();
+    if (!this.state.formHolder.length) {
+      console.log("Nothing was submitted!");
+      return;
+    }
     console.log("Submitted")
   }
 }
