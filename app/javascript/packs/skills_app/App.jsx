@@ -34,8 +34,17 @@ class App extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    if (!this.state.formHolder.length) {
-      console.log("Nothing was submitted!");
+    const holder = this.state.formHolder;
+
+    if (!(
+      holder.hasOwnProperty('company-name') &&
+      holder.hasOwnProperty('about') &&
+      holder.hasOwnProperty('title') &&
+      holder.hasOwnProperty('start') &&
+      holder.hasOwnProperty('end') &&
+      holder.hasOwnProperty('sort')
+    )) {
+      console.log("Nothing was submitted! Make sure you filled out all input fields.");
       return;
     }
     console.log("Submitted")
