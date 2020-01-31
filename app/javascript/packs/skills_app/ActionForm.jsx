@@ -6,11 +6,11 @@ const ActionForm = (props) => {
       <h3>Add new experience</h3>
       <form onSubmit={props.handleSubmit} id="exp-adder-form">
 
-        <label htmlFor="company-name">
+        <label htmlFor="company">
           Company Name
         </label>
         <input
-          id="company-name"
+          id="company"
           onChange={props.handleChange}
           value={props.companyName}
           required
@@ -29,28 +29,30 @@ const ActionForm = (props) => {
         <label htmlFor="about">
           About
         </label>
-        <input
+        <textarea
           id="about"
           onChange={props.handleChange}
           value={props.about}
           required
+          rows="4"
+          cols="50"
         />
 
-        <label htmlFor="start">
+        <label htmlFor="start_date">
           Start Date
         </label>
         <input
-          id="start"
+          id="start_date"
           onChange={props.handleChange}
           value={props.start}
           required
         />
 
-        <label htmlFor="end">
+        <label htmlFor="end_date">
           Start Date
         </label>
         <input
-          id="end"
+          id="end_date"
           onChange={props.handleChange}
           value={props.end}
           required

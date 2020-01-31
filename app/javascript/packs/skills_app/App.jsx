@@ -36,11 +36,11 @@ class App extends React.Component {
     const holder = this.state.formHolder;
 
     if (!(
-      holder.hasOwnProperty('company-name') &&
+      holder.hasOwnProperty('company') &&
       holder.hasOwnProperty('about') &&
       holder.hasOwnProperty('title') &&
-      holder.hasOwnProperty('start') &&
-      holder.hasOwnProperty('end') &&
+      holder.hasOwnProperty('start_date') &&
+      holder.hasOwnProperty('end_date') &&
       holder.hasOwnProperty('sort')
     )) {
       console.log("Nothing was submitted! Make sure you filled out all input fields.");
@@ -53,7 +53,7 @@ class App extends React.Component {
     }));
 
     $("#exp-adder-form")[0].reset();
-    console.log("Submitted")
+    console.log("New Experience has been successfully added.")
   }
 }
 

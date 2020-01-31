@@ -7,7 +7,7 @@ class ExpSlider extends Component {
     super(props);
   }
 
-  componentDidMount() {
+  componentDidUpdate() {
     var controllerR = new ScrollMagic.Controller();
 
     this.props.exp.map(experience => {
