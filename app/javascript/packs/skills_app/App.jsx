@@ -52,6 +52,7 @@ class App extends React.Component {
       formHolder: null
     }));
 
+    $("#exp-adder-form")[0].reset();
     console.log("Submitted")
   }
 }

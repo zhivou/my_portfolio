@@ -4,7 +4,7 @@ const ActionForm = (props) => {
   return (
     <div>
       <h3>Add new experience</h3>
-      <form onSubmit={props.handleSubmit}>
+      <form onSubmit={props.handleSubmit} id="exp-adder-form">
 
         <label htmlFor="company-name">
           Company Name
