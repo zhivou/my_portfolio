@@ -10,16 +10,37 @@ class App extends React.Component {
     this.state = { exp: [], formHolder: null };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.bringDefaults = this.bringDefaults.bind(this);
+    this.clearExp = this.clearExp.bind(this);
   }
 
   render() {
 
     return (
       <div>
+        <button onClick={this.bringDefaults}>Demo Data</button>
+        <button onClick={this.clearExp}>Clear</button>
         <ActionForm handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
         <ExpSlider exp={ this.state.exp }/>
       </div>
     );
+  }
+
+  clearExp(e) {
+    e.preventDefault();
+    this.setState({
+      exp: [],
+      formHolder: null
+    });
+  }
+
+  bringDefaults(e) {
+    e.preventDefault();
+
+    this.setState({
+      exp: exp,
+      formHolder: null
+    });
   }
 
   handleChange(e) {
