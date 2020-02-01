@@ -20,7 +20,7 @@ class App extends React.Component {
       <div className="container">
         <div className="text-center card m-3">
           <div className="h3 m-5">
-            Total Records<span className="badge-pill badge-warning">{this.state.exp.length}</span>
+            TOTAL RECORDS: <span className="badge-pill badge-dark">{this.state.exp.length}</span>
             <span className="sr-only">Total Records</span>
           </div>
         </div>
@@ -30,7 +30,10 @@ class App extends React.Component {
           <button onClick={this.clearExp}
                   className="m-1 btn btn-light">Clear</button>
           <hr/>
-          <small id="emailHelp" className="text-muted">Use Demo button to populate default experience or Clear to clear all records.</small>
+          <small id="emailHelp" className="text-muted">
+            Use Demo button to populate default experience records or Clear to clear all records. Keep scrolling
+            down to see the animation.
+          </small>
         </div>
         <ActionForm handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
         <ExpSlider exp={ this.state.exp }/>

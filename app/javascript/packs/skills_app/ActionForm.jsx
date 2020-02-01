@@ -4,7 +4,7 @@ const ActionForm = (props) => {
   return (
     <div className="container p-5">
       <h3>Add new experience</h3>
-      <small id="emailHelp" className="text-muted">Use the form below to add new Experience records.</small>
+      <small id="emailHelp" className="text-muted">Use the form below to add custom Experience records.</small>
       <form onSubmit={props.handleSubmit} id="exp-adder-form">
 
         <div className="form-group">
