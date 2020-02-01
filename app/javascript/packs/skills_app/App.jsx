@@ -17,9 +17,21 @@ class App extends React.Component {
   render() {
 
     return (
-      <div>
-        <button onClick={this.bringDefaults}>Demo Data</button>
-        <button onClick={this.clearExp}>Clear</button>
+      <div className="container">
+        <div className="text-center card m-3">
+          <div className="h3 m-5">
+            Total Records<span className="badge-pill badge-warning">{this.state.exp.length}</span>
+            <span className="sr-only">Total Records</span>
+          </div>
+        </div>
+        <div className="text-center">
+          <button onClick={this.bringDefaults}
+                  className="m-1 btn btn-light">Demo Data</button>
+          <button onClick={this.clearExp}
+                  className="m-1 btn btn-light">Clear</button>
+          <hr/>
+          <small id="emailHelp" className="text-muted">Use Demo button to populate default experience or Clear to clear all records.</small>
+        </div>
         <ActionForm handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
         <ExpSlider exp={ this.state.exp }/>
       </div>
@@ -36,7 +48,6 @@ class App extends React.Component {
 
   bringDefaults(e) {
     e.preventDefault();
-
     this.setState({
       exp: exp,
       formHolder: null
