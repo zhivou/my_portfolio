@@ -5,10 +5,9 @@ import ScrollSections from './ScrollSections'
 class ExpSlider extends Component {
   constructor(props){
     super(props);
-
   }
 
-  componentDidMount() {
+  componentDidUpdate() {
     var controllerR = new ScrollMagic.Controller();
 
     this.props.exp.map(experience => {
