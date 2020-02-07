@@ -12,7 +12,7 @@ const ActionForm = (props) => {
             Company Name
           </label>
           <input
-            id="company"
+            id="organization"
             onChange={props.handleChange}
             value={props.organization}
             required
@@ -38,7 +38,7 @@ const ActionForm = (props) => {
             About
           </label>
           <textarea
-            id="about"
+            id="exp_body"
             onChange={props.handleChange}
             value={props.exp_body}
             required
@@ -53,7 +53,7 @@ const ActionForm = (props) => {
             Start Date
           </label>
           <input
-            id="start_date"
+            id="date_started"
             onChange={props.handleChange}
             value={props.date_started}
             required
@@ -66,7 +66,7 @@ const ActionForm = (props) => {
             Start Date
           </label>
           <input
-            id="end_date"
+            id="date_ended"
             onChange={props.handleChange}
             value={props.date_ended}
             required
