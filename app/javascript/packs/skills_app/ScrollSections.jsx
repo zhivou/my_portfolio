@@ -8,9 +8,9 @@ const ScrollSections = (props) => {
         <div><h4>
           {props.exp.title}
         </h4></div>
-        <div>{props.exp.company}</div>
-        <div>Started: {props.exp.start_date}, Ended: {props.exp.end_date}</div>
-        <div><small>{props.exp.about}</small></div>
+        <div>{props.exp.organization}</div>
+        <div>Started: {props.exp.date_started}, Ended: {props.exp.date_ended}</div>
+        <div><small>{props.exp.exp_body}</small></div>
       </div>
   );
 };
