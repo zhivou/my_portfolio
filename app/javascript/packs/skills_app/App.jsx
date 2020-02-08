@@ -71,11 +71,11 @@ class App extends React.Component {
     const holder = this.state.formHolder;
 
     if (!(
-      holder.hasOwnProperty('company') &&
-      holder.hasOwnProperty('about') &&
+      holder.hasOwnProperty('organization') &&
+      holder.hasOwnProperty('exp_body') &&
       holder.hasOwnProperty('title') &&
-      holder.hasOwnProperty('start_date') &&
-      holder.hasOwnProperty('end_date') &&
+      holder.hasOwnProperty('date_started') &&
+      holder.hasOwnProperty('date_ended') &&
       holder.hasOwnProperty('sort')
     )) {
       console.log("Nothing was submitted! Make sure you filled out all input fields.");

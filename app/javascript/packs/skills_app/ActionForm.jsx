@@ -8,13 +8,13 @@ const ActionForm = (props) => {
       <form onSubmit={props.handleSubmit} id="exp-adder-form">
 
         <div className="form-group">
-          <label htmlFor="company">
+          <label htmlFor="organization">
             Company Name
           </label>
           <input
-            id="company"
+            id="organization"
             onChange={props.handleChange}
-            value={props.companyName}
+            value={props.organization}
             required
             className="form-control"
           />
@@ -34,13 +34,13 @@ const ActionForm = (props) => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="about">
+          <label htmlFor="exp_body">
             About
           </label>
           <textarea
-            id="about"
+            id="exp_body"
             onChange={props.handleChange}
-            value={props.about}
+            value={props.exp_body}
             required
             rows="4"
             cols="50"
@@ -49,26 +49,26 @@ const ActionForm = (props) => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="start_date">
+          <label htmlFor="date_started">
             Start Date
           </label>
           <input
-            id="start_date"
+            id="date_started"
             onChange={props.handleChange}
-            value={props.start}
+            value={props.date_started}
             required
             className="form-control"
           />
         </div>
 
         <div className="form-group">
-          <label htmlFor="end_date">
+          <label htmlFor="date_ended">
             Start Date
           </label>
           <input
-            id="end_date"
+            id="date_ended"
             onChange={props.handleChange}
-            value={props.end}
+            value={props.date_ended}
             required
             className="form-control"
           />
