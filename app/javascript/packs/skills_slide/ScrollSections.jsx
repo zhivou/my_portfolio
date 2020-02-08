@@ -6,7 +6,7 @@ const ScrollSections = (props) => {
   return (
       <div id={id} className="message mine">
         <div><h2>{props.exp.title}</h2></div>
-        <div>{props.exp.organization}</div>
+        <div><h3>{props.exp.organization}</h3></div>
         <div>Started: {props.exp.date_started}, Ended: {props.exp.date_ended}</div>
         <div><small>{props.exp.exp_body}</small></div>
       </div>

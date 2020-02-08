@@ -17,7 +17,7 @@ class HomeController < ApplicationController
           date_started: e.date_started,
           date_ended: e.date_ended,
           sort: e.sort,
-          exp_body: e.exp_body.to_plain_text
+          exp_body: e.exp_body.to_plain_text.first(300) + '...'
       }
     end
     result
