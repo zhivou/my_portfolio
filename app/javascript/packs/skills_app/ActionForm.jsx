@@ -34,7 +34,7 @@ const ActionForm = (props) => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="about">
+          <label htmlFor="exp_body">
             About
           </label>
           <textarea
@@ -49,7 +49,7 @@ const ActionForm = (props) => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="start_date">
+          <label htmlFor="date_started">
             Start Date
           </label>
           <input
@@ -62,7 +62,7 @@ const ActionForm = (props) => {
         </div>
 
         <div className="form-group">
-          <label htmlFor="end_date">
+          <label htmlFor="date_ended">
             Start Date
           </label>
           <input
