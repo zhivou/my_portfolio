@@ -7,7 +7,7 @@ class HomeController < ApplicationController
 
   private
   def init_exp_js_data
-    experiences = Experience.all
+    experiences = Experience.order("sort ASC")
     result = []
     experiences.each do |e|
       result << {
