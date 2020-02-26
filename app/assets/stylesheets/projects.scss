@@ -48,9 +48,33 @@
 
 
   .imageHolder{
-    height: 0px;
+    height: 20px;
     transition: all 0.5s ease;
+    opacity: 0;
+    background: #333333 !important;
   }
+
+  .card-title{
+    transition: all 0.5s ease;
+    text-align: center;
+    font-size: 2.8rem;
+  }
+
+  .cardContent {
+    transition: all 0.5s ease;
+    font-size: 1.3rem;
+  }
+}
+
+.cardContent {
+  transition: all 0.5s ease;
+  font-size: 1.0rem;
+}
+
+.card-title{
+  transition: all 0.5s ease;
+  text-align: center;
+  font-size: 1.7rem;
 }
 
 .imageHolder {
@@ -60,7 +84,7 @@
 }
 
 .projectCard {
-  min-height: 500px;
+  min-height: 600px;
 }
 
 pre {
