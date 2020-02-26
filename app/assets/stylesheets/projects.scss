@@ -76,3 +76,82 @@ pre {
   margin: 25px;
   margin-bottom: 40px;
 }
+
+
+$treeCount: 50;
+$maxHeight: 105%;
+$minHeight: 25%;
+$minWidth: $minHeight * (2/5);
+
+$bg: #fff;
+$fg: black;
+$steps: 5;
+
+#trees {
+  position: relative;
+  background: $bg;
+  overflow: hidden;
+  height: 25vh;
+  width: 100%;
+  margin-top: 10px;
+}
+
+#floor {
+  background: $fg;
+  position: absolute;
+  bottom: 0px;
+  // height: 53px;
+  height: 0px;
+  width: 100%;
+  left: 0;
+}
+
+.tree {
+  stroke: $fg;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.2px;
+  pointer-events: none;
+
+  display: block;
+  position: absolute;
+  bottom: -5px;
+
+  transform-origin: center calc(100% - 5px);
+
+  path:not(.trunk) {
+    pointer-events: none;
+  }
+}
+
+.tree path {
+  pointer-events: visibleStroke;
+}
+
+@for $i from 1 through $treeCount {
+  .tree:nth-of-type(#{$i}) {
+    $height: (random() * ($maxHeight - $minHeight)) + $minHeight;
+    $width: $height * (2/5);
+    @if (random() > 0.5) {
+      transform: scaleX(-1);
+    }
+
+    height: $height;
+    left: (random() * (100 + ($minWidth / 2))) - ($minWidth / 4);
+    // top: ((($height - $minHeight) / ($maxHeight - $minHeight)) * ($maxHeight / 2)) - ($minHeight / 2);
+    z-index: round(($height * 100) / (($height * 100) * 0 + 1));
+
+    $scale: round(
+                    (($height - $minHeight) / ($maxHeight - $minHeight)) * ($steps - 1)
+    );
+    $r: red($bg) + (((red($fg) - red($bg)) / $steps) * ($scale + 1));
+    $g: green($bg) + (((green($fg) - green($bg)) / $steps) * ($scale + 1));
+    $b: blue($bg) + (((blue($fg) - blue($bg)) / $steps) * ($scale + 1));
+    stroke: rgb($r, $g, $b);
+    // transform: rotate($scale * 10deg);
+    .trunk {
+      fill: rgb($r, $g, $b);
+    }
+  }
+}
