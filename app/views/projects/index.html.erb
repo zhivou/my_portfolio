@@ -12,9 +12,13 @@
     </div>
     <hr>
   </div>
-  <div class="mt-5">
+  <div class="text-right">
+    Total Projects count: <%= @projects.count %>, Date: <%= Date.today %>
+  </div>
+  <div>
     <div class="row sortable">
       <% @projects.each do |project| %>
+
           <div class="col-md-12 col-xl-4 col-lg-4 col-sm-12 col-12" data-id="<%= project.id %>">
             <div class="card mb-4 shadow-sm projectCard">
               <div id="img-cropper">
