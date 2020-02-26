@@ -26,16 +26,20 @@ class BlogsHistory extends React.Component {
   render() {
     if (!this.state.loading) {
       return (
-          <div>
-            <div className="row justify-content-left">
-              {this.state.blogs.map(blog => (
-                <div className="col-6 col-xs-12 blogs-history-title" key={blog.id}>
-                  <a href={ "/blogs/" + blog.id}>{blog.title}</a>
+        <div className="row">
+          {this.state.blogs.map(blog => (
+            <div className="col-sm-6 p-3" key={blog.id}>
+              <div className="card">
+                <div className="card-body">
+                  <h5 className="card-title">{blog.title}</h5>
+                  <p className="card-text">{blog.short_body.substr(0,100)}...</p>
+                  <a href={ "/blogs/" + blog.id} className="btn btn-light">Read more</a>
                 </div>
-              ))
-              }
+              </div>
             </div>
-          </div>
+          ))
+          }
+        </div>
       )
     }
     else {
