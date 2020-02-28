@@ -28,7 +28,7 @@ class BlogsHistory extends React.Component {
       return (
         <div className="row">
           {this.state.blogs.map(blog => (
-              <div className="col-sm-6 p-3" key={blog.id}>
+              <div className="col-sm-6 p-3 blogs-history-card" key={blog.id}>
                 <a href={ "/blogs/" + blog.id} className="no-decoraction">
                   <div className="card">
                     <div className="card-body text-center">

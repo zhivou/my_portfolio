@@ -188,3 +188,12 @@ $steps: 5;
     }
   }
 }
+
+.blogs-history-card {
+  transition: all 0.3s ease;
+}
+
+.blogs-history-card:hover  {
+  transition: all 0.3s ease;
+  transform: scale(1.05);
+}
