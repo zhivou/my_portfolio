@@ -31,8 +31,8 @@ class BlogsHistory extends React.Component {
               <div className="col-sm-6 p-3" key={blog.id}>
                 <a href={ "/blogs/" + blog.id} className="no-decoraction">
                   <div className="card">
-                    <div className="card-body">
-                      <h5 className="card-title">{blog.title}</h5>
+                    <div className="card-body text-center">
+                      <h5 className="card-title bg-dark text-light p-2">{blog.title}</h5>
                       <p className="card-text">{blog.short_body.substr(0,100)}...</p>
                       <a href={ "/blogs/" + blog.id} className="btn btn-block btn-light">Read more</a>
                     </div>
