@@ -23,7 +23,7 @@
                 <div id="img-cropper">
                   <a href="projects/<%= project.id %>"><%= image_tag project.main_image.variant(resize: "300"), class: "bd-placeholder-img card-img-top imageHolder", id: "imageProject" %></a>
                 </div>
-                <a href="/projects/<%= project.id %>">
+                <a href="/projects/<%= project.id %>" class="no-decoraction">
                   <div class="card-body">
                     <p class="card-title"><%= project.title %></p>
                     <p class="card-text cardContent"><%= project.project_content.to_plain_text.first(250)%></p>
