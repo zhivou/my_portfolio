@@ -78,10 +78,11 @@ body {
     font-family: 'Teko', sans-serif;
     cursor: pointer;
     padding: 8px;
+    transition: all 0.3s ease-out;
   }
 
   span:hover {
-    color: indianred;
+    color: indianred !important;
     transition: all 0.3s ease-out;
   }
 
