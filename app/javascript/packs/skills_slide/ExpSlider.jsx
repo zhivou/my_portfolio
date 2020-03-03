@@ -30,8 +30,8 @@ class ExpSlider extends Component {
       this.props.exp.map(experience => {
         left = !left;
           return(
-            <div className={ left ? 'row justify-content-start' : 'row justify-content-end' } key={experience.sort}>
-              <div className="col-6 p-4">
+            <div className={ left ? 'left' : 'right' } key={experience.sort}>
+              <div>
                 <ScrollSections exp={experience}/>
               </div>
             </div>
