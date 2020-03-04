@@ -16,8 +16,8 @@ const ScrollSections = (props) => {
   };
 
   return (
-      <div className="row">
-        <div className="col-5 message " id={left ? id : ''}>
+      <div className="row message-container align-items-center">
+        <div className="col-5 message" id={left ? id : ''}>
           {left ? card() : ''}
         </div>
         <div className="col-2 m-5 mr-1 p-0 center">

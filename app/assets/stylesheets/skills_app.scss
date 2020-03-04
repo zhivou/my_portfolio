@@ -36,10 +36,15 @@
   left: 50%;
   transform: translateX(-50%);
   background-color: #E57272;
-  margin-top: 50px;
+  margin-top: 100px;
 }
 
 
 .pp-timeline-connector-inner{
   height: 284.328px;
+}
+
+.message-container {
+  min-height: 300px;
+  max-height: 300px;
 }
