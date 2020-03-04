@@ -17,11 +17,11 @@ const ScrollSections = (props) => {
 
   return (
       <div className="row">
-        <div className="col-5 message" id={left ? id : ''}>
+        <div className="col-5 message " id={left ? id : ''}>
           {left ? card() : ''}
         </div>
-        <div className="col-1 m-5 p-0 text-center">
-          <div className="time-line-marker"></div>
+        <div className="col-2 m-5 mr-1 p-0 center">
+          <div className="time-line-marker p-0 m-0 center"></div>
         </div>
         <div className="col-5 message" id={!left ? id : ''}>
           {!left ? card() : ''}

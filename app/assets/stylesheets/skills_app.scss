@@ -32,18 +32,14 @@
 // Progress bar
 .pp-timeline-connector-wrap{
   position: absolute;
-  width: 40px;
+  width: 10px;
   left: 50%;
   transform: translateX(-50%);
   background-color: #E57272;
-  z-index: 1000;
+  margin-top: 50px;
 }
 
-.pp-timeline-connector{
-  top: 79.2969px;
-  bottom: 119.547px;
-}
 
 .pp-timeline-connector-inner{
-  height: 184.328px;
+  height: 284.328px;
 }
