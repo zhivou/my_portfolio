@@ -25,5 +25,25 @@
   width: 100px;
   height: 100px;
   background: #193641;
-  border-radius: 50%
+  border-radius: 50%;
+}
+
+
+// Progress bar
+.pp-timeline-connector-wrap{
+  position: absolute;
+  width: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #E57272;
+  z-index: 1000;
+}
+
+.pp-timeline-connector{
+  top: 79.2969px;
+  bottom: 119.547px;
+}
+
+.pp-timeline-connector-inner{
+  height: 184.328px;
 }

@@ -19,6 +19,11 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <div className="pp-timeline-connector-wrap">
+          <div className="pp-timeline-connector">
+            <div className="pp-timeline-connector-inner"></div>
+          </div>
+        </div>
         <ExpSlider exp={ this.state.exp }/>
       </div>
     );
