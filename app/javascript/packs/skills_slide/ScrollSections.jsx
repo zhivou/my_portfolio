@@ -2,19 +2,29 @@ import React from 'react'
 
 const ScrollSections = (props) => {
   const id = `section-${props.exp.sort}`;
+  const left = props.position;
+
+  const card = () => {
+    return(
+      <div>
+        {props.exp.title}
+        {props.exp.organization}
+        Started: {props.exp.date_started}, Ended: {props.exp.date_ended}
+        {props.exp.exp_body}
+      </div>
+    )
+  };
 
   return (
       <div className="row">
-        <div className="col-5 message" id={id}>
-          {props.exp.title}
-          {props.exp.organization}
-          Started: {props.exp.date_started}, Ended: {props.exp.date_ended}
-          {props.exp.exp_body}
+        <div className="col-5 message" id={left ? id : ''}>
+          {left ? card() : ''}
         </div>
-        <div className="col-2 m-5 p-0">
+        <div className="col-1 m-5 p-0 text-center">
           <div className="time-line-marker"></div>
         </div>
-        <div className="col-5 message" id={id}>
+        <div className="col-5 message" id={!left ? id : ''}>
+          {!left ? card() : ''}
         </div>
       </div>
   );

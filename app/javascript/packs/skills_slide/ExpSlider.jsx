@@ -30,9 +30,9 @@ class ExpSlider extends Component {
       this.props.exp.map(experience => {
         left = !left;
           return(
-            <div className={ left ? 'left' : 'right' } key={experience.sort}>
+            <div key={experience.sort}>
               <div>
-                <ScrollSections exp={experience}/>
+                <ScrollSections exp={experience} position={left}/>
               </div>
             </div>
           )
