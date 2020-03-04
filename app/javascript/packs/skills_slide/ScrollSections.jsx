@@ -7,10 +7,17 @@ const ScrollSections = (props) => {
   const card = () => {
     return(
       <div>
-        {props.exp.title}
-        {props.exp.organization}
-        Started: {props.exp.date_started}, Ended: {props.exp.date_ended}
-        {props.exp.exp_body}
+        <div className="pp-timeline-arrow"></div>
+        <div className="card-container">
+          <div className="pp-timeline-card-title-wrap text-center">
+            <h2 className="pp-timeline-card-title font_white">{props.exp.title}</h2>
+          </div>
+          <div className="card-body-container p-4">
+            <h3>{props.exp.organization}</h3>
+            <div className="timeline-card-date">Started: {props.exp.date_started}, Ended: {props.exp.date_ended}</div>
+            <div className="timeline-card-content"><p>{props.exp.exp_body}</p></div>
+          </div>
+        </div>
       </div>
     )
   };
