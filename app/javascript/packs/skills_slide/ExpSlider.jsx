@@ -40,10 +40,8 @@ class ExpSlider extends Component {
     );
 
     return (
-      <div className="exp-wrapper">
-        <div className="container">
-          { sections }
-        </div>
+      <div>
+        { sections }
       </div>
     )
   }
