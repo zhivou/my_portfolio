@@ -14,6 +14,14 @@ class App extends React.Component {
     this.setState({
       exp: gon.exp,
     });
+
+    var controllerTime = new ScrollMagic.Controller();
+    var tween = TweenMax.to(".pp-timeline-connector-inner", 0.5, {height: 600});
+
+    var scene = new ScrollMagic.Scene({triggerElement: ".pp-timeline-connector-inner", duration: 600, offset: 70})
+      .setTween(tween)
+      .addIndicators()
+      .addTo(controllerTime);
   }
 
   render() {
