@@ -32,7 +32,7 @@
 // Progress bar
 .pp-timeline-connector-wrap{
   position: absolute;
-  width: 10px;
+  width: 3px;
   left: 50%;
   transform: translateX(-50%);
   background-color: #E57272;
@@ -96,7 +96,9 @@
 }
 
 #brunch {
-  width: 50px;
+  width: 45px;
   height: 70px;
+  margin-top: 15px;
+  margin-left: 4px;
 }
 

@@ -40,7 +40,7 @@ class ScrollSections extends Component {
         </div>
         <div className="col-2 m-5 mr-1 p-0 center">
           <div className="time-line-marker p-0 m-0 center text-center" id={timelineId}>
-            <img src={fa} alt="Logo" id="brunch" className="center" />
+            <img src={fa} alt="Logo" id="brunch"/>
           </div>
         </div>
         <div className="col-5 message" id={!left ? id : ''}>
