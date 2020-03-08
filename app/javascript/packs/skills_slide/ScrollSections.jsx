@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import fa from './fa-branch.png';
 
 
 class ScrollSections extends Component {
@@ -38,7 +39,9 @@ class ScrollSections extends Component {
           {left ? card() : ''}
         </div>
         <div className="col-2 m-5 mr-1 p-0 center">
-          <div className="time-line-marker p-0 m-0 center" id={timelineId}></div>
+          <div className="time-line-marker p-0 m-0 center text-center" id={timelineId}>
+            <img src={fa} alt="Logo" id="brunch" className="center" />
+          </div>
         </div>
         <div className="col-5 message" id={!left ? id : ''}>
           {!left ? card() : ''}
