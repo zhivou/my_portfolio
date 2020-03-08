@@ -6,7 +6,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      exp: []
+      exp: gon.exp
     };
   }
 
@@ -15,10 +15,13 @@ class App extends React.Component {
       exp: gon.exp,
     });
 
-    var controllerTime = new ScrollMagic.Controller();
-    var tween = TweenMax.to(".pp-timeline-connector-inner", 0.5, {height: 600});
+    // 310 is a distance between bullets. If there less than 1 bullet render 0 px
+    let controllerTime = new ScrollMagic.Controller();
+    const height = gon.exp <= 1 ? 0 : (gon.exp.length - 1) * 310;
+    const timelineId = `#timeline-start-1`;
+    let tween = TweenMax.to(".pp-timeline-connector-inner", {height: height});
 
-    var scene = new ScrollMagic.Scene({triggerElement: ".pp-timeline-connector-inner", duration: 600, offset: 70})
+    new ScrollMagic.Scene({triggerElement: timelineId, duration: height, offset: 50})
       .setTween(tween)
       .addIndicators()
       .addTo(controllerTime);

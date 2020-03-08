@@ -8,16 +8,17 @@ class ExpSlider extends Component {
   }
 
   componentDidUpdate() {
-    var controllerR = new ScrollMagic.Controller();
+    let controllerR = new ScrollMagic.Controller();
 
     this.props.exp.map(experience => {
       const id = `section-${experience.sort}`;
 
       new ScrollMagic.Scene({
         triggerElement: `#${id}`,
-        offset: 50 // move trigger to center of element
+        offset: -50 // move trigger to center of element
       })
         .setClassToggle(`#${id}`, "visible") // add class to reveal
+        .addIndicators()
         .addTo(controllerR);
     })
   }
