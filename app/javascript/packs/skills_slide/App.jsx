@@ -9,7 +9,7 @@ class App extends React.Component {
       exp: gon.exp
     };
 
-    this.height = gon.exp <= 1 ? 0 : (gon.exp.length - 1) * 325;
+    this.height = gon.exp <= 1 ? 0 : (gon.exp.length - 1) * 315;
   }
 
   componentDidMount() {
