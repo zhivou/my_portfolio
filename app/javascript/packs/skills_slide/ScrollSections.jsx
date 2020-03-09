@@ -46,6 +46,9 @@ class ScrollSections extends Component {
         <div className="col-5 d-none d-lg-block d-xl-block message" id={!left ? id : ''}>
           {!left ? card() : ''}
         </div>
+        <div className="col-12 d-lg-none d-xl-none d-sm-block d-md-block ">
+          {card()}
+        </div>
       </div>
     )
   }
