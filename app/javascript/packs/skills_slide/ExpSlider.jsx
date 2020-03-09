@@ -15,7 +15,7 @@ class ExpSlider extends Component {
 
       new ScrollMagic.Scene({
         triggerElement: `#${id}`,
-        offset: -10 // move trigger to center of element
+        offset: -70 // move trigger to center of element
       })
         .setClassToggle(`#${id}`, "visible") // add class to reveal
         .addTo(controllerR);
