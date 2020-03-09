@@ -9,7 +9,7 @@ class App extends React.Component {
       exp: gon.exp
     };
 
-    this.height = gon.exp <= 1 ? 0 : (gon.exp.length - 1) * 315;
+    this.height = gon.exp <= 1 ? 0 : (gon.exp.length - 1) * 325;
   }
 
   componentDidMount() {
@@ -31,12 +31,12 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <div className="pp-timeline-connector-wrap pt-5 mt-5 d-none d-lg-block d-xl-block">
+        <div className="pp-timeline-connector-wrap d-none d-lg-block d-xl-block">
           <div className="pp-timeline-connector">
             <div className="pp-timeline-connector-inner"></div>
           </div>
         </div>
-        <div className="back-connector pt-5 mt-5 d-none d-lg-block d-xl-block">
+        <div className="back-connector d-none d-lg-block d-xl-block">
           <div>
             <div style={{height: this.height}}></div>
           </div>
