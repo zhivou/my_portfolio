@@ -25,19 +25,18 @@ class App extends React.Component {
 
     new ScrollMagic.Scene({triggerElement: timelineId, duration: this.height, offset: 50})
       .setTween(tween)
-      .addIndicators()
       .addTo(controllerTime);
   }
 
   render() {
     return (
       <div>
-        <div className="pp-timeline-connector-wrap">
+        <div className="pp-timeline-connector-wrap d-none d-lg-block d-xl-block">
           <div className="pp-timeline-connector">
             <div className="pp-timeline-connector-inner"></div>
           </div>
         </div>
-        <div className="back-connector">
+        <div className="back-connector d-none d-lg-block d-xl-block">
           <div>
             <div style={{height: this.height}}></div>
           </div>

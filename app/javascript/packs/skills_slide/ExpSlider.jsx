@@ -18,7 +18,6 @@ class ExpSlider extends Component {
         offset: -50 // move trigger to center of element
       })
         .setClassToggle(`#${id}`, "visible") // add class to reveal
-        .addIndicators()
         .addTo(controllerR);
     })
   }

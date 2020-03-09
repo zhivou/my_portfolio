@@ -35,15 +35,15 @@ class ScrollSections extends Component {
 
     return (
       <div className="row message-container align-items-center">
-        <div className="col-5 message" id={left ? id : ''}>
+        <div className="col-5 d-none d-lg-block d-xl-block message" id={left ? id : ''}>
           {left ? card() : ''}
         </div>
-        <div className="col-2 m-5 mr-1 p-0 center">
+        <div className="col-2 d-none d-lg-block d-xl-block m-5 mr-1 p-0 center">
           <div className="time-line-marker p-0 m-0 center text-center" id={timelineId}>
             <img src={fa} alt="Logo" id="brunch"/>
           </div>
         </div>
-        <div className="col-5 message" id={!left ? id : ''}>
+        <div className="col-5 d-none d-lg-block d-xl-block message" id={!left ? id : ''}>
           {!left ? card() : ''}
         </div>
       </div>
