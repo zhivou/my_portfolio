@@ -1,10 +1,4 @@
 .message {
-  border-radius: 20px;
-  padding: 8px 15px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  background-color: #C0BCBD;
-  transition: all 1s ease;
   opacity: 0;
   -webkit-transform: scale(0.9);
   -moz-transform: scale(0.9);
@@ -16,12 +10,6 @@
   -ms-transition: all 1s ease-in-out;
   -o-transition: all 1s ease-in-out;
   transition: all 0.3s ease-in-out;
-  color: #54494B;
-}
-
-.message:hover {
-  transition: all 1s ease;
-  background-color: #F5C4D0;
 }
 
 .visible {
@@ -33,23 +21,93 @@
   transform: none;
 }
 
-#first-slide {
-  height: 100vh;
-  background-color: #E5D1D4;
+.time-line-marker {
+  width: 100px;
+  height: 100px;
+  background: #193641;
+  border-radius: 50%;
+  position: relative;
+  z-index: 500;
 }
 
-#second-slide {
-  height: 100vh;
-  background-color: #E5D1D4;
-}
 
-#exp-text{
+// Progress bar
+.pp-timeline-connector-wrap{
   position: absolute;
-  top: 50%;
+  width: 3px;
   left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: 'Georgia';
-  color: #54494B; /*white text*/
-  font-weight: bold;
-  font-size: 4rem;
+  transform: translateX(-50%);
+  background-color: #E57272;
+  margin-top: 100px;
+  z-index: 1;
+}
+
+.pp-timeline-connector-inner{
+  height: 0px;
+}
+
+.message-container {
+  min-height: 300px;
+  max-height: 300px;
+}
+
+.pp-timeline-card-title-wrap {
+  background-color: #E57272;
+  padding: 15px
+}
+
+.card-body-container {
+  background-color: white;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.card-container {
+  -webkit-font-smoothing:antialiased;
+}
+
+//arrow
+.pp-timeline-arrow {
+  box-sizing:border-box;
+  color: white;
+  display:block;
+  height:40px;
+  hyphens:manual;
+  line-height:29.124px;
+  position:absolute;
+  text-size-adjust:100%;
+  top: 50%;
+  transform:matrix(1, 0, 0, 1, 0, -20);
+  visibility:visible;
+  width:10px;
+  -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+}
+
+.arrow_right {
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 20px solid white;
+}
+
+.arrow_left {
+  position: center;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-right:20px solid white;
+}
+
+#brunch {
+  width: 45px;
+  height: 70px;
+  margin-top: 15px;
+  margin-left: 4px;
+}
+
+.back-connector {
+  position: absolute;
+  width: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333333;
+  margin-top: 100px;
 }
