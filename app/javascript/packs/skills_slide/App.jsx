@@ -9,7 +9,7 @@ class App extends React.Component {
       exp: gon.exp
     };
 
-    this.height = gon.exp <= 1 ? 0 : (gon.exp.length - 1) * 325;
+    this.height = gon.exp <= 1 ? 0 : (gon.exp.length - 1) * 315;
   }
 
   componentDidMount() {
@@ -23,7 +23,7 @@ class App extends React.Component {
     const timelineId = `#timeline-start-1`;
     let tween = TweenMax.to(".pp-timeline-connector-inner", {height: this.height});
 
-    new ScrollMagic.Scene({triggerElement: timelineId, duration: this.height, offset: 50})
+    new ScrollMagic.Scene({triggerElement: timelineId, duration: this.height, offset: 20})
       .setTween(tween)
       .addTo(controllerTime);
   }
