@@ -8,6 +8,8 @@ class App extends React.Component {
     this.state = {
       exp: gon.exp
     };
+
+    this.height = gon.exp <= 1 ? 0 : (gon.exp.length - 1) * 325;
   }
 
   componentDidMount() {
@@ -17,11 +19,11 @@ class App extends React.Component {
 
     // 310 is a distance between bullets. If there less than 1 bullet render 0 px
     let controllerTime = new ScrollMagic.Controller();
-    const height = gon.exp <= 1 ? 0 : (gon.exp.length - 1) * 310;
-    const timelineId = `#timeline-start-1`;
-    let tween = TweenMax.to(".pp-timeline-connector-inner", {height: height});
 
-    new ScrollMagic.Scene({triggerElement: timelineId, duration: height, offset: 50})
+    const timelineId = `#timeline-start-1`;
+    let tween = TweenMax.to(".pp-timeline-connector-inner", {height: this.height});
+
+    new ScrollMagic.Scene({triggerElement: timelineId, duration: this.height, offset: 50})
       .setTween(tween)
       .addIndicators()
       .addTo(controllerTime);
@@ -33,6 +35,11 @@ class App extends React.Component {
         <div className="pp-timeline-connector-wrap">
           <div className="pp-timeline-connector">
             <div className="pp-timeline-connector-inner"></div>
+          </div>
+        </div>
+        <div className="back-connector">
+          <div>
+            <div style={{height: this.height}}></div>
           </div>
         </div>
         <ExpSlider exp={ this.state.exp }/>

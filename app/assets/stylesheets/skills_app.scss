@@ -26,6 +26,8 @@
   height: 100px;
   background: #193641;
   border-radius: 50%;
+  position: relative;
+  z-index: 500;
 }
 
 
@@ -37,8 +39,8 @@
   transform: translateX(-50%);
   background-color: #E57272;
   margin-top: 100px;
+  z-index: 1;
 }
-
 
 .pp-timeline-connector-inner{
   height: 0px;
@@ -58,7 +60,6 @@
   background-color: white;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  filter: drop-shadow(0 0 4px gray);
 }
 
 .card-container {
@@ -102,3 +103,11 @@
   margin-left: 4px;
 }
 
+.back-connector {
+  position: absolute;
+  width: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333333;
+  margin-top: 100px;
+}
