@@ -69,6 +69,6 @@ class ManagerJobsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def manager_job_params
-      params.require(:manager_job).permit(:organization, :title, :url, :interview, :replayed, :notes, :address)
+      params.require(:manager_job).permit(:organization, :title, :url, :interview, :replied, :notes, :address)
     end
 end

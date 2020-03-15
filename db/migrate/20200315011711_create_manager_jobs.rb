@@ -5,7 +5,7 @@ class CreateManagerJobs < ActiveRecord::Migration[6.0]
       t.string :title
       t.string :url
       t.boolean :interview
-      t.boolean :replayed
+      t.boolean :replied
       t.text :notes
       t.string :address
 
