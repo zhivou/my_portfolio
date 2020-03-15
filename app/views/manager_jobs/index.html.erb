@@ -21,7 +21,7 @@
         <td><%= manager_job.title %></td>
         <td><%= manager_job.url %></td>
         <td><%= pending_interview(manager_job) %></td>
-        <td><%= manager_job.replied %></td>
+        <td><%= pending_reply(manager_job) %></td>
         <td><%= manager_job.address %></td>
         <td><%= link_to 'Show', manager_job, class:"btn btn-sm text-light bg-dark" %></td>
         <td><%= link_to 'Edit', edit_manager_job_path(manager_job), class:"btn btn-sm text-light bg-dark" %></td>
