@@ -1,0 +1,52 @@
+<%= form_with(model: manager_job, local: true) do |form| %>
+  <% if manager_job.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(manager_job.errors.count, "error") %> prohibited this manager_job from being saved:</h2>
+
+      <ul>
+        <% manager_job.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :organization %>
+    <%= form.text_field :organization %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :url %>
+    <%= form.text_field :url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :interview %>
+    <%= form.check_box :interview %>
+  </div>
+
+  <div class="field">
+    <%= form.label :replayed %>
+    <%= form.check_box :replayed %>
+  </div>
+
+  <div class="field">
+    <%= form.label :notes %>
+    <%= form.text_area :notes %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

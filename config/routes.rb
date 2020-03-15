@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :manager_jobs
   resources :photo_sections
   resources :contacts, only: [:index, :new, :create]
   devise_for :users, path: '',
