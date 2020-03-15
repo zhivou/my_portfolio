@@ -1,41 +1,48 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Organization:</strong>
-  <%= @manager_job.organization %>
-</p>
+<div class="container card p-1 mt-3 mb-3">
+  <div class="card-body">
+    <div class="card-title bg-dark text-light p-3 text-center"><%= @manager_job.organization.upcase %></div>
+    <hr>
+    <div class="row">
+      <div class="col-6">
+        <div class="row mt-1 mb-1">
+          <div class="col-2"><b>Title:</b></div>
+          <div class="col-10"><%= @manager_job.title %></div>
+        </div>
+        <div class="row mt-1 mb-1">
+          <div class="col-2"><b>Link:</b></div>
+          <div class="col-10"><a href="<%= @manager_job.url %>"><%= @manager_job.url %></a></div>
+        </div>
+        <div class="row mt-1 mb-1">
+          <div class="col-2"><b>Notes:</b></div>
+          <div class="col-10"><%= @manager_job.notes %></div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="row mt-1 mb-1">
+          <div class="col-4"><b>Had Interview:</b></div>
+          <div class="col-6"><%= @manager_job.interview %></div>
+        </div>
+        <div class="row mt-1 mb-1">
+          <div class="col-4"><b>Employer Replied:</b></div>
+          <div class="col-6"><%= @manager_job.replied %></div>
+        </div>
+        <div class="row mt-1 mb-1">
+          <div class="col-4"><b>Address:</b>></div>
+          <div class="col-6"><%= @manager_job.address %></div>
+        </div>
+      </div>
+    </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @manager_job.title %>
-</p>
+    <hr>
 
-<p>
-  <strong>Url:</strong>
-  <%= @manager_job.url %>
-</p>
+    <div><%= @manager_job.description %></div>
 
-<p>
-  <strong>Interview:</strong>
-  <%= @manager_job.interview %>
-</p>
-
-<p>
-  <strong>Replayed:</strong>
-  <%= @manager_job.replied %>
-</p>
-
-<p>
-  <strong>Notes:</strong>
-  <%= @manager_job.notes %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @manager_job.address %>
-</p>
-
-<div><%= @manager_job.description %></div>
-
-<%= link_to 'Edit', edit_manager_job_path(@manager_job) %> |
-<%= link_to 'Back', manager_jobs_path %>
+    <hr>
+    <div class="mt-3 text-center">
+      <%= link_to 'Edit', edit_manager_job_path(@manager_job), class:"btn" %>
+      <%= link_to 'Back', manager_jobs_path, class:"btn" %>
+    </div>
+  </div>
+</div>
