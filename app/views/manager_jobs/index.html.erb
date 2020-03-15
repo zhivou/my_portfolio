@@ -20,12 +20,12 @@
         <td><%= manager_job.organization %></td>
         <td><%= manager_job.title %></td>
         <td><%= manager_job.url %></td>
-        <td><%= manager_job.interview %></td>
+        <td><%= pending_interview(manager_job) %></td>
         <td><%= manager_job.replied %></td>
         <td><%= manager_job.address %></td>
-        <td><%= link_to 'Show', manager_job %></td>
-        <td><%= link_to 'Edit', edit_manager_job_path(manager_job) %></td>
-        <td><%= link_to 'Destroy', manager_job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', manager_job, class:"btn btn-sm text-light bg-dark" %></td>
+        <td><%= link_to 'Edit', edit_manager_job_path(manager_job), class:"btn btn-sm text-light bg-dark" %></td>
+        <td><%= link_to 'Destroy', manager_job, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-sm text-light bg-dark" %></td>
       </tr>
     <% end %>
     </tbody>
