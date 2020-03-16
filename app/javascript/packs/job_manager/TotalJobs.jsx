@@ -14,30 +14,15 @@ class TotalJobs extends React.Component {
 
   loadTotalJobs(){
     const jobs = this.state.jobs;
-    return (
-      <div className="chartItem">
-        <Doughnut
-          chartData={
-            {
-              labels: ['Jobs'],
-              datasets: [{
-                label: '# of Votes',
-                data: [jobs.length ? jobs.length : 1],
-                backgroundColor: [
-                  'rgba(25,54,65)',
-                  'rgba(255, 255, 255, 0)'],
-                borderColor: [
-                  'rgba(25,54,65)',
-                  'rgba(255, 99, 132, 1)'],
-                borderWidth: 10}]
-            }
-          }
-          displayLegend={false}
-          chartName='Total Jobs:'
-        />
-        <h3 className="total-count">{jobs.length < 10 ? '0' + `${jobs.length}` : jobs.length}</h3>
-      </div>
-    )
+
+    const chart = this.initChart(
+      ['Total Jobs'],
+      jobs.length,
+      undefined,
+      'Total Applied',
+      jobs.length < 10 ? '0' + `${jobs.length}` : jobs.length
+    );
+    return(chart)
   }
 
   loadSuccessfulJobs(){
@@ -45,7 +30,7 @@ class TotalJobs extends React.Component {
     const successfulJobs = jobs.filter(job => job.interview && job.replied);
 
     const chart = this.initChart(
-      'Successful Jobs',
+      ['Successful Jobs', 'Failed Jobs'],
       successfulJobs.length,
       jobs.length,
       'Successful Jobs',
@@ -55,15 +40,17 @@ class TotalJobs extends React.Component {
   }
 
   initChart(labels, data, dataOffset, chartName, total){
+    const dataSet = data && dataOffset ? [data, dataOffset - data] : [data];
+
     return(
       <div className="chartItem">
         <Doughnut
           chartData={
             {
-              labels: [labels],
+              labels: labels,
               datasets: [{
                 label: '# of Votes',
-                data: [data, dataOffset],
+                data: dataSet,
                 backgroundColor: [
                   'rgba(25,54,65)',
                   'rgba(255, 255, 255, 0)'],
