@@ -10,7 +10,6 @@ class TotalJobs extends React.Component {
     };
 
     this.loadTotalJobs = this.loadTotalJobs.bind(this);
-
   }
 
   loadTotalJobs(){
@@ -45,15 +44,26 @@ class TotalJobs extends React.Component {
     const jobs = this.state.jobs;
     const successfulJobs = jobs.filter(job => job.interview && job.replied);
 
-    return (
+    const chart = this.initChart(
+      'Successful Jobs',
+      successfulJobs.length,
+      jobs.length,
+      'Successful Jobs',
+      successfulJobs.length < 10 ? '0' + `${successfulJobs.length}` : successfulJobs.length
+    );
+    return(chart)
+  }
+
+  initChart(labels, data, dataOffset, chartName, total){
+    return(
       <div className="chartItem">
         <Doughnut
           chartData={
             {
-              labels: ['Successful Jobs'],
+              labels: [labels],
               datasets: [{
                 label: '# of Votes',
-                data: [Array.isArray(successfulJobs) ? successfulJobs.length : 1],
+                data: [data, dataOffset],
                 backgroundColor: [
                   'rgba(25,54,65)',
                   'rgba(255, 255, 255, 0)'],
@@ -64,17 +74,9 @@ class TotalJobs extends React.Component {
             }
           }
           displayLegend={false}
-          chartName='Successful Jobs:'
+          chartName={chartName}
         />
-        <h3 className="total-count">{successfulJobs.length < 10 ? '0' + `${successfulJobs.length}` : successfulJobs.length}</h3>
-      </div>
-    )
-  }
-
-  initChart(){
-    return(
-      <div>
-        a
+        <h3 className="total-count">{total}</h3>
       </div>
     )
   }
