@@ -8,8 +8,6 @@ class TotalJobs extends React.Component {
     this.state = {
       jobs: gon.jobs
     };
-
-    this.loadTotalJobs = this.loadTotalJobs.bind(this);
   }
 
   loadTotalJobs(){
@@ -43,7 +41,7 @@ class TotalJobs extends React.Component {
     const dataSet = data && dataOffset ? [data, dataOffset - data] : [data];
 
     return(
-      <div className="chartItem">
+      <div className="card m-2 p-2 chartItem">
         <Doughnut
           chartData={
             {
@@ -57,7 +55,7 @@ class TotalJobs extends React.Component {
                 borderColor: [
                   'rgba(25,54,65)',
                   'rgba(255, 99, 132, 1)'],
-                borderWidth: 10}]
+                borderWidth: 12}]
             }
           }
           displayLegend={false}
@@ -68,11 +66,38 @@ class TotalJobs extends React.Component {
     )
   }
 
+  initWideCard(){
+    return(
+      <div className="card m-2 p-2">
+        <div className="card-title">
+          <h3 className="p-3 pb-2 m-0">General Statistics</h3>
+        </div>
+        <hr className="p-0 m-0"/>
+        <div className="row p-3">
+          <div className="col-6 border-right">
+            <div>0 - All Applied</div>
+            <div>0 - Invited for Interview</div>
+            <div>0 - Called Back</div>
+            <div>0 - In Pending Status</div>
+            <div>0 - Expired</div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   render() {
     return (
       <div>
-        {this.loadTotalJobs()}
-        {this.loadSuccessfulJobs()}
+        <div className="row">
+          <div className="col-6 text-right">
+            {this.loadTotalJobs()}
+            {this.loadSuccessfulJobs()}
+          </div>
+          <div className="col-5">
+            {this.initWideCard()}
+          </div>
+        </div>
       </div>
     );
   }

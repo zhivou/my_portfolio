@@ -1,42 +1,47 @@
 <%= javascript_pack_tag 'job_manager/TotalJobs' %>
 
-<div class="container">
-  <h1>Jobs Manager</h1>
+<div>
+  <div class="container">
+    <h1>Jobs Manager</h1>
+  </div>
 
-  <div class="card p-3 mt-1 mb-1">
+  <div class="p-3 mt-2 mb-2">
     <div id="total-jobs"></div>
   </div>
 
 
-  <table class="table table-striped table-dark">
-    <thead>
-    <tr>
-      <th scope="col">Organization</th>
-      <th scope="col">Title</th>
-      <th scope="col">Url</th>
-      <th scope="col">Interview</th>
-      <th scope="col">Replayed</th>
-      <th scope="col">Address</th>
-      <th colspan="3"></th>
-    </tr>
-    </thead>
-
-    <tbody>
-    <% @manager_jobs.each do |manager_job| %>
+  <div class="container">
+    <table class="table table-striped table-dark">
+      <thead>
       <tr>
-        <td><%= manager_job.organization %></td>
-        <td><%= manager_job.title %></td>
-        <td><%= manager_job.url %></td>
-        <td><%= pending_interview(manager_job) %></td>
-        <td><%= pending_reply(manager_job) %></td>
-        <td><%= manager_job.address %></td>
-        <td><%= link_to 'Show', manager_job, class:"btn btn-sm text-light bg-dark" %></td>
-        <td><%= link_to 'Edit', edit_manager_job_path(manager_job), class:"btn btn-sm text-light bg-dark" %></td>
-        <td><%= link_to 'Destroy', manager_job, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-sm text-light bg-dark" %></td>
+        <th scope="col">Organization</th>
+        <th scope="col">Title</th>
+        <th scope="col">Url</th>
+        <th scope="col">Interview</th>
+        <th scope="col">Replayed</th>
+        <th scope="col">Address</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-    </tbody>
-  </table>
+      </thead>
+
+      <tbody>
+      <% @manager_jobs.each do |manager_job| %>
+        <tr>
+          <td><%= manager_job.organization %></td>
+          <td><%= manager_job.title %></td>
+          <td><%= manager_job.url %></td>
+          <td><%= pending_interview(manager_job) %></td>
+          <td><%= pending_reply(manager_job) %></td>
+          <td><%= manager_job.address %></td>
+          <td><%= link_to 'Show', manager_job, class:"btn btn-sm text-light bg-dark" %></td>
+          <td><%= link_to 'Edit', edit_manager_job_path(manager_job), class:"btn btn-sm text-light bg-dark" %></td>
+          <td><%= link_to 'Destroy', manager_job, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-sm text-light bg-dark" %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+
   <%= paginate @manager_jobs %>
   <div>
     <%= link_to 'New Manager Job', new_manager_job_path, class:"btn" %>
@@ -47,14 +52,14 @@
 <style>
   .chartItem {
     display:inline-block;
-    width: 200px;
-    height: 200px;
+    width: 280px;
+    height: 280px;
   }
 
   .total-count {
     position: relative;
-    bottom: 105px;
-    left: 37%;
+    bottom: 52%;
+    left: -38%;
     font-size: 3rem;
   }
 </style>
