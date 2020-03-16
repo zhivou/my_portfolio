@@ -1,5 +1,12 @@
+<%= javascript_pack_tag 'job_manager/TotalJobs' %>
+
 <div class="container">
   <h1>Jobs Manager</h1>
+
+  <div class="card p-3 mt-1 mb-1">
+    <div id="total-jobs"></div>
+  </div>
+
 
   <table class="table table-striped table-dark">
     <thead>
@@ -35,3 +42,19 @@
     <%= link_to 'New Manager Job', new_manager_job_path, class:"btn" %>
   </div>
 </div>
+
+
+<style>
+  .chartItem {
+    display:inline-block;
+    width: 200px;
+    height: 200px;
+  }
+
+  .total-count {
+    position: relative;
+    bottom: 105px;
+    left: 37%;
+    font-size: 3rem;
+  }
+</style>

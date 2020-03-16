@@ -5,6 +5,7 @@ class ManagerJobsController < ApplicationController
   # GET /manager_jobs.json
   def index
     @manager_jobs = ManagerJob.order(id: :desc).page(params[:page]).per(8)
+    gon.jobs = @manager_jobs
   end
 
   # GET /manager_jobs/1
