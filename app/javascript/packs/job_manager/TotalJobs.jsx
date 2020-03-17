@@ -78,13 +78,13 @@ class TotalJobs extends React.Component {
     const expire = this.state.expiredJobs.length;
 
     return(
-      <div className="card m-2 p-2">
+      <div className="card m-2 p-2" id="wide-card-wrapper">
         <div className="card-title">
           <h3 className="p-3 pb-2 m-0">General Statistics</h3>
         </div>
         <hr className="p-0 m-0"/>
         <div className="row p-3">
-          <div className="col-6 border-right">
+          <div className="col-6 border-right" id="statistic-wrapper">
             <div><b>{allApplied} - All Applied</b></div>
             <div>{invited} - Invited for Interview</div>
             <div>{calledBack} - Called Back</div>
@@ -92,6 +92,7 @@ class TotalJobs extends React.Component {
             <div>{expire} - Expired</div>
           </div>
           <div className="col-6">
+            <div className="text-center m-3">Successful Rate:</div>
             <div className="rate-wrapper text-center font_white fluid h1">31%</div>
           </div>
         </div>
