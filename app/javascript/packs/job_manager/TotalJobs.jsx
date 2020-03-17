@@ -80,7 +80,7 @@ class TotalJobs extends React.Component {
     const rate = (successful * 100) / total.length;
 
     return(
-      <div className="card m-2 p-2" id="wide-card-wrapper">
+      <div className="card m-2 p-3" id="wide-card-wrapper">
         <div className="card-title">
           <h3 className="p-3 pb-2 m-0">General Statistics</h3>
         </div>
@@ -113,6 +113,32 @@ class TotalJobs extends React.Component {
           </div>
           <div className="col-5 pl-0">
             {this.initWideCard()}
+          </div>
+        </div>
+        <div className="container">
+          <div className="row mb-0">
+            <div className="col-10 pr-1">
+              <div className="card p-3">
+                <div className="card-title">
+                  <h3 className="p-3 pb-2 m-0">Search for Job</h3>
+                </div>
+                <hr/>
+                <div className="input-group mb-3">
+                  <input type="text" className="form-control" placeholder="Organization Name"
+                         aria-label="Recipient's username" aria-describedby="button-addon2"></input>
+                    <div className="input-group-append">
+                      <button className="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div className="col-2 pl-1">
+              <div className="card text-center secondary-cards-wrapper p-3">
+                <div>Add new Job</div>
+                <hr/>
+                <i className="fa fa-plus text-success" id="add-new-job"></i>
+              </div>
+            </div>
           </div>
         </div>
       </div>
