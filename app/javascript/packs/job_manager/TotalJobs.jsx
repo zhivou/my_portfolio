@@ -6,7 +6,9 @@ class TotalJobs extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      jobs: gon.jobs
+      jobs: gon.jobs,
+      pendingJobs: gon.pendingJob,
+      expiredJobs: gon.expiredJob
     };
   }
 
@@ -67,6 +69,14 @@ class TotalJobs extends React.Component {
   }
 
   initWideCard(){
+    const jobs = this.state.jobs;
+    const total = jobs.filter(job => job);
+    const allApplied = total.length;
+    const invited = jobs.filter(job => job.interview).length;
+    const calledBack = jobs.filter(job => job.replied).length;
+    const pending = this.state.pendingJobs.length;
+    const expire = this.state.expiredJobs.length;
+
     return(
       <div className="card m-2 p-2">
         <div className="card-title">
@@ -75,11 +85,14 @@ class TotalJobs extends React.Component {
         <hr className="p-0 m-0"/>
         <div className="row p-3">
           <div className="col-6 border-right">
-            <div>0 - All Applied</div>
-            <div>0 - Invited for Interview</div>
-            <div>0 - Called Back</div>
-            <div>0 - In Pending Status</div>
-            <div>0 - Expired</div>
+            <div><b>{allApplied} - All Applied</b></div>
+            <div>{invited} - Invited for Interview</div>
+            <div>{calledBack} - Called Back</div>
+            <div>{pending} - In Pending Status</div>
+            <div>{expire} - Expired</div>
+          </div>
+          <div className="col-6">
+            <div className="rate-wrapper text-center font_white fluid h1">31%</div>
           </div>
         </div>
       </div>
