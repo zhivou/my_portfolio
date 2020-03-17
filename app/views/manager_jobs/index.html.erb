@@ -42,9 +42,11 @@
     </table>
   </div>
 
-  <%= paginate @manager_jobs %>
-  <div>
-    <%= link_to 'New Manager Job', new_manager_job_path, class:"btn" %>
+  <div class="container">
+    <%= paginate @manager_jobs %>
+    <div>
+      <%= link_to 'New Manager Job', new_manager_job_path, class:"btn" %>
+    </div>
   </div>
 </div>
 

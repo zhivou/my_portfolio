@@ -107,11 +107,11 @@ class TotalJobs extends React.Component {
     return (
       <div>
         <div className="row">
-          <div className="col-6 text-right">
+          <div className="col-6 text-right pr-0">
             {this.loadTotalJobs()}
             {this.loadSuccessfulJobs()}
           </div>
-          <div className="col-5">
+          <div className="col-5 pl-0">
             {this.initWideCard()}
           </div>
         </div>
