@@ -76,6 +76,8 @@ class TotalJobs extends React.Component {
     const calledBack = jobs.filter(job => job.replied).length;
     const pending = this.state.pendingJobs.length;
     const expire = this.state.expiredJobs.length;
+    const successful = jobs.filter(job => job.interview && job.replied).length;
+    const rate = (successful * 100) / total.length;
 
     return(
       <div className="card m-2 p-2" id="wide-card-wrapper">
@@ -86,6 +88,7 @@ class TotalJobs extends React.Component {
         <div className="row p-3">
           <div className="col-6 border-right" id="statistic-wrapper">
             <div><b>{allApplied} - All Applied</b></div>
+            <div>{successful} - Successful</div>
             <div>{invited} - Invited for Interview</div>
             <div>{calledBack} - Called Back</div>
             <div>{pending} - In Pending Status</div>
@@ -93,7 +96,7 @@ class TotalJobs extends React.Component {
           </div>
           <div className="col-6">
             <div className="text-center m-3">Successful Rate:</div>
-            <div className="rate-wrapper text-center font_white fluid h1">31%</div>
+            <div className="rate-wrapper text-center font_white fluid h1">{parseInt(rate)}%</div>
           </div>
         </div>
       </div>
