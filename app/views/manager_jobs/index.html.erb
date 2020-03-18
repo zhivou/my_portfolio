@@ -18,11 +18,12 @@
           </div>
           <hr/>
           <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Organization Name"
-                   aria-label="Recipient's username" aria-describedby="button-addon2"></input>
-            <div class="input-group-append">
-              <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
-            </div>
+            <%= form_tag manager_jobs_path, method: 'get', class:"input-group", id: "jobForm" do %>
+              <%= text_field_tag :job_search, params[:job_search], class: 'form-control', placeholder: "Organization or Title Name" %>
+              <div class="input-group-append">
+                <%= submit_tag "Search", class: 'btn btn-outline-dark', id: "button-addon2" %>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>
@@ -30,7 +31,7 @@
         <div class="card text-center secondary-cards-wrapper p-3">
           <div>Add new Job</div>
           <hr/>
-          <i class="fa fa-plus text-success" id="add-new-job" href="/manager_jobs/new"></i>
+          <a href="/manager_jobs/new""><i class="fa fa-plus text-success" id="add-new-job"></i></a>
         </div>
       </div>
     </div>
@@ -71,9 +72,6 @@
 
   <div class="container">
     <%= paginate @manager_jobs %>
-    <div>
-      <%= link_to 'New Manager Job', new_manager_job_path, class:"btn" %>
-    </div>
   </div>
 </div>
 
@@ -93,29 +91,29 @@
     font-size: 4rem;
   }
 
-    .rate-wrapper {
-      background-color: rgba(25, 54, 65, 1);
-      border-radius: 50%;
-      width: 155px;
-      height: 155px;
-      margin-left: auto;
-      margin-right: auto;
-      padding-top: 52px;
-    }
+  .rate-wrapper {
+    background-color: rgba(25, 54, 65, 1);
+    border-radius: 50%;
+    width: 155px;
+    height: 155px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 52px;
+  }
 
-    #statistic-wrapper {
-      padding-top: 50px;
-    }
+  #statistic-wrapper {
+    padding-top: 50px;
+  }
 
-    #wide-card-wrapper {
-      min-height: 365px;
-    }
+  #wide-card-wrapper {
+    min-height: 365px;
+  }
 
-    #add-new-job {
-      font-size: 5rem;
-    }
+  #add-new-job {
+    font-size: 5rem;
+  }
 
-    .secondary-cards-wrapper {
-      min-height: 198px;
-    }
+  .secondary-cards-wrapper {
+    min-height: 198px;
+  }
 </style>

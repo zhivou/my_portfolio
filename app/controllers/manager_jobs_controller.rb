@@ -4,7 +4,7 @@ class ManagerJobsController < ApplicationController
   # GET /manager_jobs
   # GET /manager_jobs.json
   def index
-    @manager_jobs = ManagerJob.order(id: :desc).page(params[:page]).per(8)
+    @manager_jobs = ManagerJob.simple_search(params[:job_search]).order(id: :desc).page(params[:page]).per(8)
     gon.jobs = @manager_jobs
     expired = []
     pending = []
@@ -89,7 +89,8 @@ class ManagerJobsController < ApplicationController
           :replied,
           :notes,
           :address,
-          :description
+          :description,
+          :job_search
       )
     end
 end

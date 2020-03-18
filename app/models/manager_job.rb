@@ -7,4 +7,15 @@ class ManagerJob < ApplicationRecord
     self.replied ||= false
     self.interview ||= false
   end
+
+  def self.simple_search(phrase)
+    if phrase
+      where("title LIKE ?", "%#{phrase}%")
+          .or(where("title LIKE ?", "%#{phrase.capitalize}%"))
+          .or(where("organization LIKE ?", "%#{phrase}%"))
+          .or(where("organization LIKE ?", "%#{phrase.capitalize}%"))
+    else
+      all
+    end
+  end
 end
