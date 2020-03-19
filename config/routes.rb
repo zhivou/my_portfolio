@@ -52,6 +52,6 @@ Rails.application.routes.draw do
   ##
   # Household Dashboard
   #
-  get 'household/dashboard', to: 'static_pages#dashboard'
+  get 'household/dashboard', to: 'household#dashboard'
   resources :manager_jobs
 end

@@ -31,7 +31,7 @@
   <body data-turbolinks="false">
     <div id="myModal"></div>
     <div class="applicationWrapper">
-      <% if params[:controller] != 'photos' %>
+      <% if params[:controller] != 'photos' && params[:controller] != 'household' %>
         <%= render 'nav_bar' %>
       <% else %>
       <% end %>
@@ -39,7 +39,7 @@
       <p class="alert" style="display: <%= "none" unless notice %>;"><%= alert %></p>
       <%= yield %>
     </div>
-    <% if params[:controller] != 'photos' %>
+    <% if params[:controller] != 'photos' && params[:controller] != 'household' %>
       <%= render 'footer' %>
     <% else %>
     <% end %>
