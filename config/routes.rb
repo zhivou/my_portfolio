@@ -48,4 +48,10 @@ Rails.application.routes.draw do
   get 'gallery-photos', to: 'photos#gallery_photos'
   get 'photos-key-words', to: 'photo_sections#photos_key_words'
   resources :skills_app, only: [:index]
+
+  ##
+  # Household Dashboard
+  #
+  get 'household/dashboard', to: 'household#dashboard'
+  resources :manager_jobs
 end

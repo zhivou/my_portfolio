@@ -30,18 +30,74 @@
 
   <body data-turbolinks="false">
     <div id="myModal"></div>
-    <div class="applicationWrapper">
-      <% if params[:controller] != 'photos' %>
-        <%= render 'nav_bar' %>
+      <% if params[:controller] == 'photos'%>
+        <%= yield %>
+      <% elsif params[:controller] == 'household' ||
+          params[:controller] == 'manager_jobs'
+      %>
+        <div id="wrapper">
+          <!-- Sidebar -->
+          <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+              <li class="sidebar-brand">
+                <a href="#">
+                  HOUSEHOLD
+                </a>
+              </li>
+              <li>
+                <%= link_to 'Dashboard', household_dashboard_path %>
+              </li>
+              <li>
+                <%= link_to 'Job Manager', manager_jobs_path %>
+              </li>
+              <li>
+                <a href="#">Overview</a>
+              </li>
+              <li>
+                <a href="#">Events</a>
+              </li>
+              <li>
+                <a href="#">About</a>
+              </li>
+              <li>
+                <a href="#">Services</a>
+              </li>
+              <li>
+                <%= link_to 'Exit', root_path %>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Page Content -->
+          <div class="p-2">
+            <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><i class="fa fa-bars"></i></a>
+          </div>
+          <div id="page-content-wrapper">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-lg-12">
+                  <%= yield %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       <% else %>
+        <div class="applicationWrapper">
+          <%= render 'nav_bar' %>
+          <p class="notice" style="display: <%= "none" unless notice %>;"><%= notice %></p>
+          <p class="alert" style="display: <%= "none" unless notice %>;"><%= alert %></p>
+          <%= yield %>
+        </div>
+        <%= render 'footer' %>
       <% end %>
-      <p class="notice" style="display: <%= "none" unless notice %>;"><%= notice %></p>
-      <p class="alert" style="display: <%= "none" unless notice %>;"><%= alert %></p>
-      <%= yield %>
-    </div>
-    <% if params[:controller] != 'photos' %>
-      <%= render 'footer' %>
-    <% else %>
-    <% end %>
   </body>
 </html>
+
+<!-- /#wrapper -->
+<script>
+  $("#menu-toggle").click(function(e) {
+    e.preventDefault();
+    $("#wrapper").toggleClass("toggled");
+  });
+</script>

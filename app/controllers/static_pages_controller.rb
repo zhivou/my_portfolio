@@ -6,4 +6,7 @@ class StaticPagesController < ApplicationController
     @educations = Education.all
     @avatar = User.first
   end
+
+  def dashboard
+  end
 end

@@ -1,6 +1,6 @@
 # README
 
-My Portfolio Web App.
+My Portfolio Web TotalJobs.
 Inspired by LinkedIn interface
 Rails 6.0.0
 
