@@ -1,5 +1,4 @@
-<%= javascript_pack_tag 'skills_app/TotalJobs' %>
-<%= stylesheet_link_tag "skills_app" %>
+<%= javascript_pack_tag 'skills_app/App' %>
 
 <div id="first-slide">
   <div id="exp-text">SCROLL EXPERIENCE</div>
@@ -15,3 +14,61 @@
     <p class="lead">This feature is still under development. Working on skins, and scroll spy. As well as on data structure...</p>
   </div>
 </div>
+
+<style>
+  .message {
+    border-radius: 20px;
+    padding: 8px 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: #C0BCBD;
+    transition: all 1s ease;
+    opacity: 0;
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -o-transform: scale(0.9);
+    transform: scale(0.9);
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    color: #54494B;
+  }
+
+  .message:hover {
+    transition: all 1s ease;
+    background-color: #F5C4D0;
+  }
+
+  .visible {
+    opacity: 1;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+  }
+
+  #first-slide {
+    height: 100vh;
+    background-color: #E5D1D4;
+  }
+
+  #second-slide {
+    height: 100vh;
+    background-color: #E5D1D4;
+  }
+
+  #exp-text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Georgia';
+    color: #54494B; /*white text*/
+    font-weight: bold;
+    font-size: 4rem;
+  }
+</style>

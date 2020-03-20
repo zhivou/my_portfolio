@@ -1,4 +1,5 @@
 class ManagerJobsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_manager_job, only: [:show, :edit, :update, :destroy]
 
   # GET /manager_jobs
