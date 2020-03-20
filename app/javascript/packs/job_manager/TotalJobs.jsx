@@ -43,7 +43,7 @@ class TotalJobs extends React.Component {
     const dataSet = data && dataOffset ? [data, dataOffset - data] : [data];
 
     return(
-      <div className="card m-2 p-2 chartItem">
+      <div className="card m-2 p-2 pt-5 chartItem">
         <Doughnut
           chartData={
             {
