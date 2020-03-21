@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Source name:</strong>
+  <%= @income.source_name %>
+</p>
+
+<p>
+  <strong>Monthly income:</strong>
+  <%= @income.monthly_income %>
+</p>
+
+<p>
+  <strong>Year income:</strong>
+  <%= @income.year_income %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @income.notes %>
+</p>
+
+<p>
+  <strong>Current:</strong>
+  <%= @income.current %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @income.notes %>
+</p>
+
+<%= link_to 'Edit', edit_income_path(@income) %> |
+<%= link_to 'Back', incomes_path %>

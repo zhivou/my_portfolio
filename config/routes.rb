@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :incomes
   resources :loans
   resources :photo_sections
   resources :contacts, only: [:index, :new, :create]
