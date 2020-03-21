@@ -1,0 +1,47 @@
+<%= form_with(model: badget, local: true) do |form| %>
+  <% if badget.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(badget.errors.count, "error") %> prohibited this badget from being saved:</h2>
+
+      <ul>
+        <% badget.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :monthly_payment %>
+    <%= form.text_field :monthly_payment %>
+  </div>
+
+  <div class="field">
+    <%= form.label :months_left %>
+    <%= form.number_field :months_left %>
+  </div>
+
+  <div class="field">
+    <%= form.label :current %>
+    <%= form.check_box :current %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amount %>
+    <%= form.text_field :amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :notes %>
+    <%= form.text_area :notes %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

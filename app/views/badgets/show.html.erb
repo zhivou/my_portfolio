@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @badget.name %>
+</p>
+
+<p>
+  <strong>Monthly payment:</strong>
+  <%= @badget.monthly_payment %>
+</p>
+
+<p>
+  <strong>Months left:</strong>
+  <%= @badget.months_left %>
+</p>
+
+<p>
+  <strong>Current:</strong>
+  <%= @badget.current %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @badget.amount %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @badget.notes %>
+</p>
+
+<%= link_to 'Edit', edit_badget_path(@badget) %> |
+<%= link_to 'Back', badgets_path %>
