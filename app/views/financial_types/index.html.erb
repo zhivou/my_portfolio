@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Financial Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @financial_types.each do |financial_type| %>
+      <tr>
+        <td><%= financial_type.name %></td>
+        <td><%= link_to 'Show', financial_type %></td>
+        <td><%= link_to 'Edit', edit_financial_type_path(financial_type) %></td>
+        <td><%= link_to 'Destroy', financial_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Financial Type', new_financial_type_path %>

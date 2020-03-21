@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :financial_types
   resources :expenses
   resources :stocks
   resources :incomes
