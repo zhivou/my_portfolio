@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Org name:</strong>
+  <%= @loan.org_name %>
+</p>
+
+<p>
+  <strong>Months:</strong>
+  <%= @loan.months %>
+</p>
+
+<p>
+  <strong>Apr:</strong>
+  <%= @loan.apr %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @loan.amount %>
+</p>
+
+<p>
+  <strong>Maturity date:</strong>
+  <%= @loan.maturity_date %>
+</p>
+
+<p>
+  <strong>Maturity amount:</strong>
+  <%= @loan.maturity_amount %>
+</p>
+
+<p>
+  <strong>Monthly payment:</strong>
+  <%= @loan.monthly_payment %>
+</p>
+
+<p>
+  <strong>Current:</strong>
+  <%= @loan.current %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @loan.notes %>
+</p>
+
+<%= link_to 'Edit', edit_loan_path(@loan) %> |
+<%= link_to 'Back', loans_path %>
