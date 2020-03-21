@@ -6,7 +6,6 @@ class CreateIncomes < ActiveRecord::Migration[6.0]
       t.decimal :year_income
       t.text :notes
       t.boolean :current
-      t.text :notes
 
       t.timestamps
     end

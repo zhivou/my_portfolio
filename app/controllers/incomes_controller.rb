@@ -69,6 +69,6 @@ class IncomesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def income_params
-      params.require(:income).permit(:source_name, :monthly_income, :year_income, :notes, :current, :notes)
+      params.require(:income).permit(:source_name, :monthly_income, :year_income, :notes, :current)
     end
 end
