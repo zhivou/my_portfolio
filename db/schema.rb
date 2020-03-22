@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_22_000338) do
+ActiveRecord::Schema.define(version: 2020_03_22_002119) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -114,6 +114,8 @@ ActiveRecord::Schema.define(version: 2020_03_22_000338) do
     t.text "notes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "financial_type_id", null: false
+    t.index ["financial_type_id"], name: "index_loans_on_financial_type_id"
   end
 
   create_table "main_skills", force: :cascade do |t|
@@ -209,6 +211,7 @@ ActiveRecord::Schema.define(version: 2020_03_22_000338) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "expenses", "financial_types"
   add_foreign_key "incomes", "financial_types"
+  add_foreign_key "loans", "financial_types"
   add_foreign_key "photo_sections", "photos"
   add_foreign_key "tags", "blogs"
 end
