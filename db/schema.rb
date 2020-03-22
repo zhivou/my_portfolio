@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_22_002119) do
+ActiveRecord::Schema.define(version: 2020_03_22_002648) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -177,6 +177,8 @@ ActiveRecord::Schema.define(version: 2020_03_22_002119) do
     t.decimal "gain_loss"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "financial_type_id", null: false
+    t.index ["financial_type_id"], name: "index_stocks_on_financial_type_id"
   end
 
   create_table "tags", force: :cascade do |t|
@@ -213,5 +215,6 @@ ActiveRecord::Schema.define(version: 2020_03_22_002119) do
   add_foreign_key "incomes", "financial_types"
   add_foreign_key "loans", "financial_types"
   add_foreign_key "photo_sections", "photos"
+  add_foreign_key "stocks", "financial_types"
   add_foreign_key "tags", "blogs"
 end
