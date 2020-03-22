@@ -10,15 +10,22 @@ class App extends React.Component {
       loans: gon.loans,
       stocks: gon.stocks
     };
+    this.icons = {
+      thumbUp: 'fa fa-thumbs-o-up',
+      plus: 'fa fa-plus',
+      lines: 'fa fa-align-left',
+      exclamation: 'fa fa-exclamation-triangle',
+      leaf: 'fa fa-envira'
+    }
   }
 
-  initCards(count, title, color) {
-    const collor = `info-box ${color}`;
+  initCards(count, title, color, icon) {
+    const colorClass = `info-box ${color}`;
 
     return(
       <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-        <div className={collor}>
-          <i className="fa fa-cloud-download"></i>
+        <div className={colorClass}>
+          <i className={icon}></i>
           <div className="count">{count}</div>
           <div className="title">{title}</div>
         </div>
@@ -31,10 +38,10 @@ class App extends React.Component {
     return (
       <div>
         <div className="row">
-          {this.initCards(1000, 'Total Expenses', 'red-bg')}
-          {this.initCards(4300, 'Income', 'green-bg')}
-          {this.initCards(4300, 'Dept', 'dark-bg')}
-          {this.initCards(60, 'Ratio', 'blue-bg')}
+          {this.initCards(1000, 'Total Expenses', 'red-bg', this.icons.lines)}
+          {this.initCards(4300, 'Income', 'green-bg', this.icons.plus)}
+          {this.initCards(4300, 'Dept', 'dark-bg', this.icons.exclamation)}
+          {this.initCards(60, 'Ratio', 'blue-bg', this.icons.leaf)}
         </div>
       </div>
     );
