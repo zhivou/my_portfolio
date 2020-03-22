@@ -4,7 +4,7 @@ class LoansController < ApplicationController
   # GET /loans
   # GET /loans.json
   def index
-    @loans = Loan.all
+    @loans = Loan.includes(:financial_type).all
   end
 
   # GET /loans/1
@@ -69,6 +69,18 @@ class LoansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def loan_params
-      params.require(:loan).permit(:org_name, :months, :apr, :amount, :maturity_date, :maturity_amount, :monthly_payment, :current, :notes)
+      params.require(:loan).permit(
+          :org_name,
+          :months,
+          :apr,
+          :amount,
+          :maturity_date,
+          :maturity_amount,
+          :monthly_payment,
+          :current,
+          :notes,
+          :financial_type_id,
+          financial_types_attributes: [:id, :name, :_destroy]
+      )
     end
 end

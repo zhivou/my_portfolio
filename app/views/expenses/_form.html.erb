@@ -36,6 +36,11 @@
     <%= form.text_field :year_amount %>
   </div>
 
+  <div class="field">
+    <%= form.label "Financial Type" %>
+    <%= form.collection_select(:financial_type_id, FinancialType.all, :id, :name) %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

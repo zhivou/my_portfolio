@@ -4,7 +4,7 @@ class StocksController < ApplicationController
   # GET /stocks
   # GET /stocks.json
   def index
-    @stocks = Stock.all
+    @stocks = Stock.includes(:financial_type).all
   end
 
   # GET /stocks/1
@@ -69,6 +69,16 @@ class StocksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def stock_params
-      params.require(:stock).permit(:name, :price, :current, :notes, :sold_date, :sold_price, :gain_loss)
+      params.require(:stock).permit(
+          :name,
+          :price,
+          :current,
+          :notes,
+          :sold_date,
+          :sold_price,
+          :gain_loss,
+          :financial_type_id,
+          financial_types_attributes: [:id, :name, :_destroy]
+      )
     end
 end

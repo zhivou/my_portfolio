@@ -4,7 +4,7 @@ class ExpensesController < ApplicationController
   # GET /expenses
   # GET /expenses.json
   def index
-    @expenses = Expense.all
+    @expenses = Expense.includes(:financial_type).all
   end
 
   # GET /expenses/1
@@ -69,6 +69,14 @@ class ExpensesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def expense_params
-      params.require(:expense).permit(:name, :monthly_payment, :current, :notes, :year_amount)
+      params.require(:expense).permit(
+          :name,
+          :monthly_payment,
+          :current,
+          :notes,
+          :year_amount,
+          :financial_type_id,
+          financial_types_attributes: [:id, :name, :_destroy]
+          )
     end
 end
