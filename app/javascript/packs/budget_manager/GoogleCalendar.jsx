@@ -41,8 +41,8 @@ export default class GoogleCalendar extends Component {
       <Calendar
         localizer={localizer}
         defaultDate={new Date()}
-        defaultView="week"
-        style={{ height: "100vh" }}
+        defaultView="month"
+        style={{ height: "500px" }}
         events={this.state.events}
       />
     </div>

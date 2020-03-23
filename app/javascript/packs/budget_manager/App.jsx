@@ -49,8 +49,11 @@ class App extends React.Component {
           {this.initCards(state.totalDept, 'Dept', 'dark-bg', this.icons.exclamation)}
           {this.initCards(state.dti, 'DTI', 'blue-bg', this.icons.leaf)}
         </div>
-        <div>
-          <GoogleCalendar></GoogleCalendar>
+        <div className="row">
+          <div className="col-lg-9 col-md-12">
+            <GoogleCalendar></GoogleCalendar>
+          </div>
+          <div className="col-md-3"></div>
         </div>
       </div>
     );
