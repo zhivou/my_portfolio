@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import GoogleCalendar from "./GoogleCalendar";
 
 class App extends React.Component {
   constructor(props) {
@@ -8,8 +9,13 @@ class App extends React.Component {
       expenses: gon.expenses,
       incomes: gon.incomes,
       loans: gon.loans,
-      stocks: gon.stocks
+      stocks: gon.stocks,
+      allMonthlyExpenses: gon.allMonthlyExpenses,
+      allMonthlyIncome: gon.allMonthlyIncome,
+      totalDept: gon.totalDept,
+      dti: gon.dti
     };
+
     this.icons = {
       thumbUp: 'fa fa-thumbs-o-up',
       plus: 'fa fa-plus',
@@ -38,10 +44,13 @@ class App extends React.Component {
     return (
       <div>
         <div className="row">
-          {this.initCards(1000, 'Total Expenses', 'red-bg', this.icons.lines)}
-          {this.initCards(4300, 'Income', 'green-bg', this.icons.plus)}
-          {this.initCards(4300, 'Dept', 'dark-bg', this.icons.exclamation)}
-          {this.initCards(60, 'Ratio', 'blue-bg', this.icons.leaf)}
+          {this.initCards(`$${state.allMonthlyExpenses}`, 'Total Expenses', 'red-bg', this.icons.lines)}
+          {this.initCards(state.allMonthlyIncome, 'Income', 'green-bg', this.icons.plus)}
+          {this.initCards(state.totalDept, 'Dept', 'dark-bg', this.icons.exclamation)}
+          {this.initCards(state.dti, 'DTI', 'blue-bg', this.icons.leaf)}
+        </div>
+        <div>
+          <GoogleCalendar></GoogleCalendar>
         </div>
       </div>
     );

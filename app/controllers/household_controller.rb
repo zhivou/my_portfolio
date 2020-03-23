@@ -9,24 +9,24 @@ class HouseholdController < ApplicationController
     incomes = Income.includes(:financial_type).all
     loans = Loan.includes(:financial_type).all
     stocks = Stock.includes(:financial_type).all
-    all_expenses = get_all_monthly_expenses(expenses, loans)
-    all_income = get_all_monthly_income(incomes)
+    all_expenses = expenses.total_by_month + loans.total_by_month
+    all_income = incomes.total_by_month
+    total_dept = loans.total_by_month
+    dti = (100 * all_expenses / all_income).round(1)
 
     gon.expenses = expenses
     gon.incomes = incomes
     gon.loans = loans
     gon.stocks = stocks
-  end
+    gon.allMonthlyExpenses = all_expenses
+    gon.allMonthlyIncome = all_income
+    gon.totalDept = total_dept
+    gon.dti = dti
 
-  private
-  def get_all_monthly_expenses(expenses, loans)
-    gon.totalMonthlyExpenses = expenses.total_by_month + loans.total_by_month
-  end
-
-  ##
-  # TODO: Add dividends later when stock api is in place
-  #
-  def get_all_monthly_income(incomes)
-    gon.totalMonthlyIncome = incomes.total_by_month
+    #
+    # GOOGLE CALENDAR
+    #
+    gon.calendarKey = ENV["GOOGLE_CALENDAR_KEY"]
+    gon.calendarId = ENV["GOOGLE_CALENDAR_ID"]
   end
 end
