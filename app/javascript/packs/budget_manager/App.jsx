@@ -47,14 +47,11 @@ class App extends React.Component {
           Main Links
         </header>
         <div className="list-group">
-          <a className="list-group-item " href="#">
-            Lorem ipsum dolor sit amet
-          </a>
-          <a className="list-group-item" href="#">Praesent tempus eleifend risus</a>
-          <a className="list-group-item" href="#">Praesent tempus eleifend risus</a>
-          <a className="list-group-item" href="#">Porta ac consectetur ac</a>
-          <a className="list-group-item" href="#">Vestibulum at eros</a>
-          <a className="list-group-item" href="#">Vestibulum at eros</a>
+          <a className="list-group-item" href="/loans/new">Create New Loan</a>
+          <a className="list-group-item" href="/expenses/new">Create New Expense</a>
+          <a className="list-group-item" href="/incomes/new">Create New Income</a>
+          <a className="list-group-item" href="/stocks/new">Created New Stock</a>
+          <a className="list-group-item" href="/financial_types/new">Add Financial Type</a>
         </div>
       </section>
 
