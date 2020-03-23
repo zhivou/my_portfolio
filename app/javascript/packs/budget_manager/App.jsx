@@ -39,6 +39,28 @@ class App extends React.Component {
     )
   }
 
+  initLinksCard(){
+    return(
+
+      <section className="panel">
+        <header className="panel-heading">
+          Main Links
+        </header>
+        <div className="list-group">
+          <a className="list-group-item " href="#">
+            Lorem ipsum dolor sit amet
+          </a>
+          <a className="list-group-item" href="#">Praesent tempus eleifend risus</a>
+          <a className="list-group-item" href="#">Praesent tempus eleifend risus</a>
+          <a className="list-group-item" href="#">Porta ac consectetur ac</a>
+          <a className="list-group-item" href="#">Vestibulum at eros</a>
+          <a className="list-group-item" href="#">Vestibulum at eros</a>
+        </div>
+      </section>
+
+    )
+  }
+
   render() {
     const state = this.state;
     return (
@@ -53,7 +75,9 @@ class App extends React.Component {
           <div className="col-lg-9 col-md-12">
             <GoogleCalendar></GoogleCalendar>
           </div>
-          <div className="col-md-3"></div>
+          <div className="col-md-3">
+            {this.initLinksCard()}
+          </div>
         </div>
       </div>
     );
