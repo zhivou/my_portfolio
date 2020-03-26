@@ -59,14 +59,14 @@ class App extends React.Component {
     )
   }
 
-  initIncomeTable(){
+  initExpensesTable(){
     const exps = this.state.totalExpenses;
 
     return(
-      <div className="p-3 m-3">
+      <div className="p-4 m-4">
         <section className="panel">
           <header className="panel-heading">
-            All Income
+            All Expenses
           </header>
           <table className="table table-hover">
             <thead>
@@ -116,7 +116,7 @@ class App extends React.Component {
         </div>
         <div className="row">
           <div className="col-12 ">
-            {this.initIncomeTable()}
+            {this.initExpensesTable()}
           </div>
         </div>
       </div>

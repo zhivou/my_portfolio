@@ -30,5 +30,4 @@ class HouseholdController < ApplicationController
     gon.calendarId = ENV["GOOGLE_CALENDAR_ID"]
     build_all_expenses
   end
-
 end
