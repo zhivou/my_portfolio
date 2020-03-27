@@ -43,9 +43,9 @@ class App extends React.Component {
   initLinksCard(){
     return(
 
-      <section className="panel">
-        <header className="panel-heading">
-          Main Links
+      <section className="card panel mb-0">
+        <header className="panel-heading p-3">
+          <h3>Main Links</h3>
         </header>
         <div className="list-group">
           <a className="list-group-item" href="/loans/new">Create New Loan</a>
@@ -100,10 +100,10 @@ class App extends React.Component {
     const incomes = this.state.incomes ? this.state.incomes : [];
 
     return(
-      <div className="p-4 m-4">
-        <section className="panel">
-          <header className="panel-heading">
-            Income
+      <div className="p-4">
+        <section className="card panel mb-0">
+          <header className="panel-heading p-3">
+            <h3>Income</h3>
           </header>
           <table className="table table-hover mb-0">
             <thead>
@@ -114,6 +114,7 @@ class App extends React.Component {
               <th>Year Income</th>
               <th>Notes</th>
               <th>Type</th>
+              <th colSpan="3"></th>
             </tr>
             </thead>
             <tbody>
@@ -126,12 +127,16 @@ class App extends React.Component {
                 <td>{inc.year_income}</td>
                 <td>{inc.notes}</td>
                 <td>{inc.name}</td>
+                <td><a href={`/incomes/${inc.id}`} className="btn btn-outline-dark btn-sm">Show</a></td>
+                <td><a href={`/incomes/${inc.id}/edit`} className="btn btn-outline-dark btn-sm">Edit</a></td>
+                <td><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href={`/incomes/${inc.id}`} className="btn btn-outline-warning btn-sm">Destroy</a></td>
               </tr>
             ))
             }
 
             </tbody>
           </table>
+          <div><a href="/incomes/new" className="btn btn-outline-dark btn-block btn-sm">New Income</a></div>
         </section>
       </div>
     )
