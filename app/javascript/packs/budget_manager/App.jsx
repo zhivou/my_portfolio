@@ -59,8 +59,8 @@ class App extends React.Component {
     )
   }
 
-  initExpensesTable2(){
-    const exps = this.state.totalExpenses;
+  initAllExpensesTable(){
+    const exps = this.state.totalExpenses ? this.state.totalExpenses : [];
 
     return(
       <div className="p-4 m-4">
@@ -97,7 +97,7 @@ class App extends React.Component {
   }
 
   initIncomeTable(){
-    const incomes = this.state.incomes;
+    const incomes = this.state.incomes ? this.state.incomes : [];
 
     return(
       <div className="p-4 m-4">
@@ -138,7 +138,7 @@ class App extends React.Component {
   }
 
   initExpensesTable() {
-    const expenses = this.state.expenses;
+    const expenses = this.state.expenses ? this.state.expenses : [];
 
     return(
       <div className="p-4 m-4">
@@ -178,6 +178,55 @@ class App extends React.Component {
     )
   }
 
+  initLoanTable() {
+    const loans = this.state.loans ? this.state.loans : [];
+
+    return(
+      <div className="p-4 m-4">
+        <section className="panel">
+          <header className="panel-heading">
+            Loans
+          </header>
+          <table className="table table-hover">
+            <thead>
+            <tr>
+              <th>#</th>
+              <th>Loan with</th>
+              <th>Monthly Payment</th>
+              <th>Term</th>
+              <th>APR</th>
+              <th>Amount</th>
+              <th>Maturity Date</th>
+              <th>Maturity Amount</th>
+              <th>Notes</th>
+              <th>Type</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            {loans.map(lon => (
+              <tr key={lon.name + '_' + lon.id}>
+                <td>{lon.id}</td>
+                <td>{lon.org_name}</td>
+                <td>{lon.monthly_payment}</td>
+                <td>{lon.months}</td>
+                <td>{lon.apr}</td>
+                <td>{lon.amount}</td>
+                <td>{lon.maturity_date}</td>
+                <td>{lon.maturity_amount}</td>
+                <td>{lon.notes}</td>
+                <td>{lon.name}</td>
+              </tr>
+            ))
+            }
+
+            </tbody>
+          </table>
+        </section>
+      </div>
+    )
+  }
+
   render() {
     const state = this.state;
     return (
@@ -204,6 +253,11 @@ class App extends React.Component {
         <div className="row">
           <div className="col-12 ">
             {this.initExpensesTable()}
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-12 ">
+            {this.initLoanTable()}
           </div>
         </div>
       </div>

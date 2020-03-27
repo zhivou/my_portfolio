@@ -8,7 +8,7 @@ class Loan < ApplicationRecord
 
   def self.loans_with_types
     find_by_sql("
-      SELECT *, financial_types.name
+      SELECT loans.*, financial_types.name
       FROM loans
       JOIN financial_types ON financial_types.id = loans.financial_type_id
     ")
