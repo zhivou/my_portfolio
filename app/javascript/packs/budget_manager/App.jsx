@@ -105,7 +105,7 @@ class App extends React.Component {
           <header className="panel-heading">
             Income
           </header>
-          <table className="table table-hover">
+          <table className="table table-hover mb-0">
             <thead>
             <tr>
               <th>#</th>
@@ -141,12 +141,12 @@ class App extends React.Component {
     const expenses = this.state.expenses ? this.state.expenses : [];
 
     return(
-      <div className="p-4 m-4">
-        <section className="panel">
-          <header className="panel-heading">
-            Expenses
+      <div className="p-4">
+        <section className="card panel mb-0">
+          <header className="panel-heading p-3">
+            <h3>Expenses</h3>
           </header>
-          <table className="table table-hover">
+          <table className="table table-hover mb-0">
             <thead>
             <tr>
               <th>#</th>
@@ -155,6 +155,7 @@ class App extends React.Component {
               <th>Year Debt</th>
               <th>Notes</th>
               <th>Type</th>
+              <th colSpan="3"></th>
             </tr>
             </thead>
             <tbody>
@@ -167,12 +168,16 @@ class App extends React.Component {
                 <td>{exp.year_amount}</td>
                 <td>{exp.notes}</td>
                 <td>{exp.name}</td>
+                <td><a href={`/expenses/${exp.id}`} className="btn btn-outline-dark btn-sm">Show</a></td>
+                <td><a href={`/expenses/${exp.id}/edit`} className="btn btn-outline-dark btn-sm">Edit</a></td>
+                <td><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href={`/expenses/${exp.id}`} className="btn btn-outline-warning btn-sm">Destroy</a></td>
               </tr>
             ))
             }
 
             </tbody>
           </table>
+          <div><a href="/expenses/new" className="btn btn-outline-dark btn-block btn-sm">New Expense</a></div>
         </section>
       </div>
     )
@@ -182,12 +187,12 @@ class App extends React.Component {
     const loans = this.state.loans ? this.state.loans : [];
 
     return(
-      <div className="p-4 m-4">
-        <section className="panel mb-0">
-          <header className="panel-heading">
-            Loans
+      <div className="p-4">
+        <section className="card panel mb-0">
+          <header className="panel-heading p-3">
+            <h3>Loans</h3>
           </header>
-          <table className="table table-hover">
+          <table className="table table-hover mb-0">
             <thead>
             <tr>
               <th>#</th>
@@ -217,17 +222,17 @@ class App extends React.Component {
                 <td>{lon.maturity_amount}</td>
                 <td>{lon.notes}</td>
                 <td>{lon.name}</td>
-                <td><a href={`/loans/${lon.id}`}>Show</a></td>
-                <td><a href={`/loans/${lon.id}/edit`}>Edit</a></td>
-                <td><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href={`/loans/${lon.id}`}>Destroy</a></td>
+                <td><a href={`/loans/${lon.id}`} className="btn btn-outline-dark btn-sm">Show</a></td>
+                <td><a href={`/loans/${lon.id}/edit`} className="btn btn-outline-dark btn-sm">Edit</a></td>
+                <td><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href={`/loans/${lon.id}`} className="btn btn-outline-warning btn-sm">Destroy</a></td>
               </tr>
             ))
             }
 
             </tbody>
           </table>
+          <div><a href="/loans/new" className="btn btn-outline-dark btn-block btn-sm">New Loan</a></div>
         </section>
-        <div><a href="/loans/new" className="btn btn-outline-dark btn-block btn-sm">New Loan</a></div>
       </div>
     )
   }
