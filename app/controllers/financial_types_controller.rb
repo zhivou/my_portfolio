@@ -1,4 +1,5 @@
 class FinancialTypesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_financial_type, only: [:show, :edit, :update, :destroy]
 
   # GET /financial_types

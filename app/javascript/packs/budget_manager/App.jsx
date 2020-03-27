@@ -183,7 +183,7 @@ class App extends React.Component {
 
     return(
       <div className="p-4 m-4">
-        <section className="panel">
+        <section className="panel mb-0">
           <header className="panel-heading">
             Loans
           </header>
@@ -200,6 +200,7 @@ class App extends React.Component {
               <th>Maturity Amount</th>
               <th>Notes</th>
               <th>Type</th>
+              <th colSpan="3"></th>
             </tr>
             </thead>
             <tbody>
@@ -216,6 +217,9 @@ class App extends React.Component {
                 <td>{lon.maturity_amount}</td>
                 <td>{lon.notes}</td>
                 <td>{lon.name}</td>
+                <td><a href={`/loans/${lon.id}`}>Show</a></td>
+                <td><a href={`/loans/${lon.id}/edit`}>Edit</a></td>
+                <td><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href={`/loans/${lon.id}`}>Destroy</a></td>
               </tr>
             ))
             }
@@ -223,6 +227,7 @@ class App extends React.Component {
             </tbody>
           </table>
         </section>
+        <div><a href="/loans/new" className="btn btn-outline-dark btn-block btn-sm">New Loan</a></div>
       </div>
     )
   }
