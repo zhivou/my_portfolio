@@ -59,7 +59,7 @@ class App extends React.Component {
     )
   }
 
-  initExpensesTable(){
+  initExpensesTable2(){
     const exps = this.state.totalExpenses;
 
     return(
@@ -144,15 +144,15 @@ class App extends React.Component {
       <div className="p-4 m-4">
         <section className="panel">
           <header className="panel-heading">
-            Income
+            Expenses
           </header>
           <table className="table table-hover">
             <thead>
             <tr>
               <th>#</th>
               <th>Source Name</th>
-              <th>Monthly Income</th>
-              <th>Year Income</th>
+              <th>Monthly Payment</th>
+              <th>Year Debt</th>
               <th>Notes</th>
               <th>Type</th>
             </tr>
@@ -162,6 +162,11 @@ class App extends React.Component {
             {expenses.map(exp => (
               <tr key={exp.id}>
                 <td>{exp.id}</td>
+                <td>{exp.exp_name}</td>
+                <td>{exp.monthly_payment}</td>
+                <td>{exp.year_amount}</td>
+                <td>{exp.notes}</td>
+                <td>{exp.name}</td>
               </tr>
             ))
             }
