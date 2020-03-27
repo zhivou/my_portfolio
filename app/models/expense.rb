@@ -7,10 +7,10 @@ class Expense < ApplicationRecord
   end
 
   def self.expenses_with_types
-    find_by_sql("
-      SELECT *, financial_types.name
+    find_by_sql(%(
+      SELECT expenses.id, financial_types.name AS type
       FROM expenses
       JOIN financial_types ON financial_types.id = expenses.financial_type_id
-    ")
+    ))
   end
 end

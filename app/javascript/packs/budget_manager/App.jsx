@@ -137,6 +137,42 @@ class App extends React.Component {
     )
   }
 
+  initExpensesTable() {
+    const expenses = this.state.expenses;
+
+    return(
+      <div className="p-4 m-4">
+        <section className="panel">
+          <header className="panel-heading">
+            Income
+          </header>
+          <table className="table table-hover">
+            <thead>
+            <tr>
+              <th>#</th>
+              <th>Source Name</th>
+              <th>Monthly Income</th>
+              <th>Year Income</th>
+              <th>Notes</th>
+              <th>Type</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            {expenses.map(exp => (
+              <tr key={exp.id}>
+                <td>{exp.id}</td>
+              </tr>
+            ))
+            }
+
+            </tbody>
+          </table>
+        </section>
+      </div>
+    )
+  }
+
   render() {
     const state = this.state;
     return (
