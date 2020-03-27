@@ -5,4 +5,12 @@ class Loan < ApplicationRecord
   def self.total_by_month
     current.sum(:monthly_payment)
   end
+
+  def self.loans_with_types
+    find_by_sql("
+      SELECT *, financial_types.name
+      FROM loans
+      JOIN financial_types ON financial_types.id = loans.financial_type_id
+    ")
+  end
 end

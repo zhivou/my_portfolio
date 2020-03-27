@@ -14,10 +14,10 @@ class HouseholdController < ApplicationController
     total_dept = loans.total_by_month
     dti = (100 * all_expenses / all_income).round(1)
 
-    gon.expenses = expenses
-    gon.incomes = incomes
-    gon.loans = loans
-    gon.stocks = stocks
+    gon.expenses = expenses.expenses_with_types
+    gon.incomes = incomes.incomes_with_types
+    gon.loans = loans.loans_with_types
+    gon.stocks = stocks.stocks_with_types
     gon.allMonthlyExpenses = all_expenses
     gon.allMonthlyIncome = all_income
     gon.totalDept = total_dept
