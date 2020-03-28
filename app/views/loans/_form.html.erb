@@ -1,0 +1,67 @@
+<%= form_with(model: loan, local: true) do |form| %>
+  <% if loan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(loan.errors.count, "error") %> prohibited this loan from being saved:</h2>
+
+      <ul>
+        <% loan.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :org_name %>
+    <%= form.text_field :org_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :months %>
+    <%= form.number_field :months %>
+  </div>
+
+  <div class="field">
+    <%= form.label :apr %>
+    <%= form.text_field :apr %>
+  </div>
+
+  <div class="field">
+    <%= form.label :amount %>
+    <%= form.text_field :amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :maturity_date %>
+    <%= form.date_select :maturity_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :maturity_amount %>
+    <%= form.text_field :maturity_amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :monthly_payment %>
+    <%= form.text_field :monthly_payment %>
+  </div>
+
+  <div class="field">
+    <%= form.label :current %>
+    <%= form.check_box :current %>
+  </div>
+
+  <div class="field">
+    <%= form.label :notes %>
+    <%= form.text_area :notes %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Financial Type" %>
+    <%= form.collection_select(:financial_type_id, FinancialType.all, :id, :name) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

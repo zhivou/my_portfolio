@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @stock.name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @stock.price %>
+</p>
+
+<p>
+  <strong>Current:</strong>
+  <%= @stock.current %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @stock.notes %>
+</p>
+
+<p>
+  <strong>Sold date:</strong>
+  <%= @stock.sold_date %>
+</p>
+
+<p>
+  <strong>Sold price:</strong>
+  <%= @stock.sold_price %>
+</p>
+
+<p>
+  <strong>Gain loss:</strong>
+  <%= @stock.gain_loss %>
+</p>
+
+<%= link_to 'Edit', edit_stock_path(@stock) %> |
+<%= link_to 'Back', stocks_path %>

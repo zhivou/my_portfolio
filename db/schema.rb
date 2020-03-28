@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_15_011711) do
+ActiveRecord::Schema.define(version: 2020_03_22_002648) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,18 @@ ActiveRecord::Schema.define(version: 2020_03_15_011711) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "expenses", force: :cascade do |t|
+    t.string "name"
+    t.decimal "monthly_payment"
+    t.boolean "current"
+    t.text "notes"
+    t.decimal "year_amount"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "financial_type_id", null: false
+    t.index ["financial_type_id"], name: "index_expenses_on_financial_type_id"
+  end
+
   create_table "experiences", force: :cascade do |t|
     t.string "title"
     t.string "organization"
@@ -70,6 +82,40 @@ ActiveRecord::Schema.define(version: 2020_03_15_011711) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "sort"
+  end
+
+  create_table "financial_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "incomes", force: :cascade do |t|
+    t.string "source_name"
+    t.decimal "monthly_income"
+    t.decimal "year_income"
+    t.text "notes"
+    t.boolean "current"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "financial_type_id", null: false
+    t.index ["financial_type_id"], name: "index_incomes_on_financial_type_id"
+  end
+
+  create_table "loans", force: :cascade do |t|
+    t.string "org_name"
+    t.integer "months"
+    t.decimal "apr"
+    t.decimal "amount"
+    t.date "maturity_date"
+    t.decimal "maturity_amount"
+    t.decimal "monthly_payment"
+    t.boolean "current"
+    t.text "notes"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "financial_type_id", null: false
+    t.index ["financial_type_id"], name: "index_loans_on_financial_type_id"
   end
 
   create_table "main_skills", force: :cascade do |t|
@@ -121,6 +167,20 @@ ActiveRecord::Schema.define(version: 2020_03_15_011711) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "stocks", force: :cascade do |t|
+    t.string "name"
+    t.decimal "price"
+    t.boolean "current"
+    t.text "notes"
+    t.date "sold_date"
+    t.decimal "sold_price"
+    t.decimal "gain_loss"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "financial_type_id", null: false
+    t.index ["financial_type_id"], name: "index_stocks_on_financial_type_id"
+  end
+
   create_table "tags", force: :cascade do |t|
     t.string "description"
     t.integer "blog_id", null: false
@@ -151,6 +211,10 @@ ActiveRecord::Schema.define(version: 2020_03_15_011711) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "expenses", "financial_types"
+  add_foreign_key "incomes", "financial_types"
+  add_foreign_key "loans", "financial_types"
   add_foreign_key "photo_sections", "photos"
+  add_foreign_key "stocks", "financial_types"
   add_foreign_key "tags", "blogs"
 end

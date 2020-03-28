@@ -1,0 +1,2 @@
+module FinancialTypesHelper
+end

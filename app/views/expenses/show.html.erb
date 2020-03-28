@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @expense.name %>
+</p>
+
+<p>
+  <strong>Monthly payment:</strong>
+  <%= @expense.monthly_payment %>
+</p>
+
+<p>
+  <strong>Current:</strong>
+  <%= @expense.current %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @expense.notes %>
+</p>
+
+<p>
+  <strong>Year amount:</strong>
+  <%= @expense.year_amount %>
+</p>
+
+<%= link_to 'Edit', edit_expense_path(@expense) %> |
+<%= link_to 'Back', expenses_path %>

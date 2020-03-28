@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :financial_types
+  resources :expenses
+  resources :stocks
+  resources :incomes
+  resources :loans
   resources :photo_sections
   resources :contacts, only: [:index, :new, :create]
   devise_for :users, path: '',
@@ -53,5 +58,6 @@ Rails.application.routes.draw do
   # Household Dashboard
   #
   get 'household/dashboard', to: 'household#dashboard'
+  get 'household/budget', to: 'household#budget'
   resources :manager_jobs
 end

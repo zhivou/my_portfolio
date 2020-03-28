@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  source_name: MyString
+  monthly_income: 9.99
+  year_income: 9.99
+  notes: MyText
+  current: false
+  notes: MyText
+
+two:
+  source_name: MyString
+  monthly_income: 9.99
+  year_income: 9.99
+  notes: MyText
+  current: false
+  notes: MyText
