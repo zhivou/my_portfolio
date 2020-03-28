@@ -284,6 +284,38 @@ class App extends React.Component {
     )
   }
 
+  createExpensesPie(){
+    const data = [];
+    const labels = [];
+    let total = 0;
+
+    this.state.expenses.forEach(function (item) {
+      data.push(parseFloat(item.monthly_payment));
+      labels.push(item.exp_name);
+      total = total + parseFloat(item.monthly_payment);
+    });
+
+    return(
+      this.initChart(labels, data, total, 'Expenses Pie', total)
+    )
+  }
+
+  createLoanPie(){
+    const data = [];
+    const labels = [];
+    let total = 0;
+
+    this.state.loans.forEach(function (item) {
+      data.push(parseFloat(item.monthly_payment));
+      labels.push(item.org_name);
+      total = total + parseFloat(item.monthly_payment);
+    });
+
+    return(
+      this.initChart(labels, data, total, 'Loans Pie', total)
+    )
+  }
+
   initChart(labels, data, dataOffset, chartName, total){
     return(
       <div className="card m-2 p-2 pt-5 chartItem">
@@ -322,31 +354,37 @@ class App extends React.Component {
           <div className="col-lg-9 col-md-12">
             <GoogleCalendar></GoogleCalendar>
           </div>
-          <div className="col-md-3">
+          <div className="col-lg-3 col-md-12 ol-sm-12 col-xs-12">
             {this.initLinksCard()}
           </div>
         </div>
 
 
         <div className="row">
-          <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+          <div className="col-lg-3 col-md-12 col-sm-12 col-xs-12 pl-1 pr-1">
             {this.createIncomePie()}
+          </div>
+          <div className="col-lg-3 col-md-12 col-sm-12 col-xs-12 pl-1 pr-1">
+            {this.createExpensesPie()}
+          </div>
+          <div className="col-lg-3 col-md-12 col-sm-12 col-xs-12 pl-1 pr-1">
+            {this.createLoanPie()}
           </div>
         </div>
 
 
         <div className="row">
-          <div className="col-12 ">
+          <div className="col-12">
             {this.initIncomeTable()}
           </div>
         </div>
         <div className="row">
-          <div className="col-12 ">
+          <div className="col-12">
             {this.initExpensesTable()}
           </div>
         </div>
         <div className="row">
-          <div className="col-12 ">
+          <div className="col-12">
             {this.initLoanTable()}
           </div>
         </div>
