@@ -316,6 +316,16 @@ class App extends React.Component {
     )
   }
 
+  createRatioPie(){
+    const data = [this.state.allMonthlyExpenses, this.state.allMonthlyIncome - this.state.allMonthlyExpenses];
+    const labels = ['Expenses', 'Left'];
+    let total = this.state.allMonthlyIncome;
+
+    return(
+      this.initChart(labels, data, total, 'Totals Pie', total)
+    )
+  }
+
   initChart(labels, data, dataOffset, chartName, total){
     return(
       <div className="card m-2 p-2 pt-5 chartItem">
@@ -347,8 +357,11 @@ class App extends React.Component {
         <div className="row">
           {this.initCards(`$${state.allMonthlyExpenses}`, 'Total Expenses', 'red-bg', icons.lines)}
           {this.initCards(state.allMonthlyIncome, 'Income', 'green-bg', icons.plus)}
-          {this.initCards(state.totalDept, 'Dept', 'dark-bg', icons.exclamation)}
+          {this.initCards(state.totalDept, 'Debt', 'dark-bg', icons.exclamation)}
           {this.initCards(state.dti, 'DTI', 'blue-bg', icons.leaf)}
+        </div>
+        <div className="text-center mt-3 mb-3">
+          <h2>Schedules and Links</h2>
         </div>
         <div className="row">
           <div className="col-lg-9 col-md-12">
@@ -358,8 +371,9 @@ class App extends React.Component {
             {this.initLinksCard()}
           </div>
         </div>
-
-
+        <div className="text-center mt-3">
+          <h2>Total visual pies</h2>
+        </div>
         <div className="row">
           <div className="col-lg-3 col-md-12 col-sm-12 col-xs-12 pl-1 pr-1">
             {this.createIncomePie()}
@@ -370,9 +384,13 @@ class App extends React.Component {
           <div className="col-lg-3 col-md-12 col-sm-12 col-xs-12 pl-1 pr-1">
             {this.createLoanPie()}
           </div>
+          <div className="col-lg-3 col-md-12 col-sm-12 col-xs-12 pl-1 pr-1">
+            {this.createRatioPie()}
+          </div>
         </div>
-
-
+        <div className="text-center mt-3">
+          <h2>Main Tables</h2>
+        </div>
         <div className="row">
           <div className="col-12">
             {this.initIncomeTable()}
