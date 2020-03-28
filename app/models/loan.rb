@@ -10,7 +10,8 @@ class Loan < ApplicationRecord
     find_by_sql("
       SELECT loans.*, financial_types.name
       FROM loans
-      JOIN financial_types ON financial_types.id = loans.financial_type_id
+      LEFT JOIN financial_types ON financial_types.id = loans.financial_type_id
+      WHERE loans.current = true
     ")
   end
 end

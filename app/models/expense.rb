@@ -10,7 +10,8 @@ class Expense < ApplicationRecord
     find_by_sql(%(
       SELECT expenses.id, expenses.name as exp_name, expenses.monthly_payment, expenses.year_amount, expenses.current, expenses.notes, financial_types.name
       FROM expenses
-      JOIN financial_types ON financial_types.id = expenses.financial_type_id
+      LEFT JOIN financial_types ON financial_types.id = expenses.financial_type_id
+      WHERE expenses.current = true
     ))
   end
 end

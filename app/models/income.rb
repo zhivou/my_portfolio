@@ -10,7 +10,8 @@ class Income < ApplicationRecord
     find_by_sql("
       SELECT incomes.*, financial_types.name
       FROM incomes
-      JOIN financial_types ON financial_types.id = incomes.financial_type_id
+      LEFT JOIN financial_types ON financial_types.id = incomes.financial_type_id
+      WHERE incomes.current = true
     ")
   end
 end

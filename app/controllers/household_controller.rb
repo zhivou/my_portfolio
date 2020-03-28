@@ -5,10 +5,10 @@ class HouseholdController < ApplicationController
   end
 
   def budget
-    expenses = Expense.current.includes(:financial_type).all
-    incomes = Income.current.includes(:financial_type).all
-    loans = Loan.current.includes(:financial_type).all
-    stocks = Stock.includes(:financial_type).all
+    expenses = Expense.includes(:financial_type)
+    incomes = Income.includes(:financial_type)
+    loans = Loan.includes(:financial_type)
+    stocks = Stock.includes(:financial_type)
     all_expenses = expenses.total_by_month + loans.total_by_month
     all_income = incomes.total_by_month
     total_dept = loans.total_by_month

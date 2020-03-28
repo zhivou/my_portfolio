@@ -5,7 +5,8 @@ class Stock < ApplicationRecord
     find_by_sql("
       SELECT *, financial_types.name
       FROM stocks
-      JOIN financial_types ON financial_types.id = stocks.financial_type_id
+      LEFT JOIN financial_types ON financial_types.id = stocks.financial_type_id
+      WHERE stocks.current = true
     ")
   end
 end
