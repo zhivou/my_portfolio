@@ -9,9 +9,9 @@ class HouseholdController < ApplicationController
     incomes = Income.includes(:financial_type)
     loans = Loan.includes(:financial_type)
     stocks = Stock.includes(:financial_type)
-    all_expenses = expenses.total_by_month + loans.total_by_month
-    all_income = incomes.total_by_month
-    total_dept = loans.total_by_month
+    all_expenses = (expenses.total_by_month + loans.total_by_month).to_i
+    all_income = incomes.total_by_month.to_i
+    total_dept = loans.total_by_month.to_i
     dti = (100 * all_expenses / all_income).round(1)
 
     gon.expenses = expenses.expenses_with_types
