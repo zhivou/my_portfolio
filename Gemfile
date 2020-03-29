@@ -67,3 +67,4 @@ gem 'mail_form'
 gem "mini_magick", ">= 4.9.4"
 gem 'kaminari'
 gem 'gon', '~> 6.2'
+gem 'iex-ruby-client'
