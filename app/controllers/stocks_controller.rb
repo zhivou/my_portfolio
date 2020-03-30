@@ -25,15 +25,27 @@ class StocksController < ApplicationController
   # POST /stocks
   # POST /stocks.json
   def create
-    @stock = Stock.new(stock_params)
+    params = stock_params
+    errors = []
+    success = []
+
+    params[:count].to_i.times do
+      @stock = Stock.new(params.except(:count))
+
+      if @stock.save
+        success << "#{@stock.id} Stock was successfully created."
+      else
+        errors << "#{@stock.errors}"
+      end
+    end
 
     respond_to do |format|
-      if @stock.save
-        format.html { redirect_to @stock, notice: 'Stock was successfully created.' }
-        format.json { render :show, status: :created, location: @stock }
+      if errors.length <= 0
+        format.html { redirect_to stocks_path, notice: "Total: #{success.length} created. #{success.inspect}" }
+        format.json { render stocks_path, status: :created}
       else
-        format.html { render :new }
-        format.json { render json: @stock.errors, status: :unprocessable_entity }
+        format.html { render stocks_path }
+        format.json { render json: errors.inspect , status: :unprocessable_entity }
       end
     end
   end
@@ -42,7 +54,7 @@ class StocksController < ApplicationController
   # PATCH/PUT /stocks/1.json
   def update
     respond_to do |format|
-      if @stock.update(stock_params)
+      if @stock.update(stock_params.except(:count))
         format.html { redirect_to @stock, notice: 'Stock was successfully updated.' }
         format.json { render :show, status: :ok, location: @stock }
       else
@@ -79,6 +91,8 @@ class StocksController < ApplicationController
           :sold_price,
           :gain_loss,
           :financial_type_id,
+          :purchase_date,
+          :count,
           financial_types_attributes: [:id, :name, :_destroy]
       )
     end
