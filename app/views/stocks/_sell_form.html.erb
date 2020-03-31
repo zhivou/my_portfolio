@@ -1,0 +1,24 @@
+<%= form_tag("/stocks/action/sell", :method => "post") do %>
+
+  <%= select_tag 'stock[name]', options_for_select(names) %>
+
+  <div class="field">
+    <%= label_tag :sold_date %>
+    <%= date_field_tag 'stock[sold_date]', include_blank: true %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :sold_price %>
+    <%= text_field_tag 'stock[sold_price]' %>
+  </div>
+
+  <div class="field">
+    <%= label_tag 'Sell count' %>
+    <%= text_field_tag 'stock[count]' %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag %>
+  </div>
+
+<% end %>

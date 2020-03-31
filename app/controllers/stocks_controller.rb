@@ -44,7 +44,7 @@ class StocksController < ApplicationController
         format.html { redirect_to stocks_path, notice: "Total: #{success.length} created. #{success.inspect}" }
         format.json { render stocks_path, status: :created}
       else
-        format.html { render stocks_path }
+        format.html { redirect_to stocks_path }
         format.json { render json: errors.inspect , status: :unprocessable_entity }
       end
     end
@@ -60,6 +60,41 @@ class StocksController < ApplicationController
       else
         format.html { render :edit }
         format.json { render json: @stock.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def sell_index
+    @names = Stock.where(current: true).select(:name).group(:name).pluck(:name)
+  end
+
+  def sell
+    params = stock_params
+    success = []
+    errors = []
+    count = params[:count].to_i
+    stocks = Stock.where(name: params[:name], current: true)
+
+    stocks.limit(count).each do |s|
+      if stocks.count < count
+        errors << "You are trying to sell #{count} shares but there are only #{stocks.count} currently available shares for sell"
+        break
+      end
+
+      if s.update(sold_date: params[:sold_date], sold_price: params[:sold_price], current: false)
+        success << "#{s.id} Stock was successfully sold for #{params[:sold_price]}."
+      else
+        errors << "#{s.errors}"
+      end
+    end
+
+    respond_to do |format|
+      if errors.length <= 0
+        format.html { redirect_to stocks_path, notice: "Total: #{success.length} sold. #{success.inspect}" }
+        format.json { render stocks_path, status: :created}
+      else
+        format.html { redirect_to stocks_path, notice: errors.inspect }
+        format.json { render json: errors.inspect , status: :unprocessable_entity }
       end
     end
   end
