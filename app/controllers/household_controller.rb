@@ -32,6 +32,7 @@ class HouseholdController < ApplicationController
   end
 
   def stock
-
+    gon.totalOriginalInvestments = Stock.calculate_total_investment
+    gon.totalCurrentInvestments = Stock.calculate_current_investment
   end
 end

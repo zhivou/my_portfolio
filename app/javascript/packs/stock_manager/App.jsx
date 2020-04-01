@@ -5,14 +5,17 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      chartData: []
     };
   }
 
+  componentDidMount() {
+  }
+
   render() {
-    const state = this.state;
     return (
       <div>
-        Working!
+        Working
       </div>
     );
   }

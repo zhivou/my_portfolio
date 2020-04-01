@@ -9,4 +9,21 @@ class Stock < ApplicationRecord
       WHERE stocks.current = true
     ")
   end
+
+  def self.calculate_total_investment
+    where(current: true).sum(:price).to_f
+  end
+
+  def self.calculate_current_investment
+    stocks = self.where(current: true)
+    names = stocks.select(:name).group(:name).pluck(:name)
+    client = IEX::Api::Client.new
+    result = 0
+
+    names.each do |n|
+      result += stocks.where(name: n).count * client.quote(n).latest_price.to_f
+    end
+
+    result
+  end
 end
