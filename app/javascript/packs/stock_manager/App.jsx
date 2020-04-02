@@ -15,7 +15,18 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        Working
+        <div className="row">
+          <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div className="card">
+              <div className="card-header">
+                Current Investments
+              </div>
+              <div className="card-body">
+                <h4 className="card-title">Special title treatment</h4>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
