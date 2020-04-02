@@ -50,11 +50,27 @@ class App extends React.Component {
     )
   }
 
+  initSecondCard() {
+    return (
+      <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div className="card">
+          <div className="card-header">
+            Current Investments
+          </div>
+          <div className="card-body">
+            Second Card
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   render() {
     return (
       <div>
         <div className="row">
           {this.initTotalInvestmentsCard()}
+          {this.initSecondCard()}
         </div>
       </div>
     );
