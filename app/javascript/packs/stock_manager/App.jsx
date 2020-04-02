@@ -32,7 +32,7 @@ class App extends React.Component {
 
   initTotalInvestmentsCard() {
     return (
-      <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+      <div>
         <div className="card">
           <div className="card-header">
             Current Investments
@@ -52,13 +52,21 @@ class App extends React.Component {
 
   initSecondCard() {
     return (
-      <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+      <div>
         <div className="card">
           <div className="card-header">
-            Current Investments
+            Links
           </div>
-          <div className="card-body">
-            Second Card
+          <div>
+            <div className="list-group">
+              <div className="p-3">Main Links</div>
+              <a className="list-group-item" href="/stocks/new">Purchase new Stock</a>
+              <a className="list-group-item" href="/stocks/action/sell_index">Sell Stock</a>
+              <div className="p-3">External Links</div>
+              <a className="list-group-item" href="https://robinhood.com/">My Robinhood</a>
+              <a className="list-group-item" href="https://money.cnn.com/data/fear-and-greed/">Fear Rating</a>
+              <a className="list-group-item" href="https://finance.yahoo.com/">Yahoo Finance</a>
+            </div>
           </div>
         </div>
       </div>
@@ -69,8 +77,12 @@ class App extends React.Component {
     return (
       <div>
         <div className="row">
-          {this.initTotalInvestmentsCard()}
-          {this.initSecondCard()}
+          <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            {this.initTotalInvestmentsCard()}
+          </div>
+          <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            {this.initSecondCard()}
+          </div>
         </div>
       </div>
     );

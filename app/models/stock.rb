@@ -31,4 +31,16 @@ class Stock < ApplicationRecord
 
     result
   end
+
+  def self.shares_by_name
+    where(current: true).select(:name).group(:name).pluck(:name)
+  end
+
+  def self.calculate_total_investment_by_name(name)
+    where(current: true, name: name).sum(:price).to_f
+  end
+
+  def self.calculater_total_sold_by_name(name)
+    where(current: false, name: name).sum(:sold_price).to_f
+  end
 end
