@@ -18,7 +18,7 @@ Rails.application.config.assets.precompile += %w( static_pages.css )
 Rails.application.config.assets.precompile += %w( photos.css )
 Rails.application.config.assets.precompile += %w( skills_app.css )
 Rails.application.config.assets.precompile += %w( household.css )
-Rails.application.config.assets.precompile += %w( budget_manager.css )
+Rails.application.config.assets.precompile += %w( budget_app.css )
 Rails.application.config.assets.precompile += %w( react-big-calendar.css )
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets

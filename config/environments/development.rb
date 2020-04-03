@@ -67,4 +67,13 @@ Rails.application.configure do
       :authentication => :plain,
       :enable_starttls_auto => true
   }
+
+  ##
+  # Stock API IEX
+  #
+  IEX::Api.configure do |config|
+    config.publishable_token = ENV['IEX_PUBLIC']# defaults to ENV['IEX_API_PUBLISHABLE_TOKEN']
+    config.secret_token = ENV['IEX_SECRET'] # defaults to ENV['IEX_API_SECRET_TOKEN']
+    config.endpoint = 'https://cloud.iexapis.com/v1' # defaults to 'https://cloud.iexapis.com/v1'
+  end
 end

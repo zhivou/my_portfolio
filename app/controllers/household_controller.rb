@@ -30,4 +30,10 @@ class HouseholdController < ApplicationController
     gon.calendarId = ENV["GOOGLE_CALENDAR_ID"]
     build_all_expenses
   end
+
+  def stock
+    gon.totalOriginalInvestments = Stock.calculate_total_investment
+    gon.totalCurrentInvestments = Stock.calculate_current_investment
+    gon.shareInfo = Stock.get_share_info_by_names
+  end
 end

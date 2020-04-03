@@ -18,7 +18,12 @@
 
   <div class="field">
     <%= form.label :price %>
-    <%= form.text_field :price %>
+    <%= form.text_field :price, required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :count %>
+    <%= form.text_field :count, value: '1', required: true %>
   </div>
 
   <div class="field">
@@ -32,8 +37,13 @@
   </div>
 
   <div class="field">
+    <%= form.label :purchase_date %>
+    <%= form.date_select :purchase_date %>
+  </div>
+
+  <div class="field">
     <%= form.label :sold_date %>
-    <%= form.date_select :sold_date %>
+    <%= form.date_select :sold_date, include_blank: true %>
   </div>
 
   <div class="field">
