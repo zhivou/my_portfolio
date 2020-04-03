@@ -26,7 +26,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      chartData: chartData
+      chartData: chartData,
+      shares: gon.shareInfo
     };
   }
 
@@ -73,12 +74,33 @@ class App extends React.Component {
     )
   }
 
+  initSharesCards() {
+    const state = this.state;
+
+    return(
+      <div>
+        {state.shares.map(sh => (
+          <div className="card">
+            <div className="card-header">
+              {sh.quote.company_name}
+            </div>
+            <div>
+              {sh.quote.change_percent_s}
+            </div>
+          </div>
+        ))
+        }
+      </div>
+    )
+  }
+
   render() {
     return (
       <div>
         <div className="row">
           <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             {this.initTotalInvestmentsCard()}
+            {this.initSharesCards()}
           </div>
           <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             {this.initSecondCard()}
