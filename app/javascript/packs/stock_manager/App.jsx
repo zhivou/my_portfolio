@@ -83,21 +83,30 @@ class App extends React.Component {
     return(
       <div>
         {state.shares.map(sh => (
-          <div className="card mb-2">
+          <div className="card mb-2" key={sh.quote.company_name}>
             <div className="card-header">
               <div className="row">
-                <div className="col-6">
+                <div className="col-8">
                   <div className="h5">{sh.quote.company_name}</div>
                   <div>Shares: {sh.totalShares}</div>
                 </div>
-                <div className="col-6 text-right" style={{color: sh.quote.change_percent_s.includes("+") ? colors.green : colors.red }}>
-                  {sh.quote.change_percent_s}
+                <div className="col-3 text-right">
+                  <div style={{color: sh.quote.change_percent_s.includes("+") ? colors.green : colors.red }}>
+                    {sh.quote.change_percent_s}
+                  </div>
+                  <div>${sh.quote.latest_price}</div>
                 </div>
               </div>
             </div>
             <div className="card-body">
-              Initial equity: ${sh.totalSum}
-              Current equity: ${sh.totalShares * sh.quote.latest_price}
+              <div className="row">
+                <div className="col-3">
+                  <img src={sh.logo.url} style={{width: "100px", height: "100px"}} className="img-thumbnail"/>
+                </div>
+                <div className="col-8 align-self-center text-center">
+                  <div className="h4">Current equity: ${sh.totalShares * sh.quote.latest_price}</div>
+                </div>
+              </div>
             </div>
           </div>
         ))

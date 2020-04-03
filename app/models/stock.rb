@@ -65,6 +65,8 @@ class Stock < ApplicationRecord
     holder['next_update'] = Time.now + 30.minutes
     holder[:totalSum] = self.calculate_total_investment_by_name(n)
     holder[:totalShares] = self.share_by_name_total(n)
+    holder[:dividends] = CLIENT.dividends(n, '6m')
+    holder[:logo] = CLIENT.logo(n)
 
     holder
   end
