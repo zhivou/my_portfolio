@@ -20,6 +20,11 @@ const chartData = {
 
 };
 
+const colors = {
+  red: "rgba(231, 76, 60, 1)",
+  green: "rgba(0, 177, 106, 1)"
+};
+
 const step = Math.abs((gon.totalCurrentInvestments - gon.totalOriginalInvestments) * 4);
 
 class App extends React.Component {
@@ -34,7 +39,7 @@ class App extends React.Component {
   initTotalInvestmentsCard() {
     return (
       <div>
-        <div className="card">
+        <div className="card mb-2">
           <div className="card-header">
             Current Investments
           </div>
@@ -60,10 +65,8 @@ class App extends React.Component {
           </div>
           <div>
             <div className="list-group">
-              <div className="p-3">Main Links</div>
               <a className="list-group-item" href="/stocks/new">Purchase new Stock</a>
               <a className="list-group-item" href="/stocks/action/sell_index">Sell Stock</a>
-              <div className="p-3">External Links</div>
               <a className="list-group-item" href="https://robinhood.com/">My Robinhood</a>
               <a className="list-group-item" href="https://money.cnn.com/data/fear-and-greed/">Fear Rating</a>
               <a className="list-group-item" href="https://finance.yahoo.com/">Yahoo Finance</a>
@@ -80,12 +83,21 @@ class App extends React.Component {
     return(
       <div>
         {state.shares.map(sh => (
-          <div className="card">
+          <div className="card mb-2">
             <div className="card-header">
-              {sh.quote.company_name}
+              <div className="row">
+                <div className="col-6">
+                  <div className="h5">{sh.quote.company_name}</div>
+                  <div>Shares: {sh.totalShares}</div>
+                </div>
+                <div className="col-6 text-right" style={{color: sh.quote.change_percent_s.includes("+") ? colors.green : colors.red }}>
+                  {sh.quote.change_percent_s}
+                </div>
+              </div>
             </div>
-            <div>
-              {sh.quote.change_percent_s}
+            <div className="card-body">
+              Initial equity: ${sh.totalSum}
+              Current equity: ${sh.totalShares * sh.quote.latest_price}
             </div>
           </div>
         ))
