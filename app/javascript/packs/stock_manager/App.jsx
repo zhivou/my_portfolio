@@ -107,7 +107,7 @@ class App extends React.Component {
                   <img src={sh.logo.url} style={{width: "100px", height: "100px"}} className="img-thumbnail"/>
                 </div>
                 <div className="col-8 align-self-center text-center">
-                  <div className="h4">Current equity: ${sh.totalShares * sh.quote.latest_price}</div>
+                  <div className="h4">Current equity: ${(sh.totalShares * sh.quote.latest_price).toFixed(2)}</div>
                 </div>
               </div>
             </div>
@@ -161,7 +161,7 @@ class App extends React.Component {
                 <td>{his.n}</td>
                 <td>{his.count}</td>
                 <td>{his.date_trunc}</td>
-                <td>{his.total}</td>
+                <td>${his.total}</td>
               </tr>
             ))
             }
