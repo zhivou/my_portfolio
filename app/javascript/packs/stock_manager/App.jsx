@@ -35,7 +35,8 @@ class App extends React.Component {
       shares: gon.shareInfo,
       totalActive: gon.totalActive,
       totalSold: gon.totalSold,
-      purchaseHistory: gon.purchaseHistory
+      purchaseHistory: gon.purchaseHistory,
+      soldHistory: gon.soldHistory
     };
   }
 
@@ -157,7 +158,42 @@ class App extends React.Component {
             <tbody>
 
             {this.state.purchaseHistory.map(his => (
-              <tr key={his.n}>
+              <tr key={his.n + his.date_trunc}>
+                <td>{his.n}</td>
+                <td>{his.count}</td>
+                <td>{his.date_trunc}</td>
+                <td>${his.total}</td>
+              </tr>
+            ))
+            }
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    )
+  }
+
+  initSoldHistoryCard(){
+    return(
+      <div className="card mb-2">
+        <div className="card-header">
+          Sell History
+        </div>
+        <div>
+          <table className="table table-hover mb-0">
+            <thead>
+            <tr>
+              <th>Name</th>
+              <th>Shares</th>
+              <th>Purchased Date</th>
+              <th>Total</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            {this.state.soldHistory.map(his => (
+              <tr key={his.n + his.date_trunc}>
                 <td>{his.n}</td>
                 <td>{his.count}</td>
                 <td>{his.date_trunc}</td>
@@ -185,6 +221,7 @@ class App extends React.Component {
             {this.initSecondCard()}
             {this.initTotalCard()}
             {this.initPurchaseHistoryCard()}
+            {this.initSoldHistoryCard()}
           </div>
         </div>
       </div>

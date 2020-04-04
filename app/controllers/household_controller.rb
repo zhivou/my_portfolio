@@ -40,5 +40,6 @@ class HouseholdController < ApplicationController
     gon.totalActive = stock.current.length
     gon.totalSold = stock.sold.length
     gon.purchaseHistory = stock.purchase_history.to_hash
+    gon.soldHistory = stock.sell_history
   end
 end
