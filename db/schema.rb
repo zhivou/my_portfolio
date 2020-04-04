@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_04_203151) do
+ActiveRecord::Schema.define(version: 2020_04_04_204056) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -183,7 +183,7 @@ ActiveRecord::Schema.define(version: 2020_04_04_203151) do
     t.decimal "price"
     t.boolean "current"
     t.text "notes"
-    t.date "sold_date"
+    t.datetime "sold_date"
     t.decimal "sold_price"
     t.decimal "gain_loss"
     t.datetime "created_at", precision: 6, null: false
