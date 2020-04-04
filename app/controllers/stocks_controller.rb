@@ -41,7 +41,7 @@ class StocksController < ApplicationController
 
     respond_to do |format|
       if errors.length <= 0
-        format.html { redirect_to stocks_path, notice: "Total: #{success.length} created. #{success.inspect}" }
+        format.html { redirect_to stocks_path, notice: "Total: #{success.length} created. #{success.inspect if params[:count].to_i < 50}" }
         format.json { render stocks_path, status: :created}
       else
         format.html { redirect_to stocks_path }
@@ -90,7 +90,7 @@ class StocksController < ApplicationController
 
     respond_to do |format|
       if errors.length <= 0
-        format.html { redirect_to stocks_path, notice: "Total: #{success.length} sold. #{success.inspect}" }
+        format.html { redirect_to stocks_path, notice: "Total: #{success.length} sold. #{success.inspect if stocks.limit(count).count < 50}" }
         format.json { render stocks_path, status: :created}
       else
         format.html { redirect_to stocks_path, notice: errors.inspect }

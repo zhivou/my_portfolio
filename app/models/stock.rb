@@ -103,13 +103,34 @@ class Stock < ApplicationRecord
   def self.purchase_history
     sql = ("
       SELECT
-        date_trunc('minute', created_at),
+        date_trunc('minute', purchase_date),
         count(1),
         name as n,
         sum(price) as total
 
       FROM stocks
       GROUP BY 1, name
+      ORDER BY 1 DESC
+      LIMIT 50
+    ")
+
+    connection.select_all(sql)
+  end
+
+  def self.sell_history
+    sql = ("
+      SELECT
+          date_trunc('minute', sold_date),
+          count(1),
+          name as n,
+          sum(price) as total
+
+      FROM stocks
+      WHERE current = false
+
+      GROUP BY 1, name
+      ORDER BY 1 DESC
+      LIMIT 50
     ")
 
     connection.select_all(sql)
