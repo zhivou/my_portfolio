@@ -138,6 +138,41 @@ class App extends React.Component {
     )
   }
 
+  initPurchaseHistoryCard(){
+    return(
+      <div className="card mb-2">
+        <div className="card-header">
+          Purchase History
+        </div>
+        <div>
+          <table className="table table-hover mb-0">
+            <thead>
+            <tr>
+              <th>Name</th>
+              <th>Shares</th>
+              <th>Purchased Date</th>
+              <th>Total</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            {this.state.purchaseHistory.map(his => (
+              <tr key={his.n}>
+                <td>{his.n}</td>
+                <td>{his.count}</td>
+                <td>{his.date_trunc}</td>
+                <td>{his.total}</td>
+              </tr>
+            ))
+            }
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    )
+  }
+
   render() {
     return (
       <div>
@@ -149,6 +184,7 @@ class App extends React.Component {
           <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             {this.initSecondCard()}
             {this.initTotalCard()}
+            {this.initPurchaseHistoryCard()}
           </div>
         </div>
       </div>
