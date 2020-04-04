@@ -32,7 +32,10 @@ class App extends React.Component {
     super(props);
     this.state = {
       chartData: chartData,
-      shares: gon.shareInfo
+      shares: gon.shareInfo,
+      totalActive: gon.totalActive,
+      totalSold: gon.totalSold,
+      purchaseHistory: gon.purchaseHistory
     };
   }
 
@@ -59,7 +62,7 @@ class App extends React.Component {
   initSecondCard() {
     return (
       <div>
-        <div className="card">
+        <div className="card mb-2">
           <div className="card-header">
             Links
           </div>
@@ -115,6 +118,26 @@ class App extends React.Component {
     )
   }
 
+  initTotalCard(){
+    return(
+      <div className="card mb-2">
+        <div className="card-header">
+          Total shares
+        </div>
+        <div className="row">
+          <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 align-self-center text-center border-right">
+            <div className="text-center m-3">Current Shares:</div>
+            <div className="rate-wrapper font_white h1 m-3 text-center">{this.state.totalActive}</div>
+          </div>
+          <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 align-self-center text-center">
+            <div className="text-center m-3">Sold Shares:</div>
+            <div className="rate-wrapper font_white h1 m-3 text-center">{this.state.totalSold}</div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   render() {
     return (
       <div>
@@ -125,6 +148,7 @@ class App extends React.Component {
           </div>
           <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             {this.initSecondCard()}
+            {this.initTotalCard()}
           </div>
         </div>
       </div>

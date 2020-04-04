@@ -17,8 +17,15 @@ class Stock < ApplicationRecord
     where(current: true).sum(:price).to_f
   end
 
-  def self.calculate_current_investment
+  def self.current
+    where(current: true)
+  end
 
+  def self.sold
+    where(current: false)
+  end
+
+  def self.calculate_current_investment
     stocks = self.where(current: true)
     names = stocks.select(:name).group(:name).pluck(:name)
     result = 0
@@ -91,6 +98,21 @@ class Stock < ApplicationRecord
 
   def self.calculater_total_sold_by_name(name)
     where(current: false, name: name).sum(:sold_price).to_f
+  end
+
+  def self.purchase_history
+    sql = ("
+      SELECT
+        date_trunc('minute', created_at),
+        count(1),
+        name as n,
+        sum(price) as total
+
+      FROM stocks
+      GROUP BY 1, name
+    ")
+
+    connection.select_all(sql)
   end
 
   def self.write_to_json(hash)
