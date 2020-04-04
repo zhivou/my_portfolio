@@ -69,10 +69,10 @@ class App extends React.Component {
   initLinksCard(){
     return(
 
-      <section className="card panel mb-0">
-        <header className="panel-heading p-3">
-          <h3>Main Links</h3>
-        </header>
+      <section className="card mb-0">
+        <div className="card-header p-3">
+          Main Links
+        </div>
         <div className="list-group">
           <a className="list-group-item" href="/loans/new">Create New Loan</a>
           <a className="list-group-item" href="/expenses/new">Create New Expense</a>
@@ -128,7 +128,7 @@ class App extends React.Component {
     return(
       <div className="p-4">
         <section className="card panel mb-0">
-          <header className="panel-heading p-3">
+          <header className="p-3">
             <h3>Income</h3>
           </header>
           <table className="table table-hover mb-0">
@@ -174,7 +174,7 @@ class App extends React.Component {
     return(
       <div className="p-4">
         <section className="card panel mb-0">
-          <header className="panel-heading p-3">
+          <header className="p-3">
             <h3>Expenses</h3>
           </header>
           <table className="table table-hover mb-0">
@@ -220,7 +220,7 @@ class App extends React.Component {
     return(
       <div className="p-4">
         <section className="card panel mb-0">
-          <header className="panel-heading p-3">
+          <header className="p-3">
             <h3>Loans</h3>
           </header>
           <table className="table table-hover mb-0">

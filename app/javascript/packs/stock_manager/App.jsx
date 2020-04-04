@@ -32,7 +32,10 @@ class App extends React.Component {
     super(props);
     this.state = {
       chartData: chartData,
-      shares: gon.shareInfo
+      shares: gon.shareInfo,
+      totalActive: gon.totalActive,
+      totalSold: gon.totalSold,
+      purchaseHistory: gon.purchaseHistory
     };
   }
 
@@ -59,7 +62,7 @@ class App extends React.Component {
   initSecondCard() {
     return (
       <div>
-        <div className="card">
+        <div className="card mb-2">
           <div className="card-header">
             Links
           </div>
@@ -104,13 +107,68 @@ class App extends React.Component {
                   <img src={sh.logo.url} style={{width: "100px", height: "100px"}} className="img-thumbnail"/>
                 </div>
                 <div className="col-8 align-self-center text-center">
-                  <div className="h4">Current equity: ${sh.totalShares * sh.quote.latest_price}</div>
+                  <div className="h4">Current equity: ${(sh.totalShares * sh.quote.latest_price).toFixed(2)}</div>
                 </div>
               </div>
             </div>
           </div>
         ))
         }
+      </div>
+    )
+  }
+
+  initTotalCard(){
+    return(
+      <div className="card mb-2">
+        <div className="card-header">
+          Total shares
+        </div>
+        <div className="row">
+          <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 align-self-center text-center border-right">
+            <div className="text-center m-3">Current Shares:</div>
+            <div className="rate-wrapper font_white h1 m-3 text-center">{this.state.totalActive}</div>
+          </div>
+          <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12 align-self-center text-center">
+            <div className="text-center m-3">Sold Shares:</div>
+            <div className="rate-wrapper font_white h1 m-3 text-center">{this.state.totalSold}</div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
+  initPurchaseHistoryCard(){
+    return(
+      <div className="card mb-2">
+        <div className="card-header">
+          Purchase History
+        </div>
+        <div>
+          <table className="table table-hover mb-0">
+            <thead>
+            <tr>
+              <th>Name</th>
+              <th>Shares</th>
+              <th>Purchased Date</th>
+              <th>Total</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            {this.state.purchaseHistory.map(his => (
+              <tr key={his.n}>
+                <td>{his.n}</td>
+                <td>{his.count}</td>
+                <td>{his.date_trunc}</td>
+                <td>${his.total}</td>
+              </tr>
+            ))
+            }
+
+            </tbody>
+          </table>
+        </div>
       </div>
     )
   }
@@ -125,6 +183,8 @@ class App extends React.Component {
           </div>
           <div className="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             {this.initSecondCard()}
+            {this.initTotalCard()}
+            {this.initPurchaseHistoryCard()}
           </div>
         </div>
       </div>

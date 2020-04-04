@@ -32,8 +32,13 @@ class HouseholdController < ApplicationController
   end
 
   def stock
-    gon.totalOriginalInvestments = Stock.calculate_total_investment
-    gon.totalCurrentInvestments = Stock.calculate_current_investment
-    gon.shareInfo = Stock.get_share_info_by_names
+    stock = Stock.all
+
+    gon.totalOriginalInvestments = stock.calculate_total_investment
+    gon.totalCurrentInvestments = stock.calculate_current_investment
+    gon.shareInfo = stock.get_share_info_by_names
+    gon.totalActive = stock.current.length
+    gon.totalSold = stock.sold.length
+    gon.purchaseHistory = stock.purchase_history.to_hash
   end
 end
