@@ -62,7 +62,9 @@ Rails.application.routes.draw do
   # Household Dashboard
   #
   get 'household/dashboard', to: 'household#dashboard'
+  get 'household/jobs', to: 'household#job'
   get 'household/budget', to: 'household#budget'
   get 'household/stocks', to:'household#stock'
+
   resources :manager_jobs
 end

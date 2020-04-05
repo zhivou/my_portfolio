@@ -6,18 +6,6 @@ class ManagerJobsController < ApplicationController
   # GET /manager_jobs.json
   def index
     @manager_jobs = ManagerJob.simple_search(params[:job_search]).order(id: :desc).page(params[:page]).per(8)
-    gon.jobs = @manager_jobs
-    expired = []
-    pending = []
-    today = Date.today
-
-    @manager_jobs.each do |j|
-      expired << j if j.created_at + 30.days < today && !j.interview
-      pending << j if j.created_at + 30.days > today && !j.interview
-    end
-
-    gon.expiredJob = expired
-    gon.pendingJob = pending
   end
 
   # GET /manager_jobs/1
