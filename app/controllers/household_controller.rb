@@ -2,6 +2,15 @@ class HouseholdController < ApplicationController
   before_action :authenticate_user!
 
   def dashboard
+    expenses = Expense.includes(:financial_type)
+    incomes = Income.includes(:financial_type)
+    loans = Loan.includes(:financial_type)
+
+    @jobs = ManagerJob.count
+
+    @all_expenses = (expenses.total_by_month + loans.total_by_month).to_i
+    @all_income = incomes.total_by_month.to_i
+
     stock = Stock.all
     @stocks_current_investment = stock.calculate_current_investment.round(2)
     @stocks_shares = stock.current.length
