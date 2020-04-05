@@ -2,6 +2,9 @@ class HouseholdController < ApplicationController
   before_action :authenticate_user!
 
   def dashboard
+    stock = Stock.all
+    @stocks_current_investment = stock.calculate_current_investment.round(2)
+    @stocks_shares = stock.current.length
   end
 
   def job
