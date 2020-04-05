@@ -1,1 +1,83 @@
-Dashboard
+<%= stylesheet_link_tag "budget_app" %>
+
+<div class="dashboard-wrapper font">
+  <div class="display-4 text-center text-light background-black">MY HOUSE HOLD APP</div>
+  <div class="d-flex picHolder text-center"
+       style="background-image: url(<%= image_url 'house_hold_main.jpg' %>)">
+  </div>
+  <div class="row mt-2 mb-2">
+
+    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+      <a href="/household/jobs">
+        <div class="social-box">
+          <i class="fa fa-users text-light" style="background-color: #4f3b46"></i>
+          <div class="gray-text">JOB MANAGER</div>
+          <ul class="text-center">
+            <div><strong><%= @jobs %></strong></div>
+            <div><span>total applied jobs</span></div>
+          </ul>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+      <a href="/household/budget">
+        <div class="social-box">
+          <i class="fa fa-money text-light" style="background-color: #4d4a99"></i>
+          <div class="gray-text">BUDGET MANAGER</div>
+          <ul>
+            <li>
+              <strong><%= @all_income %></strong>
+              <span>income</span>
+            </li>
+            <li>
+              <strong><%= @all_expenses %></strong>
+              <span>expenses</span>
+            </li>
+          </ul>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+      <a href="/household/stocks">
+      <div class="social-box">
+          <i class="fa fa-line-chart text-light" style="background-color: #e9a422"></i>
+          <div class="gray-text">STOCK INVESTMENTS</div>
+          <ul>
+            <li>
+              <strong><%= @stocks_current_investment %></strong>
+              <span>equity</span>
+            </li>
+            <li>
+              <strong><%= @stocks_shares %></strong>
+              <span>shares</span>
+            </li>
+          </ul>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="text-center">Made by me in April 2020. During corona virus pandemic.</div>
+
+<style>
+  .picHolder {
+    background-position: center center;
+    transition: background-image 0.3s ease-in-out;
+    height: 55vh;
+    display: block;
+    position: relative;
+    width: 100%;
+    overflow-x: hidden;
+    background-size: cover;
+  }
+
+    .background-black {
+      background-color: #333333;
+    }
+
+    .font{
+      font-family: 'Lato', sans-serif !important;
+    }
+</style>

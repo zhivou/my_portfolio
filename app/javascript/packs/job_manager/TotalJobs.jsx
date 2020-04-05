@@ -43,7 +43,7 @@ class TotalJobs extends React.Component {
     const dataSet = data && dataOffset ? [data, dataOffset - data] : [data];
 
     return(
-      <div className="card m-2 p-2 pt-5 chartItem">
+      <div className="card mr-2 p-2 pt-5 chartItem">
         <Doughnut
           chartData={
             {
@@ -80,7 +80,7 @@ class TotalJobs extends React.Component {
     const rate = (successful * 100) / total.length;
 
     return(
-      <div className="card m-2 p-3" id="wide-card-wrapper">
+      <div className="card p-3" id="wide-card-wrapper">
         <div className="card-title">
           <h3 className="p-3 pb-2 m-0">General Statistics</h3>
         </div>
@@ -107,11 +107,9 @@ class TotalJobs extends React.Component {
     return (
       <div>
         <div className="row">
-          <div className="col-6 text-right pr-0">
-            {this.loadTotalJobs()}
-            {this.loadSuccessfulJobs()}
-          </div>
-          <div className="col-5 pl-0">
+          {this.loadTotalJobs()}
+          {this.loadSuccessfulJobs()}
+          <div className="col-7 p-0">
             {this.initWideCard()}
           </div>
         </div>

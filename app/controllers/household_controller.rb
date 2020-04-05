@@ -2,6 +2,34 @@ class HouseholdController < ApplicationController
   before_action :authenticate_user!
 
   def dashboard
+    expenses = Expense.includes(:financial_type)
+    incomes = Income.includes(:financial_type)
+    loans = Loan.includes(:financial_type)
+
+    @jobs = ManagerJob.count
+
+    @all_expenses = (expenses.total_by_month + loans.total_by_month).to_i
+    @all_income = incomes.total_by_month.to_i
+
+    stock = Stock.all
+    @stocks_current_investment = stock.calculate_current_investment.round(2)
+    @stocks_shares = stock.current.length
+  end
+
+  def job
+    @manager_jobs = ManagerJob.simple_search(params[:job_search]).order(id: :desc).page(params[:page]).per(8)
+    gon.jobs = @manager_jobs
+    expired = []
+    pending = []
+    today = Date.today
+
+    @manager_jobs.each do |j|
+      expired << j if j.created_at + 30.days < today && !j.interview
+      pending << j if j.created_at + 30.days > today && !j.interview
+    end
+
+    gon.expiredJob = expired
+    gon.pendingJob = pending
   end
 
   def budget
