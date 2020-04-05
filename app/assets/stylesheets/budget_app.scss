@@ -5490,13 +5490,15 @@ ul.ft-link li a i {
 
 .social-box {
 
-  min-height: 158px;
+  min-height: 200px;
 
   background: white;
 
   margin-bottom: 30px;
 
   text-align: center;
+
+  transition: all 0.3s ease-out;
 
 }
 
@@ -5594,6 +5596,13 @@ ul.ft-link li a i {
 
   margin: -1px -1px 1px -1px;
 
+}
+
+.social-box:hover {
+  cursor: pointer;
+  transform: translate3D(0, -1px, 0) scale(1.02);
+  filter: grayscale(100%);
+  transition: all 0.3s ease-out;
 }
 
 /*weather*/
