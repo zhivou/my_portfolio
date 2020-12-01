@@ -9,7 +9,7 @@
 Inspired by LinkedIn interface
 Rails 6.0.0
 
-[Life Website](https://www.skrdev.com/ "Click to see Portfolio")
+[Click to see Portfolio](https://www.skrdev.com/ "Click to see Portfolio")
 
 | Dependences    |
 | -------------- |
