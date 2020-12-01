@@ -9,12 +9,15 @@
 Inspired by LinkedIn interface
 Rails 6.0.0
 
-Main Dependences:
-Devise,
-Bootstrap,
-React JS,
-Chart JS,
-Jquery,
-Active Storage,
-Active Text,
-WebPack
+[Life Website](https://www.skrdev.com/ "Click to see Portfolio")
+
+| Dependences    |
+| -------------- |
+| Devise         |
+| Bootstrap      |
+| React JS       |
+| Chart JS       |
+| Jquery         |
+| Active Storage |
+| Active Text    |
+| WebPack        |
