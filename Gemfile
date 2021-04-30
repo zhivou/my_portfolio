@@ -66,5 +66,5 @@ gem 'google-cloud-storage', '~> 1.18', '>= 1.18.2'
 gem 'mail_form'
 gem "mini_magick", ">= 4.9.4"
 gem 'kaminari'
-gem 'gon', '~> 6.2'
+gem 'gon', '~> 6.4'
 gem 'iex-ruby-client'
