@@ -5,8 +5,10 @@ default: &default
 
 development:
   <<: *default
+  host: postgres
   database: development
-  password:
+  username: rails
+  password: rails
 
 test:
   <<: *default
