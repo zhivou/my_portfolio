@@ -1,1 +1,6 @@
 node_modules
+/storage/
+!/data/
+!/tmp/
+.git
+.cache

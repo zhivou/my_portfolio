@@ -12,3 +12,4 @@ yarn-debug.log*
 /storage/
 !/data/
 !/tmp/
+test/.DS_Store
