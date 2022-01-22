@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { exportSidecar } from 'use-sidecar';\nimport FocusTrap from './Trap';\nimport { mediumSidecar } from './medium';\nexport default exportSidecar(mediumSidecar, FocusTrap);","map":null,"metadata":{},"sourceType":"module"}

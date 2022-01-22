@@ -10,4 +10,5 @@ yarn-debug.log*
 .yarn-integrity
 *local_env.yml
 /storage/
-/data
+!/data/
+!/tmp/

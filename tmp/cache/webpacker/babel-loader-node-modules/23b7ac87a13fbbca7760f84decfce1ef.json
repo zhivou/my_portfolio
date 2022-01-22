@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { exportSidecar } from 'use-sidecar';\nimport 'react-focus-lock/sidecar';\nimport 'react-remove-scroll/sidecar';\nimport { Effect } from './Effect';\nimport { effectCar } from './medium';\nexport default exportSidecar(effectCar, Effect);","map":null,"metadata":{},"sourceType":"module"}
