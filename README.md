@@ -34,6 +34,6 @@ If you haven't already, log in to your Heroku account and follow the prompts to 
 
 ```
 heroku login
-heroku git:remote -a skr-portfolio
-git subtree push --prefix rails heroku master
+heroku stack:set container -a skr-portfolio
+
 ```
