@@ -1,8 +1,8 @@
-FROM ruby:3.1.0
+FROM ruby:2.5.0
 
-ENV BUNDLER_VERSION 2.3.5
-ENV RAILS_VERSION 6.1.4.4
-ENV NODE_VERSION 16
+ENV BUNDLER_VERSION 1.17.3
+ENV RAILS_VERSION '6.0.0'
+ENV NODE_VERSION 14
 
 WORKDIR /myapp
 
@@ -14,7 +14,9 @@ RUN gem update --system \
     && gem install rails -v $RAILS_VERSION
 
 RUN apt-get update && apt-get install -y \
-  curl &&\
+  curl \
+  build-essential \
+  libpq-dev &&\
   curl -sL https://deb.nodesource.com/setup_$NODE_VERSION.x | bash - && \
   curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
   echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
