@@ -1,7 +1,7 @@
-FROM ruby:2.5.0
+FROM ruby:3.1.0
 
 ENV BUNDLER_VERSION 1.17.3
-ENV RAILS_VERSION '6.0.0'
+ENV RAILS_VERSION 6.1.4.4
 ENV NODE_VERSION 14
 
 WORKDIR /myapp
@@ -15,7 +15,6 @@ RUN gem update --system \
 
 RUN apt-get update && apt-get install -y \
   curl \
-  build-essential \
   libpq-dev &&\
   curl -sL https://deb.nodesource.com/setup_$NODE_VERSION.x | bash - && \
   curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
