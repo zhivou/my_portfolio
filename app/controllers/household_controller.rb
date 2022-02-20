@@ -70,4 +70,7 @@ class HouseholdController < ApplicationController
     gon.purchaseHistory = stock.purchase_history.to_hash
     gon.soldHistory = stock.sell_history
   end
+
+  def asset
+  end
 end
