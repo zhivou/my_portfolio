@@ -36,17 +36,18 @@
                 <td><%= asset.notes %></td>
                 <td><%= asset.current %></td>
                 <td><%= link_to 'Show', asset %></td>
-                <td><%= link_to 'Edit', edit_asset_path(asset) %></td>
+                <td><%= link_to 'Edit', edit_my_asset_path(asset) %></td>
                 <td><%= link_to 'Destroy', asset, method: :delete, data: { confirm: 'Are you sure?' } %></td>
               </tr>
             <% end %>
           </tbody>
           </table>
         </div>
+        <div class"text-center"><%= link_to 'Add More', new_my_asset_path, class: "btn" %></div>
     <% end %>
     <% unless @assets.any? %>
       <div class="card text-center p-5">
-        No Assets yet created. Click <%= link_to 'here', new_asset_path %> to add new Asset.
+        No Assets yet created. Click <%= link_to 'here', new_my_asset_path %> to add new Asset.
       </div>
     <% end %>
   </div>

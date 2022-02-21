@@ -72,6 +72,6 @@ class HouseholdController < ApplicationController
   end
 
   def asset
-    @assets = Asset.all
+    @assets = MyAsset.all
   end
 end

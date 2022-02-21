@@ -35,10 +35,5 @@
   <%= @asset.notes %>
 </p>
 
-<p>
-  <strong>Year amount:</strong>
-  <%= @asset.year_amount %>
-</p>
-
-<%= link_to 'Edit', edit_asset_path(@asset) %> |
-<%= link_to 'Back', assets_path %>
+<%= link_to 'Edit', edit_my_asset_path(@asset) %> |
+<%= link_to 'Back', my_assets_path %>

@@ -1,4 +1,4 @@
-class AssetsController < ApplicationController
+class MyAssetsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_asset, only: [:show, :edit, :update, :destroy]
 
@@ -9,7 +9,7 @@ class AssetsController < ApplicationController
 
   # GET /assets/new
   def new
-    @asset = Asset.new
+    @asset = MyAsset.new
   end
 
   # GET /assets/1/edit
@@ -19,7 +19,7 @@ class AssetsController < ApplicationController
   # POST /assets
   # POST /assets.json
   def create
-    @asset = Asset.new(asset_params)
+    @asset = MyAsset.new(asset_params)
 
     respond_to do |format|
       if @asset.save
@@ -59,12 +59,12 @@ class AssetsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_asset
-      @asset = Asset.find(params[:id])
+      @asset = MyAsset.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def asset_params
-      params.require(:asset).permit(
+      params.require(:my_asset).permit(
           :name,
           :count,
           :amount,
