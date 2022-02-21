@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @asset.name %>
+</p>
+
+<p>
+  <strong>Asset Count if applicable</strong>
+  <%= @asset.count %>
+</p>
+
+<p>
+  <strong>Asset Count if applicable</strong>
+  <%= @asset.count %>
+</p>
+
+<p>
+  <strong>Total amount of the Asset</strong>
+  <%= @asset.amount %>
+</p>
+
+<p>
+  <strong>Asset location URL</strong>
+  <%= @asset.location_url %>
+</p>
+
+<p>
+  <strong>1Pass URL</strong>
+  <%= @asset.credentials %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @asset.notes %>
+</p>
+
+<p>
+  <strong>Year amount:</strong>
+  <%= @asset.year_amount %>
+</p>
+
+<%= link_to 'Edit', edit_asset_path(@asset) %> |
+<%= link_to 'Back', assets_path %>

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :financial_types
   resources :expenses
+  resources :assets
 
   resources :stocks
   get 'stocks/action/sell_index', to:'stocks#sell_index'
