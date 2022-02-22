@@ -72,6 +72,7 @@ class HouseholdController < ApplicationController
   end
 
   def asset
-    @assets = MyAsset.all
+    @assets = MyAsset.includes(:financial_type)
+    gon.assets = @assets.asset_with_types
   end
 end
