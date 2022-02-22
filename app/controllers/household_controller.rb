@@ -76,8 +76,11 @@ class HouseholdController < ApplicationController
   def asset
     @assets = MyAsset.includes(:financial_type)
     loans = Loan.includes(:financial_type)
+    incomes = Income.includes(:financial_type)
+    all_income = incomes.total_by_month.to_i
 
     gon.assets = @assets.asset_with_types
     gon.loans = loans.loans_with_types
+    gon.allMonthlyIncome = all_income
   end
 end

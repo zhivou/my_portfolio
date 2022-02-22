@@ -27,12 +27,21 @@ const backgroundColor = [
   '#845A6D',
 ];
 
+const icons = {
+  thumbUp: 'fa fa-thumbs-o-up',
+  plus: 'fa fa-plus',
+  lines: 'fa fa-align-left',
+  exclamation: 'fa fa-exclamation-triangle',
+  leaf: 'fa fa-envira'
+};
+
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       assets: gon.assets,
-      loans: gon.loans
+      loans: gon.loans,
+      allMonthlyIncome: gon.allMonthlyIncome
     };
   }
 
@@ -92,7 +101,22 @@ class App extends React.Component {
     )
   }
 
+  initCards(count, title, color, icon) {
+    const colorClass = `info-box ${color}`;
+
+    return(
+      <div>
+        <div className={colorClass}>
+          <i className={icon}></i>
+          <div className="count">{count}</div>
+          <div className="title">{title}</div>
+        </div>
+      </div>
+    )
+  }
+
   render() {
+    const state = this.state;
     return(
       <>
       <div className="row">
@@ -101,6 +125,9 @@ class App extends React.Component {
         </div>
         <div className="col-lg-3 col-md-12 col-sm-12 col-xs-12 pl-1 pr-1">
           {this.createLoansPie()}
+        </div>
+        <div className="col-lg-6 col-md-12 col-sm-12 col-xs-12 p-3">
+          {this.initCards(state.allMonthlyIncome, 'Income', 'green-bg', icons.plus)}
         </div>
       </div>
       </>
