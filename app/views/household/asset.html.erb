@@ -33,8 +33,8 @@
                 <td><%= asset.name %></td>
                 <td><%= asset.count %></td>
                 <td><%= asset.amount %></td>
-                <td><%= asset.location_url %></td>
-                <td><%= asset.credentials %></td>
+                <td><%= link_to asset.location_url, asset.location_url %></td>
+                <td><%= link_to asset.credentials, asset.credentials %></td>
                 <td><%= asset.notes %></td>
                 <td><%= asset.current %></td>
                 <td><%= link_to 'Show', asset %></td>
@@ -45,7 +45,9 @@
           </tbody>
           </table>
         </div>
-        <div class"text-center"><%= link_to 'Add More', new_my_asset_path, class: "btn" %></div>
+        <div class="text-center">
+          <%= link_to 'Add More', new_my_asset_path, class: "btn btn-success btn-block" %>
+        </div>
     <% end %>
     <% unless @assets.any? %>
       <div class="card text-center p-5">
