@@ -32,6 +32,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       assets: gon.assets,
+      loans: gon.loans
     };
   }
 
@@ -48,6 +49,22 @@ class App extends React.Component {
 
     return(
       this.initChart(labels, data, total, 'Assets Pie', total)
+    )
+  }
+
+  createLoansPie(){
+    const data = [];
+    const labels = [];
+    let total = 0;
+
+    this.state.loans.forEach(function (item) {
+      data.push(parseFloat(item.monthly_payment));
+      labels.push(item.name);
+      total = total + parseFloat(item.monthly_payment);
+    });
+
+    return(
+      this.initChart(labels, data, total, 'Loans Pie', total)
     )
   }
 
@@ -81,6 +98,9 @@ class App extends React.Component {
       <div className="row">
         <div className="col-lg-3 col-md-12 col-sm-12 col-xs-12 pl-1 pr-1">
           {this.createAssetPie()}
+        </div>
+        <div className="col-lg-3 col-md-12 col-sm-12 col-xs-12 pl-1 pr-1">
+          {this.createLoansPie()}
         </div>
       </div>
       </>
