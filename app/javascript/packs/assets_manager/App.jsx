@@ -43,7 +43,8 @@ class App extends React.Component {
       loans: gon.loans,
       allYearIncome: gon.allYearIncome,
       allSavings: gon.allSavings,
-      totalSavingsPerM: gon.totalSavingsPerM
+      totalSavingsPerM: gon.totalSavingsPerM,
+      totalIncomePerM: gon.totalIncomePerM
     };
   }
 
@@ -117,6 +118,21 @@ class App extends React.Component {
     )
   }
 
+  initTotalSavingsCard(count, title, color, icon) {
+    const colorClass = `info-box ${color}`;
+    const percent = (this.state.totalSavingsPerM * 100)/this.state.totalIncomePerM
+
+    return(
+      <div>
+        <div className={colorClass}>
+          <i className={icon}></i>
+          <div className="count">{count}(~{parseInt(percent)}%)</div>
+          <div className="title">{title}</div>
+        </div>
+      </div>
+    )
+  }
+
   render() {
     const state = this.state;
     return(
@@ -131,7 +147,7 @@ class App extends React.Component {
         <div className="col-lg-6 col-md-12 col-sm-12 col-xs-12 p-3">
           {this.initCards(state.allYearIncome, 'Income/year', 'green-bg', icons.plus)}
           {this.initCards(state.allSavings, 'Savings/year', 'yellow-bg', icons.plus)}
-          {this.initCards(state.totalSavingsPerM, 'Savings/month', 'red-bg', icons.lines)}
+          {this.initTotalSavingsCard(state.totalSavingsPerM, 'Savings/month', 'red-bg', icons.lines)}
         </div>
       </div>
       </>

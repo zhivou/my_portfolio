@@ -89,5 +89,6 @@ class HouseholdController < ApplicationController
     gon.allYearIncome = all_income
     gon.allSavings = all_savings
     gon.totalSavingsPerM = all_savings_m
+    gon.totalIncomePerM = incomes.total_by_month
   end
 end
