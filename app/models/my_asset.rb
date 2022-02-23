@@ -5,7 +5,7 @@ class MyAsset < ApplicationRecord
 
   def self.asset_with_types
     find_by_sql("
-      SELECT assets.*, financial_types.name
+      SELECT assets.*
       FROM assets
       LEFT JOIN financial_types ON financial_types.id = assets.financial_type_id
       WHERE assets.current = true

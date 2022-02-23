@@ -54,6 +54,7 @@ class App extends React.Component {
     let total = 0;
 
     this.state.assets.forEach(function (item) {
+      console.log(item);
       data.push(parseFloat(item.amount));
       labels.push(item.name);
       total = total + parseFloat(item.amount);

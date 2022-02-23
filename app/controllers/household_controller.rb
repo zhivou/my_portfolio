@@ -84,7 +84,7 @@ class HouseholdController < ApplicationController
     all_savings = (incomes.total_by_month.to_i - all_expenses) * 12
     all_savings_m = (incomes.total_by_month.to_i - all_expenses)
 
-    gon.assets = @assets.asset_with_types
+    gon.assets = @assets.current.asset_with_types
     gon.loans = loans.loans_with_types
     gon.allYearIncome = all_income
     gon.allSavings = all_savings
