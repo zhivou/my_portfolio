@@ -40,6 +40,7 @@ class HouseholdController < ApplicationController
     all_expenses = (expenses.total_by_month + loans.total_by_month).to_i
     all_income = incomes.total_by_month.to_i
     total_dept = loans.total_by_month.to_i
+
     if all_income > 0
       dti = (100 * all_expenses / all_income).round(1)
     end
@@ -75,12 +76,18 @@ class HouseholdController < ApplicationController
 
   def asset
     @assets = MyAsset.includes(:financial_type)
-    loans = Loan.includes(:financial_type)
     incomes = Income.includes(:financial_type)
-    all_income = incomes.total_by_month.to_i
+    all_income = (incomes.total_by_month.to_i * 12)
+    loans = Loan.includes(:financial_type)
+    expenses = Expense.includes(:financial_type)
+    all_expenses = (expenses.total_by_month + loans.total_by_month).to_i
+    all_savings = (incomes.total_by_month.to_i - all_expenses) * 12
+    all_savings_m = (incomes.total_by_month.to_i - all_expenses)
 
     gon.assets = @assets.asset_with_types
     gon.loans = loans.loans_with_types
-    gon.allMonthlyIncome = all_income
+    gon.allYearIncome = all_income
+    gon.allSavings = all_savings
+    gon.totalSavingsPerM = all_savings_m
   end
 end

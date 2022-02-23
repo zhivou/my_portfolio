@@ -41,7 +41,9 @@ class App extends React.Component {
     this.state = {
       assets: gon.assets,
       loans: gon.loans,
-      allMonthlyIncome: gon.allMonthlyIncome
+      allYearIncome: gon.allYearIncome,
+      allSavings: gon.allSavings,
+      totalSavingsPerM: gon.totalSavingsPerM
     };
   }
 
@@ -67,9 +69,9 @@ class App extends React.Component {
     let total = 0;
 
     this.state.loans.forEach(function (item) {
-      data.push(parseFloat(item.monthly_payment));
+      data.push(parseFloat(item.amount));
       labels.push(item.name);
-      total = total + parseFloat(item.monthly_payment);
+      total = total + parseFloat(item.amount);
     });
 
     return(
@@ -127,7 +129,9 @@ class App extends React.Component {
           {this.createLoansPie()}
         </div>
         <div className="col-lg-6 col-md-12 col-sm-12 col-xs-12 p-3">
-          {this.initCards(state.allMonthlyIncome, 'Income', 'green-bg', icons.plus)}
+          {this.initCards(state.allYearIncome, 'Income/year', 'green-bg', icons.plus)}
+          {this.initCards(state.allSavings, 'Savings/year', 'yellow-bg', icons.plus)}
+          {this.initCards(state.totalSavingsPerM, 'Savings/month', 'red-bg', icons.lines)}
         </div>
       </div>
       </>
