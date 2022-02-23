@@ -40,7 +40,10 @@ class HouseholdController < ApplicationController
     all_expenses = (expenses.total_by_month + loans.total_by_month).to_i
     all_income = incomes.total_by_month.to_i
     total_dept = loans.total_by_month.to_i
-    dti = (100 * all_expenses / all_income).round(1)
+
+    if all_income > 0
+      dti = (100 * all_expenses / all_income).round(1)
+    end
 
     gon.expenses = expenses.expenses_with_types
     gon.incomes = incomes.incomes_with_types
@@ -67,7 +70,25 @@ class HouseholdController < ApplicationController
     gon.shareInfo = stock.get_share_info_by_names
     gon.totalActive = stock.current.length
     gon.totalSold = stock.sold.length
-    gon.purchaseHistory = stock.purchase_history.to_hash
+    gon.purchaseHistory = stock.purchase_history.to_h
     gon.soldHistory = stock.sell_history
+  end
+
+  def asset
+    @assets = MyAsset.includes(:financial_type)
+    incomes = Income.includes(:financial_type)
+    all_income = (incomes.total_by_month.to_i * 12)
+    loans = Loan.includes(:financial_type)
+    expenses = Expense.includes(:financial_type)
+    all_expenses = (expenses.total_by_month + loans.total_by_month).to_i
+    all_savings = (incomes.total_by_month.to_i - all_expenses) * 12
+    all_savings_m = (incomes.total_by_month.to_i - all_expenses)
+
+    gon.assets = @assets.asset_with_types
+    gon.loans = loans.loans_with_types
+    gon.allYearIncome = all_income
+    gon.allSavings = all_savings
+    gon.totalSavingsPerM = all_savings_m
+    gon.totalIncomePerM = incomes.total_by_month
   end
 end

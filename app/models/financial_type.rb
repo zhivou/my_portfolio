@@ -3,4 +3,5 @@ class FinancialType < ApplicationRecord
   has_one :income
   has_one :loan
   has_one :stock
+  has_one :asset
 end

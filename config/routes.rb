@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :financial_types
   resources :expenses
+  resources :my_assets
 
   resources :stocks
   get 'stocks/action/sell_index', to:'stocks#sell_index'
@@ -65,6 +66,7 @@ Rails.application.routes.draw do
   get 'household/jobs', to: 'household#job'
   get 'household/budget', to: 'household#budget'
   get 'household/stocks', to:'household#stock'
+  get 'household/assets', to:'household#asset'
 
   resources :manager_jobs
 end
