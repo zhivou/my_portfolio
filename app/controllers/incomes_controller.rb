@@ -57,7 +57,7 @@ class IncomesController < ApplicationController
   def destroy
     @income.destroy
     respond_to do |format|
-      format.html { redirect_to incomes_url, notice: 'Income was successfully destroyed.' }
+      format.html { redirect_to household_budget_path, notice: 'Income was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

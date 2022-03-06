@@ -34,7 +34,10 @@
         <%= yield %>
       <% elsif params[:controller] == 'household' ||
           params[:controller] == 'manager_jobs' ||
-          params[:controller] == 'my_assets'
+          params[:controller] == 'my_assets' ||
+          params[:controller] == 'incomes' ||
+          params[:controller] == 'expenses' ||
+          params[:controller] == 'loans'
       %>
         <div id="wrapper">
           <!-- Sidebar -->
