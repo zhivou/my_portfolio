@@ -70,7 +70,7 @@ class HouseholdController < ApplicationController
     gon.shareInfo = stock.get_share_info_by_names
     gon.totalActive = stock.current.length
     gon.totalSold = stock.sold.length
-    gon.purchaseHistory = stock.purchase_history.to_h
+    gon.purchaseHistory = stock.purchase_history
     gon.soldHistory = stock.sell_history
   end
 

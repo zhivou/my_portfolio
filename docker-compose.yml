@@ -29,5 +29,7 @@ services:
       - RAILS_ENV=development
       - SENDGRID_USERNAME
       - SENDGRID_PASSWORD
+      - IEX_PUBLIC
+      - IEX_SECRET
     stdin_open: true
     tty: true
