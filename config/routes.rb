@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   resources :financial_types
-  resources :expenses
   resources :my_assets
 
   resources :stocks
@@ -9,6 +8,8 @@ Rails.application.routes.draw do
 
   resources :incomes, except: [:index]
   resources :loans, except: [:index]
+  resources :expenses, except: [:index]
+  
   resources :photo_sections
   resources :contacts, only: [:index, :new, :create]
   devise_for :users, path: '',

@@ -57,7 +57,7 @@ class ExpensesController < ApplicationController
   def destroy
     @expense.destroy
     respond_to do |format|
-      format.html { redirect_to expenses_url, notice: 'Expense was successfully destroyed.' }
+      format.html { redirect_to household_budget_path, notice: 'Expense was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
