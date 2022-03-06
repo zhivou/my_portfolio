@@ -31,7 +31,7 @@ services:
       - SENDGRID_PASSWORD
       - IEX_PUBLIC
       - IEX_SECRET
-      - GOOGLE_CALENDAR_ID=5hmtac0npqm3k8qi9l2fpq0ipg@group.calendar.google.com
-      - GOOGLE_CALENDAR_KEY=AIzaSyBhs9X1ThSmpEC1YOZkfwgH0IN0G6StiKg
+      - GOOGLE_CALENDAR_ID
+      - GOOGLE_CALENDAR_KEY
     stdin_open: true
     tty: true
