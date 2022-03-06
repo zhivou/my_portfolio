@@ -57,7 +57,7 @@ class LoansController < ApplicationController
   def destroy
     @loan.destroy
     respond_to do |format|
-      format.html { redirect_to loans_url, notice: 'Loan was successfully destroyed.' }
+      format.html { redirect_to household_budget_path, notice: 'Loan was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   get 'stocks/action/sell_index', to:'stocks#sell_index'
   post 'stocks/action/sell', to: "stocks#sell"
 
-  resources :incomes
-  resources :loans
+  resources :incomes, except: [:index]
+  resources :loans, except: [:index]
   resources :photo_sections
   resources :contacts, only: [:index, :new, :create]
   devise_for :users, path: '',
