@@ -8,7 +8,8 @@ export default class GoogleCalendar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      events: []
+      events: [],
+      rawEvents: []
     }
   }
 
@@ -19,30 +20,47 @@ export default class GoogleCalendar extends Component {
 
     axios.get(url)
       .then( res => {
-        const eves = [];
-        res.data.items.map((event) => {
-          eves.push({
-            id: event.id,
-            start: new Date(event.start.date || event.start.dateTime),
-            end: new Date(event.end.date || event.end.dateTime),
-            title: event.summary
-          });
-        });
-        this.setState({events: eves})
+        this.setState({rawEvents: res.data.items})
+        this.sanitizeEvents(res.data.items);
       })
       .catch( err => {
         console.log(err)
       });
   }
 
-  render = () =>
-    <div>
-      <Calendar
-        localizer={localizer}
-        defaultDate={new Date()}
-        defaultView="month"
-        style={{ height: "500px" }}
-        events={this.state.events}
-      />
-    </div>
+  sanitizeEvents(events) {
+    console.log("Sanitizing google events...")
+    const eves = [];
+    events.map((event) => {
+      if (event.status === "confirmed") {
+        if (event.start.date || event.start.dateTime) {
+          console.log(event.start.date);
+          eves.push({
+            id: event.id,
+            start: new Date(event.start.date || event.start.dateTime),
+            end: new Date(event.end.date || event.end.dateTime),
+            title: event.summary,
+            htmlLink: event.htmlLink
+          });
+        }
+      }
+    });
+    this.setState({events: eves})
+  }
+
+  render = () => {
+    return(
+      <div>
+        <Calendar
+          selectable
+          localizer={localizer}
+          start={new Date()}
+          end="month"
+          style={{ height: "500px" }}
+          events={this.state.events}
+          onSelectEvent={event => window.open(event.htmlLink, "_blank")}
+        />
+      </div>
+    )
+  }
 }

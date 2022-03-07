@@ -31,5 +31,7 @@ services:
       - SENDGRID_PASSWORD
       - IEX_PUBLIC
       - IEX_SECRET
+      - GOOGLE_CALENDAR_ID
+      - GOOGLE_CALENDAR_KEY
     stdin_open: true
     tty: true

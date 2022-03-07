@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
   resources :financial_types
-  resources :expenses
   resources :my_assets
 
   resources :stocks
   get 'stocks/action/sell_index', to:'stocks#sell_index'
   post 'stocks/action/sell', to: "stocks#sell"
 
-  resources :incomes
-  resources :loans
+  resources :incomes, except: [:index]
+  resources :loans, except: [:index]
+  resources :expenses, except: [:index]
+  
   resources :photo_sections
   resources :contacts, only: [:index, :new, :create]
   devise_for :users, path: '',
