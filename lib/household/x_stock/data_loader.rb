@@ -22,6 +22,29 @@ module Household
         response.body
       end
 
+      def download(url, path = nil)
+        response = fetch(url)
+        validate!(response, url)
+        return unless response.is_a?(Net::HTTPSuccess)
+
+        if path
+          File.open(path, 'wb') { |file| file << response.body } unless response.body.size.zero?
+        else
+          response.body
+        end
+      end
+
+      def fetch(url, headers = {}, limit: 10)
+        raise 'Too Many Redirects' if limit.zero?
+
+        response = http_get(url, headers)
+        if response.is_a?(Net::HTTPRedirection)
+          fetch(response['location'], headers, limit: limit - 1)
+        else
+          response
+        end
+      end
+
       def validate!(response, url)
         log_info("#{response.code} #{url}")
         is_text = TEXT_CONTENT_TYPES.include?(response.content_type)

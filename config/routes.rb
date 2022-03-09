@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :incomes, except: [:index]
   resources :loans, except: [:index]
   resources :expenses, except: [:index]
-  
+
   resources :photo_sections
   resources :contacts, only: [:index, :new, :create]
   devise_for :users, path: '',
@@ -68,6 +68,7 @@ Rails.application.routes.draw do
   get 'household/budget', to: 'household#budget'
   get 'household/stocks', to:'household#stock'
   get 'household/assets', to:'household#asset'
+  get 'household/fear_n_greed_image', to: 'household#fear_n_greed_image'
 
   resources :manager_jobs
 end

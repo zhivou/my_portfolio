@@ -91,4 +91,9 @@ class HouseholdController < ApplicationController
     gon.totalSavingsPerM = all_savings_m
     gon.totalIncomePerM = incomes.total_by_month
   end
+
+  def fear_n_greed_image
+    image_path = Household::XStock::Refresh::FearNGreed.new.image_path
+    send_file(image_path, type: 'image/png', disposition: 'inline')
+  end
 end
