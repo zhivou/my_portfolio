@@ -64,6 +64,7 @@ class HouseholdController < ApplicationController
 
   def stock
     stock = Stock.all
+    @f_n_g = fear_n_greed_image
 
     gon.totalOriginalInvestments = stock.calculate_total_investment
     gon.totalCurrentInvestments = stock.calculate_current_investment
@@ -92,8 +93,29 @@ class HouseholdController < ApplicationController
     gon.totalIncomePerM = incomes.total_by_month
   end
 
+  private
+  def fng_params
+    params.require(:widget_image).permit(:name, :w_image)
+  end
+
+  def find_f_n_g
+    WidgetImage.includes(:w_image_attachment).h_ego
+  end
+
   def fear_n_greed_image
-    image_path = Household::XStock::Refresh::FearNGreed.new.image_path
-    send_file(image_path, type: 'image/png', disposition: 'inline')
+    unless find_f_n_g.exists?
+      image_path = Household::XStock::Refresh::FearNGreed.new.image_path
+      widget = WidgetImage.new(wid_name: "fear_n_greed")
+
+      widget.w_image.attach(
+        io: File.open(image_path),
+        filename: 'fear-and-greed.png',
+        content_type: 'application/png',
+        identify: false
+      )
+
+      widget.save!
+    end
+    find_f_n_g.last
   end
 end
