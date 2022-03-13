@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   resources :financial_types
   resources :my_assets
@@ -69,6 +71,7 @@ Rails.application.routes.draw do
   get 'household/stocks', to:'household#stock'
   get 'household/assets', to:'household#asset'
   get 'household/fear_n_greed_image', to: 'household#fear_n_greed_image'
+  mount Sidekiq::Web => 'jobs'
 
   resources :manager_jobs
 end
