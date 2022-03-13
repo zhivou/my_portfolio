@@ -13,7 +13,7 @@
 
 <!-- TradingView Widget BEGIN -->
 <div class="row">
-  <div class="tradingview-widget-container col-6">
+  <!-- <div class="tradingview-widget-container col-6">
     <div id="tradingview_ff4fa"></div>
     <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/symbols/NASDAQ-AAPL/" rel="noopener" target="_blank"><span class="blue-text">AAPL Chart</span></a> by TradingView</div>
     <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
@@ -35,10 +35,22 @@
         }
       );
     </script>
-  </div>
+  </div> -->
   <div class="col-6">
-    <%= image_tag @f_n_g.w_image, class: "img-fluid" %>
-    <%= render "div_hikes_n_cuts" %>
+    <div class="w-full bg-white shadow-md rounded px-5 pt-5 pb-5 mb-3">
+      <%= image_tag @f_n_g.w_image, class: "img-fluid" %>
+    </div>
+    <div class="w-full bg-white shadow-md rounded px-5 pt-5 pb-5 mb-3 text-center">
+      <%= render "crypto_fear_n_greed" %>
+    </div>
+    <div class="w-full bg-white shadow-md rounded px-5 pt-5 pb-5 mb-3">
+      <%= render "div_hikes_n_cuts" %>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="w-full bg-white shadow-md rounded px-5 pt-5 pb-5 mb-3">
+      <%= render "market" %>
+    </div>
   </div>
 </div>
 <!-- TradingView Widget END -->
