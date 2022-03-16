@@ -51,8 +51,8 @@ services:
       - RAILS_ENV=development
       - SENDGRID_USERNAME
       - SENDGRID_PASSWORD
-      - IEX_PUBLIC
-      - IEX_SECRET
+      - IEX_SANDBOX_PUBLIC=Tpk_87dc03493517454290957f369eb3fcce
+      - IEX_SANDBOX_SECRET=Tsk_c36247be84b54ebab41aaf7e3f082f6a
       - GOOGLE_CALENDAR_ID
       - GOOGLE_CALENDAR_KEY
       - REDIS_URL=redis://redis:6379/0
