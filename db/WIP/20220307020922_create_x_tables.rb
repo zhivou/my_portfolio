@@ -1,9 +1,12 @@
 class CreateXTables < ActiveRecord::Migration[6.1]
   def change
     create_table    :x_stocks do |t|
-      t.references  :brokers, foreign_key: true
-
       t.string      :symbol, null: false
+
+      t.references  :brokers, foreign_key: true
+      t.references  :x_companies, foreign_key: true
+      t.references  :x_dividends, foreign_key: true
+
       t.string      :company_name
       t.string      :industry
       t.string      :website
@@ -41,6 +44,65 @@ class CreateXTables < ActiveRecord::Migration[6.1]
       t.decimal     :week_52_low, precision: 10, scale: 2
       t.date        :week_52_low_date
 
+      t.timestamps
+    end
+
+    create_table    :x_companis do |t|
+      t.string      :name
+      t.string      :exchange
+      t.string      :industry
+      t.string      :website
+      t.text        :description
+      t.string      :ceo
+      t.string      :security_name
+      t.string      :issueType
+      t.string      :sector
+      t.integer     :primary_sic_code
+      t.integer     :employees
+      t.string      :tags, array: true, default: []
+      t.string      :address
+      t.string      :address2
+      t.string      :state
+      t.string      :city
+      t.string      :zip
+      t.string      :country
+      t.string      :phone
+
+      t.boolean     :current
+      t.timestamps
+    end
+
+    create_table    :x_crypto_projects do |t|
+      t.string      :crypto_id
+      t.string      :name
+      t.text        :short_description
+      t.text        :description
+      t.date        :founded
+      t.string      :tags, array: true, default: []
+      t.string      :algorithm
+      t.string      :organization_structure
+      t.string      :development_status
+      t.string      :github
+    end
+
+    create_table    :x_dividends do |t|
+      t.decimal     :amount, precision: 10, scale: 2
+      t.string      :currency
+      t.date        :declared_date
+      t.text        :description
+      t.date        :ex_date
+      t.string      :flag
+      t.string      :frequency
+      t.date        :payment_date
+      t.date        :record_date
+      t.integer     :refid
+      t.string      :divid
+      t.string      :divkey
+      t.string      :subkey
+      t.integer     :market_date
+      t.integer     :marker_updated
+
+      t.boolean     :current
       t.timestamps
     end
 
