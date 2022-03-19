@@ -37,7 +37,8 @@
           params[:controller] == 'my_assets' ||
           params[:controller] == 'incomes' ||
           params[:controller] == 'expenses' ||
-          params[:controller] == 'loans'
+          params[:controller] == 'loans' ||
+          params[:controller] == 'services'
       %>
         <div id="wrapper">
           <!-- Sidebar -->
@@ -62,6 +63,9 @@
               </li>
               <li>
                 <%= link_to 'Assets Manager', household_assets_path %>
+              </li>
+              <li>
+                <%= link_to 'Services', household_services_path %>
               </li>
               <li>
                 <%= link_to 'Exit', root_path %>
