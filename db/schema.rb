@@ -238,6 +238,140 @@ ActiveRecord::Schema.define(version: 2022_03_09_170102) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "x_companies", force: :cascade do |t|
+    t.string "name"
+    t.string "exchange"
+    t.string "industry"
+    t.string "website"
+    t.text "description"
+    t.string "ceo"
+    t.string "security_name"
+    t.string "issueType"
+    t.string "sector"
+    t.integer "primary_sic_code"
+    t.integer "employees"
+    t.string "tags", default: [], array: true
+    t.string "address"
+    t.string "address2"
+    t.string "state"
+    t.string "city"
+    t.string "zip"
+    t.string "country"
+    t.string "phone"
+    t.boolean "current"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "x_crypto_projects", force: :cascade do |t|
+    t.string "crypto_id"
+    t.string "name"
+    t.string "type"
+    t.string "parent"
+    t.integer "rank"
+    t.text "description"
+    t.boolean "open_source"
+    t.string "tags", default: [], array: true
+    t.string "hash_algorithm"
+    t.boolean "current"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "x_cryptos", force: :cascade do |t|
+    t.string "symbol", null: false
+    t.bigint "x_crypto_projects_id"
+    t.decimal "current_price", precision: 10, scale: 2
+    t.decimal "volume", precision: 10, scale: 2
+    t.integer "rank"
+    t.integer "total_supply"
+    t.integer "circulating_supply"
+    t.integer "max_supply"
+    t.decimal "market_cap", precision: 10, scale: 2
+    t.decimal "price_1h_percentage_change", precision: 10, scale: 2
+    t.decimal "price_24h_percentage_change", precision: 10, scale: 2
+    t.decimal "price_7d_percentage_change", precision: 10, scale: 2
+    t.decimal "price_30d_percentage_change", precision: 10, scale: 2
+    t.decimal "price_3m_percentage_change", precision: 10, scale: 2
+    t.decimal "price_1y_percentage_change", precision: 10, scale: 2
+    t.decimal "price_5y_percentage_change", precision: 10, scale: 2
+    t.decimal "all_time_high_price", precision: 10, scale: 2
+    t.decimal "all_time_high_percentage_drop", precision: 10, scale: 2
+    t.decimal "all_time_high_date", precision: 10, scale: 2
+    t.decimal "untrusted_volume", precision: 10, scale: 2
+    t.boolean "current"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["x_crypto_projects_id"], name: "index_x_cryptos_on_x_crypto_projects_id"
+  end
+
+  create_table "x_dividends", force: :cascade do |t|
+    t.decimal "amount", precision: 10, scale: 2
+    t.string "currency"
+    t.date "declared_date"
+    t.text "description"
+    t.date "ex_date"
+    t.string "flag"
+    t.string "frequency"
+    t.date "payment_date"
+    t.date "record_date"
+    t.integer "refid"
+    t.string "divid"
+    t.string "divkey"
+    t.string "subkey"
+    t.integer "market_date"
+    t.integer "marker_updated"
+    t.boolean "current"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "x_positions", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "x_stocks_id"
+    t.bigint "x_cryptos_id"
+    t.decimal "shares", precision: 12, scale: 4
+    t.decimal "average_price", precision: 10, scale: 2
+    t.decimal "total_cost", precision: 10, scale: 2
+    t.decimal "market_price", precision: 10, scale: 2
+    t.decimal "market_value", precision: 10, scale: 2
+    t.decimal "gain_loss", precision: 10, scale: 2
+    t.decimal "gain_loss_pct", precision: 10, scale: 2
+    t.decimal "est_annual_dividend", precision: 12, scale: 4
+    t.decimal "est_annual_income", precision: 12, scale: 4
+    t.string "note"
+    t.boolean "current"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_x_positions_on_user_id"
+    t.index ["x_cryptos_id"], name: "index_x_positions_on_x_cryptos_id"
+    t.index ["x_stocks_id"], name: "index_x_positions_on_x_stocks_id"
+  end
+
+  create_table "x_stocks", force: :cascade do |t|
+    t.string "symbol", null: false
+    t.bigint "x_companies_id"
+    t.bigint "x_dividends_id"
+    t.decimal "volume", precision: 16
+    t.decimal "current_price", precision: 10, scale: 2
+    t.decimal "prev_close_price", precision: 10, scale: 2
+    t.decimal "open_price", precision: 10, scale: 2
+    t.decimal "day_low_price", precision: 10, scale: 2
+    t.decimal "day_high_price", precision: 10, scale: 2
+    t.decimal "price_change", precision: 10, scale: 2
+    t.decimal "price_change_pct", precision: 10, scale: 2
+    t.decimal "week_52_high", precision: 10, scale: 2
+    t.date "week_52_high_date"
+    t.decimal "week_52_low", precision: 10, scale: 2
+    t.date "week_52_low_date"
+    t.string "logo_url"
+    t.boolean "current"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["x_companies_id"], name: "index_x_stocks_on_x_companies_id"
+    t.index ["x_dividends_id"], name: "index_x_stocks_on_x_dividends_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "expenses", "financial_types"
@@ -246,4 +380,10 @@ ActiveRecord::Schema.define(version: 2022_03_09_170102) do
   add_foreign_key "photo_sections", "photos"
   add_foreign_key "stocks", "financial_types"
   add_foreign_key "tags", "blogs"
+  add_foreign_key "x_cryptos", "x_crypto_projects", column: "x_crypto_projects_id"
+  add_foreign_key "x_positions", "users"
+  add_foreign_key "x_positions", "x_cryptos", column: "x_cryptos_id"
+  add_foreign_key "x_positions", "x_stocks", column: "x_stocks_id"
+  add_foreign_key "x_stocks", "x_companies", column: "x_companies_id"
+  add_foreign_key "x_stocks", "x_dividends", column: "x_dividends_id"
 end
