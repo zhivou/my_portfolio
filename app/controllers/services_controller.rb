@@ -1,12 +1,17 @@
 class ServicesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_find_job, only: [:stopJob]
+  before_action :set_find_job, only: [:startJob, :stopJob]
+
+  RUNNERS = [
+    Household::XStock::Job::StockJob.new
+  ]
 
   def index
+    @runners = RUNNERS
   end
 
   def startJob
-    job = Sidekiq::Cron::Job.new(name: 'Xstocks', cron: '* * * * *', class: 'XStocks::Stock::PricesJob')
+    job = @job.perform
 
     if job.valid?
       job.save
@@ -20,12 +25,8 @@ class ServicesController < ApplicationController
     end
   end
 
-  # NOTE: Default methods won't work with fount job objects.
-  # Use (job.find(job_name).name == job_name) to see if
-  # job is in the queue.
   def stopJob
-    job_name = params[:job_name]
-    if (@job.name == job_name)
+    if (@job.status == "Enabled")
       Sidekiq::Cron::Job.destroy(job_name)
       render json: "#{job_name} was successfully removed!", status: :ok
     else
@@ -38,11 +39,11 @@ class ServicesController < ApplicationController
   end
 
   private
-  def stop_job_params
-    params.require(:services).permit(:job_name, :cron, :klass)
-  end
-
   def set_find_job
-    @job = Sidekiq::Cron::Job.find(params[:job_name])
+    RUNNERS.each do |r|
+      @job = r if r.jid === params[:job_id]
+      return
+    end
+    raise "Job id #{params[:job_id]} was not found!"
   end
 end

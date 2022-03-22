@@ -1,9 +1,11 @@
 <tr>
-  <th scope="row">Xstocks</th>
-  <td>* * * * *</td>
-  <td>Enabled</td>
+  <th scope="row"><%= runner.name %></th>
+  <td><%= runner.cron %></td>
+  <td><%= runner.status %></td>
+  <td><%= runner.tags.inspect %></td>
+  <td><%= runner.description %></td>
   <td>
-    <%= button_to 'Start', household_services_start_path, method: 'post', remote: true  %>
-    <%= button_to 'Stop', household_services_stop_path, method: 'post', params: { job_name: "Xstocks" }, remote: true %>
+    <%= button_to 'Start', household_services_start_path, method: 'post', params: { job_id: runner.jid }, remote: true  %>
+    <%= button_to 'Stop', household_services_stop_path, method: 'post', params: { job_id: runner.jid }, remote: true %>
   </td>
 </tr>

@@ -4,10 +4,14 @@
       <th scope="col">Job Name</th>
       <th scope="col">Cron</th>
       <th scope="col">Status</th>
+      <th scope="col">Tags</th>
+      <th scope="col">Description</th>
       <th scope="col" colspan="3">Actions</th>
     </tr>
   </thead>
   <tbody>
-    <%= render 'tr_stocks' %>
+    <% @runners.each do |run| %>
+      <%= render 'tr_stocks', runner: run %>
+    <% end %>
   </tbody>
 </table>
