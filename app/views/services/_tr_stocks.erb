@@ -1,0 +1,9 @@
+<tr>
+  <th scope="row">Xstocks</th>
+  <td>* * * * *</td>
+  <td>Enabled</td>
+  <td>
+    <%= button_to 'Start', household_services_start_path, method: 'post', remote: true  %>
+    <%= button_to 'Stop', household_services_stop_path, method: 'post', params: { job_name: "Xstocks" }, remote: true %>
+  </td>
+</tr>

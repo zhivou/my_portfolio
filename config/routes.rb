@@ -1,4 +1,5 @@
 require 'sidekiq/web'
+require 'sidekiq/cron/web'
 
 Rails.application.routes.draw do
   resources :financial_types
@@ -71,7 +72,11 @@ Rails.application.routes.draw do
   get 'household/stocks', to:'household#stock'
   get 'household/assets', to:'household#asset'
   get 'household/fear_n_greed_image', to: 'household#fear_n_greed_image'
+
   get 'household/services', to: 'services#index'
+  post 'household/services/start', to: 'services#startJob'
+  post 'household/services/stop', to: 'services#stopJob'
+
   mount Sidekiq::Web => 'jobs'
 
   resources :manager_jobs
