@@ -1,17 +1,17 @@
 module Household
   module XStock
     module Jobs
-      class Stock < Base
+      class Company < Base
         def jid
-          '1'
+          '3'
         end
 
         def name
-          'Stocks'
+          'Company'
         end
 
         def runner
-          'XStocks::Stock::PricesJob'
+          'XStocks::Stock::CompaniesJob'
         end
 
         def description

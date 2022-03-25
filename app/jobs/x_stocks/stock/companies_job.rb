@@ -4,6 +4,7 @@ module XStocks
       include Sidekiq::Worker
 
       def perform
+        puts "CompaniesJob: Working hard"
       end
     end
   end

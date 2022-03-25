@@ -5,7 +5,8 @@ module Household
       def self.all
         [
           Household::XStock::Jobs::Dividend.new,
-          Household::XStock::Jobs::Stock.new
+          Household::XStock::Jobs::Stock.new,
+          Household::XStock::Jobs::Company.new
         ]
         # TODO: Figure why it dosen't work.
         # XStocks::Jobs

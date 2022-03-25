@@ -7,43 +7,60 @@ class ServicesController < ApplicationController
   end
 
   def startJob
+    if (@job.status == "Enabled")
+      render_ok("#{@job.name} is already running.", @job.inspect.to_s)
+      return
+    end
+
     job = @job.perform
 
     if job.valid?
       job.save
-      render json: job.inspect.to_json, status: :ok
+      render_ok("Starting #{@job.name}", job.inspect.to_s)
     else
-      payload = {
-        error: job.errors,
-        status: 400
-      }
-      render json: payload, status: :bad_request
+      render_bad(job.errors, job.inspect.to_s)
     end
   end
 
   def stopJob
     if (@job.status == "Enabled")
       @job.destroy
-      render json: "#{@job.name} was successfully removed!", status: :ok
+      render_ok("#{@job.name} was successfully removed!", @job.inspect.to_s)
     else
-      payload = {
-        error: "Job with name: #{@job.name} was not found!",
-        status: 400
-      }
-      render json: payload, status: :bad_request
+      render_bad("Job with name: #{@job.name} was not found!", job.inspect.to_s)
     end
   end
 
   private
   def set_find_job
     @runners.each do |r|
-      @job = r if r.jid === params[:job_id]
-      return
+      if r.jid === params[:job_id]
+        @job = r
+        return
+      end
     end
     raise "Job id #{params[:job_id]} was not found!"
   end
 
   def set_runners
     @runners = Household::Runner.all
+  end
+
+  def render_ok(message, job)
+    payload = {
+      message: message,
+      status: 200,
+      job: job
+    }
+    render json: payload, status: :ok
+  end
+
+  def render_bad(message, job)
+    payload = {
+      error: message,
+      status: 400,
+      job: job
+    }
+    render json: payload, status: :bad_request
   end
 end
