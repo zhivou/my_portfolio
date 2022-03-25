@@ -1,13 +1,9 @@
 class ServicesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_runners
   before_action :set_find_job, only: [:startJob, :stopJob]
 
-  RUNNERS = [
-    Household::XStock::Job::StockJob.new
-  ]
-
   def index
-    @runners = RUNNERS
   end
 
   def startJob
@@ -27,11 +23,11 @@ class ServicesController < ApplicationController
 
   def stopJob
     if (@job.status == "Enabled")
-      Sidekiq::Cron::Job.destroy(job_name)
-      render json: "#{job_name} was successfully removed!", status: :ok
+      @job.destroy
+      render json: "#{@job.name} was successfully removed!", status: :ok
     else
       payload = {
-        error: "Job with name: #{job_name} was not found!",
+        error: "Job with name: #{@job.name} was not found!",
         status: 400
       }
       render json: payload, status: :bad_request
@@ -40,10 +36,14 @@ class ServicesController < ApplicationController
 
   private
   def set_find_job
-    RUNNERS.each do |r|
+    @runners.each do |r|
       @job = r if r.jid === params[:job_id]
       return
     end
     raise "Job id #{params[:job_id]} was not found!"
+  end
+
+  def set_runners
+    @runners = Household::Runner.all
   end
 end
