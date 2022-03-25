@@ -1,6 +1,6 @@
 class ServicesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_runners
+  before_action :set_runners, only: [:index, :startJob, :stopJob]
   before_action :set_find_job, only: [:startJob, :stopJob]
 
   def index
@@ -27,7 +27,7 @@ class ServicesController < ApplicationController
       @job.destroy
       render_ok("#{@job.name} was successfully removed!", @job.inspect.to_s)
     else
-      render_bad("Job with name: #{@job.name} was not found!", job.inspect.to_s)
+      render_bad("Job with name: #{@job.name} was not found!", @job.inspect.to_s)
     end
   end
 
