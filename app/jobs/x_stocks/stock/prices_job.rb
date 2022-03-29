@@ -2,9 +2,10 @@ module XStocks
   module Stock
     class PricesJob
       include Sidekiq::Worker
+      sidekiq_options retry: false
 
-      def perform
-        puts "PricesJob: Working hard"
+      def perform()
+        Household::Extract::StockPrice.new().all
       end
     end
   end

@@ -104,7 +104,7 @@ class HouseholdController < ApplicationController
 
   def fear_n_greed_image
     unless find_f_n_g.exists?
-      image_path = Household::XStock::Refresh::FearNGreed.new.image_path
+      image_path = Household::Refresh::FearNGreed.new.image_path
       widget = WidgetImage.new(wid_name: "fear_n_greed")
 
       widget.w_image.attach(
