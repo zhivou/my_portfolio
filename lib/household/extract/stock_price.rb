@@ -2,13 +2,16 @@
 module Household
   module Extract
     class StockPrice
+      CLIENT = IEX::Api::Client.new
+
       def initialize(stock_class: XStock)
-        @data_loader = Household::IexLoader.new
         @stock_class = stock_class
       end
 
       def all
-        puts @stock_class.current.inspect
+        @stock_class.current.pluck(:symbol).each do |s|
+          puts CLIENT.historical_prices(s, {range: '5d'}).inspect
+        end
       end
     end
   end

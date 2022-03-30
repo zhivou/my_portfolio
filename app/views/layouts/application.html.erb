@@ -38,7 +38,8 @@
           params[:controller] == 'incomes' ||
           params[:controller] == 'expenses' ||
           params[:controller] == 'loans' ||
-          params[:controller] == 'services'
+          params[:controller] == 'services' ||
+          params[:controller] == 'my_positions'
       %>
         <div id="wrapper">
           <!-- Sidebar -->
@@ -60,6 +61,9 @@
               </li>
               <li>
                 <%= link_to 'Stock Manager', household_stocks_path %>
+              </li>
+              <li>
+                <%= link_to 'Positions', my_positions_path %>
               </li>
               <li>
                 <%= link_to 'Assets Manager', household_assets_path %>
