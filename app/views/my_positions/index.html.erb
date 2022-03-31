@@ -26,8 +26,8 @@
 
 <br>
 
-Create Widget React:
-<div id="react-my-positions-new"></div>
-<%= react_component("HelloWorld", { greeting: "Hello from react-rails." }) %>
-
-link_to 'New Income', new_income_path
+<div class="row">
+  <div class="col-3 card p-3">
+    <%= react_component("my_positions/New", { path: my_positions_path, authenticityToken: csrf_meta_tags }) %>
+  </div>
+</div>
