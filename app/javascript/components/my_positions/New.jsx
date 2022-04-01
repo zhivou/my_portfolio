@@ -15,11 +15,12 @@ class New extends React.Component {
   }
 
   handleSubmit(e) {
-    const form = this.state.formHolder
+    e.preventDefault();
+    const form = this.state.formHolder;
 
-    if(!form.symbol){ return }
-    if(!form.shares){ return }
-    if(!form.average_price){ return }
+    if(!form.symbol){ return };
+    if(!form.shares){ return };
+    if(!form.average_price){ return };
 
     axios.post(this.props.path, {
       my_position: this.state.formHolder

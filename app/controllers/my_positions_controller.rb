@@ -7,7 +7,14 @@ class MyPositionsController < ApplicationController
   end
 
   def create
-    render json: my_position_params, status: :ok
+    stock = XStock.symb(my_position_params[:symbol])
+
+    if stock.exists?
+      stock.update(current: false)
+      new_stock = XStock.new(my_position_params)
+    end
+
+    render json: "#{stock.inspect}", status: :ok
   end
 
   private
@@ -21,8 +28,7 @@ class MyPositionsController < ApplicationController
         :shares,
         :average_price,
         :notes,
-        :crypto,
-        :current
+        :crypto
       )
   end
 end
