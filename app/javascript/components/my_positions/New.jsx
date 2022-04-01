@@ -8,15 +8,17 @@ class New extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = { formHolder: { crypto: false } };
+
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
 
     axios.post(this.props.path, {
-      my_position: {
-      }
+      my_position: this.state.formHolder
     })
     .then( res => {
       console.log(res)
@@ -26,18 +28,45 @@ class New extends React.Component {
     });
   }
 
+  handleChange(e) {
+    if (e.target.id === "crypto") {
+      this.handleToggle();
+      return
+    }
+
+    this.setState({
+      formHolder: {
+        ...this.state.formHolder,
+        [e.target.id]: e.target.value
+      }
+    });
+  }
+
+  handleToggle() {
+    this.setState({
+      formHolder: {
+        ...this.state.formHolder,
+        crypto: !this.state.formHolder.crypto
+      }
+    });
+  }
+
   render() {
     return (
-      <React.Fragment>
+      <>
         <div><h4>Add new Position</h4></div>
-        <Form handleSubmit={this.handleSubmit}/>
-      </React.Fragment>
+        <Form
+          handleSubmit={this.handleSubmit}
+          handleChange={this.handleChange}
+          submitName="Create New Position"
+          formHolder={this.state.formHolder}
+        />
+      </>
     );
   }
 }
 
 New.propTypes = {
-  path: PropTypes.string,
-  authenticityToken: PropTypes.string
+  path: PropTypes.string
 };
 export default New

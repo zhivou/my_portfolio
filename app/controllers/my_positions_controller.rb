@@ -1,11 +1,13 @@
 class MyPositionsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_positions, only: [:index]
+  skip_before_action :verify_authenticity_token
 
   def index
   end
 
   def create
+    render json: my_position_params, status: :ok
   end
 
   private
@@ -19,7 +21,7 @@ class MyPositionsController < ApplicationController
         :shares,
         :average_price,
         :notes,
-        :type,
+        :crypto,
         :current
       )
   end
