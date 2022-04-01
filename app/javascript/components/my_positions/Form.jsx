@@ -12,6 +12,7 @@ const Form = (props) => {
           aria-describedby="symbolHelp"
           placeholder="Enter symbol"
           onChange={props.handleChange}
+          required
         />
         <small id="symbolHelp" className="form-text text-muted">Use short SYMBOL label like APPL or MSFT.</small>
       </div>
@@ -24,6 +25,7 @@ const Form = (props) => {
           id="shares"
           placeholder="Enter share or coin count"
           onChange={props.handleChange}
+          required
         />
       </div>
 
@@ -35,6 +37,7 @@ const Form = (props) => {
           id="average_price"
           placeholder="Enter Average Price"
           onChange={props.handleChange}
+          required
         />
       </div>
 
