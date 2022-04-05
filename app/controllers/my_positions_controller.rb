@@ -7,7 +7,6 @@ class MyPositionsController < ApplicationController
   end
 
   def create
-    symbol = my_position_params[:symbol]
     type = my_position_params[:crypto]
 
     p = my_position_params.except(:symbol, :crypto)
@@ -20,8 +19,8 @@ class MyPositionsController < ApplicationController
     end
 
     position = XPosition.new(p)
-    create_crypto if type
     create_stock unless type
+    create_crypto if type
   end
 
   private
@@ -39,11 +38,16 @@ class MyPositionsController < ApplicationController
       )
   end
 
+  def symbol
+    my_position_params[:symbol]
+  end
+
   def update(position_params)
     render json: "Updating Positions only, the stock data will be updated asynto save credits!", status: :ok
   end
 
   def create_stock
+    Household::Stock.create_new(symbol)
     render json: "Creating new Stock", status: :ok
   end
 
