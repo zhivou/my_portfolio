@@ -11,12 +11,12 @@ module Household
       end
 
       def one(symbol)
-        call(symbol)
+        call(symbol).first
       end
 
       private
       def call(symbol)
-        CLIENT.historical_prices(symbol, {range: '5d'}).inspect
+        CLIENT.historical_prices(symbol, {range: '5d'})
       end
     end
   end

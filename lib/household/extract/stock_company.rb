@@ -16,7 +16,7 @@ module Household
 
       private
       def call(symbol)
-        CLIENT.company(symbol).inspect
+        CLIENT.company(symbol)
       end
     end
   end
