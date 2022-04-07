@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_07_015545) do
+ActiveRecord::Schema.define(version: 2022_04_07_220702) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -239,7 +239,7 @@ ActiveRecord::Schema.define(version: 2022_04_07_015545) do
   end
 
   create_table "x_companies", force: :cascade do |t|
-    t.bigint "x_stocks_id"
+    t.bigint "x_stock_id"
     t.string "name"
     t.string "exchange"
     t.string "industry"
@@ -262,11 +262,11 @@ ActiveRecord::Schema.define(version: 2022_04_07_015545) do
     t.boolean "current"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["x_stocks_id"], name: "index_x_companies_on_x_stocks_id"
+    t.index ["x_stock_id"], name: "index_x_companies_on_x_stock_id"
   end
 
   create_table "x_crypto_projects", force: :cascade do |t|
-    t.bigint "x_cryptos_id"
+    t.bigint "x_crypto_id"
     t.string "crypto_id"
     t.string "name"
     t.string "type"
@@ -279,7 +279,7 @@ ActiveRecord::Schema.define(version: 2022_04_07_015545) do
     t.boolean "current"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["x_cryptos_id"], name: "index_x_crypto_projects_on_x_cryptos_id"
+    t.index ["x_crypto_id"], name: "index_x_crypto_projects_on_x_crypto_id"
   end
 
   create_table "x_cryptos", force: :cascade do |t|
@@ -308,7 +308,7 @@ ActiveRecord::Schema.define(version: 2022_04_07_015545) do
   end
 
   create_table "x_dividends", force: :cascade do |t|
-    t.bigint "x_stocks_id"
+    t.bigint "x_stock_id"
     t.decimal "amount", precision: 10, scale: 2
     t.string "currency"
     t.date "declared_date"
@@ -327,13 +327,13 @@ ActiveRecord::Schema.define(version: 2022_04_07_015545) do
     t.boolean "current"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["x_stocks_id"], name: "index_x_dividends_on_x_stocks_id"
+    t.index ["x_stock_id"], name: "index_x_dividends_on_x_stock_id"
   end
 
   create_table "x_positions", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "x_stocks_id"
-    t.bigint "x_cryptos_id"
+    t.bigint "x_stock_id"
+    t.bigint "x_crypto_id"
     t.decimal "shares", precision: 12, scale: 4
     t.decimal "average_price", precision: 10, scale: 2
     t.decimal "total_cost", precision: 10, scale: 2
@@ -348,8 +348,8 @@ ActiveRecord::Schema.define(version: 2022_04_07_015545) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_x_positions_on_user_id"
-    t.index ["x_cryptos_id"], name: "index_x_positions_on_x_cryptos_id"
-    t.index ["x_stocks_id"], name: "index_x_positions_on_x_stocks_id"
+    t.index ["x_crypto_id"], name: "index_x_positions_on_x_crypto_id"
+    t.index ["x_stock_id"], name: "index_x_positions_on_x_stock_id"
   end
 
   create_table "x_stocks", force: :cascade do |t|
@@ -380,10 +380,10 @@ ActiveRecord::Schema.define(version: 2022_04_07_015545) do
   add_foreign_key "photo_sections", "photos"
   add_foreign_key "stocks", "financial_types"
   add_foreign_key "tags", "blogs"
-  add_foreign_key "x_companies", "x_stocks", column: "x_stocks_id"
-  add_foreign_key "x_crypto_projects", "x_cryptos", column: "x_cryptos_id"
-  add_foreign_key "x_dividends", "x_stocks", column: "x_stocks_id"
+  add_foreign_key "x_companies", "x_stocks"
+  add_foreign_key "x_crypto_projects", "x_cryptos"
+  add_foreign_key "x_dividends", "x_stocks"
   add_foreign_key "x_positions", "users"
-  add_foreign_key "x_positions", "x_cryptos", column: "x_cryptos_id"
-  add_foreign_key "x_positions", "x_stocks", column: "x_stocks_id"
+  add_foreign_key "x_positions", "x_cryptos"
+  add_foreign_key "x_positions", "x_stocks"
 end

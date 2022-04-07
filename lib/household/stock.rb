@@ -10,7 +10,7 @@ module Household
       Household::Transform::Stock.prices(stock, prices)
       Household::Transform::Stock.companies(stock, company)
 
-      puts stock.inspect
+      stock.save!
     end
   end
 end
