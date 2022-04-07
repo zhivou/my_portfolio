@@ -4,6 +4,9 @@ module Household
 
     class Stock
       def self.prices(model, data)
+        puts "Household::Transform::Stock:"
+        puts data
+
         model.update(
           volume: data.volume,
           current_price: data.open,
@@ -19,7 +22,7 @@ module Household
       end
 
       def self.companies(model, data)
-        model.build_x_companies(attributes = {
+        model.x_companies.build(
             name: data.company_name,
             exchange: data.exchange,
             industry: data.industry,
@@ -32,7 +35,7 @@ module Household
             employees: data.employees,
             tags: data.tags,
             current: true
-          })
+          )
       end
     end
   end
