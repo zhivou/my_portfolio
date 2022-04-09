@@ -1,9 +1,6 @@
 module Household
   class Stock
-    def self.create_new(symbol)
-      stock = XStock.new
-      stock.symbol = symbol
-
+    def self.create_new(stock)
       loader = Household::DataLoader.new
       prices = Household::Extract::Iexapis.new(loader).historical_prices_1m(stock)
       company = Household::Extract::Iexapis.new(loader).company(stock)
@@ -13,7 +10,7 @@ module Household
       Household::Transform::Stock.company(stock, company)
       Household::Transform::Stock.dividends(stock, dividends)
 
-      stock.save
+      stock
     end
   end
 end

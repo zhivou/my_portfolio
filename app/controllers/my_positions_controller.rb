@@ -16,11 +16,31 @@ class MyPositionsController < ApplicationController
     if stock.exists? || crypto.exists?
       update(my_position_params)
       return
-    end
+    else
+      unless type
+        position_crypto = create_stock
+        position_crypto.positions.build(
+          user_id: current_user.id,
+          shares: p[:shares],
+          average_price: p[:average_price],
+          note: p[:notes],
+          total_cost: p[:shares].to_i * p[:average_price].to_i
+        )
+      end
 
-    position = XPosition.new(p)
-    create_stock unless type
-    create_crypto if type
+      if type
+        position_crypto = create_crypto
+      end
+
+      if position_crypto.save
+        render_ok(
+          "Positions have been successfully added. This also includes Stocks/Crypto Prices, Dividends, Comany Information",
+           position_crypto
+         )
+      else
+        render_bad(position_crypto.errors, position_crypto.positions)
+      end
+    end
   end
 
   private
@@ -47,8 +67,8 @@ class MyPositionsController < ApplicationController
   end
 
   def create_stock
-    Household::Stock.create_new(symbol)
-    render json: "Creating new Stock", status: :ok
+    stock = XStock.new(symbol: symbol)
+    Household::Stock.create_new(stock)
   end
 
   def create_crypto

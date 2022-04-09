@@ -55,4 +55,22 @@ class ApplicationController < ActionController::Base
 
     gon.totalExpenses = result
   end
+
+  def render_ok(message, element)
+    payload = {
+      message: message,
+      status: 200,
+      element: element
+    }
+    render json: payload, status: :ok
+  end
+
+  def render_bad(message, element)
+    payload = {
+      error: message,
+      status: 400,
+      element: element
+    }
+    render json: payload, status: :bad_request
+  end
 end
