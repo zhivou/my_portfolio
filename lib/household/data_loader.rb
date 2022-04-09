@@ -21,6 +21,14 @@ module Household
       response.body
     end
 
+    def get_json(url, headers = {})
+      response = http_get(url, headers)
+      validate!(response, url)
+      return unless response.is_a?(Net::HTTPSuccess)
+
+      JSON.parse(response.body)
+    end
+
     def download(url, path = nil)
       response = fetch(url)
       validate!(response, url)

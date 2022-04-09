@@ -1,22 +1,26 @@
 # IEX Api
 module Household
   module Extract
-    class StockCompany < Stock
+    class StockDividend < Stock
       def all
         result = []
-        @company_class.current.pluck(:symbol).each do |symbol|
+        @dividend_class.current.pluck(:symbol).each do |symbol|
           result << call(symbol)
         end
         result
       end
 
       def one(symbol)
-        call(symbol)
+        call(symbol).first
       end
 
       private
       def call(symbol)
-        CLIENT.company(symbol)
+        if @loader.null?
+          CLIENT.dividends(symbol, '1m')
+        else
+          #
+        end
       end
     end
   end
