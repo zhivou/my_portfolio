@@ -16,8 +16,9 @@ module Household
 
       def self.dividends(model, data)
         log_me { puts "99% - Loading dividends data..." }
+        return if data.empty?
         data.each do |d|
-          model.x_dividends.build(
+          model.dividends.build(
             amount: d['amount'],
             currency: d['currency'],
             declared_date: d['declaredDate'],
@@ -39,7 +40,7 @@ module Household
 
       def self.company(model, data)
         log_me { puts "66% - Loading company information data..." }
-        model.x_companies.build(
+        model.info.build(
             name: data['company_name'],
             exchange: data['exchange'],
             industry: data['industry'],

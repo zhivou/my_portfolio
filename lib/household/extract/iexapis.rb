@@ -20,6 +20,14 @@ module Household
         data_loader.get_json(dividends_1m_url(stock.symbol))
       end
 
+      def dividends_3m(stock)
+        data_loader.get_json(dividends_3m_url(stock.symbol))
+      end
+
+      def dividends_6m(stock)
+        data_loader.get_json(dividends_6m_url(stock.symbol))
+      end
+
       def historical_prices_1m(stock)
         data_loader.get_json(historical_prices_1m_url(stock.symbol))
       end

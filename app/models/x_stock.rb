@@ -1,6 +1,6 @@
 class XStock < ApplicationRecord
-  has_many :x_companies
-  has_many :x_dividends
+  has_many :info, :class_name => 'XCompany'
+  has_many :dividends, :class_name => 'XDividend'
 
   scope :current, -> { where(current: true) }
 

@@ -7,7 +7,7 @@ module Household
       loader = Household::DataLoader.new
       prices = Household::Extract::Iexapis.new(loader).historical_prices_1m(stock)
       company = Household::Extract::Iexapis.new(loader).company(stock)
-      dividends = Household::Extract::Iexapis.new(loader).dividends_1m(stock)
+      dividends = Household::Extract::Iexapis.new(loader).dividends_6m(stock)
 
       Household::Transform::Stock.prices(stock, prices.first)
       Household::Transform::Stock.company(stock, company)
