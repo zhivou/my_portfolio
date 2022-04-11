@@ -1,28 +1,47 @@
+<%= stylesheet_link_tag "budget_app" %>
+
 <p id="notice"><%= notice %></p>
 
 <h1>My Positions</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>SYMBOL</th>
-      <th>COMPANY</th>
-      <th>SHARES</th>
-      <th>AVERAHE PRICE</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @positions.each do |position| %>
+<div class="card p-5">
+  <table>
+    <thead>
       <tr>
-        <td>SYMBOL</td>
-        <td><%= position.monthly_income %></td>
-        <td><%= position.shares %></td>
-        <td><%= position.average_price %></td>
+        <th>Symbol</th>
+        <th>Shares</th>
+        <th>Average Price</th>
+        <th>Total Cost</th>
+        <th>Market Price</th>
+        <th>Market Value</th>
+        <th>Gain Loss</th>
+        <th>Gain Loss %</th>
+        <th>Estimated Dividends</th>
+        <th>Estimated Income</th>
+        <th>Notes</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @positions.each do |position| %>
+        <tr>
+          <td><%= position.x_stock.symbol %></td>
+          <td><%= position.shares %></td>
+          <td><%= position.average_price %></td>
+          <td><%= position.total_cost %></td>
+          <td><%= position.x_stock.current_price %></td>
+          <td><%= position.shares * position.x_stock.current_price %></td>
+          <td><%= Household::Position.gain_loss(position) %></td>
+          <td><%= Household::Position.gain_loss_pct(position) %></td>
+          <td><%= position.est_annual_dividend %></td>
+          <td><%= position.est_annual_income %></td>
+          <td><%= position.note %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
 
 <br>
 

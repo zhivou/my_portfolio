@@ -74,4 +74,5 @@ class New extends React.Component {
 New.propTypes = {
   path: PropTypes.string
 };
+
 export default New
