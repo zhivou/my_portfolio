@@ -33,7 +33,7 @@
           <td><%= position.shares * position.x_stock.current_price %></td>
           <td><%= Household::Position.gain_loss(position) %></td>
           <td><%= Household::Position.gain_loss_pct(position) %></td>
-          <td><%= position.est_annual_dividend %></td>
+          <td><%= Household::Position.estimate_div(position) %></td>
           <td><%= position.est_annual_income %></td>
           <td><%= position.note %></td>
         </tr>
