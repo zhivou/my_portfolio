@@ -16,37 +16,28 @@
         <th>Market Value</th>
         <th>Gain Loss</th>
         <th>Gain Loss %</th>
-        <th>Estimated Dividends</th>
+        <th>Yield</th>
         <th>Estimated Income</th>
         <th>Notes</th>
       </tr>
     </thead>
 
     <tbody>
-      <% @positions.each do |position| %>
+      <% @positions.each do |p| %>
         <tr>
-          <td><%= position.x_stock.symbol %></td>
-          <td><%= position.shares %></td>
-          <td><%= position.average_price %></td>
-          <td><%= position.total_cost %></td>
-          <td><%= position.x_stock.current_price %></td>
-          <td><%= position.shares * position.x_stock.current_price %></td>
-          <td><%= Household::Position.gain_loss(position) %></td>
-          <td><%= Household::Position.gain_loss_pct(position) %></td>
-          <td><%= Household::Position.estimate_div(position) %></td>
-          <td><%= position.est_annual_income %></td>
-          <td><%= position.note %></td>
+          <td><%= p.x_stock.symbol %></td>
+          <td><%= p.shares %></td>
+          <td><%= p.average_price %></td>
+          <td><%= p.total_cost %></td>
+          <td><%= p.x_stock.current_price %></td>
+          <td><%= p.shares * p.x_stock.current_price %></td>
+          <td><%= Household::Position.gain_loss(p) %></td>
+          <td><%= Household::Position.gain_loss_pct(p) %></td>
+          <td><%= Household::Position.yield_div(p) %></td>
+          <td><%= Household::Position.estimated_income(p) %></td>
+          <td><%= p.note %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
-</div>
-
-
-<br>
-
-<div class="row">
-  <div class="col-4 card p-3">
-    <%= react_component("my_positions/New", { path: my_positions_path }) %>
-  </div>
 </div>
