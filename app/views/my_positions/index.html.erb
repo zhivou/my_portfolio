@@ -4,40 +4,49 @@
 
 <h1>My Positions</h1>
 
-<div class="card p-5">
-  <table>
-    <thead>
-      <tr>
-        <th>Symbol</th>
-        <th>Shares</th>
-        <th>Average Price</th>
-        <th>Total Cost</th>
-        <th>Market Price</th>
-        <th>Market Value</th>
-        <th>Gain Loss</th>
-        <th>Gain Loss %</th>
-        <th>Yield</th>
-        <th>Estimated Income</th>
-        <th>Notes</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @positions.each do |p| %>
+<% if @positions.any? %>
+  <div class="card p-5">
+    <table>
+      <thead>
         <tr>
-          <td><%= p.x_stock.symbol %></td>
-          <td><%= p.shares %></td>
-          <td><%= p.average_price %></td>
-          <td><%= p.total_cost %></td>
-          <td><%= p.x_stock.current_price %></td>
-          <td><%= p.shares * p.x_stock.current_price %></td>
-          <td><%= Household::Position.gain_loss(p) %></td>
-          <td><%= Household::Position.gain_loss_pct(p) %></td>
-          <td><%= Household::Position.yield_div(p) %></td>
-          <td><%= Household::Position.estimated_income(p) %></td>
-          <td><%= p.note %></td>
+          <th>Symbol</th>
+          <th>Shares</th>
+          <th>Average Price</th>
+          <th>Total Cost</th>
+          <th>Market Price</th>
+          <th>Market Value</th>
+          <th>Gain Loss</th>
+          <th>Gain Loss %</th>
+          <th>Yield</th>
+          <th>Estimated Y Income</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+      </thead>
+
+      <tbody>
+        <% @positions.each do |p| %>
+          <tr>
+            <td><%= p.x_stock.symbol %></td>
+            <td><%= p.shares %></td>
+            <td><%= p.average_price %></td>
+            <td><%= p.total_cost %></td>
+            <td><%= p.x_stock.current_price %></td>
+            <td><%= p.shares * p.x_stock.current_price %></td>
+            <td><%= Household::Position.gain_loss(p) %></td>
+            <td><%= Household::Position.gain_loss_pct(p) %></td>
+            <td><%= Household::Position.yield_div(p) %></td>
+            <td><%= Household::Position.estimated_income(p) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class="text-center">
+    <%= link_to 'Add More', new_my_asset_path, class: "btn btn-success btn-block" %>
+  </div>
+<% end %>
+
+<% unless @positions.any? %>
+  <div class="card text-center p-5">
+    No Positions yet created. Click here to add new Asset.
+  </div>
+<% end %>
