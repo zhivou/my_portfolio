@@ -2,9 +2,11 @@ module Household
   class Stock
     def self.create_new(stock)
       loader = Household::DataLoader.new
-      prices = Household::Extract::Iexapis.new(loader).historical_prices_1m(stock)
-      company = Household::Extract::Iexapis.new(loader).company(stock)
-      dividends = Household::Extract::Iexapis.new(loader).dividends_6m(stock)
+      iex_client = Household::Extract::Iexapis.new(loader)
+
+      prices = iex_client.historical_prices_1m(stock)
+      company = iex_client.company(stock)
+      dividends = iex_client.dividends_6m(stock)
 
       Household::Transform::Stock.prices(stock, prices.first)
       Household::Transform::Stock.company(stock, company)

@@ -80,5 +80,5 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => 'jobs'
 
   resources :manager_jobs
-  resources :my_positions, only: [:index, :create, :update]
+  resources :my_positions
 end

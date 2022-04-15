@@ -19,6 +19,7 @@
           <th>Gain Loss %</th>
           <th>Yield</th>
           <th>Estimated Y Income</th>
+          <th colspan="3"></th>
         </tr>
       </thead>
 
@@ -35,6 +36,9 @@
             <td><%= Household::Position.gain_loss_pct(p) %></td>
             <td><%= Household::Position.yield_div(p) %></td>
             <td><%= Household::Position.estimated_income(p) %></td>
+            <td><%= link_to 'Show', my_position_path(p) %></td>
+            <td><%= link_to 'Edit', edit_my_position_path(p) %></td>
+            <td><%= link_to 'Destroy', edit_my_position_path(p), method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
       </tbody>

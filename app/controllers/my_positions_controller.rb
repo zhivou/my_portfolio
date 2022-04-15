@@ -1,9 +1,13 @@
 class MyPositionsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_positions, only: [:index]
+  before_action :set_position, only: [:show]
   skip_before_action :verify_authenticity_token
 
   def index
+  end
+
+  def show
   end
 
   def create
@@ -41,6 +45,11 @@ class MyPositionsController < ApplicationController
   private
   def set_positions
     @positions = XPosition.current
+  end
+
+  def set_position
+    @position = XPosition.find(params[:id])
+    gon.symbol = @position.x_stock.symbol
   end
 
   def my_position_params
