@@ -1,39 +1,46 @@
 <div class="row">
   <div class="col-9">
-    <div class="flex">
-      <div class="row">
-        <div class="col-3">
-          <img src="https://static.finnhub.io/logo/5fdef210-80eb-11ea-8a31-00000000092a.png" alt="AAP" class="mr-2 mt-1 max-h-3">
-        </div>
-        <div class="col-9">
-          <h2 class="text-2xl uppercase mb-6"><%= @position.x_stock.symbol %></h2>
-        </div>
+    <div class="mb-3">
+      <%= render 'chart' %>
+    </div>
+    <div class="card p-5">
+      <div>
+        <span>
+          <img
+            src="https://static.finnhub.io/logo/5fdef210-80eb-11ea-8a31-00000000092a.png"
+            alt="AAP"
+            class="img-fluid"
+            style="width: 40px; height: 100%"
+          />
+        </span>
+        <span class="text-uppercase h3"><%= @position.x_stock.info.current.first.name %></span>
       </div>
     </div>
-    <%= render 'chart' %>
   </div>
   <div class="col-3">
-    <p>
-      <strong>Shares:</strong>
-      <%= @position.shares %>
-    </p>
+    <div class="card p-5">
+      <p>
+        <strong>Shares:</strong>
+        <%= @position.shares %>
+      </p>
 
-    <p>
-      <strong>Average Price:</strong>
-      <%= @position.average_price %>
-    </p>
+      <p>
+        <strong>Average Price:</strong>
+        <%= @position.average_price %>
+      </p>
 
-    <p>
-      <strong>Total Price:</strong>
-      <%= @position.total_cost %>
-    </p>
+      <p>
+        <strong>Total Price:</strong>
+        <%= @position.total_cost %>
+      </p>
 
-    <p>
-      <strong>Note:</strong>
-      <%= @position.note %>
-    </p>
+      <p>
+        <strong>Note:</strong>
+        <%= @position.note %>
+      </p>
 
-    <%= link_to 'Edit', edit_my_position_path(@position) %> |
-    <%= link_to 'Back', my_positions_path %>
+      <%= link_to 'Edit', edit_my_position_path(@position) %>
+      <%= link_to 'Back', my_positions_path %>
+    </div>
   </div>
 </div>

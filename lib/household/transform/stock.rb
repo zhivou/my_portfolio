@@ -41,15 +41,15 @@ module Household
       def self.company(model, data)
         log_me { puts "66% - Loading company information data..." }
         model.info.build(
-            name: data['company_name'],
+            name: data['companyName'],
             exchange: data['exchange'],
             industry: data['industry'],
             website: data['website'],
             description: data['description'],
-            ceo: data['ceo'],
-            security_name: data['security_name'],
+            ceo: data['CEO'],
+            security_name: data['securityName'],
             sector: data['sector'],
-            primary_sic_code: data['security_name'],
+            primary_sic_code: data['securityName'],
             employees: data['employees'],
             tags: data['tags'],
             current: true
