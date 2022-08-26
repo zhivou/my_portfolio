@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby '3.1.2'
+ruby '2.7.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '6.1.4.6'
 # Use sqlite3 as the database for Active Record
@@ -68,6 +68,3 @@ gem "mini_magick", ">= 4.9.4"
 gem 'kaminari'
 gem 'gon', '~> 6.2'
 gem 'iex-ruby-client'
-gem 'net-smtp', require: false
-gem 'net-imap', require: false
-gem 'net-pop', require: false
