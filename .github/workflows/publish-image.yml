@@ -1,4 +1,4 @@
-name: Puplish Image to ECR
+name: Puplish to ECR
 
 on:
   push:
@@ -30,4 +30,4 @@ jobs:
       - name: Build, tag, and push image to Amazon ECR
         run: |
           docker-compose build rails
-          docker-compose push rails-service
+          docker-compose push rails
