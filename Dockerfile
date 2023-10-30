@@ -3,6 +3,7 @@ FROM ruby:2.7.5
 ENV BUNDLER_VERSION 1.17.3
 ENV RAILS_VERSION '6.1.4.6'
 ENV NODE_VERSION 14
+ENV RAILS_ENV production
 
 WORKDIR /myapp
 
@@ -22,9 +23,8 @@ RUN apt-get update && apt-get install -y \
   echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
   apt-get update && apt-get install -y nodejs yarn python
 
+COPY . /myapp
 RUN bundle update && bundle install && yarn install
-
-COPY . /app
 
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
