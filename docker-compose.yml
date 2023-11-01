@@ -24,15 +24,18 @@ services:
       - .:/myapp
     ports:
       - "3000:3000"
-    depends_on:
-      - postgres
     environment:
-      - RAILS_ENV=development
+      - RAILS_ENV=production
       - SENDGRID_USERNAME
       - SENDGRID_PASSWORD
       - IEX_PUBLIC
       - IEX_SECRET
       - GOOGLE_CALENDAR_ID
       - GOOGLE_CALENDAR_KEY
+      - DATABASE_NAME
+      - DATABASE_HOST
+      - DATABASE_PASSWORD
+      - DATABASE_USER
+      - SECRET_KEY_BASE=empty
     stdin_open: true
     tty: true
