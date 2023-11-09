@@ -18,20 +18,24 @@ services:
 
   rails:
     build: .
+    image: 068759620473.dkr.ecr.us-east-1.amazonaws.com/rails
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - .:/myapp
     ports:
       - "3000:3000"
-    depends_on:
-      - postgres
     environment:
-      - RAILS_ENV=development
+      - RAILS_ENV=production
       - SENDGRID_USERNAME
       - SENDGRID_PASSWORD
       - IEX_PUBLIC
       - IEX_SECRET
       - GOOGLE_CALENDAR_ID
       - GOOGLE_CALENDAR_KEY
+      - DATABASE_NAME
+      - DATABASE_HOST
+      - DATABASE_PASSWORD
+      - DATABASE_USER
+      - SECRET_KEY_BASE=empty
     stdin_open: true
     tty: true
