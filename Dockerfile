@@ -1,4 +1,4 @@
-FROM ruby:2.7.5
+FROM ruby:3.0.3
 
 ENV BUNDLER_VERSION 1.17.3
 ENV RAILS_VERSION '6.1.4.6'
@@ -6,8 +6,8 @@ ENV NODE_VERSION 14
 
 WORKDIR /myapp
 
-COPY Gemfile Gemfile.lock /myapp/
-COPY package.json yarn.lock /myapp/
+COPY Gemfile /myapp/
+COPY package.json /myapp/
 
 RUN gem update --system \
     && gem install bundler -v $BUNDLER_VERSION \
